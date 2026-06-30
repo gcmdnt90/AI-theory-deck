@@ -1,36 +1,56 @@
-# Theory deck light edition
+# AI Theory Deck
 
-This is the light-theme visual copy of `framework/full-course/theory-deck`.
-It keeps the original theory arc and speaker notes, but replaces the scaffold
-media slots with generated raster art, editable SVG/HTML infographics, and small
-offline widgets.
+A light-theme Reveal.js course deck about modern AI systems: language models,
+transformer foundations, agents, context, tools, security, and the human choices
+around using these systems well.
 
-## View it
+## View Online
 
-Open `index.html` in a browser. The deck is still Reveal.js and still runs
+After GitHub Pages is enabled, the deck is available at:
+
+```text
+https://gcmdnt90.github.io/AI-theory-deck/
+```
+
+## View Locally
+
+Open `index.html` directly in a browser. The deck is self-contained and can run
 offline from `file://`.
 
-## Edit it
+## Contents
 
-Edit source fragments in `modules/`, then rebuild:
+- `index.html` is the generated presentation.
+- `modules/` contains the source slide fragments.
+- `template.html` defines the presentation shell.
+- `css/theme.css` contains the light visual theme.
+- `assets/` contains generated images, SVG assets, and animation media.
+- `vendor/` contains local Reveal.js and KaTeX dependencies.
+- `widgets/theory-widgets.js` powers the interactive examples.
+
+## Edit And Rebuild
+
+Edit the files in `modules/`, then rebuild:
 
 ```bash
 node build.mjs
 ```
 
-Do not edit `index.html` directly; it is generated from `template.html` and the
-module fragments.
+Do not edit `index.html` directly unless you are making a quick disposable
+change. It is generated from `template.html` and the module fragments.
 
-## Visual assets
+## Publishing
 
-- `assets/img/` contains the generated Signal-on-Paper raster art.
-- `assets/svg/icons.svg` contains the small icon system.
-- Technical diagrams are inline SVG or HTML inside the module files so labels
-  remain exact and editable.
-- `widgets/theory-widgets.js` powers the local next-token and temperature demos.
+This repo is intended to be served with GitHub Pages from the `main` branch and
+the repository root.
 
-## Style
+Recommended Pages settings:
 
-The deck follows `ART-DIRECTION.md`: warm paper canvas, dark graphite type,
-semantic pastel accents, thin linework, minimal text, and editable labelled
-diagrams where precision matters.
+- Source: Deploy from a branch
+- Branch: `main`
+- Folder: `/root`
+
+## Design Direction
+
+The deck uses a warm paper canvas, dark graphite typography, semantic pastel
+accents, thin linework, generated raster art, and editable SVG/HTML diagrams.
+See `ART-DIRECTION.md` for the visual system.
