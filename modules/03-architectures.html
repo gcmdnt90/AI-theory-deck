@@ -1,0 +1,138 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-03-architectures.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">03</span>
+    <p class="kicker">Module 3</p>
+    <h1>Architectures</h1>
+    <p class="lede">Two layers people conflate: what is <em>inside</em> the model vs. what is built <em>around</em> it.</p>
+    <aside class="notes">
+      The single most important conceptual correction: MoE and embeddings are inside the model;
+      agents are around it. Most confusion lives on this boundary.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>The boundary</h2>
+    <div class="cols">
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m03-boundary-motherboard.png" alt="LLM processor mounted in a motherboard of memory, tools and orchestration components">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Inside: processor</h4>
+          <p>Weights, attention, embeddings, MoE routers and trained behaviours live inside the model.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Around: scaffold</h4>
+          <p>Memory, tools, retrieval, policies and loops route work around a usually frozen model.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>The test</h4>
+          <p>If it changes parameters, it is inside. If it supplies context or actions, it is around.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Think of the LLM as the processor. The agent system is the motherboard that connects memory, tools and guardrails.</div>
+    <aside class="notes">
+      Give the concrete test: does it change the weights? MoE = yes, inside. Agent calling a
+      calculator = no, around. This frame governs the rest of the module.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip inside">3a</span> How a model is made</h2>
+    <div class="visual-frame short">
+      <img src="assets/img/m03-training-pipeline.png" alt="Three-stage light infographic for pretraining, supervised fine-tuning and preference tuning">
+    </div>
+    <div class="caption-row">
+      <div class="mini-card"><strong>1. Pretraining</strong><span>Predict tokens over huge corpora. This builds general linguistic and world patterns.</span></div>
+      <div class="mini-card"><strong>2. Instruction tuning</strong><span>Examples teach the model to follow tasks as an assistant, not merely continue text.</span></div>
+      <div class="mini-card"><strong>3. Preference tuning</strong><span>Human or automated feedback pushes outputs toward helpful, harmless, verifiable behaviour.</span></div>
+    </div>
+    <p class="footnote">Embeddings live here too: specialised embedding models are later used for retrieval.</p>
+    <p class="sources"><strong>Sources:</strong> Brown et al. (2020); Ouyang et al. (2022); Christiano et al. (2017).</p>
+    <aside class="notes">
+      Non-CS researchers often think "the model" is one trained thing. Show the pipeline. Assistant
+      behaviour comes mostly from post-training.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip inside">3a</span> Attention &amp; Mixture-of-Experts</h2>
+    <div class="cols top fit-two">
+      <div class="col">
+        <div class="visual-frame media-fit">
+          <img src="assets/img/m03-attention.png" alt="Token pills connected by clean self-attention arcs">
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);margin-top:.45em;">
+          <h4>Attention</h4>
+          <p>Each token builds a weighted summary of other tokens in the same context.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="visual-frame media-fit">
+          <img src="assets/img/m03-moe.png" alt="Mixture-of-Experts router lighting up two expert blocks from a grid">
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);margin-top:.45em;">
+          <h4>Mixture-of-Experts</h4>
+          <p>A router activates a small subset of expert blocks, increasing capacity without using all parameters every token.</p>
+        </div>
+      </div>
+    </div>
+    <p class="sources"><strong>Sources:</strong> Vaswani et al. (2017); Shazeer et al. (2017).</p>
+    <aside class="notes">
+      Emphasise MoE is an internal efficiency trick, not an agent or a committee of models talking to
+      one another.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip inside">3a</span> "Reasoning" - two senses</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Trained reasoning</h4>
+          <p>Post-training changes the system so deliberation is part of the model behaviour.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Prompted reasoning</h4>
+          <p>A frozen model is wrapped with instructions, examples or loops that ask it to show steps.</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="reason-widget" data-reason-widget>
+          <div class="mode-buttons">
+            <button type="button" data-mode="trained" aria-pressed="true">Trained</button>
+            <button type="button" data-mode="prompted" aria-pressed="false">Prompted</button>
+          </div>
+          <div class="reason-diagram" data-reason-diagram></div>
+          <p class="reason-copy" data-reason-copy></p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Same surface behaviour, different mechanism.</div>
+    <p class="sources"><strong>Sources:</strong> Wei et al. (2022); Nye et al. (2021).</p>
+    <aside class="notes">
+      Keep inside/around discipline: trained reasoning is inside, prompted reasoning is a technique
+      applied from outside.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2><span class="chip around">3b</span> Agents = LLM + loop + tools + memory</h2>
+    <div class="visual-frame short">
+      <img src="assets/img/m03-agent-loop.png" alt="Central LLM processor wrapped by a clean agent loop of actions, tools, memory and observation">
+    </div>
+    <div class="caption-row">
+      <div class="mini-card"><strong>Loop</strong><span>Decide what to do next, observe the result, then decide again.</span></div>
+      <div class="mini-card"><strong>Tools</strong><span>Actions outside the model: search, files, code, databases, APIs.</span></div>
+      <div class="mini-card"><strong>Memory</strong><span>State supplied around the model so the next call has useful context.</span></div>
+    </div>
+    <p class="footnote">Patterns: ReAct, planning, reflection, multi-agent orchestration. Tools and memory get their own modules.</p>
+    <p class="sources"><strong>Sources:</strong> Yao et al. (2023) ReAct; Schick et al. (2023) Toolformer.</p>
+    <aside class="notes">
+      Land the payoff: the leap from chatbot to agent is mostly scaffolding, not a smarter model.
+    </aside>
+  </section>
+
+</section>

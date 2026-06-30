@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AI Translator — Theory of Language Models &amp; Agents</title>
+
+  <!-- reveal core -->
+  <link rel="stylesheet" href="vendor/reveal/dist/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/dist/reveal.css">
+  <link rel="stylesheet" href="vendor/reveal/dist/theme/white.css" id="theme">
+  <!-- code highlighting -->
+  <link rel="stylesheet" href="vendor/reveal/plugin/highlight/monokai.css">
+  <!-- math: KaTeX CSS is injected by the reveal math plugin from vendor/katex/dist -->
+  <!-- custom AI-Translator theme (overrides) -->
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+<!-- ==== MODULES INJECTED BY build.mjs — DO NOT EDIT index.html BY HAND ==== -->
+{{MODULES}}
+<!-- ==== END MODULES ==== -->
+    </div>
+  </div>
+
+  <script src="vendor/reveal/dist/reveal.js"></script>
+  <script src="vendor/reveal/plugin/notes/notes.js"></script>
+  <script src="vendor/reveal/plugin/highlight/highlight.js"></script>
+  <script src="vendor/reveal/plugin/zoom/zoom.js"></script>
+  <script src="vendor/reveal/plugin/search/search.js"></script>
+  <script src="vendor/reveal/plugin/math/math.js"></script>
+  <script src="widgets/theory-widgets.js?v=light-revision-3"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      history: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      backgroundTransition: 'fade',
+      controls: true,
+      progress: true,
+      center: false,
+      width: 1280,
+      height: 720,
+      margin: 0.06,
+      minScale: 0.2,
+      maxScale: 1.5,
+      // KaTeX served locally so formulas render without internet
+      katex: {
+        local: 'vendor/katex',
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ]
+      },
+      plugins: [ RevealNotes, RevealHighlight, RevealZoom, RevealSearch, RevealMath.KaTeX ]
+    });
+  </script>
+</body>
+</html>

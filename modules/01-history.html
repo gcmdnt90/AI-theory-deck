@@ -1,0 +1,131 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">01</span>
+    <p class="kicker">Module 1</p>
+    <h1>A history of NLP</h1>
+    <p class="lede">From language entropy to the Transformer, to agents, to world models.</p>
+    <aside class="notes">
+      Thesis: the "new" idea behind LLMs is old. Shannon framed language as a stochastic process in
+      1948. What changed was scale, data and architecture.
+    </aside>
+  </section>
+
+  <section>
+    <h2>1948 - Language as a stochastic process</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.82em;">
+        <p>Claude <strong>Shannon</strong> models text as a source emitting symbols with probabilities.</p>
+        <p>Predicting the next symbol = reducing <em>entropy</em>.</p>
+        <p>$$H = -\sum_i p_i \log_2 p_i$$</p>
+        <div class="takeaway">Meaning becomes tractable when language has structure.</div>
+      </div>
+      <div class="col visual-frame tight">
+        <img src="assets/img/shannon-signal.png" alt="Amber waveform transforming into token pills">
+      </div>
+    </div>
+    <p class="sources"><strong>Sources:</strong> Shannon (1948) <em>A Mathematical Theory of Communication</em>; Shannon (1951) <em>Prediction and Entropy of Printed English</em>.</p>
+    <aside class="notes">
+      Make the link explicit: an LLM is a very large learned estimator of Shannon's next-symbol
+      distribution. Everything else is engineering around this bet.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Three eras</h2>
+    <div class="era-line">
+      <div class="era" style="--era-color:var(--ait-amber);">
+        <h4>Symbolic</h4>
+        <p>Rules and grammars. Clear, brittle, hand-built.</p>
+      </div>
+      <div class="era" style="--era-color:var(--ait-cyan);">
+        <h4>Statistical</h4>
+        <p>Counts, n-grams, word2vec. Data starts to beat rules.</p>
+      </div>
+      <div class="era" style="--era-color:var(--ait-violet);">
+        <h4>Neural</h4>
+        <p>RNNs, attention, Transformers. Representation is learned.</p>
+      </div>
+    </div>
+    <div class="visual-frame" style="margin-top:.9em;">
+      <svg class="diagram" viewBox="0 0 1000 170" role="img" aria-label="Timeline from symbolic NLP to Transformer">
+        <path d="M70 85 H930" stroke="#d9e1ea" stroke-width="2"/>
+        <g fill="#ffffff" stroke-width="2">
+          <circle cx="120" cy="85" r="18" stroke="#e3a12f"/>
+          <circle cx="410" cy="85" r="18" stroke="#1597b5"/>
+          <circle cx="650" cy="85" r="18" stroke="#8366c8"/>
+          <circle cx="850" cy="85" r="18" stroke="#e3a12f" class="glow-amber"/>
+        </g>
+        <text x="120" y="50" text-anchor="middle" class="mono-label">1950s-80s</text>
+        <text x="410" y="50" text-anchor="middle" class="mono-label">1990s-2010s</text>
+        <text x="650" y="50" text-anchor="middle" class="mono-label">2014-16</text>
+        <text x="850" y="50" text-anchor="middle" class="mono-label">2017</text>
+        <text x="120" y="130" text-anchor="middle" class="label">rules</text>
+        <text x="410" y="130" text-anchor="middle" class="label">counts</text>
+        <text x="650" y="130" text-anchor="middle" class="label">attention</text>
+        <text x="850" y="130" text-anchor="middle" class="label">Transformer</text>
+      </svg>
+    </div>
+    <p class="sources"><strong>Sources:</strong> Hochreiter &amp; Schmidhuber (1997); Mikolov et al. (2013); Bahdanau et al. (2015).</p>
+    <aside class="notes">
+      This is the orienting timeline. The key transition for non-CS researchers: from telling the
+      machine rules to letting it infer representations from data.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>2017 - the hinge</h2>
+    <h3>"Attention Is All You Need"</h3>
+    <div class="cols">
+      <div class="col" style="font-size:.8em;">
+        <p>Self-<strong>attention</strong> lets every token weigh every other token in parallel.</p>
+        <p>Parallelism made scale practical; scale made capability visible.</p>
+        <div class="caption-row" style="grid-template-columns:1fr;">
+          <div class="mini-card"><strong>Attention</strong><span>Tokens compare against the whole sequence, not only neighbours.</span></div>
+          <div class="mini-card"><strong>Feed-forward</strong><span>The model transforms that mixed context into new representations.</span></div>
+          <div class="mini-card"><strong>Repeat</strong><span>Stack many layers, then predict the next token.</span></div>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m01-transformer-hinge.png" alt="Light infographic of a Transformer layer with token pills, self-attention, feed-forward blocks and outputs">
+      </div>
+    </div>
+    <p class="sources"><strong>Source:</strong> Vaswani et al. (2017), <em>Attention Is All You Need</em>, NeurIPS.</p>
+    <aside class="notes">
+      Do not deep-dive the full encoder-decoder architecture here. Land the pivot: attention plus
+      parallelism made large-scale training feasible.
+    </aside>
+  </section>
+
+  <section>
+    <h2>2018 to today - the scaling era</h2>
+    <div class="visual-frame">
+      <svg class="diagram" viewBox="0 0 980 300" role="img" aria-label="Scaling era ladder">
+        <g stroke-width="2" fill="none">
+          <path d="M105 238 H875" stroke="#d9e1ea"/>
+          <path d="M120 230 C235 190, 300 170, 420 146 S670 112, 840 70" stroke="#e3a12f" class="glow-amber"/>
+        </g>
+        <g>
+          <circle cx="160" cy="218" r="12" fill="#e3a12f"/>
+          <circle cx="360" cy="158" r="12" fill="#1597b5"/>
+          <circle cx="560" cy="122" r="12" fill="#8366c8"/>
+          <circle cx="785" cy="82" r="12" fill="#34956f"/>
+        </g>
+        <text x="160" y="260" text-anchor="middle" class="label">BERT / GPT</text>
+        <text x="360" y="198" text-anchor="middle" class="label">GPT-3</text>
+        <text x="560" y="162" text-anchor="middle" class="label">RLHF</text>
+        <text x="785" y="122" text-anchor="middle" class="label">agents</text>
+        <text x="160" y="282" text-anchor="middle" class="mono-label">pretraining transfers</text>
+        <text x="360" y="220" text-anchor="middle" class="mono-label">scale laws</text>
+        <text x="560" y="184" text-anchor="middle" class="mono-label">assistant behaviour</text>
+        <text x="785" y="144" text-anchor="middle" class="mono-label">tools + loops</text>
+      </svg>
+    </div>
+    <div class="takeaway">Nothing here breaks the Shannon frame. We scaled the idea until new behaviour emerged.</div>
+    <p class="sources"><strong>Sources:</strong> Devlin et al. (2018); Brown et al. (2020); Ouyang et al. (2022).</p>
+    <aside class="notes">
+      Tee up Module 2: if this is still prediction, what exactly is the next-token machine computing?
+    </aside>
+  </section>
+
+</section>

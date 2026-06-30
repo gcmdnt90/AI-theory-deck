@@ -1,0 +1,107 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-04-context-memory.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">04</span>
+    <p class="kicker">Module 4</p>
+    <h1>Context &amp; memory</h1>
+    <p class="lede">The window, its limits, and how systems remember beyond it.</p>
+    <aside class="notes">
+      Core distinction: context is what is in the prompt right now; memory is what persists across
+      turns or sessions. They are engineered differently.
+    </aside>
+  </section>
+
+  <section>
+    <h2>The context window</h2>
+    <p style="font-size:.8em;">Context is the model's immediate working memory: what is loaded for this call.</p>
+    <div class="visual-frame short">
+      <img src="assets/img/m04-context-ram.png" alt="RAM-like context window with colored token segments loaded into immediate memory slots">
+    </div>
+    <div class="caption-row">
+      <div class="mini-card"><strong>System</strong><span>Rules and role instructions sit at the front of the working set.</span></div>
+      <div class="mini-card"><strong>History + RAG</strong><span>Conversation and retrieved chunks compete for the same finite space.</span></div>
+      <div class="mini-card"><strong>Answer room</strong><span>The model also needs budget to produce the next tokens.</span></div>
+    </div>
+    <div class="takeaway">Bigger windows help, but they are not free.</div>
+    <aside class="notes">
+      Make tokens tangible: roughly three quarters of a word each. The window is working memory, wiped
+      every call unless you re-supply it.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Bigger window, weaker middle</h2>
+    <div class="cols">
+      <div class="col" style="font-size:.8em;">
+        <p>Models retrieve best from the start and end of long contexts.</p>
+        <p>The middle often becomes the quiet danger zone.</p>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/middle_sag.png" alt="Lost in the middle curve showing lower retrieval accuracy for information placed in the middle of context">
+      </div>
+    </div>
+    <p class="sources"><strong>Source:</strong> Liu et al. (2023/24), <em>Lost in the Middle</em>, TACL.</p>
+    <aside class="notes">
+      Counter the "just use a huge window" reflex. Relevance curation beats dumping everything in.
+    </aside>
+  </section>
+
+  <section>
+    <h2>RAG - retrieve, then generate</h2>
+    <div class="visual-frame">
+      <svg class="diagram" viewBox="0 0 980 320" role="img" aria-label="RAG pipeline">
+        <defs>
+          <marker id="arrow04" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10" fill="none" stroke="#e3a12f" stroke-width="1.8"/>
+          </marker>
+        </defs>
+        <g fill="rgba(255,255,255,.82)" stroke-width="2">
+          <rect x="45" y="118" width="112" height="70" rx="14" stroke="#e3a12f"/>
+          <rect x="205" y="118" width="112" height="70" rx="14" stroke="#1597b5"/>
+          <rect x="365" y="118" width="148" height="70" rx="14" stroke="#1597b5"/>
+          <rect x="562" y="92" width="150" height="122" rx="14" stroke="#34956f"/>
+          <rect x="760" y="118" width="86" height="70" rx="14" stroke="#8366c8"/>
+          <rect x="885" y="118" width="78" height="70" rx="14" stroke="#e3a12f"/>
+        </g>
+        <text x="101" y="160" text-anchor="middle" class="label">Query</text>
+        <text x="261" y="160" text-anchor="middle" class="label">Embed</text>
+        <text x="439" y="152" text-anchor="middle" class="label">Vector</text>
+        <text x="439" y="177" text-anchor="middle" class="label">search</text>
+        <text x="637" y="126" text-anchor="middle" class="label">Top-k chunks</text>
+        <text x="803" y="160" text-anchor="middle" class="label">LLM</text>
+        <text x="924" y="160" text-anchor="middle" class="label">Answer</text>
+        <g fill="rgba(52,149,111,.12)" stroke="#34956f">
+          <rect x="590" y="142" width="94" height="14" rx="7"/>
+          <rect x="590" y="166" width="74" height="14" rx="7"/>
+          <rect x="590" y="190" width="104" height="14" rx="7"/>
+        </g>
+        <path d="M165 153 H195M325 153 H355M522 153 H552M722 153 H750M854 153 H875" stroke="#e3a12f" stroke-width="2.2" marker-end="url(#arrow04)" class="glow-amber"/>
+      </svg>
+    </div>
+    <p class="footnote">Same embeddings from Module 2 - now used as a search index.</p>
+    <p class="sources"><strong>Sources:</strong> Lewis et al. (2020); Karpukhin et al. (2020).</p>
+    <aside class="notes">
+      RAG is the single most useful pattern this audience will actually build: retrieve the few
+      relevant chunks, not the whole library.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Memory beyond the window</h2>
+    <div class="cols">
+      <div class="col visual-frame media-fit">
+        <img src="assets/video/context.gif" alt="Animated context and memory demonstration">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Short-term</h4><p>Conversation history replayed each turn.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Long-term</h4><p>Facts stored externally and retrieved when relevant.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Synthesis</h4><p>Old turns compressed into compact notes.</p></div>
+      </div>
+    </div>
+    <div class="takeaway">Memory is architecture around the model, not a magical internal recall.</div>
+    <aside class="notes">
+      Summarisation is lossy. Flag the trade-off: forgetting versus overflow. Bridges to Module 5.
+    </aside>
+  </section>
+
+</section>

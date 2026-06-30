@@ -1,0 +1,70 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-06-mcp-connectors.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">06</span>
+    <p class="kicker">Module 6</p>
+    <h1>MCP &amp; connectors</h1>
+    <p class="lede">How an agent reaches the outside world: a standard plug, not bespoke wiring.</p>
+    <aside class="notes">
+      This answers "how does it touch my files, calendar or database?" Frame MCP as the USB-C of
+      agent tooling: one protocol instead of N custom integrations.
+    </aside>
+  </section>
+
+  <section>
+    <h2>The M x N problem</h2>
+    <p style="font-size:.8em;">This is not a diagram about shared data. It is about a shared <strong>language format</strong>: a convention for how agents ask for work and receive results.</p>
+    <div class="visual-frame short">
+      <img src="assets/img/m06-mxn-convention.png" alt="Agents and servers exchanging common message envelopes through one shared protocol lane">
+    </div>
+    <div class="caption-row">
+      <div class="mini-card"><strong>Without a convention</strong><span>Each model/tool pair needs bespoke glue code.</span></div>
+      <div class="mini-card"><strong>With MCP</strong><span>Agents and servers speak the same request/response grammar.</span></div>
+      <div class="mini-card"><strong>Important</strong><span>MCP moves context and capability descriptions; it does not magically merge data stores.</span></div>
+    </div>
+    <aside class="notes">
+      Standard engineering motivation. Researchers will recognise the combinatorial explosion.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Model Context Protocol</h2>
+    <div class="cols">
+      <div class="col" style="font-size:.8em;">
+        <p>An open standard where a <strong>host</strong> connects to servers that expose capability in a uniform way.</p>
+        <p>MCP standardises the envelope around tool calls, resources and prompt templates so an agent can discover what a server offers.</p>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m06-mcp-primitives.png" alt="MCP host connected to tools, resources and prompt template capability shelves">
+      </div>
+    </div>
+    <div class="quote-strip">
+      <blockquote>"open standard for connecting AI assistants"<cite>Anthropic announcement</cite></blockquote>
+      <blockquote>"standardizes how applications provide context"<cite>MCP introduction</cite></blockquote>
+    </div>
+    <p class="sources"><strong>Sources:</strong> <a href="https://www.anthropic.com/news/model-context-protocol">Anthropic MCP announcement</a>; <a href="https://modelcontextprotocol.io/docs/getting-started/intro">MCP introduction</a>; <a href="https://modelcontextprotocol.io/docs/learn/architecture">MCP architecture</a>.</p>
+    <aside class="notes">
+      Map back to Module 5: tools, resources and prompt templates can be served over a shared protocol
+      and reused by compliant agents.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Connectors in practice</h2>
+    <div class="visual-frame short">
+      <img src="assets/img/m06-connectors-runtime.png" alt="Agent runtime calling a connector that reaches files, spreadsheets, documents, databases and APIs through permission boundaries">
+    </div>
+    <div class="caption-row">
+      <div class="mini-card"><strong>Discover</strong><span>The connector advertises available tools, resources and schemas.</span></div>
+      <div class="mini-card"><strong>Call</strong><span>The agent sends a structured request through the protocol.</span></div>
+      <div class="mini-card"><strong>Return</strong><span>The connector returns results that become new context for the model.</span></div>
+    </div>
+    <div class="takeaway">Connectors are where a chatbot becomes a colleague that does things.</div>
+    <p class="footnote">Same security questions as any integration: credentials, scope and trust.</p>
+    <aside class="notes">
+      End on the capability jump, but plant the risk seed: every connector is also an attack surface.
+      Direct hand-off to Module 7.
+    </aside>
+  </section>
+
+</section>

@@ -1,0 +1,113 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-05-behaviour-control.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">05</span>
+    <p class="kicker">Module 5</p>
+    <h1>Behaviour control</h1>
+    <p class="lede">Steering an agent with natural language: instructions, skills, and tools.</p>
+    <aside class="notes">
+      Reframe programming for this audience: you shape behaviour mostly by writing prose, not code.
+      Markdown is the substrate. Filenames vary by vendor; the principle is general.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Prose is the program</h2>
+    <div class="cols">
+      <div class="col" style="font-size:.82em;">
+        <p>Behaviour is specified in layered, plain-language instruction files.</p>
+        <p>Layers compose: hard rules, project context, task persona.</p>
+        <div class="caption-row" style="grid-template-columns:1fr;">
+          <div class="mini-card"><strong>Rules</strong><span>Non-negotiable constraints: safety, style, source policy.</span></div>
+          <div class="mini-card"><strong>Context</strong><span>Project vocabulary, audience, data model, local conventions.</span></div>
+          <div class="mini-card"><strong>Persona</strong><span>The working posture: concise, sceptical, teacherly, playful.</span></div>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m05-prose-stack.png" alt="Layered instruction sheets guiding an agent behaviour signal">
+      </div>
+    </div>
+    <p class="footnote">Vendor flavours: CLAUDE.md, AGENTS.md, context.md, "soul" files. Same idea, different filenames.</p>
+    <aside class="notes">
+      Stress principle over brand. This is reviewable, version-controllable and human-readable.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Why Markdown?</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Readable</h4><p>Humans and models can parse it.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Diffable</h4><p>Behaviour changes show up in git.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Structured</h4><p>Headings and lists give salient cues.</p></div>
+      </div>
+      <div class="col visual-frame">
+        <div class="layered-file">
+          <div class="rule"># Rules</div>
+          <div>- cite primary sources</div>
+          <div>- never hide uncertainty</div>
+          <br>
+          <div class="context">## Context</div>
+          <div>- audience: STEM researchers</div>
+          <div>- examples should be local</div>
+          <br>
+          <div class="persona">## Persona</div>
+          <div>- concise, warm, sceptical</div>
+          <div class="comment"># behaviour is now reviewable</div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      For researchers: this is specification as documentation. The artefact that controls the agent is
+      the same artefact a colleague reads to understand it.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Skills - packaged competence</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.78em;">
+        <p>A <strong>skill</strong> is a reusable capability package. It tells the agent when to load extra instructions, scripts and resources.</p>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Structure</h4><p><code>name</code>, <code>description</code>, trigger rules, instructions, optional scripts/resources.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Triggered by intent</h4><p>The description is the match surface: "debug this" loads diagnosis; "grill me" loads a critique flow.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Examples</h4><p><code>grill-with-docs</code>, <code>caveman</code>, <code>personas</code>, <code>skill-creator</code>.</p></div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m05-skill-structure.png" alt="Skill package with manifest, trigger, instructions, scripts and resources">
+      </div>
+    </div>
+    <aside class="notes">
+      Skills = modularity for behaviour. Good place to mention this very project uses skills.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Tools - actions the model can take</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <p style="font-size:.72em;">A tool is procedural: the agent fills a typed input, external code runs, then the result returns to context.</p>
+        <pre><code class="language-json" data-trim>{
+  "name": "read_pdf",
+  "description": "Extract text and tables",
+  "input_schema": {
+    "file": "path",
+    "pages": "range"
+  }
+}</code></pre>
+        <div class="caption-row" style="grid-template-columns:1fr 1fr;">
+          <div class="mini-card"><strong>Formats</strong><span>PDF, XLSX, DOCX, PPTX, CSV, images, audio.</span></div>
+          <div class="mini-card"><strong>Result</strong><span>Parsed content returns as structured context the model can reason over.</span></div>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m05-tools-file-formats.png" alt="Procedural tool calls opening file formats such as PDF, spreadsheet and document outputs">
+      </div>
+    </div>
+    <p class="footnote">Skills shape how the agent behaves. Tools give it procedures and file-format access.</p>
+    <aside class="notes">
+      The schema is the contract. Forward-reference MCP as the standard way to expose tools across
+      systems.
+    </aside>
+  </section>
+
+</section>

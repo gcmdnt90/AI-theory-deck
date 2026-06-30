@@ -1,0 +1,94 @@
+<section>
+
+  <section class="deck-cover" data-background-image="assets/img/cover-signal.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <div class="cover-copy">
+      <p class="kicker">AI Translator - Frontal &amp; recorded lesson</p>
+      <h1>Language Models &amp; Agents</h1>
+      <p class="subtitle">From language entropy to autonomous agents: what these systems are, how they work, and where they fail.</p>
+      <p class="meta">UnivPM - Universit&agrave; Politecnica delle Marche | Theory track | 8 modules</p>
+    </div>
+    <aside class="notes">
+      Open by framing the lesson: this is the theory spine that the recorded lesson follows.
+      Audience = STEM researchers, not necessarily CS. Promise: by the end they will be able to
+      reason about what an LLM is doing, not just use one. Keep the tone curious and sceptical.
+    </aside>
+  </section>
+
+  <section>
+    <h2>The map</h2>
+    <p class="footnote">Mechanics first, then architectures, then consequences.</p>
+    <div class="course-map">
+      <div class="map-node" style="--card-accent:var(--ait-amber);">
+        <span class="icon-dot">1</span><span class="num">MODULE 01</span>
+        <h4>History</h4><p>Shannon to Transformers</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot">2</span><span class="num">MODULE 02</span>
+        <h4>LLM core</h4><p>Tokens, sampling, temperature</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-cyan);border-color:rgba(21,151,181,.42);">3</span><span class="num">MODULE 03</span>
+        <h4>Architectures</h4><p><span class="chip inside">inside</span> + <span class="chip around">around</span></p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot">4</span><span class="num">MODULE 04</span>
+        <h4>Context</h4><p>Window, RAG, memory</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot">5</span><span class="num">MODULE 05</span>
+        <h4>Control</h4><p>Instructions, skills, tools</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot">6</span><span class="num">MODULE 06</span>
+        <h4>Connectors</h4><p>MCP and external systems</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-red);border-color:rgba(201,75,75,.48);">7</span><span class="num">MODULE 07</span>
+        <h4>Risks</h4><p>Model, user, data</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-green);border-color:rgba(52,149,111,.48);">8</span><span class="num">MODULE 08</span>
+        <h4>Ethics</h4><p>Judgement stays human</p>
+      </div>
+    </div>
+    <aside class="notes">
+      Walk the arc once: mechanics (1-2), boundary and architecture (3-6), consequences (7-8).
+      The visual map should make the recorded version easy to navigate without overexplaining it.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>One sentence to carry through</h2>
+    <div class="visual-frame">
+      <svg class="diagram" viewBox="0 0 980 300" role="img" aria-label="Course thesis flow">
+        <defs>
+          <marker id="arrow00" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10" fill="none" stroke="#e3a12f" stroke-width="1.8"/>
+          </marker>
+        </defs>
+        <path d="M80 150 C210 65, 300 235, 430 150 S650 60, 810 150" fill="none" stroke="#e3a12f" stroke-width="3" class="glow-amber" marker-end="url(#arrow00)"/>
+        <g transform="translate(50 92)">
+          <rect width="180" height="116" rx="18" fill="rgba(227,161,47,.10)" stroke="#e3a12f"/>
+          <text x="90" y="52" text-anchor="middle" class="label">predicts</text>
+          <text x="90" y="82" text-anchor="middle" class="mono-label">next token</text>
+        </g>
+        <g transform="translate(400 92)">
+          <rect width="180" height="116" rx="18" fill="rgba(131,102,200,.10)" stroke="#8366c8"/>
+          <text x="90" y="52" text-anchor="middle" class="label">acts</text>
+          <text x="90" y="82" text-anchor="middle" class="mono-label">through loops</text>
+        </g>
+        <g transform="translate(750 92)">
+          <rect width="180" height="116" rx="18" fill="rgba(52,149,111,.10)" stroke="#34956f"/>
+          <text x="90" y="52" text-anchor="middle" class="label">needs</text>
+          <text x="90" y="82" text-anchor="middle" class="mono-label">human judgement</text>
+        </g>
+      </svg>
+    </div>
+    <div class="takeaway">The technology is Shannon at scale. The hard part is judgement.</div>
+    <aside class="notes">
+      A short orientation slide for the recording: token prediction grows into action only when
+      wrapped in systems. That is why governance and human judgement matter.
+    </aside>
+  </section>
+
+</section>
