@@ -59,32 +59,24 @@
 
   <section data-background-color="#f4f8fb">
     <h2>One sentence to carry through</h2>
-    <div class="visual-frame">
-      <svg class="diagram" viewBox="0 0 980 300" role="img" aria-label="Course thesis flow">
-        <defs>
-          <marker id="arrow00" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <path d="M0,0 L10,5 L0,10" fill="none" stroke="#e3a12f" stroke-width="1.8"/>
-          </marker>
-        </defs>
-        <path d="M80 150 C210 65, 300 235, 430 150 S650 60, 810 150" fill="none" stroke="#e3a12f" stroke-width="3" class="glow-amber" marker-end="url(#arrow00)"/>
-        <g transform="translate(50 92)">
-          <rect width="180" height="116" rx="18" fill="rgba(227,161,47,.10)" stroke="#e3a12f"/>
-          <text x="90" y="52" text-anchor="middle" class="label">predicts</text>
-          <text x="90" y="82" text-anchor="middle" class="mono-label">next token</text>
-        </g>
-        <g transform="translate(400 92)">
-          <rect width="180" height="116" rx="18" fill="rgba(131,102,200,.10)" stroke="#8366c8"/>
-          <text x="90" y="52" text-anchor="middle" class="label">acts</text>
-          <text x="90" y="82" text-anchor="middle" class="mono-label">through loops</text>
-        </g>
-        <g transform="translate(750 92)">
-          <rect width="180" height="116" rx="18" fill="rgba(52,149,111,.10)" stroke="#34956f"/>
-          <text x="90" y="52" text-anchor="middle" class="label">needs</text>
-          <text x="90" y="82" text-anchor="middle" class="mono-label">human judgement</text>
-        </g>
-      </svg>
+    <div class="visual-frame sentence-flow-frame" role="img" aria-label="Course thesis flow from prediction to action to human judgement">
+      <img class="sentence-flow-bg" src="assets/img/m00-sentence-cards-bg.png" alt="">
+      <div class="sentence-cards" aria-hidden="true">
+        <div class="sentence-card" style="--card-accent:var(--ait-amber);">
+          <strong>predicts</strong>
+          <span>next token</span>
+        </div>
+        <div class="sentence-card" style="--card-accent:var(--ait-violet);">
+          <strong>acts</strong>
+          <span>through loops</span>
+        </div>
+        <div class="sentence-card" style="--card-accent:var(--ait-green);">
+          <strong>needs</strong>
+          <span>human judgement</span>
+        </div>
+      </div>
     </div>
-    <div class="takeaway">The technology is Shannon at scale. The hard part is judgement.</div>
+    <div class="takeaway">Prediction is the substrate. Loops turn it into action. Judgement decides when action is acceptable.</div>
     <aside class="notes">
       A short orientation slide for the recording: token prediction grows into action only when
       wrapped in systems. That is why governance and human judgement matter.

@@ -14,13 +14,15 @@
   <section>
     <h2>The M x N problem</h2>
     <p style="font-size:.8em;">This is not a diagram about shared data. It is about a shared <strong>language format</strong>: a convention for how agents ask for work and receive results.</p>
-    <div class="visual-frame short">
-      <img src="assets/img/m06-mxn-convention.png" alt="Agents and servers exchanging common message envelopes through one shared protocol lane">
-    </div>
-    <div class="caption-row">
-      <div class="mini-card"><strong>Without a convention</strong><span>Each model/tool pair needs bespoke glue code.</span></div>
-      <div class="mini-card"><strong>With MCP</strong><span>Agents and servers speak the same request/response grammar.</span></div>
-      <div class="mini-card"><strong>Important</strong><span>MCP moves context and capability descriptions; it does not magically merge data stores.</span></div>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m06-mxn-convention.png" alt="Agents and servers exchanging common message envelopes through one shared protocol lane">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Without a convention</strong><span>Each model/tool pair needs bespoke glue code.</span></div>
+        <div class="mini-card"><strong>With MCP</strong><span>Agents and servers speak the same request/response grammar.</span></div>
+        <div class="mini-card"><strong>Important</strong><span>MCP moves context and capability descriptions; it does not magically merge data stores.</span></div>
+      </div>
     </div>
     <aside class="notes">
       Standard engineering motivation. Researchers will recognise the combinatorial explosion.
@@ -51,13 +53,15 @@
 
   <section>
     <h2>Connectors in practice</h2>
-    <div class="visual-frame short">
-      <img src="assets/img/m06-connectors-runtime.png" alt="Agent runtime calling a connector that reaches files, spreadsheets, documents, databases and APIs through permission boundaries">
-    </div>
-    <div class="caption-row">
-      <div class="mini-card"><strong>Discover</strong><span>The connector advertises available tools, resources and schemas.</span></div>
-      <div class="mini-card"><strong>Call</strong><span>The agent sends a structured request through the protocol.</span></div>
-      <div class="mini-card"><strong>Return</strong><span>The connector returns results that become new context for the model.</span></div>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m06-connectors-runtime.png" alt="Agent runtime calling a connector that reaches files, spreadsheets, documents, databases and APIs through permission boundaries">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Discover</strong><span>The connector advertises available tools, resources and schemas.</span></div>
+        <div class="mini-card"><strong>Call</strong><span>The agent sends a structured request through the protocol.</span></div>
+        <div class="mini-card"><strong>Return</strong><span>The connector returns results that become new context for the model.</span></div>
+      </div>
     </div>
     <div class="takeaway">Connectors are where a chatbot becomes a colleague that does things.</div>
     <p class="footnote">Same security questions as any integration: credentials, scope and trust.</p>

@@ -22,7 +22,13 @@
       </div>
       <div class="col visual-frame">
         <div class="prob-widget" data-next-token-widget>
-          <input class="prompt-box" value="The model predicts the" aria-label="Prompt text">
+          <div class="prompt-switcher" role="group" aria-label="Choose a starting phrase">
+            <button type="button" data-prompt="The satellite detected" aria-pressed="true">satellite</button>
+            <button type="button" data-prompt="The grant proposal needs" aria-pressed="false">grant</button>
+            <button type="button" data-prompt="To verify the result" aria-pressed="false">verify</button>
+            <button type="button" data-prompt="The old archive contains" aria-pressed="false">archive</button>
+          </div>
+          <div class="prompt-display" data-prompt-text>The satellite detected</div>
           <div class="bar-list"></div>
         </div>
       </div>
@@ -37,34 +43,25 @@
     <h2>Tokens, not words or letters</h2>
     <p style="font-size:.8em;">The model sees sub-word pieces. That is why some "obvious" letter tasks are mechanically awkward.</p>
     <div class="visual-frame">
-      <p class="micro">Readable sentence</p>
-      <div class="token-row">
-        <span class="token-pill">Tokenisation</span>
-        <span class="token-pill violet">splits</span>
-        <span class="token-pill">text</span>
-        <span class="token-pill violet">into</span>
-        <span class="token-pill">sub-word</span>
-        <span class="token-pill violet">pieces.</span>
-      </div>
-      <p class="micro">Model input</p>
-      <div class="token-row">
-        <span class="token-pill">Token</span>
-        <span class="token-pill hot">isation</span>
-        <span class="token-pill violet">spl</span>
-        <span class="token-pill">its</span>
-        <span class="token-pill violet">text</span>
-        <span class="token-pill">into</span>
-        <span class="token-pill violet">sub</span>
-        <span class="token-pill hot">-word</span>
-        <span class="token-pill">pieces</span>
-        <span class="token-pill violet">.</span>
+      <div class="tokenizer-widget" data-tokenizer-widget>
+        <div class="prompt-switcher token-presets" role="group" aria-label="Choose a sentence to tokenize">
+          <button type="button" data-sentence="Tokenisation splits text into sub-word pieces." aria-pressed="true">sub-word</button>
+          <button type="button" data-sentence="Count the letter r in strawberry." aria-pressed="false">letters</button>
+          <button type="button" data-sentence="The lab measured 12.7 milligrams twice." aria-pressed="false">numbers</button>
+          <button type="button" data-sentence="L'intelligenza artificiale aiuta la traduzione." aria-pressed="false">Italian</button>
+        </div>
+        <textarea class="tokenizer-input" rows="2" aria-label="Sentence to tokenize">Tokenisation splits text into sub-word pieces.</textarea>
+        <p class="micro">Teaching-token view</p>
+        <div class="token-output" data-token-output></div>
+        <div class="token-explainer" data-token-explainer>Hover or tap a token to see why it was split.</div>
       </div>
       <div class="mini-legend">
         <span><i style="background:var(--ait-cyan);"></i> token</span>
-        <span><i style="background:var(--ait-violet);"></i> neighbour</span>
-        <span><i style="background:var(--ait-amber);"></i> awkward split</span>
+        <span><i style="background:var(--ait-violet);"></i> sub-word</span>
+        <span><i style="background:var(--ait-amber);"></i> boundary</span>
       </div>
     </div>
+    <p class="footnote">Widget note: this is a teaching tokenizer; exact splits depend on the model vocabulary.</p>
     <p class="sources"><strong>Source:</strong> Sennrich et al. (2016), Byte-Pair Encoding for NMT.</p>
     <aside class="notes">
       Great myth-buster for a STEM crowd: the unit of perception is the token. Embeddings turn those
@@ -74,13 +71,12 @@
 
   <section>
     <h2>From tokens to vectors</h2>
-    <div class="cols">
-      <div class="col" style="font-size:.8em;">
+    <div class="cols top token-vector-grid">
+      <div class="col stack-sm" style="font-size:.76em;">
         <p>Each token maps to a high-dimensional <strong>embedding</strong>.</p>
         <p>Geometry carries relationships: similar meanings sit nearby.</p>
         <p class="footnote">We meet embeddings again in Module 3 and Module 4.</p>
-      </div>
-      <div class="col visual-frame">
+        <div class="visual-frame vector-diagram-frame">
         <svg class="diagram" viewBox="0 0 520 340" role="img" aria-label="Embedding space diagram">
           <path d="M70 285 H470 M70 285 V45" stroke="#d9e1ea" stroke-width="2"/>
           <g stroke="#d9e1ea" stroke-width="1">
@@ -99,6 +95,10 @@
           </g>
           <text x="260" y="34" text-anchor="middle" class="label">king - man + woman ~= queen</text>
         </svg>
+        </div>
+      </div>
+      <div class="col visual-frame vector-video-frame">
+        <video src="assets/video/latent_space.mp4" autoplay loop muted playsinline data-autoplay></video>
       </div>
     </div>
     <p class="sources"><strong>Sources:</strong> Mikolov et al. (2013); Vaswani et al. (2017) section 3.4.</p>
@@ -107,6 +107,7 @@
       models, and retrieval indexes.
     </aside>
   </section>
+
 
   <section data-background-color="#f4f8fb">
     <h2>Temperature: the determinism dial</h2>
@@ -124,7 +125,8 @@
           <p class="micro">T = <span data-temp-value>0.7</span></p>
           <input class="temp-slider" type="range" min="0.2" max="2.0" step="0.1" value="0.7" aria-label="Temperature">
           <div class="bar-list"></div>
-          <svg class="temp-distribution" viewBox="0 0 520 145" data-temp-distribution role="img" aria-label="Live probability distribution curve"></svg>
+          <svg class="temp-distribution" viewBox="0 0 520 185" data-temp-distribution role="img" aria-label="Live probability distribution curve"></svg>
+          <p class="temp-warning">Effect exaggerated for understanding the concept.</p>
         </div>
       </div>
     </div>
@@ -162,7 +164,7 @@
   <section>
     <h2>See the loop run</h2>
     <p style="font-size:.8em;">The model does not retrieve a finished answer. It builds text one token at a time.</p>
-    <div class="visual-frame short">
+    <div class="visual-frame short loop-run-frame">
       <svg class="diagram" viewBox="0 0 980 250" role="img" aria-label="Token generation loop">
         <defs>
           <marker id="arrow02" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
@@ -170,18 +172,18 @@
           </marker>
         </defs>
         <g fill="rgba(255,255,255,.84)" stroke-width="2">
-          <rect x="70" y="82" width="190" height="86" rx="16" stroke="#1597b5"/>
-          <rect x="395" y="82" width="190" height="86" rx="16" stroke="#e3a12f"/>
-          <rect x="720" y="82" width="190" height="86" rx="16" stroke="#8366c8"/>
+          <rect x="52" y="78" width="228" height="94" rx="16" stroke="#1597b5"/>
+          <rect x="376" y="78" width="228" height="94" rx="16" stroke="#e3a12f"/>
+          <rect x="700" y="78" width="228" height="94" rx="16" stroke="#8366c8"/>
         </g>
-        <text x="165" y="116" text-anchor="middle" class="label">1. Current text</text>
-        <text x="165" y="144" text-anchor="middle" class="mono-label">prompt + previous tokens</text>
-        <text x="490" y="116" text-anchor="middle" class="label">2. Next-token odds</text>
-        <text x="490" y="144" text-anchor="middle" class="mono-label">a distribution, not a fact</text>
-        <text x="815" y="116" text-anchor="middle" class="label">3. Sample + append</text>
-        <text x="815" y="144" text-anchor="middle" class="mono-label">new token joins context</text>
-        <path d="M270 125 H385M595 125 H710" stroke="#e3a12f" stroke-width="2.4" marker-end="url(#arrow02)" class="glow-amber"/>
-        <path d="M815 180 C725 230, 248 230, 165 180" fill="none" stroke="#8366c8" stroke-width="2.2" stroke-dasharray="7 8" marker-end="url(#arrow02)"/>
+        <text x="166" y="112" text-anchor="middle" class="label">1. Current context</text>
+        <text x="166" y="142" text-anchor="middle" class="mono-label">prompt + generated tokens</text>
+        <text x="490" y="112" text-anchor="middle" class="label">2. Token odds</text>
+        <text x="490" y="142" text-anchor="middle" class="mono-label">many possible continuations</text>
+        <text x="814" y="112" text-anchor="middle" class="label">3. Sample, append</text>
+        <text x="814" y="142" text-anchor="middle" class="mono-label">choice becomes new context</text>
+        <path d="M290 125 H366M614 125 H690" stroke="#e3a12f" stroke-width="2.4" marker-end="url(#arrow02)" class="glow-amber"/>
+        <path d="M814 184 C720 230, 262 230, 166 184" fill="none" stroke="#8366c8" stroke-width="2.2" stroke-dasharray="7 8" marker-end="url(#arrow02)"/>
       </svg>
     </div>
     <div class="takeaway">Every word changes the next prediction because it becomes part of the model's new context.</div>

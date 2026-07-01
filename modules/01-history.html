@@ -80,7 +80,7 @@
       <div class="col" style="font-size:.8em;">
         <p>Self-<strong>attention</strong> lets every token weigh every other token in parallel.</p>
         <p>Parallelism made scale practical; scale made capability visible.</p>
-        <div class="caption-row" style="grid-template-columns:1fr;">
+        <div class="caption-row hinge-captions" style="grid-template-columns:1fr;">
           <div class="mini-card"><strong>Attention</strong><span>Tokens compare against the whole sequence, not only neighbours.</span></div>
           <div class="mini-card"><strong>Feed-forward</strong><span>The model transforms that mixed context into new representations.</span></div>
           <div class="mini-card"><strong>Repeat</strong><span>Stack many layers, then predict the next token.</span></div>
@@ -121,10 +121,56 @@
         <text x="785" y="144" text-anchor="middle" class="mono-label">tools + loops</text>
       </svg>
     </div>
-    <div class="takeaway">Nothing here breaks the Shannon frame. We scaled the idea until new behaviour emerged.</div>
+    <div class="takeaway">The prediction substrate never changed. What emerged is a new <em>level</em> at which to read the system.</div>
     <p class="sources"><strong>Sources:</strong> Devlin et al. (2018); Brown et al. (2020); Ouyang et al. (2022).</p>
     <aside class="notes">
-      Tee up Module 2: if this is still prediction, what exactly is the next-token machine computing?
+      Tee up the levels slide: the base is still prediction, but "just prediction" is the wrong level
+      to reason at. Then Module 2 opens the base layer itself.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Three levels, one machine</h2>
+    <p class="lede">Prediction is the <em>substrate</em>, not the ceiling. The mistake is reading a system at the wrong level.</p>
+    <p class="footnote" style="font-style:italic;">&ldquo;A livello microscopico abbiamo i neuroni, a livello mesoscopico di mezzo abbiamo queste idee.&rdquo; &mdash; Nello Cristianini <span style="font-style:normal;">(micro = neurons; meso = the learned ideas in between)</span></p>
+    <div class="cols fit-two">
+
+      <div class="col visual-frame media-fit levels-frame">
+        <img src="assets/img/m01-levels-machine-v2.png" alt="Three-layer machine cutaway: probabilistic token substrate, learned concept layer, and human judgement layer">
+      </div>
+
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4><span class="chip safe">macro &middot; exo</span> Behaviour &amp; judgement</h4>
+          <p>The system read at a behavioural, almost psychological level (Dennett's stance) &mdash; and the human judgement that governs it.</p>
+          <p class="mono-label">Relate by: understanding, contesting, overriding.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">meso &middot; meso</span> Learned concepts &amp; competence</h4>
+          <p>The abstract ideas the model built by itself (Cristianini's mesoscopic level) &mdash; the seat of reasoning, memory, skills and tools.</p>
+          <p class="mono-label">Relate by: steering with prose, context and tools &mdash; this is where you work.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">micro &middot; tropo</span> Substrate</h4>
+          <p>Neurons and weights computing Shannon's next-token probabilities. Always on, intrinsically statistical.</p>
+          <p class="mono-label">Relate by: knowing its failure modes &mdash; sampling, temperature, hallucination.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Keep Shannon at the base. Do your thinking &mdash; and your steering &mdash; at the meso level.</div>
+    <p class="sources"><strong>Sources:</strong>
+      Cristianini (2024/2025), <em>Machina Sapiens</em> &amp; interview (micro / meso / macro levels of machine cognition);
+      Marr (1982) levels of analysis; Anderson (1972) <em>More Is Different</em>; Schaeffer et al. (2023) on the metric-sensitivity of &ldquo;emergence&rdquo;.
+    </p>
+    <aside class="notes">
+      Cite Cristianini's mesoscopic level in one breath, then hand over to the atmosphere metaphor.
+      His three levels: microscopic (neurons/connections), mesoscopic (the abstract concepts the model
+      learned by itself, e.g. the "Golden Gate" feature), macroscopic (behaviour read almost like a
+      psychology of machines, where he meets Dennett). Guard the flank: this is a claim about the right
+      LEVEL of description (Marr), not that the model became a mind. Schaeffer shows "emergent abilities"
+      can be a metric artefact - fine, because the argument is about level, not a magic switch. Every
+      module from here answers: which level are we on? Module 2 = substrate; Modules 3-6 = meso system;
+      Modules 7-8 = macro behaviour and judgement.
     </aside>
   </section>
 

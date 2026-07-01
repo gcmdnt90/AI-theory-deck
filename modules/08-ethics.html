@@ -62,14 +62,29 @@
         <p>Some cognitive labour is displaced. Which skills do we choose to keep?</p>
       </div>
     </div>
-    <div class="visual-frame" style="margin-top:.8em;">
-      <svg class="diagram" viewBox="0 0 980 170" role="img" aria-label="AI Translator stance balance">
-        <path d="M150 92 H830" stroke="#d9e1ea" stroke-width="3"/>
-        <circle cx="360" cy="92" r="46" fill="rgba(52,149,111,.12)" stroke="#34956f"/>
-        <circle cx="620" cy="92" r="46" fill="rgba(227,161,47,.12)" stroke="#e3a12f"/>
-        <text x="360" y="99" text-anchor="middle" class="label">build with</text>
-        <text x="620" y="99" text-anchor="middle" class="label">judge well</text>
-        <path d="M406 92 H574" stroke="#e3a12f" stroke-width="2.2" class="glow-amber"/>
+    <div class="visual-frame stance-frame" style="margin-top:.8em;">
+      <svg class="diagram stance-art" viewBox="0 0 980 220" role="img" aria-label="AI Translator stance: build with and judge well">
+        <defs>
+          <marker id="arrow08" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10" fill="none" stroke="#e3a12f" stroke-width="1.8"/>
+          </marker>
+        </defs>
+        <path d="M120 110 H860" stroke="#d9e1ea" stroke-width="2"/>
+        <g transform="translate(150 40)">
+          <rect width="300" height="140" rx="20" fill="rgba(52,149,111,.10)" stroke="#34956f" stroke-width="2"/>
+          <path d="M72 92 H146M72 64 H210" stroke="#34956f" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="230" cy="78" r="30" fill="rgba(52,149,111,.10)" stroke="#34956f" stroke-width="2"/>
+          <path d="M216 78 H244M230 64 V92" stroke="#34956f" stroke-width="2.4"/>
+          <text x="150" y="122" text-anchor="middle" class="label">build with</text>
+        </g>
+        <path d="M470 110 H510" stroke="#e3a12f" stroke-width="2.6" marker-end="url(#arrow08)" class="glow-amber"/>
+        <g transform="translate(530 40)">
+          <rect width="300" height="140" rx="20" fill="rgba(227,161,47,.10)" stroke="#e3a12f" stroke-width="2"/>
+          <path d="M74 95 L116 58 L152 88 L224 48" fill="none" stroke="#e3a12f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="224" cy="48" r="9" fill="rgba(227,161,47,.18)" stroke="#e3a12f" stroke-width="2"/>
+          <path d="M210 96 L228 114 L262 70" fill="none" stroke="#34956f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="150" y="122" text-anchor="middle" class="label">judge well</text>
+        </g>
       </svg>
     </div>
     <div class="takeaway">The AI Translator builds with the tool while protecting the capacity to judge it.</div>
@@ -81,6 +96,7 @@
   <section data-background-color="#fbfaf6">
     <h2>Where we landed</h2>
     <div class="recap-chain compact">
+      <div class="step"><strong>1</strong><span>history arc</span></div>
       <div class="step"><strong>2</strong><span>predict tokens</span></div>
       <div class="step"><strong>3</strong><span>inside / around</span></div>
       <div class="step"><strong>4</strong><span>manage context</span></div>
@@ -92,7 +108,7 @@
     <div class="visual-frame short recap-art">
       <img src="assets/img/m08-final-synthesis.png" alt="Course arc as an amber signal path through tokens, models, context, tools, risks and human judgement">
     </div>
-    <div class="takeaway">The technology is Shannon at scale. The hard part is judgement.</div>
+    <div class="takeaway">Shannon at the base, a cognitive-level system in your hands. The hard part is judgement.</div>
     <aside class="notes">
       One-breath recap of the whole arc. This is the line to end the recording on, then hand off to
       the workshop where they apply it.

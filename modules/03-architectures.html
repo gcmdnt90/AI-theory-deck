@@ -41,13 +41,15 @@
 
   <section>
     <h2><span class="chip inside">3a</span> How a model is made</h2>
-    <div class="visual-frame short">
-      <img src="assets/img/m03-training-pipeline.png" alt="Three-stage light infographic for pretraining, supervised fine-tuning and preference tuning">
-    </div>
-    <div class="caption-row">
-      <div class="mini-card"><strong>1. Pretraining</strong><span>Predict tokens over huge corpora. This builds general linguistic and world patterns.</span></div>
-      <div class="mini-card"><strong>2. Instruction tuning</strong><span>Examples teach the model to follow tasks as an assistant, not merely continue text.</span></div>
-      <div class="mini-card"><strong>3. Preference tuning</strong><span>Human or automated feedback pushes outputs toward helpful, harmless, verifiable behaviour.</span></div>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-training-pipeline.png" alt="Three-stage light infographic for pretraining, supervised fine-tuning and preference tuning">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>1. Pretraining</strong><span>Predict tokens over huge corpora. This builds general linguistic and world patterns.</span></div>
+        <div class="mini-card"><strong>2. Instruction tuning</strong><span>Examples teach the model to follow tasks as an assistant, not merely continue text.</span></div>
+        <div class="mini-card"><strong>3. Preference tuning</strong><span>Human or automated feedback pushes outputs toward helpful, harmless, verifiable behaviour.</span></div>
+      </div>
     </div>
     <p class="footnote">Embeddings live here too: specialised embedding models are later used for retrieval.</p>
     <p class="sources"><strong>Sources:</strong> Brown et al. (2020); Ouyang et al. (2022); Christiano et al. (2017).</p>
@@ -120,13 +122,15 @@
 
   <section data-background-color="#f4f8fb">
     <h2><span class="chip around">3b</span> Agents = LLM + loop + tools + memory</h2>
-    <div class="visual-frame short">
-      <img src="assets/img/m03-agent-loop.png" alt="Central LLM processor wrapped by a clean agent loop of actions, tools, memory and observation">
-    </div>
-    <div class="caption-row">
-      <div class="mini-card"><strong>Loop</strong><span>Decide what to do next, observe the result, then decide again.</span></div>
-      <div class="mini-card"><strong>Tools</strong><span>Actions outside the model: search, files, code, databases, APIs.</span></div>
-      <div class="mini-card"><strong>Memory</strong><span>State supplied around the model so the next call has useful context.</span></div>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-agent-loop.png" alt="Central LLM processor wrapped by a clean agent loop of actions, tools, memory and observation">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Loop</strong><span>Decide what to do next, observe the result, then decide again.</span></div>
+        <div class="mini-card"><strong>Tools</strong><span>Actions outside the model: search, files, code, databases, APIs.</span></div>
+        <div class="mini-card"><strong>Memory</strong><span>State supplied around the model so the next call has useful context.</span></div>
+      </div>
     </div>
     <p class="footnote">Patterns: ReAct, planning, reflection, multi-agent orchestration. Tools and memory get their own modules.</p>
     <p class="sources"><strong>Sources:</strong> Yao et al. (2023) ReAct; Schick et al. (2023) Toolformer.</p>
