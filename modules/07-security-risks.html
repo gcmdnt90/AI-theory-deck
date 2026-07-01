@@ -27,43 +27,11 @@
         <p>Agreeing with the user over being correct.</p>
       </div>
     </div>
-    <div class="visual-frame risk-sources-frame" style="margin-top:.8em;">
-      <svg class="diagram risk-sources-art" viewBox="0 0 980 220" role="img" aria-label="Model risk mechanisms: sampling, training data, feedback signals">
-        <defs>
-          <marker id="arrow07" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <path d="M0,0 L10,5 L0,10" fill="none" stroke="#e3a12f" stroke-width="1.8"/>
-          </marker>
-        </defs>
-        <path d="M90 110 H890" stroke="#d9e1ea" stroke-width="2"/>
-        <g class="risk-lane" transform="translate(70 38)">
-          <rect width="250" height="144" rx="18" fill="rgba(255,255,255,.86)" stroke="#e3a12f" stroke-width="2"/>
-          <path d="M54 88 C86 44, 124 128, 166 76 S210 55, 226 64" fill="none" stroke="#e3a12f" stroke-width="2.6"/>
-          <g fill="rgba(227,161,47,.16)" stroke="#e3a12f">
-            <circle cx="72" cy="88" r="8"/><circle cx="124" cy="98" r="8"/><circle cx="176" cy="76" r="8"/>
-          </g>
-          <text x="125" y="118" text-anchor="middle" class="mono-label">sampling</text>
-        </g>
-        <g class="risk-lane" transform="translate(365 38)">
-          <rect width="250" height="144" rx="18" fill="rgba(255,255,255,.86)" stroke="#c94b4b" stroke-width="2"/>
-          <g fill="rgba(201,75,75,.10)" stroke="#c94b4b" stroke-width="1.8">
-            <rect x="58" y="48" width="134" height="16" rx="8"/>
-            <rect x="58" y="74" width="98" height="16" rx="8"/>
-            <rect x="58" y="100" width="150" height="16" rx="8"/>
-          </g>
-          <path d="M48 38 H212" stroke="#d9e1ea" stroke-width="1.4"/>
-          <text x="125" y="134" text-anchor="middle" class="mono-label">training data</text>
-        </g>
-        <g class="risk-lane" transform="translate(660 38)">
-          <rect width="250" height="144" rx="18" fill="rgba(255,255,255,.86)" stroke="#8366c8" stroke-width="2"/>
-          <path d="M62 82 H116M62 108 H140M62 56 H184" stroke="#8366c8" stroke-width="2.4" stroke-linecap="round"/>
-          <g fill="rgba(131,102,200,.12)" stroke="#8366c8" stroke-width="1.8">
-            <circle cx="196" cy="56" r="14"/><circle cx="162" cy="82" r="14"/><circle cx="196" cy="108" r="14"/>
-          </g>
-          <path d="M190 52 L196 58 L206 46M156 78 L162 84 L172 72M190 104 L196 110 L206 98" stroke="#34956f" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <text x="125" y="134" text-anchor="middle" class="mono-label">feedback signals</text>
-        </g>
-        <path d="M320 110 H350M615 110 H645" stroke="#e3a12f" stroke-width="2.4" marker-end="url(#arrow07)" class="glow-amber"/>
-      </svg>
+    <div class="visual-frame generated-flow-frame risk-sources-frame" style="margin-top:.8em;" role="img" aria-label="Model risk mechanisms: sampling, training data, feedback signals">
+      <img src="assets/img/m07-risk-mechanisms-v2.png" alt="">
+      <span class="flow-label risk-sampling">sampling</span>
+      <span class="flow-label risk-data">training data</span>
+      <span class="flow-label risk-feedback">feedback signals</span>
     </div>
     <p class="footnote">All three trace back to Module 2: the model optimises plausible text, not truth.</p>
     <p class="sources"><strong>Sources:</strong> Ji et al. (2023); Perez et al. (2022); Sharma et al. (2023).</p>

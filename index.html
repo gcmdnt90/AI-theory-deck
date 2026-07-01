@@ -693,47 +693,14 @@
 
   <section>
     <h2>RAG - retrieve, then generate</h2>
-    <div class="visual-frame rag-frame">
-      <svg class="diagram rag-flowchart" viewBox="0 0 980 320" role="img" aria-label="RAG pipeline">
-        <defs>
-          <marker id="arrow04" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <path d="M0,0 L10,5 L0,10" fill="none" stroke="#e3a12f" stroke-width="1.8"/>
-          </marker>
-          <filter id="softShadow04" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243044" flood-opacity=".10"/>
-          </filter>
-        </defs>
-        <path d="M65 240 C235 210, 313 270, 482 234 S754 206, 908 248" fill="none" stroke="rgba(227,161,47,.22)" stroke-width="26" stroke-linecap="round"/>
-        <g fill="rgba(255,255,255,.92)" stroke-width="2.2" filter="url(#softShadow04)">
-          <rect x="44" y="112" width="120" height="86" rx="16" stroke="#e3a12f"/>
-          <rect x="206" y="112" width="120" height="86" rx="16" stroke="#1597b5"/>
-          <rect x="368" y="100" width="140" height="110" rx="16" stroke="#1597b5"/>
-          <rect x="560" y="82" width="154" height="146" rx="18" stroke="#34956f"/>
-          <rect x="762" y="112" width="96" height="86" rx="16" stroke="#8366c8"/>
-          <rect x="892" y="112" width="72" height="86" rx="16" stroke="#e3a12f"/>
-        </g>
-        <g fill="none" stroke-width="2">
-          <circle cx="104" cy="139" r="13" stroke="#e3a12f"/><path d="M115 150 L126 161" stroke="#e3a12f"/>
-          <path d="M246 134 H286M246 154 H286M246 174 H274" stroke="#1597b5" stroke-linecap="round"/>
-          <path d="M410 148 H466M410 168 H466M410 188 H454" stroke="#1597b5" stroke-linecap="round"/>
-          <path d="M590 124 H680M590 148 H654M590 172 H690M590 196 H666" stroke="#34956f" stroke-linecap="round"/>
-          <circle cx="810" cy="148" r="20" stroke="#8366c8"/><path d="M798 148 H822M810 136 V160" stroke="#8366c8"/>
-          <path d="M912 145 H946M912 162 H936M912 179 H944" stroke="#e3a12f" stroke-linecap="round"/>
-        </g>
-        <text x="104" y="188" text-anchor="middle" class="label">Query</text>
-        <text x="266" y="188" text-anchor="middle" class="label">Embed</text>
-        <text x="438" y="142" text-anchor="middle" class="label">Vector</text>
-        <text x="438" y="174" text-anchor="middle" class="label">search</text>
-        <text x="637" y="66" text-anchor="middle" class="label">Top-k chunks</text>
-        <text x="810" y="188" text-anchor="middle" class="label">LLM</text>
-        <text x="928" y="188" text-anchor="middle" class="label">Answer</text>
-        <g fill="rgba(52,149,111,.12)" stroke="#34956f">
-          <rect x="590" y="124" width="94" height="14" rx="7"/>
-          <rect x="590" y="148" width="74" height="14" rx="7"/>
-          <rect x="590" y="172" width="104" height="14" rx="7"/>
-        </g>
-        <path d="M174 155 H196M336 155 H358M518 155 H550M724 155 H752M868 155 H882" stroke="#e3a12f" stroke-width="2.4" marker-end="url(#arrow04)" class="glow-amber"/>
-      </svg>
+    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="RAG pipeline: Query, Embed, Vector search, Top-k chunks, LLM, Answer">
+      <img src="assets/img/m04-rag-flow-v2.png" alt="">
+      <span class="flow-label rag-query">Query</span>
+      <span class="flow-label rag-embed">Embed</span>
+      <span class="flow-label rag-search">Vector search</span>
+      <span class="flow-label rag-chunks">Top-k chunks</span>
+      <span class="flow-label rag-llm">LLM</span>
+      <span class="flow-label rag-answer">Answer</span>
     </div>
     <p class="footnote">Same embeddings from Module 2 - now used as a search index.</p>
     <p class="sources"><strong>Sources:</strong> Lewis et al. (2020); Karpukhin et al. (2020).</p>
@@ -987,43 +954,11 @@
         <p>Agreeing with the user over being correct.</p>
       </div>
     </div>
-    <div class="visual-frame risk-sources-frame" style="margin-top:.8em;">
-      <svg class="diagram risk-sources-art" viewBox="0 0 980 220" role="img" aria-label="Model risk mechanisms: sampling, training data, feedback signals">
-        <defs>
-          <marker id="arrow07" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <path d="M0,0 L10,5 L0,10" fill="none" stroke="#e3a12f" stroke-width="1.8"/>
-          </marker>
-        </defs>
-        <path d="M90 110 H890" stroke="#d9e1ea" stroke-width="2"/>
-        <g class="risk-lane" transform="translate(70 38)">
-          <rect width="250" height="144" rx="18" fill="rgba(255,255,255,.86)" stroke="#e3a12f" stroke-width="2"/>
-          <path d="M54 88 C86 44, 124 128, 166 76 S210 55, 226 64" fill="none" stroke="#e3a12f" stroke-width="2.6"/>
-          <g fill="rgba(227,161,47,.16)" stroke="#e3a12f">
-            <circle cx="72" cy="88" r="8"/><circle cx="124" cy="98" r="8"/><circle cx="176" cy="76" r="8"/>
-          </g>
-          <text x="125" y="118" text-anchor="middle" class="mono-label">sampling</text>
-        </g>
-        <g class="risk-lane" transform="translate(365 38)">
-          <rect width="250" height="144" rx="18" fill="rgba(255,255,255,.86)" stroke="#c94b4b" stroke-width="2"/>
-          <g fill="rgba(201,75,75,.10)" stroke="#c94b4b" stroke-width="1.8">
-            <rect x="58" y="48" width="134" height="16" rx="8"/>
-            <rect x="58" y="74" width="98" height="16" rx="8"/>
-            <rect x="58" y="100" width="150" height="16" rx="8"/>
-          </g>
-          <path d="M48 38 H212" stroke="#d9e1ea" stroke-width="1.4"/>
-          <text x="125" y="134" text-anchor="middle" class="mono-label">training data</text>
-        </g>
-        <g class="risk-lane" transform="translate(660 38)">
-          <rect width="250" height="144" rx="18" fill="rgba(255,255,255,.86)" stroke="#8366c8" stroke-width="2"/>
-          <path d="M62 82 H116M62 108 H140M62 56 H184" stroke="#8366c8" stroke-width="2.4" stroke-linecap="round"/>
-          <g fill="rgba(131,102,200,.12)" stroke="#8366c8" stroke-width="1.8">
-            <circle cx="196" cy="56" r="14"/><circle cx="162" cy="82" r="14"/><circle cx="196" cy="108" r="14"/>
-          </g>
-          <path d="M190 52 L196 58 L206 46M156 78 L162 84 L172 72M190 104 L196 110 L206 98" stroke="#34956f" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <text x="125" y="134" text-anchor="middle" class="mono-label">feedback signals</text>
-        </g>
-        <path d="M320 110 H350M615 110 H645" stroke="#e3a12f" stroke-width="2.4" marker-end="url(#arrow07)" class="glow-amber"/>
-      </svg>
+    <div class="visual-frame generated-flow-frame risk-sources-frame" style="margin-top:.8em;" role="img" aria-label="Model risk mechanisms: sampling, training data, feedback signals">
+      <img src="assets/img/m07-risk-mechanisms-v2.png" alt="">
+      <span class="flow-label risk-sampling">sampling</span>
+      <span class="flow-label risk-data">training data</span>
+      <span class="flow-label risk-feedback">feedback signals</span>
     </div>
     <p class="footnote">All three trace back to Module 2: the model optimises plausible text, not truth.</p>
     <p class="sources"><strong>Sources:</strong> Ji et al. (2023); Perez et al. (2022); Sharma et al. (2023).</p>
@@ -1149,30 +1084,10 @@
         <p>Some cognitive labour is displaced. Which skills do we choose to keep?</p>
       </div>
     </div>
-    <div class="visual-frame stance-frame" style="margin-top:.8em;">
-      <svg class="diagram stance-art" viewBox="0 0 980 220" role="img" aria-label="AI Translator stance: build with and judge well">
-        <defs>
-          <marker id="arrow08" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <path d="M0,0 L10,5 L0,10" fill="none" stroke="#e3a12f" stroke-width="1.8"/>
-          </marker>
-        </defs>
-        <path d="M120 110 H860" stroke="#d9e1ea" stroke-width="2"/>
-        <g transform="translate(150 40)">
-          <rect width="300" height="140" rx="20" fill="rgba(52,149,111,.10)" stroke="#34956f" stroke-width="2"/>
-          <path d="M72 92 H146M72 64 H210" stroke="#34956f" stroke-width="2.4" stroke-linecap="round"/>
-          <circle cx="230" cy="78" r="30" fill="rgba(52,149,111,.10)" stroke="#34956f" stroke-width="2"/>
-          <path d="M216 78 H244M230 64 V92" stroke="#34956f" stroke-width="2.4"/>
-          <text x="150" y="122" text-anchor="middle" class="label">build with</text>
-        </g>
-        <path d="M470 110 H510" stroke="#e3a12f" stroke-width="2.6" marker-end="url(#arrow08)" class="glow-amber"/>
-        <g transform="translate(530 40)">
-          <rect width="300" height="140" rx="20" fill="rgba(227,161,47,.10)" stroke="#e3a12f" stroke-width="2"/>
-          <path d="M74 95 L116 58 L152 88 L224 48" fill="none" stroke="#e3a12f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="224" cy="48" r="9" fill="rgba(227,161,47,.18)" stroke="#e3a12f" stroke-width="2"/>
-          <path d="M210 96 L228 114 L262 70" fill="none" stroke="#34956f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <text x="150" y="122" text-anchor="middle" class="label">judge well</text>
-        </g>
-      </svg>
+    <div class="visual-frame generated-flow-frame stance-frame" style="margin-top:.8em;" role="img" aria-label="AI Translator stance: build with and judge well">
+      <img src="assets/img/m08-build-judge-v2.png" alt="">
+      <span class="flow-label stance-build">build with</span>
+      <span class="flow-label stance-judge">judge well</span>
     </div>
     <div class="takeaway">The AI Translator builds with the tool while protecting the capacity to judge it.</div>
     <aside class="notes">

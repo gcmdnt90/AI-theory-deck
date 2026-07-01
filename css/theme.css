@@ -845,13 +845,95 @@
 .rag-frame,
 .risk-sources-frame,
 .stance-frame {
-  padding: .38em;
+  padding: 0;
 }
 
-.rag-flowchart .label,
-.risk-sources-art .label,
-.stance-art .label {
-  font-size: 17px;
+.generated-flow-frame {
+  background: rgba(255, 255, 255, .9);
+  isolation: isolate;
+}
+
+.generated-flow-frame::after {
+  background: linear-gradient(180deg, transparent 58%, rgba(251, 250, 246, .58));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.generated-flow-frame img {
+  border-radius: 7px;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.rag-frame {
+  height: 330px;
+}
+
+.risk-sources-frame,
+.stance-frame {
+  height: 300px;
+}
+
+.rag-frame img {
+  object-position: center 52%;
+}
+
+.risk-sources-frame img {
+  object-position: center 44%;
+}
+
+.stance-frame img {
+  object-position: center 50%;
+}
+
+.flow-label {
+  background: rgba(255, 255, 255, .9);
+  border: 1px solid color-mix(in srgb, var(--label-accent, var(--ait-amber)) 54%, var(--ait-line));
+  border-left: 5px solid var(--label-accent, var(--ait-amber));
+  border-radius: 8px;
+  box-shadow: 0 10px 22px rgba(36, 48, 68, .10);
+  color: var(--ait-ink);
+  font-size: .62em;
+  font-weight: 820;
+  left: var(--label-left);
+  line-height: 1;
+  padding: .36em .58em .36em .5em;
+  position: absolute;
+  top: var(--label-top, 84%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.rag-query { --label-accent: var(--ait-amber); --label-left: 8%; }
+.rag-embed { --label-accent: var(--ait-cyan); --label-left: 25%; }
+.rag-search { --label-accent: var(--ait-cyan); --label-left: 43%; }
+.rag-chunks { --label-accent: var(--ait-green); --label-left: 61%; }
+.rag-llm { --label-accent: var(--ait-violet); --label-left: 77%; }
+.rag-answer { --label-accent: var(--ait-amber); --label-left: 92%; }
+
+.risk-sampling { --label-accent: var(--ait-amber); --label-left: 17%; --label-top: 84%; }
+.risk-data { --label-accent: var(--ait-red); --label-left: 50%; --label-top: 84%; }
+.risk-feedback { --label-accent: var(--ait-violet); --label-left: 83%; --label-top: 84%; }
+
+.stance-build { --label-accent: var(--ait-green); --label-left: 30%; --label-top: 84%; }
+.stance-judge { --label-accent: var(--ait-violet); --label-left: 76%; --label-top: 84%; }
+
+@media (max-width: 900px) {
+  .rag-frame,
+  .risk-sources-frame,
+  .stance-frame {
+    height: 260px;
+  }
+
+  .flow-label {
+    font-size: .5em;
+  }
 }
 
 .reason-widget {
