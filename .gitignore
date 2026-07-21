@@ -5,3 +5,7 @@ server.out.log
 # private working notes (promote/branch later)
 CONTEXT.md
 __sync_probe.txt
+
+# FUSE ghost files (created by sandbox mounts on open-while-deleted handles)
+.fuse_hidden*
+**/.fuse_hidden*

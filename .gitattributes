@@ -1,0 +1,29 @@
+# Normalise line endings: store text as LF in the repo (matches existing blobs),
+# check out native on each OS. Kills the CRLF/LF churn that shows every file as
+# "modified" on a Windows checkout.
+* text=auto eol=lf
+
+# Explicit text types (belt and braces)
+*.html   text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+*.mjs    text eol=lf
+*.md     text eol=lf
+*.json   text eol=lf
+*.svg    text eol=lf
+
+# Binary assets — never touch EOL or diff as text
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.webp   binary
+*.ico    binary
+*.mp4    binary
+*.webm   binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.otf    binary
+*.eot    binary
+*.pdf    binary
