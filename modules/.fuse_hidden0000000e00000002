@@ -60,7 +60,7 @@
         MCP docs, <a href="https://modelcontextprotocol.io/docs/learn/architecture">Architecture</a>.<br>
         MCP specification, <a href="https://modelcontextprotocol.io/specification/2025-06-18/server/tools">Tools</a>.</p>
 
-        <p><strong>7 - Agents in practice</strong><br>
+        <p><strong>6b - Agents in practice</strong><br>
         Karpathy (2025), <a href="https://www.youtube.com/watch?v=LCEmiRjPEtQ">Software Is Changing (Again)</a>, YC AI Startup School.<br>
         Karpathy (2025), <a href="https://www.dwarkesh.com/p/andrej-karpathy">interview, Dwarkesh Podcast</a>.<br>
         Karpathy (2025), <a href="https://karpathy.bearblog.dev/animals-vs-ghosts/">Animals vs Ghosts</a>.<br>
@@ -78,14 +78,14 @@
         <a href="https://revealjs.com/">Reveal.js</a>; <a href="https://katex.org/">KaTeX</a>.</p>
       </div>
       <div class="col">
-        <p><strong>8 - Security &amp; risks</strong><br>
+        <p><strong>7 - Security &amp; risks</strong><br>
         Ji et al. (2023), <a href="https://doi.org/10.1145/3571730">Survey of Hallucination in NLG</a>.<br>
         Perez et al. (2022), <a href="https://arxiv.org/abs/2212.09251">Model-Written Evaluations</a>.<br>
         Sharma et al. (2023), <a href="https://arxiv.org/abs/2310.13548">Towards Understanding Sycophancy</a>.<br>
         Greshake et al. (2023), <a href="https://arxiv.org/abs/2302.12173">Indirect Prompt Injection</a>.<br>
         OWASP, <a href="https://genai.owasp.org/llm-top-10/">Top 10 for LLM Applications</a>.</p>
 
-        <p><strong>8-9 - Human factors &amp; ethics</strong><br>
+        <p><strong>7-8 - Human factors &amp; ethics</strong><br>
         Risko &amp; Gilbert (2016), <a href="https://doi.org/10.1016/j.tics.2016.07.002">Cognitive Offloading</a>.<br>
         Sparrow, Liu &amp; Wegner (2011), <a href="https://doi.org/10.1126/science.1207745">Google Effects on Memory</a>.<br>
         Lee &amp; See (2004), <a href="https://doi.org/10.1518/hfes.46.1.50_30392">Trust in Automation</a>.<br>

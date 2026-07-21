@@ -1,0 +1,114 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-05-behaviour-control.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">05</span>
+    <p class="kicker">Modulo 5</p>
+    <h1>Controllo del comportamento</h1>
+    <p class="lede">Guidare un agente col linguaggio naturale: istruzioni, skill e strumenti.</p>
+    <aside class="notes">
+      Riformula la programmazione per questo pubblico: il comportamento si plasma per lo più
+      scrivendo prosa, non codice. Il Markdown è il substrato. I nomi dei file variano per vendor;
+      il principio è generale.
+    </aside>
+  </section>
+
+  <section>
+    <h2>La prosa è il programma</h2>
+    <div class="cols">
+      <div class="col" style="font-size:.82em;">
+        <p>Il comportamento si specifica in file di istruzioni a strati, in linguaggio semplice.</p>
+        <p>Gli strati si compongono: regole ferree, contesto di progetto, persona del compito.</p>
+        <div class="caption-row control-captions" style="grid-template-columns:1fr;">
+          <div class="mini-card"><strong>Regole</strong><span>Vincoli non negoziabili: sicurezza, stile, policy sulle fonti.</span></div>
+          <div class="mini-card"><strong>Contesto</strong><span>Vocabolario del progetto, pubblico, modello dei dati, convenzioni locali.</span></div>
+          <div class="mini-card"><strong>Persona</strong><span>La postura di lavoro: conciso, scettico, didattico, giocoso.</span></div>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m05-prose-stack.png" alt="Fogli di istruzioni a strati che guidano il segnale di comportamento di un agente">
+      </div>
+    </div>
+    <p class="footnote">Varianti dei vendor: CLAUDE.md, AGENTS.md, context.md, file "soul". Stessa idea, nomi di file diversi.</p>
+    <aside class="notes">
+      Insisti sul principio più che sul marchio. È rivedibile, versionabile e leggibile da un umano.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Perché il Markdown?</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Leggibile</h4><p>Umani e modelli riescono a interpretarlo.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Diff-abile</h4><p>I cambi di comportamento compaiono in git.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Strutturato</h4><p>Titoli ed elenchi danno segnali salienti.</p></div>
+      </div>
+      <div class="col visual-frame">
+        <div class="layered-file">
+          <div class="rule"># Regole</div>
+          <div>- cita fonti primarie</div>
+          <div>- mai nascondere l'incertezza</div>
+          <br>
+          <div class="context">## Contesto</div>
+          <div>- pubblico: ricercatori STEM</div>
+          <div>- esempi il più possibile locali</div>
+          <br>
+          <div class="persona">## Persona</div>
+          <div>- conciso, caldo, scettico</div>
+          <div class="comment"># il comportamento ora è rivedibile</div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Per i ricercatori: questa è specifica-come-documentazione. L'artefatto che controlla l'agente è
+      lo stesso artefatto che un collega legge per capirlo.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Skill - competenza impacchettata</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.78em;">
+        <p>Una <strong>skill</strong> è un pacchetto di capacità riutilizzabile. Dice all'agente quando caricare istruzioni, script e risorse aggiuntive.</p>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Struttura</h4><p><code>name</code>, <code>description</code>, regole di attivazione, istruzioni, script/risorse opzionali.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Attivata dall'intento</h4><p>La description è la superficie di match: "fai il debug" carica la diagnosi; "grill me" carica un flusso di critica.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Esempi</h4><p><code>grill-with-docs</code>, <code>caveman</code>, <code>personas</code>, <code>skill-creator</code>.</p></div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m05-skill-structure.png" alt="Pacchetto skill con manifest, trigger, istruzioni, script e risorse">
+      </div>
+    </div>
+    <aside class="notes">
+      Skill = modularità per il comportamento. Buon punto per menzionare che questo stesso progetto
+      usa le skill.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Strumenti - azioni che il modello può compiere</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <p style="font-size:.72em;">Uno strumento è procedurale: l'agente compila un input tipizzato, gira codice esterno, poi il risultato torna nel contesto.</p>
+        <pre><code class="language-json" data-trim>{
+  "name": "read_pdf",
+  "description": "Estrae testo e tabelle",
+  "input_schema": {
+    "file": "path",
+    "pages": "range"
+  }
+}</code></pre>
+        <div class="caption-row" style="grid-template-columns:1fr 1fr;">
+          <div class="mini-card"><strong>Formati</strong><span>PDF, XLSX, DOCX, PPTX, CSV, immagini, audio.</span></div>
+          <div class="mini-card"><strong>Risultato</strong><span>Il contenuto interpretato torna come contesto strutturato su cui il modello può ragionare.</span></div>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m05-tools-file-formats.png" alt="Chiamate a strumenti procedurali che aprono formati di file come PDF, fogli di calcolo e documenti">
+      </div>
+    </div>
+    <p class="footnote">Le skill plasmano come l'agente si comporta. Gli strumenti gli danno procedure e accesso ai formati di file.</p>
+    <aside class="notes">
+      Lo schema è il contratto. Anticipa MCP come il modo standard di esporre strumenti fra sistemi.
+    </aside>
+  </section>
+
+</section>

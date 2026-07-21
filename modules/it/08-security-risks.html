@@ -1,0 +1,93 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-07-security-risks.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">08</span>
+    <p class="kicker">Modulo 8</p>
+    <h1>Sicurezza &amp; rischi</h1>
+    <p class="lede">Tre strati di fallimento: il modello, l'utente e i dati.</p>
+    <aside class="notes">
+      Organizza il modulo su tre proprietari del rischio: modello, utente e dati. Questa struttura
+      deve restare anche se dimenticano i singoli esempi.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">modello</span> Cosa sbaglia il modello</h2>
+    <div class="cols c-3">
+      <div class="signal-card" style="--card-accent:var(--ait-amber);">
+        <h4>Allucinazione</h4>
+        <p>Fluente, sicura, falsa.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-red);">
+        <h4>Bias</h4>
+        <p>Distorsioni dei dati di training trasportate negli output.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-violet);">
+        <h4>Sicofantismo</h4>
+        <p>Dare ragione all'utente invece di essere corretti.</p>
+      </div>
+    </div>
+    <div class="visual-frame generated-flow-frame risk-sources-frame" style="margin-top:.8em;" role="img" aria-label="Meccanismi di rischio del modello: sampling, dati di training, segnali di feedback">
+      <img src="assets/img/m07-risk-mechanisms-v2.png" alt="">
+      <span class="flow-label risk-sampling">sampling</span>
+      <span class="flow-label risk-data">dati di training</span>
+      <span class="flow-label risk-feedback">segnali di feedback</span>
+    </div>
+    <p class="footnote">Tutti e tre risalgono al Modulo 2: il modello ottimizza testo plausibile, non verità.</p>
+    <p class="sources"><strong>Fonti:</strong> Ji et al. (2023); Perez et al. (2022); Sharma et al. (2023).</p>
+    <aside class="notes">
+      Collega causalmente al motore: l'allucinazione è campionare da una distribuzione senza oracolo
+      di verità. Gestibile, ma non eliminabile.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2><span class="chip risk">utente</span> Cosa succede a noi</h2>
+    <div class="cols">
+      <div class="col visual-frame tight">
+        <img src="assets/img/cognitive-delegation.png" alt="Silhouette umana che passa un filo ambrato di pensiero a una parentesi-macchina">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Delega cognitiva</h4>
+          <p>Scaricare il pensiero può erodere la competenza che si sta scaricando.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>Trappola della fluidità</h4>
+          <p>Un output rifinito sembra più accurato di quanto sia.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Rischio camera dell'eco</h4>
+          <p>Sistemi di raccomandazione e social possono amplificare credenze familiari e disinformazione.</p>
+        </div>
+      </div>
+    </div>
+    <p class="sources"><strong>Fonti:</strong> Risko &amp; Gilbert (2016); Sparrow, Liu &amp; Wegner (2011); Lee &amp; See (2004); Lee et al. (2025); Del Vicario et al. (2016); Cinelli et al. (2021).</p>
+    <aside class="notes">
+      La slide più rilevante per un pubblico accademico preoccupato per gli studenti. Il rischio non
+      è solo una risposta sbagliata; è la lenta atrofia della capacità di accorgersene.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">dati</span> Dove i dati perdono</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.74em;">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud vs locale</h4><p>Chi può vedere i prompt e i dati caricati?</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Testo non fidato diventa un'istruzione.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Esposizione di segreti</h4><p>Corpora RAG e credenziali diventano bersagli.</p></div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m07-data-leaks.png" alt="Prompt injection indiretta che dirotta il percorso degli strumenti di un agente causando movimenti di dati indesiderati">
+      </div>
+    </div>
+    <div class="takeaway">Il salto pericoloso è quando il testo non fidato smette di essere dato e inizia a guidare un'azione.</div>
+    <p class="sources"><strong>Fonti:</strong> Greshake et al. (2023); OWASP Top 10 for LLM Applications.</p>
+    <aside class="notes">
+      Insisti sul fatto che i connettori allargano la superficie d'attacco: l'agente ora agisce su
+      input non fidato. La prompt injection non ha ancora una soluzione pulita; progetta per il
+      minimo privilegio.
+    </aside>
+  </section>
+
+</section>

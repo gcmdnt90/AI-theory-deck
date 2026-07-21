@@ -28,7 +28,7 @@
       <p class="kicker">AI Translator - Frontal &amp; recorded lesson</p>
       <h1>Language Models &amp; Agents</h1>
       <p class="subtitle">From language entropy to autonomous agents: what these systems are, how they work, and where they fail.</p>
-      <p class="meta">UnivPM - Universit&agrave; Politecnica delle Marche | Theory track | 8 modules</p>
+      <p class="meta">UnivPM - Universit&agrave; Politecnica delle Marche | Theory track | 9 modules</p>
     </div>
     <aside class="notes">
       Open by framing the lesson: this is the theory spine that the recorded lesson follows.
@@ -66,16 +66,20 @@
         <h4>Connectors</h4><p>MCP and external systems</p>
       </div>
       <div class="map-node">
-        <span class="icon-dot" style="color:var(--ait-red);border-color:rgba(201,75,75,.48);">7</span><span class="num">MODULE 07</span>
+        <span class="icon-dot" style="color:var(--ait-violet);border-color:rgba(131,102,200,.48);">7</span><span class="num">MODULE 07</span>
+        <h4>Agents in practice</h4><p>Spec, verify, environment</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-red);border-color:rgba(201,75,75,.48);">8</span><span class="num">MODULE 08</span>
         <h4>Risks</h4><p>Model, user, data</p>
       </div>
       <div class="map-node">
-        <span class="icon-dot" style="color:var(--ait-green);border-color:rgba(52,149,111,.48);">8</span><span class="num">MODULE 08</span>
+        <span class="icon-dot" style="color:var(--ait-green);border-color:rgba(52,149,111,.48);">9</span><span class="num">MODULE 09</span>
         <h4>Ethics</h4><p>Judgement stays human</p>
       </div>
     </div>
     <aside class="notes">
-      Walk the arc once: mechanics (1-2), boundary and architecture (3-6), consequences (7-8).
+      Walk the arc once: mechanics (1-2), boundary and architecture (3-6), practice and consequences (7-9).
       The visual map should make the recorded version easy to navigate without overexplaining it.
     </aside>
   </section>
@@ -917,19 +921,185 @@
     <p class="footnote">Same security questions as any integration: credentials, scope and trust.</p>
     <aside class="notes">
       End on the capability jump, but plant the risk seed: every connector is also an attack surface.
-      Direct hand-off to Module 7.
+      Direct hand-off to Module 8.
     </aside>
   </section>
 
 </section>
 
 
-<!-- ===== 07-security-risks.html ===== -->
+<!-- ===== 07-agentic-practice.html ===== -->
+<section>
+
+  <section class="module-cover" data-background-color="#fbfaf6">
+    <span class="modnum">07</span>
+    <p class="kicker">Module 7 · interlude</p>
+    <h1>Agents in practice</h1>
+    <p class="lede">How leading practitioners actually work with the meso-level system: spec, verify, environment.</p>
+    <aside class="notes">
+      Bridge module: Modules 3–6 described the system; before we discuss risks, show how people who
+      use it seriously say you should drive it. Spine: Andrej Karpathy (OpenAI co-founder, ex-Tesla
+      AI director); woven in: Mollick (field evidence), Pocock (working method), Shankar (evals),
+      Huyen (the engineering discipline). This is the macro level entering the picture: human
+      judgement engaging the meso system deliberately.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Ghosts, not animals</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.8em;">
+        <p>Karpathy's mental model: we are not building <strong>animals</strong> (evolved drives, embodied common sense) — we are summoning <strong>ghosts</strong>: statistical simulations of human text.</p>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Jagged intelligence</h4><p>Capability spikes where training was verifiable and emphasised; it stagnates elsewhere. There is no manual.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>The car-wash test</h4><p>A model that refactors a 100,000-line codebase may advise <em>walking</em> to the car wash 50&nbsp;m away — missing that the car must come along.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Measured, not just felt</h4><p>Field experiment, 758 BCG consultants: AI raised quality <em>inside</em> the frontier and degraded it <em>outside</em> — on tasks of similar apparent difficulty.</p></div>
+      </div>
+      <div class="col vertical-captions">
+        <div class="mini-card"><strong>Animals (colleagues)</strong><span>Intrinsic motivation; adapt under pressure; know what they don't know.</span></div>
+        <div class="mini-card"><strong>Ghosts (agents)</strong><span>Pattern completion; indifferent to urgency; confidently blind to missing context.</span></div>
+        <div class="mini-card"><strong>Consequence</strong><span>Manage by rigorous specification and verification, not by goal-and-trust delegation.</span></div>
+      </div>
+    </div>
+    <div class="quote-strip">
+      <blockquote>"We're not building animals. We're building ghosts or spirits."<cite>Karpathy, Dwarkesh Podcast (2025)</cite></blockquote>
+      <blockquote>"They are jagged, alien tools... be suspicious of the system and figure it out empirically."<cite>Karpathy, AI Ascent (2026)</cite></blockquote>
+    </div>
+    <p class="sources"><strong>Sources:</strong> <a href="https://www.dwarkesh.com/p/andrej-karpathy">Dwarkesh Podcast interview (Oct 2025)</a>; <a href="https://karpathy.bearblog.dev/animals-vs-ghosts/">Karpathy, "Animals vs Ghosts" (2025)</a>; <a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/">Karpathy, Sequoia AI Ascent summary (2026)</a>; <a href="https://pubsonline.informs.org/doi/10.1287/orsc.2025.21838">Dell'Acqua, McFowland, Mollick, Lifshitz-Assaf, Kellogg et al., "Navigating the Jagged Technological Frontier" (Organization Science)</a>.</p>
+    <aside class="notes">
+      This is the practitioner's version of our anti-anthropomorphism thread (Module 2) and the
+      tropo-layer: underneath the fluent behaviour there is still a stochastic estimator. The
+      car-wash example is Karpathy's own, from the Ascent fireside chat. The frontier study
+      (Mollick and colleagues, with BCG) is the peer-reviewed counterpart of Karpathy's
+      "jagged" intuition — same shape, measured: consultants using AI outside the frontier were
+      19 points <em>less</em> likely to be correct than controls. Karpathy's metaphor, Mollick's data.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>1 — Own the spec</h2>
+    <div class="cols">
+      <div class="col" style="font-size:.8em;">
+        <p>The agent fills in blanks; <strong>the human owns the plan</strong>. Karpathy: work with the agent to design a detailed spec — don't delegate the goal itself.</p>
+        <div class="caption-row" style="grid-template-columns:1fr;">
+          <div class="mini-card"><strong>Goal, not task</strong><span>State the decision the work serves, not just the action ("report" vs "what the report must let us decide").</span></div>
+          <div class="mini-card"><strong>Let it grill you</strong><span>Pocock inverts the interview: the agent interrogates <em>you</em> until the spec survives questioning — assumptions surface instead of being guessed silently.</span></div>
+          <div class="mini-card"><strong>Iterate, don't waterfall</strong><span>Small scoped slices with checkpoints; one giant prompt maximises drift — and keeps the context out of the model's degraded "dumb zone".</span></div>
+        </div>
+      </div>
+      <div class="col" style="font-size:.8em;">
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Cautionary tale: the Stripe bug</h4><p>Karpathy's agent matched payments to accounts by <em>email address</em> instead of a persistent user ID. Plausible code, wrong system design — only human judgement catches it.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Who does what</h4><p>"You are in charge of oversight and the top-level categories. The agents do much of the work underneath."</p></div>
+      </div>
+    </div>
+    <p class="footnote">This deck's own repository is built with grill/spec skills — the method teaches itself.</p>
+    <p class="sources"><strong>Sources:</strong> <a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/">Karpathy, Sequoia AI Ascent summary (2026)</a>; <a href="https://www.youtube.com/watch?v=96jN2OCOfLs">fireside chat video</a>; <a href="https://www.aihero.dev/posts">Pocock, AI Hero</a>; <a href="https://www.youtube.com/watch?v=-QFHIoCo-Ko">Pocock, "Workflow for AI Coding", AI Engineer (2026)</a>.</p>
+    <aside class="notes">
+      Connect back to Module 5: the spec is prose-as-program applied to a single piece of work.
+      The Stripe/Google email example is verbatim from Karpathy's talk — great for researchers:
+      the model's output was locally plausible and globally wrong. Pocock's "grill" flow is the
+      same layer as Karpathy's spec ownership, turned into a reusable skill; his "smart/dumb zone"
+      observation (reasoning degrades as the window fills) echoes Module 4's Lost-in-the-Middle.
+      Cite Pocock as practice, not evidence — practitioner method, not a peer-reviewed claim.
+    </aside>
+  </section>
+
+  <section>
+    <h2>2 — Build a verification loop</h2>
+    <div class="cols">
+      <div class="col" style="font-size:.8em;">
+        <p>Karpathy's automation thesis: traditional software automates what you can <strong>specify</strong>; LLMs automate what you can <strong>verify</strong>. So make your own work verifiable.</p>
+        <div class="caption-row" style="grid-template-columns:1fr;">
+          <div class="mini-card"><strong>Criteria first…</strong><span>Define measurable success before generation — structure, counts, checks — not "make it readable".</span></div>
+          <div class="mini-card"><strong>…but expect criteria drift</strong><span>Shankar et al.: grading real outputs <em>changes</em> your criteria — evaluation is a loop that sharpens the spec, not a one-off gate.</span></div>
+          <div class="mini-card"><strong>Independent critic</strong><span>Audit output with a second model or fresh context; cross-examination exposes blind spots.</span></div>
+          <div class="mini-card"><strong>External ground truth</strong><span>Tests, logs, reference documents — never the model's self-assessment alone.</span></div>
+        </div>
+      </div>
+      <div class="col stack-sm">
+        <div class="quote-strip" style="grid-template-columns:1fr;">
+          <blockquote>"Give Claude a way to verify its work. If Claude has that feedback loop, it will 2-3x the quality of the final result."<cite>Boris Cherny, creator of Claude Code (2026)</cite></blockquote>
+        </div>
+        <div class="takeaway" style="font-size:.8em;">Verification is where the quality comes from — the generator is cheap, the check is the craft.</div>
+      </div>
+    </div>
+    <p class="sources"><strong>Sources:</strong> <a href="https://karpathy.bearblog.dev/verifiability/">Karpathy, "Verifiability" (2025)</a>; <a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/">Sequoia AI Ascent summary (2026)</a>; <a href="https://x.com/bcherny/status/2007179861115511237">Cherny on verification loops (X, 2026)</a>; <a href="https://doi.org/10.1145/3654777.3676450">Shankar et al., "Who Validates the Validators?" (UIST 2024)</a>.</p>
+    <aside class="notes">
+      The verifiability thesis also explains jaggedness (why code and maths race ahead). For
+      non-code work: feed exemplar documents as ground truth for tone and structure. Cherny's 2-3x
+      is a practitioner's estimate, not a controlled study — say so. Shankar's "criteria drift" is
+      peer-reviewed and subtle: people think they know their criteria until they grade outputs;
+      the act of verifying refines what "good" means. So the spec (slide 1) and the verifier
+      (this slide) feed each other — it is one loop, not a pipeline. LLM-as-judge inherits the
+      judge's flaws; that is why the human stays in the grading loop.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>3 — Invest in the environment</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.8em;">
+        <p>Every blank chat resets the ghost. Persistent scaffolding — the <em>around</em> stack of Modules 4–6 — is where reliability compounds. Huyen: this is now a discipline, <strong>AI engineering</strong> — building on foundation models you don't train, where evaluation carries the weight.</p>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Instruction files</h4><p>Project context loaded every session (Module 5: CLAUDE.md, AGENTS.md — same idea).</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Skills that compound</h4><p>Repeated workflow → codified skill → refined on each edge case.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Legible knowledge</h4><p>Well-organised local documents let a general model act with domain accuracy.</p></div>
+      </div>
+      <div class="col" style="font-size:.8em;">
+        <p><strong>Guardrails by risk, not by politeness.</strong> Prose rules are suggestions a model can override; high-risk actions need deterministic blocks.</p>
+        <div class="caption-row" style="grid-template-columns:1fr;">
+          <div class="mini-card"><strong>Always do</strong><span>Low-risk routine — runs on autopilot via instructions.</span></div>
+          <div class="mini-card"><strong>Ask first</strong><span>Moderate risk — mandatory confirmation before acting.</span></div>
+          <div class="mini-card"><strong>Never do</strong><span>Destructive actions — hard-blocked at the tool level, outside the model's reach.</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="footnote">Karpathy's autonomy slider: you choose how long the leash is, task by task.</p>
+    <p class="sources"><strong>Sources:</strong> <a href="https://www.youtube.com/watch?v=LCEmiRjPEtQ">Karpathy, "Software Is Changing (Again)", YC AI Startup School (2025)</a>; <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Anthropic, Claude Code best practices (2025)</a>; <a href="https://www.oreilly.com/library/view/ai-engineering/9781098166298/">Huyen, <em>AI Engineering</em> (O'Reilly, 2025)</a>.</p>
+    <aside class="notes">
+      The three-tier guardrail table foreshadows Module 8: prose instructions are part of the
+      context, and context can be manipulated — that is exactly the injection problem. Deterministic
+      blocks live outside the model, so they hold even when the context is compromised.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Outsource thinking, not understanding</h2>
+    <div class="quote-strip" style="grid-template-columns:1fr;">
+      <blockquote style="font-size:1.05em;">"You can outsource your thinking, but you can't outsource your understanding."<cite>a tweet Karpathy "keeps returning to" — AI Ascent (2026)</cite></blockquote>
+    </div>
+    <div class="cols" style="font-size:.8em;">
+      <div class="col">
+        <p>Two postures for staying in the loop — Mollick's terms, from the same BCG field study:</p>
+        <div class="caption-row" style="grid-template-columns:1fr 1fr;">
+          <div class="mini-card"><strong>Centaur</strong><span>Divide at a clear seam: human keeps judgement tasks, agent takes generation tasks; verify at the boundary.</span></div>
+          <div class="mini-card"><strong>Cyborg</strong><span>Interleave at every step: draft, question, redirect — the loop runs continuously.</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <p>Either way, someone must know <em>what is worth building, which result is suspicious, which trade-off is acceptable</em>. Mollick's rule: <strong>be the human in the loop</strong>.</p>
+        <p>That someone is the macro level of our three-level picture: judgement does not automate away; it becomes the bottleneck — and the value.</p>
+      </div>
+    </div>
+    <div class="takeaway">The better the ghost, the more the human's job is understanding.</div>
+    <p class="sources"><strong>Sources:</strong> <a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/">Karpathy, Sequoia AI Ascent summary (2026)</a>; <a href="https://pubsonline.informs.org/doi/10.1287/orsc.2025.21838">Dell'Acqua et al. (Organization Science)</a>; Mollick, <em>Co-Intelligence</em> (Portfolio, 2024).</p>
+    <aside class="notes">
+      Attribution matters: Karpathy explicitly says this is a tweet he keeps citing, not his own
+      coinage — model the citation hygiene we preach. Centaur/cyborg: observed working styles of
+      the consultants in the jagged-frontier experiment; popularised in Mollick's Co-Intelligence,
+      whose rules include "always invite AI to the table", "be the human in the loop", and "assume
+      this is the worst AI you will ever use". Hand-off to Module 8: what happens when the human is
+      *not* in the loop and the context is hostile.
+    </aside>
+  </section>
+
+</section>
+
+
+<!-- ===== 08-security-risks.html ===== -->
 <section>
 
   <section class="module-cover" data-background-image="assets/img/module-07-security-risks.png" data-background-size="cover" data-background-color="#fbfaf6">
-    <span class="modnum">07</span>
-    <p class="kicker">Module 7</p>
+    <span class="modnum">08</span>
+    <p class="kicker">Module 8</p>
     <h1>Security &amp; risks</h1>
     <p class="lede">Three layers of failure: the model, the user, and the data.</p>
     <aside class="notes">
@@ -1019,12 +1189,12 @@
 </section>
 
 
-<!-- ===== 08-ethics.html ===== -->
+<!-- ===== 09-ethics.html ===== -->
 <section>
 
   <section class="module-cover" data-background-image="assets/img/module-08-ethics.png" data-background-size="cover" data-background-color="#fbfaf6">
-    <span class="modnum">08</span>
-    <p class="kicker">Module 8</p>
+    <span class="modnum">09</span>
+    <p class="kicker">Module 9</p>
     <h1>Ethics</h1>
     <p class="lede">The human in the loop, who owns the data, and what happens to human capability.</p>
     <aside class="notes">
@@ -1104,8 +1274,9 @@
       <div class="step"><strong>4</strong><span>manage context</span></div>
       <div class="step"><strong>5</strong><span>write behaviour</span></div>
       <div class="step"><strong>6</strong><span>connect tools</span></div>
-      <div class="step"><strong>7</strong><span>face risks</span></div>
-      <div class="step"><strong>8</strong><span>keep judgement</span></div>
+      <div class="step"><strong>7</strong><span>work with agents</span></div>
+      <div class="step"><strong>8</strong><span>face risks</span></div>
+      <div class="step"><strong>9</strong><span>keep judgement</span></div>
     </div>
     <div class="visual-frame short recap-art">
       <img src="assets/img/m08-final-synthesis.png" alt="Course arc as an amber signal path through tokens, models, context, tools, risks and human judgement">
@@ -1183,18 +1354,32 @@
         MCP docs, <a href="https://modelcontextprotocol.io/docs/learn/architecture">Architecture</a>.<br>
         MCP specification, <a href="https://modelcontextprotocol.io/specification/2025-06-18/server/tools">Tools</a>.</p>
 
+        <p><strong>7 - Agents in practice</strong><br>
+        Karpathy (2025), <a href="https://www.youtube.com/watch?v=LCEmiRjPEtQ">Software Is Changing (Again)</a>, YC AI Startup School.<br>
+        Karpathy (2025), <a href="https://www.dwarkesh.com/p/andrej-karpathy">interview, Dwarkesh Podcast</a>.<br>
+        Karpathy (2025), <a href="https://karpathy.bearblog.dev/animals-vs-ghosts/">Animals vs Ghosts</a>.<br>
+        Karpathy (2025), <a href="https://karpathy.bearblog.dev/verifiability/">Verifiability</a>.<br>
+        Karpathy (2026), <a href="https://www.youtube.com/watch?v=96jN2OCOfLs">From Vibe Coding to Agentic Engineering</a>, Sequoia AI Ascent; <a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/">author's summary</a>.<br>
+        Cherny (2026), <a href="https://x.com/bcherny/status/2007179861115511237">on verification loops</a> (X).<br>
+        Anthropic (2025), <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Claude Code best practices</a>.<br>
+        Dell'Acqua, McFowland, Mollick, Lifshitz-Assaf, Kellogg et al., <a href="https://pubsonline.informs.org/doi/10.1287/orsc.2025.21838">Navigating the Jagged Technological Frontier</a> (Organization Science).<br>
+        Mollick (2024), <em>Co-Intelligence: Living and Working with AI</em>, Portfolio.<br>
+        Shankar et al. (2024), <a href="https://doi.org/10.1145/3654777.3676450">Who Validates the Validators?</a> (UIST).<br>
+        Huyen (2025), <a href="https://www.oreilly.com/library/view/ai-engineering/9781098166298/">AI Engineering</a>, O'Reilly.<br>
+        Pocock (2026), <a href="https://www.aihero.dev/posts">AI Hero</a>; <a href="https://www.youtube.com/watch?v=-QFHIoCo-Ko">Workflow for AI Coding</a> (AI Engineer).</p>
+
         <p><strong>Tools</strong><br>
         <a href="https://revealjs.com/">Reveal.js</a>; <a href="https://katex.org/">KaTeX</a>.</p>
       </div>
       <div class="col">
-        <p><strong>7 - Security &amp; risks</strong><br>
+        <p><strong>8 - Security &amp; risks</strong><br>
         Ji et al. (2023), <a href="https://doi.org/10.1145/3571730">Survey of Hallucination in NLG</a>.<br>
         Perez et al. (2022), <a href="https://arxiv.org/abs/2212.09251">Model-Written Evaluations</a>.<br>
         Sharma et al. (2023), <a href="https://arxiv.org/abs/2310.13548">Towards Understanding Sycophancy</a>.<br>
         Greshake et al. (2023), <a href="https://arxiv.org/abs/2302.12173">Indirect Prompt Injection</a>.<br>
         OWASP, <a href="https://genai.owasp.org/llm-top-10/">Top 10 for LLM Applications</a>.</p>
 
-        <p><strong>7-8 - Human factors &amp; ethics</strong><br>
+        <p><strong>8-9 - Human factors &amp; ethics</strong><br>
         Risko &amp; Gilbert (2016), <a href="https://doi.org/10.1016/j.tics.2016.07.002">Cognitive Offloading</a>.<br>
         Sparrow, Liu &amp; Wegner (2011), <a href="https://doi.org/10.1126/science.1207745">Google Effects on Memory</a>.<br>
         Lee &amp; See (2004), <a href="https://doi.org/10.1518/hfes.46.1.50_30392">Trust in Automation</a>.<br>
@@ -1217,7 +1402,7 @@
   <script src="vendor/reveal/plugin/zoom/zoom.js"></script>
   <script src="vendor/reveal/plugin/search/search.js"></script>
   <script src="vendor/reveal/plugin/math/math.js"></script>
-  <script src="widgets/theory-widgets.js?v=light-revision-3"></script>
+  <script src="widgets/theory-widgets.js?v=light-revision-4-i18n"></script>
   <script>
     Reveal.initialize({
       hash: true,

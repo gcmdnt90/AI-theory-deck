@@ -1,0 +1,98 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-08-ethics.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">08</span>
+    <p class="kicker">Modulo 8</p>
+    <h1>Etica</h1>
+    <p class="lede">L'umano nel loop, chi possiede i dati, e cosa succede alla capacità umana.</p>
+    <aside class="notes">
+      Chiudi il corso sul giudizio, non sugli strumenti. Sono domande deliberatamente aperte. Invita
+      la sala dentro invece di dettare conclusioni.
+    </aside>
+  </section>
+
+  <section>
+    <h2>L'umano nel loop</h2>
+    <div class="cols">
+      <div class="col visual-frame tight">
+        <img src="assets/img/human-loop.png" alt="Loop verde e viola che si incontrano a checkpoint ambrati">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Loop buono <span class="chip safe">sicuro</span></h4>
+          <p>L'umano fissa gli obiettivi, rivede le azioni con conseguenze, mantiene la responsabilità.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>Loop fallito <span class="chip risk">rischio</span></h4>
+          <p>L'umano come timbro; vince la compiacenza da automazione.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">La supervisione è significativa solo se un umano può comprendere, contestare e sovrascrivere.</div>
+    <aside class="notes">
+      Collega alla compiacenza da automazione: la supervisione degrada proprio quando il sistema ha
+      di solito ragione. La responsabilità non può essere delegata al modello.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Dati &amp; potere</h2>
+    <div class="visual-frame short">
+      <img src="assets/img/m08-data-power.png" alt="Dati, calcolo, modelli e beneficio per la comunità collegati come un triangolo di potere dell'AI">
+    </div>
+    <div class="cols c-3" style="margin-top:.6em;">
+      <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Consenso</h4><p>Corpora di training e attribuzione.</p></div>
+      <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Concentrazione</h4><p>Poche aziende controllano il calcolo di frontiera.</p></div>
+      <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Dati dei prompt</h4><p>Anche le tue domande sono dati.</p></div>
+    </div>
+    <aside class="notes">
+      Presenta le prospettive in modo equanime. È terreno di policy conteso, non un fatto assodato.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Lavoro &amp; mente umana</h2>
+    <div class="cols">
+      <div class="signal-card" style="--card-accent:var(--ait-green);">
+        <h4>Complemento</h4>
+        <p>L'AI estende la portata: bozze, ricerca, scala, traduzione fra domini.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-red);">
+        <h4>Sostituto</h4>
+        <p>Parte del lavoro cognitivo viene spiazzato. Quali competenze scegliamo di conservare?</p>
+      </div>
+    </div>
+    <div class="visual-frame generated-flow-frame stance-frame" style="margin-top:.8em;" role="img" aria-label="Postura dell'AI Translator: costruire con e giudicare bene">
+      <img src="assets/img/m08-build-judge-v2.png" alt="">
+      <span class="flow-label stance-build">costruire con</span>
+      <span class="flow-label stance-judge">giudicare bene</span>
+    </div>
+    <div class="takeaway">L'AI Translator costruisce con lo strumento proteggendo la capacità di giudicarlo.</div>
+    <aside class="notes">
+      Riporta tutto al programma: il Translator è l'umano che mantiene significativo il loop.
+    </aside>
+  </section>
+
+  <section data-background-color="#fbfaf6">
+    <h2>Dove siamo arrivati</h2>
+    <div class="recap-chain compact">
+      <div class="step"><strong>1</strong><span>arco storico</span></div>
+      <div class="step"><strong>2</strong><span>predire token</span></div>
+      <div class="step"><strong>3</strong><span>dentro / intorno</span></div>
+      <div class="step"><strong>4</strong><span>gestire il contesto</span></div>
+      <div class="step"><strong>5</strong><span>scrivere il comportamento</span></div>
+      <div class="step"><strong>6</strong><span>collegare strumenti</span></div>
+      <div class="step"><strong>7</strong><span>affrontare i rischi</span></div>
+      <div class="step"><strong>8</strong><span>conservare il giudizio</span></div>
+    </div>
+    <div class="visual-frame short recap-art">
+      <img src="assets/img/m08-final-synthesis.png" alt="Arco del corso come un percorso di segnale ambrato attraverso token, modelli, contesto, strumenti, rischi e giudizio umano">
+    </div>
+    <div class="takeaway">Shannon alla base, un sistema di livello cognitivo nelle tue mani. La parte difficile è il giudizio.</div>
+    <aside class="notes">
+      Riassunto in un fiato dell'intero arco. È la frase su cui chiudere la registrazione, poi
+      passaggio al workshop dove la applicano.
+    </aside>
+  </section>
+
+</section>

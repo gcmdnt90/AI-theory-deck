@@ -1,0 +1,178 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">01</span>
+    <p class="kicker">Modulo 1</p>
+    <h1>Una storia dell'NLP</h1>
+    <p class="lede">Dall'entropia del linguaggio al Transformer, agli agenti, ai world model.</p>
+    <aside class="notes">
+      Tesi: l'idea "nuova" dietro gli LLM è vecchia. Shannon inquadrò il linguaggio come processo
+      stocastico nel 1948. Ciò che è cambiato sono scala, dati e architettura.
+    </aside>
+  </section>
+
+  <section>
+    <h2>1948 - Il linguaggio come processo stocastico</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.82em;">
+        <p>Claude <strong>Shannon</strong> modella il testo come una sorgente che emette simboli con probabilità.</p>
+        <p>Predire il simbolo successivo = ridurre l'<em>entropia</em>.</p>
+        <p>$$H = -\sum_i p_i \log_2 p_i$$</p>
+        <div class="takeaway">Il significato diventa trattabile quando il linguaggio ha struttura.</div>
+      </div>
+      <div class="col visual-frame tight">
+        <img src="assets/img/shannon-signal.png" alt="Forma d'onda ambra che si trasforma in pillole di token">
+      </div>
+    </div>
+    <p class="sources"><strong>Fonti:</strong> Shannon (1948) <em>A Mathematical Theory of Communication</em>; Shannon (1951) <em>Prediction and Entropy of Printed English</em>.</p>
+    <aside class="notes">
+      Rendi esplicito il collegamento: un LLM è un enorme stimatore appreso della distribuzione del
+      simbolo-successivo di Shannon. Tutto il resto è ingegneria costruita attorno a questa scommessa.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Tre ere</h2>
+    <div class="era-line">
+      <div class="era" style="--era-color:var(--ait-amber);">
+        <h4>Simbolica</h4>
+        <p>Regole e grammatiche. Chiare, fragili, costruite a mano.</p>
+      </div>
+      <div class="era" style="--era-color:var(--ait-cyan);">
+        <h4>Statistica</h4>
+        <p>Conteggi, n-grammi, word2vec. I dati iniziano a battere le regole.</p>
+      </div>
+      <div class="era" style="--era-color:var(--ait-violet);">
+        <h4>Neurale</h4>
+        <p>RNN, attention, Transformer. La rappresentazione viene appresa.</p>
+      </div>
+    </div>
+    <div class="visual-frame" style="margin-top:.9em;">
+      <svg class="diagram" viewBox="0 0 1000 170" role="img" aria-label="Linea temporale dall'NLP simbolico al Transformer">
+        <path d="M70 85 H930" stroke="#d9e1ea" stroke-width="2"/>
+        <g fill="#ffffff" stroke-width="2">
+          <circle cx="120" cy="85" r="18" stroke="#e3a12f"/>
+          <circle cx="410" cy="85" r="18" stroke="#1597b5"/>
+          <circle cx="650" cy="85" r="18" stroke="#8366c8"/>
+          <circle cx="850" cy="85" r="18" stroke="#e3a12f" class="glow-amber"/>
+        </g>
+        <text x="120" y="50" text-anchor="middle" class="mono-label">Anni '50-'80</text>
+        <text x="410" y="50" text-anchor="middle" class="mono-label">Anni '90-2010</text>
+        <text x="650" y="50" text-anchor="middle" class="mono-label">2014-16</text>
+        <text x="850" y="50" text-anchor="middle" class="mono-label">2017</text>
+        <text x="120" y="130" text-anchor="middle" class="label">regole</text>
+        <text x="410" y="130" text-anchor="middle" class="label">conteggi</text>
+        <text x="650" y="130" text-anchor="middle" class="label">attention</text>
+        <text x="850" y="130" text-anchor="middle" class="label">Transformer</text>
+      </svg>
+    </div>
+    <p class="sources"><strong>Fonti:</strong> Hochreiter &amp; Schmidhuber (1997); Mikolov et al. (2013); Bahdanau et al. (2015).</p>
+    <aside class="notes">
+      Questa è la timeline di orientamento. La transizione chiave per ricercatori non informatici:
+      dal dire le regole alla macchina, al lasciare che inferisca le rappresentazioni dai dati.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>2017 - il cardine</h2>
+    <h3>"Attention Is All You Need"</h3>
+    <div class="cols">
+      <div class="col" style="font-size:.8em;">
+        <p>La self-<strong>attention</strong> permette a ogni token di pesare ogni altro token in parallelo.</p>
+        <p>Il parallelismo ha reso la scala praticabile; la scala ha reso visibile la capacità.</p>
+        <div class="caption-row hinge-captions" style="grid-template-columns:1fr;">
+          <div class="mini-card"><strong>Attention</strong><span>I token si confrontano con l'intera sequenza, non solo con i vicini.</span></div>
+          <div class="mini-card"><strong>Feed-forward</strong><span>Il modello trasforma quel contesto miscelato in nuove rappresentazioni.</span></div>
+          <div class="mini-card"><strong>Ripeti</strong><span>Impila molti layer, poi predici il prossimo token.</span></div>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m01-transformer-hinge.png" alt="Infografica chiara di un layer Transformer con pillole di token, self-attention, blocchi feed-forward e output">
+      </div>
+    </div>
+    <p class="sources"><strong>Fonte:</strong> Vaswani et al. (2017), <em>Attention Is All You Need</em>, NeurIPS.</p>
+    <aside class="notes">
+      Non entrare nei dettagli dell'architettura encoder-decoder completa qui. Fissa il punto di
+      svolta: attention più parallelismo hanno reso fattibile l'addestramento su larga scala.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Dal 2018 a oggi - l'era dello scaling</h2>
+    <div class="visual-frame">
+      <svg class="diagram" viewBox="0 0 980 300" role="img" aria-label="Scala dell'era dello scaling">
+        <g stroke-width="2" fill="none">
+          <path d="M105 238 H875" stroke="#d9e1ea"/>
+          <path d="M120 230 C235 190, 300 170, 420 146 S670 112, 840 70" stroke="#e3a12f" class="glow-amber"/>
+        </g>
+        <g>
+          <circle cx="160" cy="218" r="12" fill="#e3a12f"/>
+          <circle cx="360" cy="158" r="12" fill="#1597b5"/>
+          <circle cx="560" cy="122" r="12" fill="#8366c8"/>
+          <circle cx="785" cy="82" r="12" fill="#34956f"/>
+        </g>
+        <text x="160" y="260" text-anchor="middle" class="label">BERT / GPT</text>
+        <text x="360" y="198" text-anchor="middle" class="label">GPT-3</text>
+        <text x="560" y="162" text-anchor="middle" class="label">RLHF</text>
+        <text x="785" y="122" text-anchor="middle" class="label">agenti</text>
+        <text x="160" y="282" text-anchor="middle" class="mono-label">il pretraining trasferisce</text>
+        <text x="360" y="220" text-anchor="middle" class="mono-label">leggi di scala</text>
+        <text x="560" y="184" text-anchor="middle" class="mono-label">comportamento da assistente</text>
+        <text x="785" y="144" text-anchor="middle" class="mono-label">strumenti + loop</text>
+      </svg>
+    </div>
+    <div class="takeaway">Il substrato predittivo non è mai cambiato. Ciò che è emerso è un nuovo <em>livello</em> a cui leggere il sistema.</div>
+    <p class="sources"><strong>Fonti:</strong> Devlin et al. (2018); Brown et al. (2020); Ouyang et al. (2022).</p>
+    <aside class="notes">
+      Prepara la slide dei livelli: la base è ancora predizione, ma "solo predizione" è il livello
+      sbagliato a cui ragionare. Poi il Modulo 2 apre il livello base stesso.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Tre livelli, una macchina</h2>
+    <p class="lede">La predizione è il <em>substrato</em>, non il soffitto. L'errore è leggere un sistema al livello sbagliato.</p>
+    <p class="footnote" style="font-style:italic;">&ldquo;A livello microscopico abbiamo i neuroni, a livello mesoscopico di mezzo abbiamo queste idee.&rdquo; &mdash; Nello Cristianini</p>
+    <div class="cols fit-two">
+
+      <div class="col visual-frame media-fit levels-frame">
+        <img src="assets/img/m01-levels-machine-v2.png" alt="Spaccato di una macchina a tre strati: substrato probabilistico di token, strato dei concetti appresi e strato del giudizio umano">
+      </div>
+
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4><span class="chip safe">macro &middot; eso</span> Comportamento &amp; giudizio</h4>
+          <p>Il sistema letto a un livello comportamentale, quasi psicologico (la stance di Dennett) &mdash; e il giudizio umano che lo governa.</p>
+          <p class="mono-label">Relazionarsi: comprendere, contestare, sovrascrivere.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">meso &middot; meso</span> Concetti appresi &amp; competenza</h4>
+          <p>Le idee astratte che il modello ha costruito da sé (il livello mesoscopico di Cristianini) &mdash; la sede di ragionamento, memoria, skill e strumenti.</p>
+          <p class="mono-label">Relazionarsi: guidare con prosa, contesto e strumenti &mdash; è qui che lavori.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">micro &middot; tropo</span> Substrato</h4>
+          <p>Neuroni e pesi che calcolano le probabilità del prossimo token di Shannon. Sempre attivo, intrinsecamente statistico.</p>
+          <p class="mono-label">Relazionarsi: conoscerne i modi di guasto &mdash; sampling, temperatura, allucinazione.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Tieni Shannon alla base. Fai il tuo pensiero &mdash; e la tua guida &mdash; al livello meso.</div>
+    <p class="sources"><strong>Fonti:</strong>
+      Cristianini (2024/2025), <em>Machina Sapiens</em> &amp; intervista (livelli micro / meso / macro della cognizione delle macchine);
+      Marr (1982) livelli di analisi; Anderson (1972) <em>More Is Different</em>; Schaeffer et al. (2023) sulla sensibilità alla metrica dell'&ldquo;emergenza&rdquo;.
+    </p>
+    <aside class="notes">
+      Cita il livello mesoscopico di Cristianini in un fiato, poi passa alla metafora dell'atmosfera.
+      I suoi tre livelli: microscopico (neuroni/connessioni), mesoscopico (i concetti astratti che il
+      modello ha appreso da sé, es. la feature "Golden Gate"), macroscopico (il comportamento letto
+      quasi come una psicologia delle macchine, dove incontra Dennett). Proteggi il fianco: è
+      un'affermazione sul giusto LIVELLO di descrizione (Marr), non che il modello sia diventato una
+      mente. Schaeffer mostra che le "abilità emergenti" possono essere un artefatto della metrica -
+      va bene, perché l'argomento riguarda il livello, non un interruttore magico. Ogni modulo da qui
+      in poi risponde a: a quale livello siamo? Modulo 2 = substrato; Moduli 3-6 = sistema meso;
+      Moduli 7-8 = comportamento macro e giudizio.
+    </aside>
+  </section>
+
+</section>

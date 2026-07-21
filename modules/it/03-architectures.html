@@ -1,0 +1,143 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-03-architectures.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">03</span>
+    <p class="kicker">Modulo 3</p>
+    <h1>Architetture</h1>
+    <p class="lede">Due strati che la gente confonde: cosa sta <em>dentro</em> il modello vs. cosa è costruito <em>intorno</em>.</p>
+    <aside class="notes">
+      La correzione concettuale più importante di tutte: MoE ed embedding sono dentro il modello;
+      gli agenti sono intorno. La maggior parte della confusione vive su questo confine.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Il confine</h2>
+    <div class="cols">
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m03-boundary-motherboard.png" alt="Processore LLM montato su una scheda madre di memoria, strumenti e componenti di orchestrazione">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Dentro: il processore</h4>
+          <p>Pesi, attention, embedding, router MoE e comportamenti addestrati vivono dentro il modello.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Intorno: l'impalcatura</h4>
+          <p>Memoria, strumenti, retrieval, policy e loop instradano il lavoro intorno a un modello di solito congelato.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>Il test</h4>
+          <p>Se cambia i parametri, è dentro. Se fornisce contesto o azioni, è intorno.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Pensa all'LLM come al processore. Il sistema agentico è la scheda madre che collega memoria, strumenti e guardrail.</div>
+    <aside class="notes">
+      Dai il test concreto: cambia i pesi? MoE = sì, dentro. Un agente che chiama una calcolatrice
+      = no, intorno. Questo schema governa il resto del modulo.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip inside">3a</span> Come si costruisce un modello</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-training-pipeline.png" alt="Infografica chiara a tre stadi: pretraining, fine-tuning supervisionato e preference tuning">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>1. Pretraining</strong><span>Predire token su corpora enormi. Costruisce i pattern linguistici e di mondo generali.</span></div>
+        <div class="mini-card"><strong>2. Instruction tuning</strong><span>Gli esempi insegnano al modello a seguire compiti come assistente, non solo a continuare il testo.</span></div>
+        <div class="mini-card"><strong>3. Preference tuning</strong><span>Il feedback umano o automatico spinge gli output verso comportamenti utili, innocui, verificabili.</span></div>
+      </div>
+    </div>
+    <p class="footnote">Anche gli embedding vivono qui: modelli di embedding specializzati vengono poi usati per il retrieval.</p>
+    <p class="sources"><strong>Fonti:</strong> Brown et al. (2020); Ouyang et al. (2022); Christiano et al. (2017).</p>
+    <aside class="notes">
+      I ricercatori non informatici spesso pensano che "il modello" sia una cosa addestrata una volta
+      sola. Mostra la pipeline. Il comportamento da assistente viene per lo più dal post-training.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip inside">3a</span> Attention &amp; Mixture-of-Experts</h2>
+    <div class="cols top fit-two">
+      <div class="col">
+        <div class="visual-frame media-fit">
+          <img src="assets/img/m03-attention.png" alt="Pillole di token collegate da archi puliti di self-attention">
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);margin-top:.45em;">
+          <h4>Attention</h4>
+          <p>Ogni token costruisce un riassunto pesato degli altri token nello stesso contesto.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="visual-frame media-fit">
+          <img src="assets/img/m03-moe.png" alt="Router Mixture-of-Experts che accende due blocchi esperti in una griglia">
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);margin-top:.45em;">
+          <h4>Mixture-of-Experts</h4>
+          <p>Un router attiva un piccolo sottoinsieme di blocchi esperti, aumentando la capacità senza usare tutti i parametri a ogni token.</p>
+        </div>
+      </div>
+    </div>
+    <p class="sources"><strong>Fonti:</strong> Vaswani et al. (2017); Shazeer et al. (2017).</p>
+    <aside class="notes">
+      Sottolinea che MoE è un trucco interno di efficienza, non un agente né un comitato di modelli
+      che parlano fra loro.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip inside">3a</span> "Ragionamento" - due sensi</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Ragionamento addestrato</h4>
+          <p>Il post-training cambia il sistema così che la deliberazione faccia parte del comportamento del modello.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Ragionamento via prompt</h4>
+          <p>Un modello congelato viene avvolto con istruzioni, esempi o loop che gli chiedono di mostrare i passi.</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="reason-widget" data-reason-widget>
+          <div class="mode-buttons">
+            <button type="button" data-mode="trained" aria-pressed="true">Addestrato</button>
+            <button type="button" data-mode="prompted" aria-pressed="false">Via prompt</button>
+          </div>
+          <div class="reason-diagram" data-reason-diagram></div>
+          <p class="reason-copy" data-reason-copy></p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Stesso comportamento in superficie, meccanismo diverso.</div>
+    <p class="sources"><strong>Fonti:</strong> Wei et al. (2022); Nye et al. (2021).</p>
+    <aside class="notes">
+      Mantieni la disciplina dentro/intorno: il ragionamento addestrato è dentro, il ragionamento via
+      prompt è una tecnica applicata dall'esterno.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2><span class="chip around">3b</span> Agenti = LLM + loop + strumenti + memoria</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-agent-loop.png" alt="Processore LLM centrale avvolto da un loop agentico pulito di azioni, strumenti, memoria e osservazione">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Loop</strong><span>Decidi cosa fare dopo, osserva il risultato, poi decidi di nuovo.</span></div>
+        <div class="mini-card"><strong>Strumenti</strong><span>Azioni fuori dal modello: ricerca, file, codice, database, API.</span></div>
+        <div class="mini-card"><strong>Memoria</strong><span>Stato fornito intorno al modello perché la chiamata successiva abbia contesto utile.</span></div>
+      </div>
+    </div>
+    <p class="footnote">Pattern: ReAct, planning, reflection, orchestrazione multi-agente. Strumenti e memoria hanno moduli dedicati.</p>
+    <p class="sources"><strong>Fonti:</strong> Yao et al. (2023) ReAct; Schick et al. (2023) Toolformer.</p>
+    <aside class="notes">
+      Fissa il punto: il salto da chatbot ad agente è per lo più impalcatura, non un modello più
+      intelligente.
+    </aside>
+  </section>
+
+</section>

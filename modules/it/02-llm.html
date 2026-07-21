@@ -1,0 +1,196 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-02-llm-core.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">02</span>
+    <p class="kicker">Modulo 2</p>
+    <h1>Dentro un LLM</h1>
+    <p class="lede">Predizione del prossimo token, token, e la natura probabilistica di ogni output.</p>
+    <aside class="notes">
+      Obiettivo: demistificare. Alla fine devono vedere un LLM come un campionatore da una
+      distribuzione condizionata: potente, ma non magico, e non un database di fatti.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Una sola operazione, ripetuta</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.82em;">
+        <p>Un LLM calcola una distribuzione di probabilità sul prossimo token:</p>
+        <p>$$P(t_n \mid t_1, t_2, \dots, t_{n-1})$$</p>
+        <p><strong>Campiona</strong> un token, lo accoda, e ripete.</p>
+        <div class="takeaway">La fluidità è un loop, non una consultazione.</div>
+      </div>
+      <div class="col visual-frame">
+        <div class="prob-widget" data-next-token-widget>
+          <div class="prompt-switcher" role="group" aria-label="Scegli una frase di partenza">
+            <button type="button" data-prompt="Il satellite ha rilevato" aria-pressed="true">satellite</button>
+            <button type="button" data-prompt="La proposta di progetto richiede" aria-pressed="false">progetto</button>
+            <button type="button" data-prompt="Per verificare il risultato" aria-pressed="false">verifica</button>
+            <button type="button" data-prompt="Il vecchio archivio contiene" aria-pressed="false">archivio</button>
+          </div>
+          <div class="prompt-display" data-prompt-text>Il satellite ha rilevato</div>
+          <div class="bar-list"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Martella il loop. Allucinazione, creatività e fluidità derivano tutte dal campionare da una
+      distribuzione. Anticipa la temperatura.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Token, non parole o lettere</h2>
+    <p style="font-size:.8em;">Il modello vede pezzi di sotto-parola. Ecco perché alcuni compiti "ovvi" sulle lettere sono meccanicamente goffi.</p>
+    <div class="visual-frame">
+      <div class="tokenizer-widget" data-tokenizer-widget>
+        <div class="prompt-switcher token-presets" role="group" aria-label="Scegli una frase da tokenizzare">
+          <button type="button" data-sentence="La tokenizzazione divide il testo in pezzi di sotto-parola." aria-pressed="true">sotto-parola</button>
+          <button type="button" data-sentence="Conta la lettera r in strawberry." aria-pressed="false">lettere</button>
+          <button type="button" data-sentence="Il laboratorio ha misurato 12,7 milligrammi due volte." aria-pressed="false">numeri</button>
+          <button type="button" data-sentence="L'intelligenza artificiale aiuta la traduzione." aria-pressed="false">italiano</button>
+        </div>
+        <textarea class="tokenizer-input" rows="2" aria-label="Frase da tokenizzare">La tokenizzazione divide il testo in pezzi di sotto-parola.</textarea>
+        <p class="micro">Vista con token didattici</p>
+        <div class="token-output" data-token-output></div>
+        <div class="token-explainer" data-token-explainer>Passa il mouse o tocca un token per vedere perché è stato diviso.</div>
+      </div>
+      <div class="mini-legend">
+        <span><i style="background:var(--ait-cyan);"></i> token</span>
+        <span><i style="background:var(--ait-violet);"></i> sotto-parola</span>
+        <span><i style="background:var(--ait-amber);"></i> confine</span>
+      </div>
+    </div>
+    <p class="footnote">Nota sul widget: è un tokenizzatore didattico; le divisioni esatte dipendono dal vocabolario del modello.</p>
+    <p class="sources"><strong>Fonte:</strong> Sennrich et al. (2016), Byte-Pair Encoding for NMT.</p>
+    <aside class="notes">
+      Ottimo sfata-miti per un pubblico STEM: l'unità di percezione è il token. Gli embedding
+      trasformano quegli ID di token in vettori.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Dai token ai vettori</h2>
+    <div class="cols top token-vector-grid">
+      <div class="col stack-sm" style="font-size:.76em;">
+        <p>Ogni token corrisponde a un <strong>embedding</strong> ad alta dimensionalità.</p>
+        <p>La geometria trasporta le relazioni: significati simili stanno vicini.</p>
+        <p class="footnote">Ritroveremo gli embedding nel Modulo 3 e nel Modulo 4.</p>
+        <div class="visual-frame vector-diagram-frame">
+        <svg class="diagram" viewBox="0 0 520 340" role="img" aria-label="Diagramma dello spazio degli embedding">
+          <path d="M70 285 H470 M70 285 V45" stroke="#d9e1ea" stroke-width="2"/>
+          <g stroke="#d9e1ea" stroke-width="1">
+            <path d="M150 285 V45M230 285 V45M310 285 V45M390 285 V45"/>
+            <path d="M70 225 H470M70 165 H470M70 105 H470"/>
+          </g>
+          <path d="M190 220 L300 156 L374 96" stroke="#e3a12f" stroke-width="2.6" fill="none" class="glow-amber"/>
+          <path d="M190 220 L266 258 L374 96" stroke="#e3a12f" stroke-width="1.7" stroke-dasharray="6 8" fill="none"/>
+          <g fill="#ffffff" stroke-width="2">
+            <circle cx="190" cy="220" r="9" stroke="#1597b5"/><text x="158" y="247" class="mono-label">king</text>
+            <circle cx="266" cy="258" r="9" stroke="#1597b5"/><text x="238" y="287" class="mono-label">man</text>
+            <circle cx="300" cy="156" r="9" stroke="#8366c8"/><text x="318" y="162" class="mono-label">woman</text>
+            <circle cx="374" cy="96" r="11" stroke="#e3a12f" class="glow-amber"/><text x="392" y="102" class="mono-label">queen</text>
+            <circle cx="158" cy="132" r="7" stroke="#1597b5"/><text x="105" y="137" class="mono-label">royal</text>
+            <circle cx="410" cy="178" r="7" stroke="#8366c8"/><text x="425" y="184" class="mono-label">family</text>
+          </g>
+          <text x="260" y="34" text-anchor="middle" class="label">king - man + woman ~= queen</text>
+        </svg>
+        </div>
+      </div>
+      <div class="col visual-frame vector-video-frame">
+        <video src="assets/video/latent_space.mp4" autoplay loop muted playsinline data-autoplay></video>
+      </div>
+    </div>
+    <p class="sources"><strong>Fonti:</strong> Mikolov et al. (2013); Vaswani et al. (2017) sezione 3.4.</p>
+    <aside class="notes">
+      Pianta esplicitamente la bandierina del richiamo. Stessi vettori, tre mestieri: input del
+      modello, modelli di embedding specializzati, e indici di retrieval.
+    </aside>
+  </section>
+
+
+  <section data-background-color="#f4f8fb">
+    <h2>Temperatura: la manopola del determinismo</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.8em;">
+        <p>La temperatura rimodella la distribuzione prima del campionamento:</p>
+        <ul>
+          <li><strong>T bassa</strong>: netta, stabile, ripetitiva</li>
+          <li><strong>T alta</strong>: più piatta, creativa, più rischiosa</li>
+        </ul>
+        <p>$$p_i = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}$$</p>
+      </div>
+      <div class="col visual-frame">
+        <div class="temp-widget" data-temp-widget>
+          <p class="micro">T = <span data-temp-value>0.7</span></p>
+          <input class="temp-slider" type="range" min="0.2" max="2.0" step="0.1" value="0.7" aria-label="Temperatura">
+          <div class="bar-list"></div>
+          <svg class="temp-distribution" viewBox="0 0 520 185" data-temp-distribution role="img" aria-label="Curva di distribuzione di probabilità dal vivo"></svg>
+          <p class="temp-warning">Effetto esagerato per far capire il concetto.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Questo è il momento interattivo di alto valore: temperatura bassa contro alta sulla stessa
+      distribuzione. Messaggio semplice: la casualità è un'impostazione, non una personalità.
+    </aside>
+  </section>
+
+  <section>
+    <h2>"Pappagallo stocastico" - una provocazione utile</h2>
+    <div class="cols">
+      <div class="col visual-frame tight" style="max-width:520px;">
+        <img src="assets/img/stochastic-parrot.png" alt="Pappagallo schematico fatto di pillole di token su una forma d'onda ambra">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>La critica</h4>
+          <p>La forma fluente può invitarci a sovra-attribuire significato.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>La contro-tesi</h4>
+          <p>La predizione su larga scala può apprendere strutture che funzionano come comprensione.</p>
+        </div>
+        <div class="takeaway">Usa l'espressione come etichetta di avvertenza: la fluidità è prova di padronanza dei pattern, non prova di verità fondata.</div>
+      </div>
+    </div>
+    <p class="footnote">Presentalo come un dibattito scientifico aperto, non come un verdetto chiuso. Fonte: Bender, Gebru, McMillan-Major &amp; Shmitchell (2021).</p>
+    <aside class="notes">
+      Mantieni la tensione deliberatamente. Il punto non è risolvere il dibattito ma rendere il
+      pubblico attento a non antropomorfizzare.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Guarda il loop in azione</h2>
+    <p style="font-size:.8em;">Il modello non recupera una risposta già pronta. Costruisce il testo un token alla volta.</p>
+    <div class="visual-frame short loop-run-frame">
+      <svg class="diagram" viewBox="0 0 980 250" role="img" aria-label="Loop di generazione dei token">
+        <defs>
+          <marker id="arrow02" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10" fill="none" stroke="#e3a12f" stroke-width="1.8"/>
+          </marker>
+        </defs>
+        <g fill="rgba(255,255,255,.84)" stroke-width="2">
+          <rect x="52" y="78" width="228" height="94" rx="16" stroke="#1597b5"/>
+          <rect x="376" y="78" width="228" height="94" rx="16" stroke="#e3a12f"/>
+          <rect x="700" y="78" width="228" height="94" rx="16" stroke="#8366c8"/>
+        </g>
+        <text x="166" y="112" text-anchor="middle" class="label">1. Contesto attuale</text>
+        <text x="166" y="142" text-anchor="middle" class="mono-label">prompt + token generati</text>
+        <text x="490" y="112" text-anchor="middle" class="label">2. Probabilità dei token</text>
+        <text x="490" y="142" text-anchor="middle" class="mono-label">molte continuazioni possibili</text>
+        <text x="814" y="112" text-anchor="middle" class="label">3. Campiona, accoda</text>
+        <text x="814" y="142" text-anchor="middle" class="mono-label">la scelta diventa nuovo contesto</text>
+        <path d="M290 125 H366M614 125 H690" stroke="#e3a12f" stroke-width="2.4" marker-end="url(#arrow02)" class="glow-amber"/>
+        <path d="M814 184 C720 230, 262 230, 166 184" fill="none" stroke="#8366c8" stroke-width="2.2" stroke-dasharray="7 8" marker-end="url(#arrow02)"/>
+      </svg>
+    </div>
+    <div class="takeaway">Ogni parola cambia la predizione successiva perché entra a far parte del nuovo contesto del modello.</div>
+    <aside class="notes">
+      Rendi esplicito il loop di feedback: il testo generato non è post-elaborazione. Il token scelto
+      viene reimmesso nel passo successivo, così le scelte iniziali orientano le probabilità future.
+    </aside>
+  </section>
+
+</section>

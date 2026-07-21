@@ -1,4 +1,29 @@
 (() => {
+  // Locale switch: index.it.html sets <html lang="it">. English keys/strings
+  // stay the default; Italian entries mirror them 1:1 for the IT build.
+  const IT = (document.documentElement.lang || "en").toLowerCase().startsWith("it");
+  // Tokenizer-explainer strings.
+  const R = IT ? {
+    prefix: "Prefisso comune mantenuto come pezzo unico.",
+    suffix: "Suffisso comune separato come sotto-parola.",
+    longFirst: "Parola lunga divisa in un primo pezzo riutilizzabile.",
+    longRest: "Il resto diventa un pezzo di continuazione.",
+    shortWord: "Una parola breve e frequente può restare un solo token.",
+    numbers: "I numeri vengono spesso raggruppati per pattern di cifre.",
+    punct: "La punteggiatura diventa spesso un token di confine a sé.",
+    apostrophe: "Il confine dell'apostrofo può separarsi dalla parola seguente.",
+    leadingSpace: " Porta con sé anche un confine di spazio iniziale."
+  } : {
+    prefix: "Common prefix kept as one piece.",
+    suffix: "Common suffix split as a sub-word piece.",
+    longFirst: "Long word split into a reusable first piece.",
+    longRest: "Remainder becomes a continuation piece.",
+    shortWord: "Frequent short word can stay as one token.",
+    numbers: "Numbers are often grouped by digit pattern.",
+    punct: "Punctuation often becomes its own boundary token.",
+    apostrophe: "Apostrophe boundary can split from the following word.",
+    leadingSpace: " It also carries a leading-space boundary."
+  };
   const nextTokenExamples = {
     "The satellite detected": [
       { name: "cloud cover", value: .34 },
@@ -27,6 +52,35 @@
       { name: "maps", value: .18 },
       { name: "duplicates", value: .16 },
       { name: "gaps", value: .12 }
+    ],
+    // — Italian mirrors (same distributions) —
+    "Il satellite ha rilevato": [
+      { name: "copertura nuvolosa", value: .34 },
+      { name: "pennacchi di calore", value: .24 },
+      { name: "movimento", value: .19 },
+      { name: "un segnale", value: .14 },
+      { name: "nulla", value: .09 }
+    ],
+    "La proposta di progetto richiede": [
+      { name: "evidenze", value: .31 },
+      { name: "un budget", value: .25 },
+      { name: "revisione", value: .19 },
+      { name: "partner", value: .15 },
+      { name: "chiarezza", value: .10 }
+    ],
+    "Per verificare il risultato": [
+      { name: "confronta", value: .30 },
+      { name: "riesegui", value: .24 },
+      { name: "ispeziona", value: .20 },
+      { name: "cita", value: .15 },
+      { name: "registra", value: .11 }
+    ],
+    "Il vecchio archivio contiene": [
+      { name: "lettere", value: .29 },
+      { name: "metadati", value: .25 },
+      { name: "mappe", value: .18 },
+      { name: "duplicati", value: .16 },
+      { name: "lacune", value: .12 }
     ]
   };
 
@@ -75,8 +129,8 @@
     svg.innerHTML = `
       <line class="axis-line" x1="${padX}" y1="${baseY}" x2="${width - 24}" y2="${baseY}" stroke-width="1.4"/>
       <line class="axis-line" x1="${padX}" y1="${baseY}" x2="${padX}" y2="${topY}" stroke-width="1.4"/>
-      <text class="axis-label" x="${padX - 10}" y="${topY + 4}" text-anchor="end">probability</text>
-      <text class="axis-label" x="${width - 26}" y="179" text-anchor="end">candidate token</text>
+      <text class="axis-label" x="${padX - 10}" y="${topY + 4}" text-anchor="end">${IT ? "probabilità" : "probability"}</text>
+      <text class="axis-label" x="${width - 26}" y="179" text-anchor="end">${IT ? "token candidato" : "candidate token"}</text>
       <path d="${area}"></path>
       ${points.map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="${i === 0 ? 5 : 4}" fill="${i === 0 ? "var(--ait-amber)" : "var(--ait-cyan)"}"></circle>`).join("")}
       ${points.map(([x], i) => `<text class="temp-word" x="${x}" y="162" text-anchor="middle">${names[i]}</text>`).join("")}
@@ -104,18 +158,18 @@
     if (suffix) {
       const cut = word.length - suffix.length;
       return [
-        { text: word.slice(0, cut), kind: "token", reason: "Common prefix kept as one piece." },
-        { text: word.slice(cut), kind: "subword", reason: "Common suffix split as a sub-word piece." }
+        { text: word.slice(0, cut), kind: "token", reason: R.prefix },
+        { text: word.slice(cut), kind: "subword", reason: R.suffix }
       ];
     }
     if (word.length > 9) {
       const cut = Math.ceil(word.length / 2);
       return [
-        { text: word.slice(0, cut), kind: "token", reason: "Long word split into a reusable first piece." },
-        { text: word.slice(cut), kind: "subword", reason: "Remainder becomes a continuation piece." }
+        { text: word.slice(0, cut), kind: "token", reason: R.longFirst },
+        { text: word.slice(cut), kind: "subword", reason: R.longRest }
       ];
     }
-    return [{ text: word, kind: "token", reason: "Frequent short word can stay as one token." }];
+    return [{ text: word, kind: "token", reason: R.shortWord }];
   }
 
   function teachingTokenize(text) {
@@ -129,13 +183,13 @@
         continue;
       }
       if (/^\d/.test(value)) {
-        pieces.push({ text: value, kind: "subword", reason: "Numbers are often grouped by digit pattern.", leadingSpace });
+        pieces.push({ text: value, kind: "subword", reason: R.numbers, leadingSpace });
       } else if (/^[^\sA-Za-zÀ-ÿ0-9]$/.test(value)) {
-        pieces.push({ text: value, kind: "boundary", reason: "Punctuation often becomes its own boundary token.", leadingSpace });
+        pieces.push({ text: value, kind: "boundary", reason: R.punct, leadingSpace });
       } else if (value.includes("'")) {
         const [left, ...rest] = value.split("'");
         const right = rest.join("'");
-        if (left) pieces.push({ text: `${left}'`, kind: "boundary", reason: "Apostrophe boundary can split from the following word.", leadingSpace });
+        if (left) pieces.push({ text: `${left}'`, kind: "boundary", reason: R.apostrophe, leadingSpace });
         splitBareWord(right).forEach((piece, index) => {
           pieces.push({ ...piece, leadingSpace: index === 0 ? false : piece.leadingSpace });
         });
@@ -158,7 +212,7 @@
       if (!input || !output || !explainer) return;
 
       const explain = (piece) => {
-        const spaceNote = piece.leadingSpace ? " It also carries a leading-space boundary." : "";
+        const spaceNote = piece.leadingSpace ? R.leadingSpace : "";
         explainer.textContent = `${piece.text}: ${piece.reason}${spaceNote}`;
       };
 
@@ -200,7 +254,9 @@
       const slider = root.querySelector("input[type='range']");
       const label = root.querySelector("[data-temp-value]");
       const logits = [4.1, 3.2, 2.2, 1.5, .7];
-      const names = ["precise", "useful", "fresh", "weird", "false"];
+      const names = IT
+        ? ["preciso", "utile", "originale", "strano", "falso"]
+        : ["precise", "useful", "fresh", "weird", "false"];
       let phase = 0;
       let lastManualChange = 0;
       const update = () => {
@@ -230,7 +286,34 @@
       const buttons = [...root.querySelectorAll("button[data-mode]")];
       const copy = root.querySelector("[data-reason-copy]");
       const diagram = root.querySelector("[data-reason-diagram]");
-      const modes = {
+      const modes = IT ? {
+        trained: {
+          copy: "Dentro il modello: il post-training cambia il comportamento aggiornando parametri o policy. La capacità viene portata avanti senza dover ripetere un trucco di prompt.",
+          html: `
+            <div class="reason-art">
+              <img src="assets/img/m03-reason-trained.png" alt="Esempi di addestramento e feedback che fluiscono in un modello i cui pesi interni cambiano">
+              <div class="reason-labels">
+                <span>dati di training + feedback</span>
+                <span>i pesi cambiano</span>
+                <span>comportamento portato dentro</span>
+                <span>riusato senza trucchi di prompt</span>
+              </div>
+            </div>`
+        },
+        prompted: {
+          copy: "Intorno al modello: i pesi restano fissi. Forniamo un'impalcatura esterna — passi, esempi, strumenti o un loop — ogni volta che ci serve quel comportamento.",
+          html: `
+            <div class="reason-art">
+              <img src="assets/img/m03-reason-prompted.png" alt="Un modello congelato avvolto da prompt esterni, strumenti, esempi e impalcature di loop">
+              <div class="reason-labels">
+                <span>modello congelato</span>
+                <span>impalcatura esterna</span>
+                <span>istruzioni + esempi</span>
+                <span>fornita di nuovo ogni volta</span>
+              </div>
+            </div>`
+        }
+      } : {
         trained: {
           copy: "Inside the model: post-training changes behaviour by updating parameters or policies. The ability is carried forward without re-sending a prompt trick.",
           html: `

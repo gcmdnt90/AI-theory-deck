@@ -1,0 +1,97 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-04-context-memory.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">04</span>
+    <p class="kicker">Modulo 4</p>
+    <h1>Contesto &amp; memoria</h1>
+    <p class="lede">La finestra, i suoi limiti, e come i sistemi ricordano oltre di essa.</p>
+    <aside class="notes">
+      Distinzione centrale: il contesto è ciò che sta nel prompt adesso; la memoria è ciò che
+      persiste fra turni o sessioni. Sono ingegnerizzati in modo diverso.
+    </aside>
+  </section>
+
+  <section>
+    <h2>La finestra di contesto</h2>
+    <p style="font-size:.8em;">Il contesto è la memoria di lavoro immediata del modello: ciò che è caricato per questa chiamata.</p>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m04-context-ram.png" alt="Finestra di contesto simile a una RAM con segmenti di token colorati caricati in slot di memoria immediata">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Sistema</strong><span>Regole e istruzioni di ruolo stanno in testa al working set.</span></div>
+        <div class="mini-card"><strong>Storia + RAG</strong><span>Conversazione e chunk recuperati competono per lo stesso spazio finito.</span></div>
+        <div class="mini-card"><strong>Spazio per la risposta</strong><span>Il modello ha bisogno di budget anche per produrre i prossimi token.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">Finestre più grandi aiutano, ma non sono gratis.</div>
+    <aside class="notes">
+      Rendi tangibili i token: circa tre quarti di parola ciascuno. La finestra è memoria di lavoro,
+      azzerata a ogni chiamata a meno che tu non la rifornisca.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Contesto lungo: la posizione conta ancora</h2>
+    <div class="cols top context-placement-layout">
+      <div class="col stack-sm" style="font-size:.74em;">
+        <p><em>Lost in the Middle</em> riguarda il retrieval sensibile alla posizione: le evidenze vicino all'inizio o alla fine di un prompt lungo vengono spesso usate meglio di quelle sepolte nel mezzo.</p>
+        <p>Una finestra più grande dà più spazio, ma non rende tutte le posizioni ugualmente salienti. Retrieval e ordinamento contano ancora.</p>
+        <div class="context-scale-grid">
+          <div class="scale-card"><strong>GPT-3</strong><span>2k token<br>circa 1.500 parole</span></div>
+          <div class="scale-card"><strong>GPT-4</strong><span>8k / 32k<br>circa 6k / 24k parole</span></div>
+          <div class="scale-card"><strong>GPT-4 Turbo</strong><span>128k token<br>circa 96k parole</span></div>
+          <div class="scale-card"><strong>GPT-5.5</strong><span>1M token<br>circa 1,5 trilogie del Signore degli Anelli</span></div>
+        </div>
+        <p class="footnote">Regola pratica: 1 token è circa 0,75 parole inglesi; la trilogia del Signore degli Anelli è circa 480k parole.</p>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/middle_sag.png" alt="Curva lost-in-the-middle che mostra minore accuratezza di retrieval per informazioni poste al centro del contesto">
+      </div>
+    </div>
+    <p class="sources"><strong>Fonti:</strong> Liu et al. (2023/24), <em>Lost in the Middle</em>, TACL; Brown et al. (2020); OpenAI DevDay (2023); documentazione modelli OpenAI (consultata 2026-07-01).</p>
+    <aside class="notes">
+      Contrasta il riflesso "usa e basta una finestra enorme". Curare la rilevanza batte il
+      riversarci tutto dentro.
+    </aside>
+  </section>
+
+  <section>
+    <h2>RAG - prima recupera, poi genera</h2>
+    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="Pipeline RAG: Query, Embed, Ricerca vettoriale, Top-k chunk, LLM, Risposta">
+      <img src="assets/img/m04-rag-flow-v2.png" alt="">
+      <span class="flow-label rag-query">Query</span>
+      <span class="flow-label rag-embed">Embed</span>
+      <span class="flow-label rag-search">Ricerca vettoriale</span>
+      <span class="flow-label rag-chunks">Top-k chunk</span>
+      <span class="flow-label rag-llm">LLM</span>
+      <span class="flow-label rag-answer">Risposta</span>
+    </div>
+    <p class="footnote">Gli stessi embedding del Modulo 2 - ora usati come indice di ricerca.</p>
+    <p class="sources"><strong>Fonti:</strong> Lewis et al. (2020); Karpukhin et al. (2020).</p>
+    <aside class="notes">
+      Il RAG è il pattern più utile che questo pubblico costruirà davvero: recuperare i pochi chunk
+      rilevanti, non l'intera biblioteca.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Memoria oltre la finestra</h2>
+    <div class="cols">
+      <div class="col visual-frame media-fit">
+        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay style="width:100%;height:auto;display:block;border-radius:16px;"></video>
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Breve termine</h4><p>Storia della conversazione ripresentata a ogni turno.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Lungo termine</h4><p>Fatti archiviati esternamente e recuperati quando rilevanti.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Sintesi</h4><p>Turni vecchi compressi in note compatte.</p></div>
+      </div>
+    </div>
+    <div class="takeaway">La memoria è architettura intorno al modello, non un richiamo interno magico.</div>
+    <aside class="notes">
+      La sintesi è con perdita. Segnala il compromesso: dimenticare contro traboccare. Fa da ponte
+      al Modulo 5.
+    </aside>
+  </section>
+
+</section>
