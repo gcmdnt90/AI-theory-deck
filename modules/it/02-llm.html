@@ -45,8 +45,8 @@
     <h2>Dai token ai vettori</h2>
     <div class="cols top token-vector-grid">
       <div class="col stack-sm" style="font-size:.76em;">
-        <p>Ogni token corrisponde a un <strong>embedding</strong> ad alta dimensionalità.</p>
-        <p>La geometria trasporta le relazioni: significati simili stanno vicini.</p>
+        <p>Ogni token diventa una posizione su una grande <strong>mappa dei significati</strong> (un <em>embedding</em>).</p>
+        <p>Su questa mappa i significati simili stanno vicini.</p>
         <p class="footnote">Ritroveremo gli embedding nel Modulo 3 e nel Modulo 4.</p>
         <div class="visual-frame vector-diagram-frame">
         <svg class="diagram" viewBox="0 0 520 340" role="img" aria-label="Diagramma dello spazio degli embedding">
@@ -58,14 +58,14 @@
           <path d="M190 220 L300 156 L374 96" stroke="#e3a12f" stroke-width="2.6" fill="none" class="glow-amber"/>
           <path d="M190 220 L266 258 L374 96" stroke="#e3a12f" stroke-width="1.7" stroke-dasharray="6 8" fill="none"/>
           <g fill="#ffffff" stroke-width="2">
-            <circle cx="190" cy="220" r="9" stroke="#1597b5"/><text x="158" y="247" class="mono-label">king</text>
-            <circle cx="266" cy="258" r="9" stroke="#1597b5"/><text x="238" y="287" class="mono-label">man</text>
-            <circle cx="300" cy="156" r="9" stroke="#8366c8"/><text x="318" y="162" class="mono-label">woman</text>
-            <circle cx="374" cy="96" r="11" stroke="#e3a12f" class="glow-amber"/><text x="392" y="102" class="mono-label">queen</text>
-            <circle cx="158" cy="132" r="7" stroke="#1597b5"/><text x="105" y="137" class="mono-label">royal</text>
-            <circle cx="410" cy="178" r="7" stroke="#8366c8"/><text x="425" y="184" class="mono-label">family</text>
+            <circle cx="190" cy="220" r="9" stroke="#1597b5"/><text x="158" y="247" class="mono-label">re</text>
+            <circle cx="266" cy="258" r="9" stroke="#1597b5"/><text x="238" y="287" class="mono-label">uomo</text>
+            <circle cx="300" cy="156" r="9" stroke="#8366c8"/><text x="318" y="162" class="mono-label">donna</text>
+            <circle cx="374" cy="96" r="11" stroke="#e3a12f" class="glow-amber"/><text x="392" y="102" class="mono-label">regina</text>
+            <circle cx="158" cy="132" r="7" stroke="#1597b5"/><text x="105" y="137" class="mono-label">reale</text>
+            <circle cx="410" cy="178" r="7" stroke="#8366c8"/><text x="425" y="184" class="mono-label">famiglia</text>
           </g>
-          <text x="260" y="34" text-anchor="middle" class="label">king - man + woman ~= queen</text>
+          <text x="260" y="34" text-anchor="middle" class="label">re - uomo + donna ~= regina</text>
         </svg>
         </div>
       </div>
@@ -118,7 +118,6 @@
           <li><strong>T bassa</strong>: netta, stabile, ripetitiva</li>
           <li><strong>T alta</strong>: più piatta, creativa, più rischiosa</li>
         </ul>
-        <p>$$p_i = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}$$</p>
       </div>
       <div class="col visual-frame">
         <div class="temp-widget" data-temp-widget>

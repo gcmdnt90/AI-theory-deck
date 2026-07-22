@@ -7,7 +7,7 @@
     <p class="lede">Guidare un agente col linguaggio naturale: istruzioni, skill e strumenti.</p>
     <aside class="notes">
       Riformula la programmazione per questo pubblico: il comportamento si plasma per lo più
-      scrivendo prosa, non codice. Il Markdown è il substrato. I nomi dei file variano per vendor;
+      scrivendo prosa, non codice. Il Markdown è la base. I nomi dei file variano per vendor;
       il principio è generale.
     </aside>
   </section>
@@ -16,7 +16,8 @@
     <h2>La prosa guida il comportamento</h2>
     <div class="cols">
       <div class="col" style="font-size:.82em;">
-        <p>Gli agenti vengono guidati su due livelli: <strong>file di istruzioni persistenti</strong> e <strong>prompt del compito corrente</strong>.</p>
+        <p>Un prompt non è una domanda: è un <strong>setup</strong> che condiziona il modello. Prepari il terreno, non interroghi un archivio.</p>
+        <p>Guidi l'agente su due livelli: <strong>file di istruzioni persistenti</strong> (es. CLAUDE.md &mdash; valgono per ogni richiesta) e <strong>prompt del compito corrente</strong>.</p>
         <p>CO-STAR struttura quel prompt: Contesto, Obiettivo, Stile, Tono, Audience, Risposta.</p>
         <div class="caption-row control-captions" style="grid-template-columns:1fr;">
           <div class="mini-card"><strong>Regole persistenti</strong><span>Vincoli riutilizzabili: sicurezza, fonti, vocabolario e convenzioni del progetto.</span></div>
@@ -41,22 +42,22 @@
     <div class="cols">
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Leggibile</h4><p>Umani e modelli riescono a interpretarlo.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Diff-abile</h4><p>I cambi di comportamento compaiono in git.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Tracciabile</h4><p>Ogni modifica al comportamento resta visibile e reversibile.</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Strutturato</h4><p>Titoli ed elenchi danno segnali salienti.</p></div>
       </div>
       <div class="col visual-frame">
         <div class="layered-file">
           <div class="rule"># Regole persistenti</div>
-          <div>- cita fonti primarie</div>
-          <div>- mai nascondere l'incertezza</div>
+          <div>- cita sempre il riferimento di catalogo</div>
+          <div>- non inventare dati di provenienza</div>
           <br>
           <div class="context">## Prompt del compito · CO-STAR</div>
-          <div>- Contesto: lezione di teoria AI</div>
-          <div>- Obiettivo: spiegare il RAG</div>
-          <div>- Stile: esempi concreti</div>
-          <div>- Tono: conciso, scettico</div>
-          <div>- Audience: ricercatori STEM</div>
-          <div>- Risposta: 3 punti + diagramma</div>
+          <div>- Contesto: descrizione di un lotto d'asta</div>
+          <div>- Obiettivo: scheda di catalogo di una moneta</div>
+          <div>- Stile: professionale, sintetico</div>
+          <div>- Tono: preciso e verificabile</div>
+          <div>- Audience: collezionisti e acquirenti</div>
+          <div>- Risposta: 4 righe + stato di conservazione</div>
           <br>
           <div class="comment"># il comportamento ora è rivedibile</div>
         </div>
@@ -91,15 +92,12 @@
     <h2>Strumenti - azioni che il modello può compiere</h2>
     <div class="cols">
       <div class="col stack-sm">
-        <p style="font-size:.72em;">Uno strumento è procedurale: l'agente compila un input tipizzato, gira codice esterno, poi il risultato torna nel contesto.</p>
-        <pre><code class="language-json" data-trim>{
-  "name": "read_pdf",
-  "description": "Estrae testo e tabelle",
-  "input_schema": {
-    "file": "path",
-    "pages": "range"
-  }
-}</code></pre>
+        <p style="font-size:.72em;">Uno strumento è un'azione concreta: l'agente indica quale strumento usare e con quali input, un programma esterno lo esegue, poi il risultato torna nel contesto.</p>
+        <div class="tool-flow-mini" style="font-size:.72em;">
+          <div class="mini-card"><strong>Quale strumento</strong><span>es. "leggi PDF"</span></div>
+          <div class="mini-card"><strong>Quali input</strong><span>il file e le pagine da leggere</span></div>
+          <div class="mini-card"><strong>Cosa torna</strong><span>testo e tabelle, pronti da usare</span></div>
+        </div>
         <div class="caption-row" style="grid-template-columns:1fr 1fr;">
           <div class="mini-card"><strong>Formati</strong><span>PDF, XLSX, DOCX, PPTX, CSV, immagini, audio.</span></div>
           <div class="mini-card"><strong>Risultato</strong><span>Il contenuto interpretato torna come contesto strutturato su cui il modello può ragionare.</span></div>

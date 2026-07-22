@@ -35,8 +35,8 @@
     <h2>Contesto lungo: la posizione conta ancora</h2>
     <div class="cols top context-placement-layout">
       <div class="col stack-sm" style="font-size:.74em;">
-        <p><em>Lost in the Middle</em> riguarda il retrieval sensibile alla posizione: le evidenze vicino all'inizio o alla fine di un prompt lungo vengono spesso usate meglio di quelle sepolte nel mezzo.</p>
-        <p>Una finestra più grande dà più spazio, ma non rende tutte le posizioni ugualmente salienti. Retrieval e ordinamento contano ancora.</p>
+        <p>L'AI usa meglio ciò che sta vicino all'inizio o alla fine di un testo lungo; quello sepolto nel mezzo rischia di perdersi.</p>
+        <p>Una finestra più grande dà più spazio, ma non rende tutte le posizioni ugualmente evidenti. Conta ancora cosa metti dentro e in che ordine.</p>
         <div class="context-scale-grid">
           <div class="scale-card"><strong>GPT-3</strong><span>2k token<br>circa 1.500 parole</span></div>
           <div class="scale-card"><strong>GPT-4</strong><span>8k / 32k<br>circa 6k / 24k parole</span></div>
@@ -77,12 +77,12 @@
 
   <section>
     <h2>RAG - prima recupera, poi genera</h2>
-    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="Pipeline RAG: Query, Embed, Ricerca vettoriale, Top-k chunk, LLM, Risposta">
+    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="Pipeline RAG: Domanda, Trasforma in numeri, Cerca per significato, I pezzi più simili, LLM, Risposta">
       <img src="assets/img/m04-rag-flow-v2.png" alt="">
-      <span class="flow-label rag-query">Query</span>
-      <span class="flow-label rag-embed">Embed</span>
-      <span class="flow-label rag-search">Ricerca vettoriale</span>
-      <span class="flow-label rag-chunks">Top-k chunk</span>
+      <span class="flow-label rag-query">Domanda</span>
+      <span class="flow-label rag-embed">Trasforma in numeri</span>
+      <span class="flow-label rag-search">Cerca per significato</span>
+      <span class="flow-label rag-chunks">I pezzi più simili</span>
       <span class="flow-label rag-llm">LLM</span>
       <span class="flow-label rag-answer">Risposta</span>
     </div>

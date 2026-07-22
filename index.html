@@ -1444,12 +1444,12 @@
     <div class="cover-copy">
       <p class="kicker">AI Translator - Lezione frontale &amp; registrata</p>
       <h1>Modelli linguistici &amp; Agenti</h1>
-      <p class="subtitle">Dall'entropia del linguaggio agli agenti autonomi: cosa sono questi sistemi, come funzionano e dove falliscono.</p>
-      <p class="meta">UnivPM - Universit&agrave; Politecnica delle Marche | Percorso teorico | 9 moduli</p>
+      <p class="subtitle">Da come nascono le parole agli agenti autonomi: cosa sono questi sistemi, come funzionano e dove sbagliano.</p>
+      <p class="meta">Universit&agrave; Politecnica delle Marche &amp; San Marino Innovation | Percorso teorico | 9 moduli</p>
     </div>
     <aside class="notes">
       Apri inquadrando la lezione: questa è la spina dorsale teorica che la lezione registrata segue.
-      Pubblico = ricercatori STEM, non necessariamente informatici. Promessa: alla fine sapranno
+      Pubblico = staff e titolari di PMI, non tecnici. Promessa: alla fine sapranno
       ragionare su cosa sta facendo un LLM, non solo usarlo. Mantieni un tono curioso e scettico.
     </aside>
   </section>
@@ -1520,7 +1520,7 @@
         </div>
       </div>
     </div>
-    <div class="takeaway">La predizione è il substrato. I loop la trasformano in azione. Il giudizio decide quando l'azione è accettabile.</div>
+    <div class="takeaway">La predizione è la base. I cicli (loop) la trasformano in azione. Il giudizio decide quando l'azione è accettabile.</div>
     <aside class="notes">
       Una breve slide di orientamento per la registrazione: la predizione di token diventa azione solo
       quando è avvolta in sistemi. Ecco perché governance e giudizio umano contano.
@@ -1536,8 +1536,8 @@
   <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">01</span>
     <p class="kicker">Modulo 1</p>
-    <h1>Una storia dell'NLP</h1>
-    <p class="lede">Dall'entropia del linguaggio al Transformer, agli agenti, ai world model.</p>
+    <h1>Una breve storia dell'AI che capisce il linguaggio</h1>
+    <p class="lede">Da Shannon al Transformer, fino agli agenti di oggi.</p>
     <aside class="notes">
       Tesi: l'idea "nuova" dietro gli LLM è vecchia. Shannon inquadrò il linguaggio come processo
       stocastico nel 1948. Ciò che è cambiato sono scala, dati e architettura.
@@ -1545,12 +1545,11 @@
   </section>
 
   <section>
-    <h2>1948 - Il linguaggio come processo stocastico</h2>
+    <h2>1948 - Il linguaggio come gioco di probabilità</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.82em;">
-        <p>Claude <strong>Shannon</strong> modella il testo come una sorgente che emette simboli con probabilità.</p>
-        <p>Predire il simbolo successivo = ridurre l'<em>entropia</em>.</p>
-        <p>$H = -\sum_i p_i \log_2 p_i$</p>
+        <p>Claude <strong>Shannon</strong> descrive il testo come una sorgente che emette parole con una certa probabilità.</p>
+        <p>Prevedere bene la parola successiva = ridurre l'incertezza su ciò che viene dopo.</p>
         <div class="takeaway">Il significato diventa trattabile quando il linguaggio ha struttura.</div>
       </div>
       <div class="col visual-frame tight">
@@ -1654,7 +1653,7 @@
         <text x="785" y="144" text-anchor="middle" class="mono-label">strumenti + loop</text>
       </svg>
     </div>
-    <div class="takeaway">Il substrato predittivo non è mai cambiato. Ciò che è emerso è un nuovo <em>livello</em> a cui leggere il sistema.</div>
+    <div class="takeaway">La base predittiva non è mai cambiata. Ciò che è emerso è un nuovo <em>livello</em> a cui leggere il sistema.</div>
     <p class="sources"><strong>Fonti:</strong> Devlin et al. (2018); Brown et al. (2020); Ouyang et al. (2022).</p>
     <aside class="notes">
       Prepara la slide dei livelli: la base è ancora predizione, ma "solo predizione" è il livello
@@ -1664,8 +1663,7 @@
 
   <section data-background-color="#f4f8fb">
     <h2>Tre livelli, una macchina</h2>
-    <p class="lede">La predizione è il <em>substrato</em>, non il soffitto. L'errore è leggere un sistema al livello sbagliato.</p>
-    <p class="footnote" style="font-style:italic;">&ldquo;A livello microscopico abbiamo i neuroni, a livello mesoscopico di mezzo abbiamo queste idee.&rdquo; &mdash; Nello Cristianini</p>
+    <p class="lede">La predizione è la <em>base</em>, non il soffitto. L'errore è leggere un sistema al livello sbagliato.</p>
     <div class="cols fit-two">
 
       <div class="col visual-frame media-fit levels-frame">
@@ -1674,27 +1672,23 @@
 
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4><span class="chip safe">macro &middot; eso</span> Comportamento &amp; giudizio</h4>
-          <p>Il sistema letto a un livello comportamentale, quasi psicologico (la stance di Dennett) &mdash; e il giudizio umano che lo governa.</p>
+          <h4><span class="chip safe">macro</span> Comportamento &amp; giudizio</h4>
+          <p>Il sistema letto a un livello comportamentale, quasi psicologico &mdash; e il giudizio umano che lo governa.</p>
           <p class="mono-label">Relazionarsi: comprendere, contestare, sovrascrivere.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4><span class="chip around">meso &middot; meso</span> Concetti appresi &amp; competenza</h4>
-          <p>Le idee astratte che il modello ha costruito da sé (il livello mesoscopico di Cristianini) &mdash; la sede di ragionamento, memoria, skill e strumenti.</p>
+          <h4><span class="chip around">meso</span> Concetti appresi &amp; competenza</h4>
+          <p>Le idee astratte che il modello ha costruito da sé &mdash; la sede di ragionamento, memoria, skill e strumenti.</p>
           <p class="mono-label">Relazionarsi: guidare con prosa, contesto e strumenti &mdash; è qui che lavori.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-cyan);">
-          <h4><span class="chip inside">micro &middot; tropo</span> Substrato</h4>
-          <p>Neuroni e pesi che calcolano le probabilità del prossimo token di Shannon. Sempre attivo, intrinsecamente statistico.</p>
+          <h4><span class="chip inside">micro</span> La base</h4>
+          <p>Neuroni e pesi che calcolano le probabilità della parola successiva alla Shannon. Sempre attivo, intrinsecamente statistico.</p>
           <p class="mono-label">Relazionarsi: conoscerne i modi di guasto &mdash; sampling, temperatura, allucinazione.</p>
         </div>
       </div>
     </div>
     <div class="takeaway">Tieni Shannon alla base. Fai il tuo pensiero &mdash; e la tua guida &mdash; al livello meso.</div>
-    <p class="sources"><strong>Fonti:</strong>
-      Cristianini (2024/2025), <em>Machina Sapiens</em> &amp; intervista (livelli micro / meso / macro della cognizione delle macchine);
-      Marr (1982) livelli di analisi; Anderson (1972) <em>More Is Different</em>; Schaeffer et al. (2023) sulla sensibilità alla metrica dell'&ldquo;emergenza&rdquo;.
-    </p>
     <aside class="notes">
       Cita il livello mesoscopico di Cristianini in un fiato, poi passa alla metafora dell'atmosfera.
       I suoi tre livelli: microscopico (neuroni/connessioni), mesoscopico (i concetti astratti che il
@@ -1759,8 +1753,8 @@
     <h2>Dai token ai vettori</h2>
     <div class="cols top token-vector-grid">
       <div class="col stack-sm" style="font-size:.76em;">
-        <p>Ogni token corrisponde a un <strong>embedding</strong> ad alta dimensionalità.</p>
-        <p>La geometria trasporta le relazioni: significati simili stanno vicini.</p>
+        <p>Ogni token diventa una posizione su una grande <strong>mappa dei significati</strong> (un <em>embedding</em>).</p>
+        <p>Su questa mappa i significati simili stanno vicini.</p>
         <p class="footnote">Ritroveremo gli embedding nel Modulo 3 e nel Modulo 4.</p>
         <div class="visual-frame vector-diagram-frame">
         <svg class="diagram" viewBox="0 0 520 340" role="img" aria-label="Diagramma dello spazio degli embedding">
@@ -1772,14 +1766,14 @@
           <path d="M190 220 L300 156 L374 96" stroke="#e3a12f" stroke-width="2.6" fill="none" class="glow-amber"/>
           <path d="M190 220 L266 258 L374 96" stroke="#e3a12f" stroke-width="1.7" stroke-dasharray="6 8" fill="none"/>
           <g fill="#ffffff" stroke-width="2">
-            <circle cx="190" cy="220" r="9" stroke="#1597b5"/><text x="158" y="247" class="mono-label">king</text>
-            <circle cx="266" cy="258" r="9" stroke="#1597b5"/><text x="238" y="287" class="mono-label">man</text>
-            <circle cx="300" cy="156" r="9" stroke="#8366c8"/><text x="318" y="162" class="mono-label">woman</text>
-            <circle cx="374" cy="96" r="11" stroke="#e3a12f" class="glow-amber"/><text x="392" y="102" class="mono-label">queen</text>
-            <circle cx="158" cy="132" r="7" stroke="#1597b5"/><text x="105" y="137" class="mono-label">royal</text>
-            <circle cx="410" cy="178" r="7" stroke="#8366c8"/><text x="425" y="184" class="mono-label">family</text>
+            <circle cx="190" cy="220" r="9" stroke="#1597b5"/><text x="158" y="247" class="mono-label">re</text>
+            <circle cx="266" cy="258" r="9" stroke="#1597b5"/><text x="238" y="287" class="mono-label">uomo</text>
+            <circle cx="300" cy="156" r="9" stroke="#8366c8"/><text x="318" y="162" class="mono-label">donna</text>
+            <circle cx="374" cy="96" r="11" stroke="#e3a12f" class="glow-amber"/><text x="392" y="102" class="mono-label">regina</text>
+            <circle cx="158" cy="132" r="7" stroke="#1597b5"/><text x="105" y="137" class="mono-label">reale</text>
+            <circle cx="410" cy="178" r="7" stroke="#8366c8"/><text x="425" y="184" class="mono-label">famiglia</text>
           </g>
-          <text x="260" y="34" text-anchor="middle" class="label">king - man + woman ~= queen</text>
+          <text x="260" y="34" text-anchor="middle" class="label">re - uomo + donna ~= regina</text>
         </svg>
         </div>
       </div>
@@ -1832,7 +1826,6 @@
           <li><strong>T bassa</strong>: netta, stabile, ripetitiva</li>
           <li><strong>T alta</strong>: più piatta, creativa, più rischiosa</li>
         </ul>
-        <p>$p_i = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}$</p>
       </div>
       <div class="col visual-frame">
         <div class="temp-widget" data-temp-widget>
@@ -1959,9 +1952,9 @@
         <img src="assets/img/m03-training-pipeline.png" alt="Infografica chiara a tre stadi: pretraining, fine-tuning supervisionato e preference tuning">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>1. Pretraining</strong><span>Predire token su corpora enormi. Costruisce i pattern linguistici e di mondo generali.</span></div>
-        <div class="mini-card"><strong>2. Instruction tuning</strong><span>Gli esempi insegnano al modello a seguire compiti come assistente, non solo a continuare il testo.</span></div>
-        <div class="mini-card"><strong>3. Preference tuning</strong><span>Il feedback umano o automatico spinge gli output verso comportamenti utili, innocui, verificabili.</span></div>
+        <div class="mini-card"><strong>1. Apprende dai testi</strong><span>Prevede la parola successiva su enormi quantità di testo. Costruisce i pattern generali di lingua e di mondo.</span></div>
+        <div class="mini-card"><strong>2. Impara a seguire istruzioni</strong><span>Gli esempi gli insegnano a svolgere compiti come assistente, non solo a continuare il testo.</span></div>
+        <div class="mini-card"><strong>3. Regolato col feedback umano</strong><span>Il feedback di persone spinge le risposte verso comportamenti utili, innocui e verificabili.</span></div>
       </div>
     </div>
     <p class="footnote">Anche gli embedding vivono qui: modelli di embedding specializzati vengono poi usati per il retrieval.</p>
@@ -2045,7 +2038,7 @@
         <div class="mini-card"><strong>Memoria</strong><span>Stato fornito intorno al modello perché la chiamata successiva abbia contesto utile.</span></div>
       </div>
     </div>
-    <p class="footnote">Pattern: ReAct, planning, reflection, orchestrazione multi-agente. Strumenti e memoria hanno moduli dedicati.</p>
+    <p class="footnote">Il ciclo si ripete: decide &rarr; agisce &rarr; osserva &rarr; decide di nuovo. Strumenti e memoria hanno moduli dedicati.</p>
     <p class="sources"><strong>Fonti:</strong> Yao et al. (2023) ReAct; Schick et al. (2023) Toolformer.</p>
     <aside class="notes">
       Fissa il punto: il salto da chatbot ad agente è per lo più impalcatura, non un modello più
@@ -2094,8 +2087,8 @@
     <h2>Contesto lungo: la posizione conta ancora</h2>
     <div class="cols top context-placement-layout">
       <div class="col stack-sm" style="font-size:.74em;">
-        <p><em>Lost in the Middle</em> riguarda il retrieval sensibile alla posizione: le evidenze vicino all'inizio o alla fine di un prompt lungo vengono spesso usate meglio di quelle sepolte nel mezzo.</p>
-        <p>Una finestra più grande dà più spazio, ma non rende tutte le posizioni ugualmente salienti. Retrieval e ordinamento contano ancora.</p>
+        <p>L'AI usa meglio ciò che sta vicino all'inizio o alla fine di un testo lungo; quello sepolto nel mezzo rischia di perdersi.</p>
+        <p>Una finestra più grande dà più spazio, ma non rende tutte le posizioni ugualmente evidenti. Conta ancora cosa metti dentro e in che ordine.</p>
         <div class="context-scale-grid">
           <div class="scale-card"><strong>GPT-3</strong><span>2k token<br>circa 1.500 parole</span></div>
           <div class="scale-card"><strong>GPT-4</strong><span>8k / 32k<br>circa 6k / 24k parole</span></div>
@@ -2136,12 +2129,12 @@
 
   <section>
     <h2>RAG - prima recupera, poi genera</h2>
-    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="Pipeline RAG: Query, Embed, Ricerca vettoriale, Top-k chunk, LLM, Risposta">
+    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="Pipeline RAG: Domanda, Trasforma in numeri, Cerca per significato, I pezzi più simili, LLM, Risposta">
       <img src="assets/img/m04-rag-flow-v2.png" alt="">
-      <span class="flow-label rag-query">Query</span>
-      <span class="flow-label rag-embed">Embed</span>
-      <span class="flow-label rag-search">Ricerca vettoriale</span>
-      <span class="flow-label rag-chunks">Top-k chunk</span>
+      <span class="flow-label rag-query">Domanda</span>
+      <span class="flow-label rag-embed">Trasforma in numeri</span>
+      <span class="flow-label rag-search">Cerca per significato</span>
+      <span class="flow-label rag-chunks">I pezzi più simili</span>
       <span class="flow-label rag-llm">LLM</span>
       <span class="flow-label rag-answer">Risposta</span>
     </div>
@@ -2166,7 +2159,7 @@
     <p class="lede">Guidare un agente col linguaggio naturale: istruzioni, skill e strumenti.</p>
     <aside class="notes">
       Riformula la programmazione per questo pubblico: il comportamento si plasma per lo più
-      scrivendo prosa, non codice. Il Markdown è il substrato. I nomi dei file variano per vendor;
+      scrivendo prosa, non codice. Il Markdown è la base. I nomi dei file variano per vendor;
       il principio è generale.
     </aside>
   </section>
@@ -2175,7 +2168,8 @@
     <h2>La prosa guida il comportamento</h2>
     <div class="cols">
       <div class="col" style="font-size:.82em;">
-        <p>Gli agenti vengono guidati su due livelli: <strong>file di istruzioni persistenti</strong> e <strong>prompt del compito corrente</strong>.</p>
+        <p>Un prompt non è una domanda: è un <strong>setup</strong> che condiziona il modello. Prepari il terreno, non interroghi un archivio.</p>
+        <p>Guidi l'agente su due livelli: <strong>file di istruzioni persistenti</strong> (es. CLAUDE.md &mdash; valgono per ogni richiesta) e <strong>prompt del compito corrente</strong>.</p>
         <p>CO-STAR struttura quel prompt: Contesto, Obiettivo, Stile, Tono, Audience, Risposta.</p>
         <div class="caption-row control-captions" style="grid-template-columns:1fr;">
           <div class="mini-card"><strong>Regole persistenti</strong><span>Vincoli riutilizzabili: sicurezza, fonti, vocabolario e convenzioni del progetto.</span></div>
@@ -2200,22 +2194,22 @@
     <div class="cols">
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Leggibile</h4><p>Umani e modelli riescono a interpretarlo.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Diff-abile</h4><p>I cambi di comportamento compaiono in git.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Tracciabile</h4><p>Ogni modifica al comportamento resta visibile e reversibile.</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Strutturato</h4><p>Titoli ed elenchi danno segnali salienti.</p></div>
       </div>
       <div class="col visual-frame">
         <div class="layered-file">
           <div class="rule"># Regole persistenti</div>
-          <div>- cita fonti primarie</div>
-          <div>- mai nascondere l'incertezza</div>
+          <div>- cita sempre il riferimento di catalogo</div>
+          <div>- non inventare dati di provenienza</div>
           <br>
           <div class="context">## Prompt del compito · CO-STAR</div>
-          <div>- Contesto: lezione di teoria AI</div>
-          <div>- Obiettivo: spiegare il RAG</div>
-          <div>- Stile: esempi concreti</div>
-          <div>- Tono: conciso, scettico</div>
-          <div>- Audience: ricercatori STEM</div>
-          <div>- Risposta: 3 punti + diagramma</div>
+          <div>- Contesto: descrizione di un lotto d'asta</div>
+          <div>- Obiettivo: scheda di catalogo di una moneta</div>
+          <div>- Stile: professionale, sintetico</div>
+          <div>- Tono: preciso e verificabile</div>
+          <div>- Audience: collezionisti e acquirenti</div>
+          <div>- Risposta: 4 righe + stato di conservazione</div>
           <br>
           <div class="comment"># il comportamento ora è rivedibile</div>
         </div>
@@ -2250,15 +2244,12 @@
     <h2>Strumenti - azioni che il modello può compiere</h2>
     <div class="cols">
       <div class="col stack-sm">
-        <p style="font-size:.72em;">Uno strumento è procedurale: l'agente compila un input tipizzato, gira codice esterno, poi il risultato torna nel contesto.</p>
-        <pre><code class="language-json" data-trim>{
-  "name": "read_pdf",
-  "description": "Estrae testo e tabelle",
-  "input_schema": {
-    "file": "path",
-    "pages": "range"
-  }
-}</code></pre>
+        <p style="font-size:.72em;">Uno strumento è un'azione concreta: l'agente indica quale strumento usare e con quali input, un programma esterno lo esegue, poi il risultato torna nel contesto.</p>
+        <div class="tool-flow-mini" style="font-size:.72em;">
+          <div class="mini-card"><strong>Quale strumento</strong><span>es. "leggi PDF"</span></div>
+          <div class="mini-card"><strong>Quali input</strong><span>il file e le pagine da leggere</span></div>
+          <div class="mini-card"><strong>Cosa torna</strong><span>testo e tabelle, pronti da usare</span></div>
+        </div>
         <div class="caption-row" style="grid-template-columns:1fr 1fr;">
           <div class="mini-card"><strong>Formati</strong><span>PDF, XLSX, DOCX, PPTX, CSV, immagini, audio.</span></div>
           <div class="mini-card"><strong>Risultato</strong><span>Il contenuto interpretato torna come contesto strutturato su cui il modello può ragionare.</span></div>
@@ -2293,20 +2284,20 @@
 
   <section>
     <h2>Perché un protocollo condiviso?</h2>
-    <p style="font-size:.8em;">Se <strong>M assistenti</strong> devono connettersi a <strong>N strumenti</strong>, il cablaggio su misura può richiedere fino a <strong>M × N integrazioni specifiche per coppia</strong>. Un protocollo condiviso offre un'unica interfaccia comune.</p>
+    <p style="font-size:.8em;">Se molti assistenti devono collegarsi a molti strumenti, ogni collegamento su misura è lavoro in più. Un protocollo condiviso offre <strong>un'unica presa comune</strong> per tutti.</p>
     <div class="art-copy-layout">
       <div class="visual-frame media-fit">
         <img src="assets/img/m06-mxn-convention.png" alt="Agenti e server che scambiano buste di messaggi comuni attraverso un'unica corsia di protocollo condiviso">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>M assistenti × N strumenti</strong><span>Ogni coppia può altrimenti richiedere codice-colla su misura: da qui “M × N”.</span></div>
-        <div class="mini-card"><strong>Con MCP</strong><span>Agenti e server parlano la stessa grammatica richiesta/risposta.</span></div>
-        <div class="mini-card"><strong>Non sono dati condivisi</strong><span>MCP muove richieste, risultati e descrizioni di capacità; non fonde gli archivi di dati.</span></div>
+        <div class="mini-card"><strong>Tanti collegamenti su misura</strong><span>Senza uno standard, ogni coppia app-strumento richiede il suo codice dedicato.</span></div>
+        <div class="mini-card"><strong>Con MCP</strong><span>Agenti e strumenti parlano la stessa lingua di richiesta e risposta.</span></div>
+        <div class="mini-card"><strong>Non è fondere i dati</strong><span>MCP muove richieste, risultati e descrizioni di capacità; non unisce i tuoi archivi.</span></div>
       </div>
     </div>
     <aside class="notes">
-      Definisci la notazione a voce: M applicazioni client per N server di strumenti. Il titolo ora è
-      in linguaggio semplice; M × N resta nel corpo come motivo per cui uno standard riduce il lavoro.
+      Spiega a voce: tanti assistenti che si collegano a tanti strumenti. Ora tutto è in linguaggio
+      semplice: i troppi collegamenti su misura sono il motivo per cui uno standard comune riduce il lavoro.
     </aside>
   </section>
 
@@ -2314,8 +2305,8 @@
     <h2>Model Context Protocol</h2>
     <div class="cols">
       <div class="col" style="font-size:.8em;">
-        <p>Uno standard aperto in cui un <strong>host</strong> si connette a server che espongono capacità in modo uniforme.</p>
-        <p>MCP standardizza la busta intorno a chiamate di strumenti, risorse e template di prompt, così un agente può scoprire cosa offre un server.</p>
+        <p>Uno standard aperto: un'applicazione si connette a servizi che espongono le proprie capacità in modo uniforme.</p>
+        <p>MCP standardizza il modo in cui l'agente chiede strumenti, dati e istruzioni, così può scoprire da solo cosa offre un servizio.</p>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m06-mcp-primitives.png" alt="Host MCP connesso a scaffali di capacità: strumenti, risorse e template di prompt">
@@ -2362,7 +2353,7 @@
     <span class="modnum">07</span>
     <p class="kicker">Modulo 7 · interludio</p>
     <h1>Agenti in pratica</h1>
-    <p class="lede">Come i practitioner di punta lavorano davvero con il sistema di livello meso: specifica, verifica, ambiente.</p>
+    <p class="lede">Come i professionisti più avanzati lavorano davvero con questi sistemi: specifica, verifica, ambiente.</p>
     <aside class="notes">
       Modulo ponte: i Moduli 3–6 hanno descritto il sistema; prima di discutere i rischi, mostra come
       chi lo usa seriamente dice che vada guidato. Spina dorsale: Andrej Karpathy (co-fondatore di
@@ -2388,8 +2379,8 @@
       </div>
     </div>
     <div class="quote-strip">
-      <blockquote>"We're not building animals. We're building ghosts or spirits."<cite>Karpathy, Dwarkesh Podcast (2025)</cite></blockquote>
-      <blockquote>"They are jagged, alien tools... be suspicious of the system and figure it out empirically."<cite>Karpathy, AI Ascent (2026)</cite></blockquote>
+      <blockquote>&laquo;Non stiamo costruendo animali. Stiamo evocando fantasmi, spiriti.&raquo;<cite>Karpathy, Dwarkesh Podcast (2025)</cite></blockquote>
+      <blockquote>&laquo;Sono strumenti frastagliati, alieni... diffida del sistema e capiscilo sul campo, con l'esperienza.&raquo;<cite>Karpathy, AI Ascent (2026)</cite></blockquote>
     </div>
     <p class="sources"><strong>Fonti:</strong> <a href="https://www.dwarkesh.com/p/andrej-karpathy">Intervista Dwarkesh Podcast (ott 2025)</a>; <a href="https://karpathy.bearblog.dev/animals-vs-ghosts/">Karpathy, "Animals vs Ghosts" (2025)</a>; <a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/">Karpathy, riassunto Sequoia AI Ascent (2026)</a>; <a href="https://pubsonline.informs.org/doi/10.1287/orsc.2025.21838">Dell'Acqua, McFowland, Mollick, Lifshitz-Assaf, Kellogg et al., "Navigating the Jagged Technological Frontier" (Organization Science)</a>.</p>
     <aside class="notes">
@@ -2446,7 +2437,7 @@
       </div>
       <div class="col stack-sm">
         <div class="quote-strip" style="grid-template-columns:1fr;">
-          <blockquote>"Give Claude a way to verify its work. If Claude has that feedback loop, it will 2-3x the quality of the final result."<cite>Boris Cherny, creatore di Claude Code (2026)</cite></blockquote>
+          <blockquote>&laquo;Dai a Claude un modo per verificare il proprio lavoro. Con questo ciclo di feedback, la qualità del risultato finale raddoppia o triplica.&raquo;<cite>Boris Cherny, creatore di Claude Code (2026)</cite></blockquote>
         </div>
         <div class="takeaway" style="font-size:.8em;">La verifica è da dove viene la qualità — il generatore costa poco, il controllo è il mestiere.</div>
       </div>
@@ -2495,7 +2486,7 @@
   <section class="practice-slide">
     <h2>Delega il pensiero, non la comprensione</h2>
     <div class="quote-strip" style="grid-template-columns:1fr;">
-      <blockquote style="font-size:1.05em;">"You can outsource your thinking, but you can't outsource your understanding."<cite>un tweet a cui Karpathy "continua a tornare" — AI Ascent (2026)</cite></blockquote>
+      <blockquote style="font-size:1.05em;">&laquo;Puoi delegare il pensiero, ma non puoi delegare la comprensione.&raquo;<cite>un tweet a cui Karpathy &ldquo;continua a tornare&rdquo; — AI Ascent (2026)</cite></blockquote>
     </div>
     <div class="cols" style="font-size:.8em;">
       <div class="col">
@@ -2551,8 +2542,8 @@
         <p>Distorsioni dei dati di training trasportate negli output.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-violet);">
-        <h4>Sicofantismo</h4>
-        <p>Dare ragione all'utente invece di essere corretti.</p>
+        <h4>Compiacenza</h4>
+        <p>Dà ragione all'utente invece di correggerlo.</p>
       </div>
     </div>
     <div class="visual-frame generated-flow-frame risk-sources-frame" style="margin-top:.8em;" role="img" aria-label="Meccanismi di rischio del modello: sampling, dati di training, segnali di feedback">
@@ -2601,15 +2592,16 @@
     <h2><span class="chip risk">dati</span> Dove i dati perdono</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.74em;">
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud vs locale</h4><p>Chi può vedere i prompt e i dati caricati?</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud vs locale</h4><p>Chi può vedere le tue domande e i dati che carichi?</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Testo non fidato diventa un'istruzione.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Esposizione di segreti</h4><p>Corpora RAG e credenziali diventano bersagli.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Esposizione di dati</h4><p>Documenti interni e credenziali diventano bersagli.</p></div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m07-data-leaks.png" alt="Prompt injection indiretta che dirotta il percorso degli strumenti di un agente causando movimenti di dati indesiderati">
       </div>
     </div>
     <div class="takeaway">Il salto pericoloso è quando il testo non fidato smette di essere dato e inizia a guidare un'azione.</div>
+    <p class="footnote">App gratuita, abbonamento o <strong>API a pagamento</strong> cambiano <em>chi vede i tuoi dati</em> e <em>cosa può essere riutilizzato</em>: valutalo prima di caricare informazioni aziendali. (Approfondimento nel workshop.)</p>
     <p class="sources"><strong>Fonti:</strong> Greshake et al. (2023); OWASP Top 10 for LLM Applications.</p>
     <aside class="notes">
       Insisti sul fatto che i connettori allargano la superficie d'attacco: l'agente ora agisce su
@@ -2669,8 +2661,11 @@
       <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Concentrazione</h4><p>Poche aziende controllano il calcolo di frontiera.</p></div>
       <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Dati dei prompt</h4><p>Anche le tue domande sono dati.</p></div>
     </div>
+    <p class="footnote">Quadro normativo UE: l'<strong>EU AI Act</strong> (Regolamento UE 2024/1689) classifica i sistemi per livello di rischio e impone obblighi di trasparenza; il <strong>GDPR</strong> governa i dati personali. Chi adotta l'AI in azienda deve tenerli presenti.</p>
+    <p class="sources"><strong>Fonti:</strong> Regolamento (UE) 2024/1689 (AI Act); Regolamento (UE) 2016/679 (GDPR).</p>
     <aside class="notes">
       Presenta le prospettive in modo equanime. È terreno di policy conteso, non un fatto assodato.
+      L'AI Act è a rischio graduato (pratiche vietate, alto rischio, trasparenza, GPAI); approfondimento operativo nel workshop.
     </aside>
   </section>
 
@@ -2713,7 +2708,7 @@
     <div class="visual-frame short recap-art">
       <img src="assets/img/m08-final-synthesis.png" alt="Arco del corso come un percorso di segnale ambrato attraverso token, modelli, contesto, strumenti, rischi e giudizio umano">
     </div>
-    <div class="takeaway">Shannon alla base, un sistema di livello cognitivo nelle tue mani. La parte difficile è il giudizio.</div>
+    <div class="takeaway">Alla base è probabilità; nelle tue mani è uno strumento potente. La parte difficile è il giudizio.</div>
     <aside class="notes">
       Riassunto in un fiato dell'intero arco. È la frase su cui chiudere la registrazione, poi
       passaggio al workshop dove la applicano.

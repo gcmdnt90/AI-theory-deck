@@ -23,8 +23,8 @@
         <p>Distorsioni dei dati di training trasportate negli output.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-violet);">
-        <h4>Sicofantismo</h4>
-        <p>Dare ragione all'utente invece di essere corretti.</p>
+        <h4>Compiacenza</h4>
+        <p>Dà ragione all'utente invece di correggerlo.</p>
       </div>
     </div>
     <div class="visual-frame generated-flow-frame risk-sources-frame" style="margin-top:.8em;" role="img" aria-label="Meccanismi di rischio del modello: sampling, dati di training, segnali di feedback">
@@ -73,15 +73,16 @@
     <h2><span class="chip risk">dati</span> Dove i dati perdono</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.74em;">
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud vs locale</h4><p>Chi può vedere i prompt e i dati caricati?</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud vs locale</h4><p>Chi può vedere le tue domande e i dati che carichi?</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Testo non fidato diventa un'istruzione.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Esposizione di segreti</h4><p>Corpora RAG e credenziali diventano bersagli.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Esposizione di dati</h4><p>Documenti interni e credenziali diventano bersagli.</p></div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m07-data-leaks.png" alt="Prompt injection indiretta che dirotta il percorso degli strumenti di un agente causando movimenti di dati indesiderati">
       </div>
     </div>
     <div class="takeaway">Il salto pericoloso è quando il testo non fidato smette di essere dato e inizia a guidare un'azione.</div>
+    <p class="footnote">App gratuita, abbonamento o <strong>API a pagamento</strong> cambiano <em>chi vede i tuoi dati</em> e <em>cosa può essere riutilizzato</em>: valutalo prima di caricare informazioni aziendali. (Approfondimento nel workshop.)</p>
     <p class="sources"><strong>Fonti:</strong> Greshake et al. (2023); OWASP Top 10 for LLM Applications.</p>
     <aside class="notes">
       Insisti sul fatto che i connettori allargano la superficie d'attacco: l'agente ora agisce su

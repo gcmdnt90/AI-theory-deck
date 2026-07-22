@@ -46,9 +46,9 @@
         <img src="assets/img/m03-training-pipeline.png" alt="Infografica chiara a tre stadi: pretraining, fine-tuning supervisionato e preference tuning">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>1. Pretraining</strong><span>Predire token su corpora enormi. Costruisce i pattern linguistici e di mondo generali.</span></div>
-        <div class="mini-card"><strong>2. Instruction tuning</strong><span>Gli esempi insegnano al modello a seguire compiti come assistente, non solo a continuare il testo.</span></div>
-        <div class="mini-card"><strong>3. Preference tuning</strong><span>Il feedback umano o automatico spinge gli output verso comportamenti utili, innocui, verificabili.</span></div>
+        <div class="mini-card"><strong>1. Apprende dai testi</strong><span>Prevede la parola successiva su enormi quantità di testo. Costruisce i pattern generali di lingua e di mondo.</span></div>
+        <div class="mini-card"><strong>2. Impara a seguire istruzioni</strong><span>Gli esempi gli insegnano a svolgere compiti come assistente, non solo a continuare il testo.</span></div>
+        <div class="mini-card"><strong>3. Regolato col feedback umano</strong><span>Il feedback di persone spinge le risposte verso comportamenti utili, innocui e verificabili.</span></div>
       </div>
     </div>
     <p class="footnote">Anche gli embedding vivono qui: modelli di embedding specializzati vengono poi usati per il retrieval.</p>
@@ -132,7 +132,7 @@
         <div class="mini-card"><strong>Memoria</strong><span>Stato fornito intorno al modello perché la chiamata successiva abbia contesto utile.</span></div>
       </div>
     </div>
-    <p class="footnote">Pattern: ReAct, planning, reflection, orchestrazione multi-agente. Strumenti e memoria hanno moduli dedicati.</p>
+    <p class="footnote">Il ciclo si ripete: decide &rarr; agisce &rarr; osserva &rarr; decide di nuovo. Strumenti e memoria hanno moduli dedicati.</p>
     <p class="sources"><strong>Fonti:</strong> Yao et al. (2023) ReAct; Schick et al. (2023) Toolformer.</p>
     <aside class="notes">
       Fissa il punto: il salto da chatbot ad agente è per lo più impalcatura, non un modello più

@@ -13,20 +13,20 @@
 
   <section>
     <h2>Perché un protocollo condiviso?</h2>
-    <p style="font-size:.8em;">Se <strong>M assistenti</strong> devono connettersi a <strong>N strumenti</strong>, il cablaggio su misura può richiedere fino a <strong>M × N integrazioni specifiche per coppia</strong>. Un protocollo condiviso offre un'unica interfaccia comune.</p>
+    <p style="font-size:.8em;">Se molti assistenti devono collegarsi a molti strumenti, ogni collegamento su misura è lavoro in più. Un protocollo condiviso offre <strong>un'unica presa comune</strong> per tutti.</p>
     <div class="art-copy-layout">
       <div class="visual-frame media-fit">
         <img src="assets/img/m06-mxn-convention.png" alt="Agenti e server che scambiano buste di messaggi comuni attraverso un'unica corsia di protocollo condiviso">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>M assistenti × N strumenti</strong><span>Ogni coppia può altrimenti richiedere codice-colla su misura: da qui “M × N”.</span></div>
-        <div class="mini-card"><strong>Con MCP</strong><span>Agenti e server parlano la stessa grammatica richiesta/risposta.</span></div>
-        <div class="mini-card"><strong>Non sono dati condivisi</strong><span>MCP muove richieste, risultati e descrizioni di capacità; non fonde gli archivi di dati.</span></div>
+        <div class="mini-card"><strong>Tanti collegamenti su misura</strong><span>Senza uno standard, ogni coppia app-strumento richiede il suo codice dedicato.</span></div>
+        <div class="mini-card"><strong>Con MCP</strong><span>Agenti e strumenti parlano la stessa lingua di richiesta e risposta.</span></div>
+        <div class="mini-card"><strong>Non è fondere i dati</strong><span>MCP muove richieste, risultati e descrizioni di capacità; non unisce i tuoi archivi.</span></div>
       </div>
     </div>
     <aside class="notes">
-      Definisci la notazione a voce: M applicazioni client per N server di strumenti. Il titolo ora è
-      in linguaggio semplice; M × N resta nel corpo come motivo per cui uno standard riduce il lavoro.
+      Spiega a voce: tanti assistenti che si collegano a tanti strumenti. Ora tutto è in linguaggio
+      semplice: i troppi collegamenti su misura sono il motivo per cui uno standard comune riduce il lavoro.
     </aside>
   </section>
 
@@ -34,8 +34,8 @@
     <h2>Model Context Protocol</h2>
     <div class="cols">
       <div class="col" style="font-size:.8em;">
-        <p>Uno standard aperto in cui un <strong>host</strong> si connette a server che espongono capacità in modo uniforme.</p>
-        <p>MCP standardizza la busta intorno a chiamate di strumenti, risorse e template di prompt, così un agente può scoprire cosa offre un server.</p>
+        <p>Uno standard aperto: un'applicazione si connette a servizi che espongono le proprie capacità in modo uniforme.</p>
+        <p>MCP standardizza il modo in cui l'agente chiede strumenti, dati e istruzioni, così può scoprire da solo cosa offre un servizio.</p>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m06-mcp-primitives.png" alt="Host MCP connesso a scaffali di capacità: strumenti, risorse e template di prompt">

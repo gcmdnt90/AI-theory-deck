@@ -3,8 +3,8 @@
   <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">01</span>
     <p class="kicker">Modulo 1</p>
-    <h1>Una storia dell'NLP</h1>
-    <p class="lede">Dall'entropia del linguaggio al Transformer, agli agenti, ai world model.</p>
+    <h1>Una breve storia dell'AI che capisce il linguaggio</h1>
+    <p class="lede">Da Shannon al Transformer, fino agli agenti di oggi.</p>
     <aside class="notes">
       Tesi: l'idea "nuova" dietro gli LLM è vecchia. Shannon inquadrò il linguaggio come processo
       stocastico nel 1948. Ciò che è cambiato sono scala, dati e architettura.
@@ -12,12 +12,11 @@
   </section>
 
   <section>
-    <h2>1948 - Il linguaggio come processo stocastico</h2>
+    <h2>1948 - Il linguaggio come gioco di probabilità</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.82em;">
-        <p>Claude <strong>Shannon</strong> modella il testo come una sorgente che emette simboli con probabilità.</p>
-        <p>Predire il simbolo successivo = ridurre l'<em>entropia</em>.</p>
-        <p>$$H = -\sum_i p_i \log_2 p_i$$</p>
+        <p>Claude <strong>Shannon</strong> descrive il testo come una sorgente che emette parole con una certa probabilità.</p>
+        <p>Prevedere bene la parola successiva = ridurre l'incertezza su ciò che viene dopo.</p>
         <div class="takeaway">Il significato diventa trattabile quando il linguaggio ha struttura.</div>
       </div>
       <div class="col visual-frame tight">
@@ -121,7 +120,7 @@
         <text x="785" y="144" text-anchor="middle" class="mono-label">strumenti + loop</text>
       </svg>
     </div>
-    <div class="takeaway">Il substrato predittivo non è mai cambiato. Ciò che è emerso è un nuovo <em>livello</em> a cui leggere il sistema.</div>
+    <div class="takeaway">La base predittiva non è mai cambiata. Ciò che è emerso è un nuovo <em>livello</em> a cui leggere il sistema.</div>
     <p class="sources"><strong>Fonti:</strong> Devlin et al. (2018); Brown et al. (2020); Ouyang et al. (2022).</p>
     <aside class="notes">
       Prepara la slide dei livelli: la base è ancora predizione, ma "solo predizione" è il livello
@@ -131,8 +130,7 @@
 
   <section data-background-color="#f4f8fb">
     <h2>Tre livelli, una macchina</h2>
-    <p class="lede">La predizione è il <em>substrato</em>, non il soffitto. L'errore è leggere un sistema al livello sbagliato.</p>
-    <p class="footnote" style="font-style:italic;">&ldquo;A livello microscopico abbiamo i neuroni, a livello mesoscopico di mezzo abbiamo queste idee.&rdquo; &mdash; Nello Cristianini</p>
+    <p class="lede">La predizione è la <em>base</em>, non il soffitto. L'errore è leggere un sistema al livello sbagliato.</p>
     <div class="cols fit-two">
 
       <div class="col visual-frame media-fit levels-frame">
@@ -141,27 +139,23 @@
 
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4><span class="chip safe">macro &middot; eso</span> Comportamento &amp; giudizio</h4>
-          <p>Il sistema letto a un livello comportamentale, quasi psicologico (la stance di Dennett) &mdash; e il giudizio umano che lo governa.</p>
+          <h4><span class="chip safe">macro</span> Comportamento &amp; giudizio</h4>
+          <p>Il sistema letto a un livello comportamentale, quasi psicologico &mdash; e il giudizio umano che lo governa.</p>
           <p class="mono-label">Relazionarsi: comprendere, contestare, sovrascrivere.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4><span class="chip around">meso &middot; meso</span> Concetti appresi &amp; competenza</h4>
-          <p>Le idee astratte che il modello ha costruito da sé (il livello mesoscopico di Cristianini) &mdash; la sede di ragionamento, memoria, skill e strumenti.</p>
+          <h4><span class="chip around">meso</span> Concetti appresi &amp; competenza</h4>
+          <p>Le idee astratte che il modello ha costruito da sé &mdash; la sede di ragionamento, memoria, skill e strumenti.</p>
           <p class="mono-label">Relazionarsi: guidare con prosa, contesto e strumenti &mdash; è qui che lavori.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-cyan);">
-          <h4><span class="chip inside">micro &middot; tropo</span> Substrato</h4>
-          <p>Neuroni e pesi che calcolano le probabilità del prossimo token di Shannon. Sempre attivo, intrinsecamente statistico.</p>
+          <h4><span class="chip inside">micro</span> La base</h4>
+          <p>Neuroni e pesi che calcolano le probabilità della parola successiva alla Shannon. Sempre attivo, intrinsecamente statistico.</p>
           <p class="mono-label">Relazionarsi: conoscerne i modi di guasto &mdash; sampling, temperatura, allucinazione.</p>
         </div>
       </div>
     </div>
     <div class="takeaway">Tieni Shannon alla base. Fai il tuo pensiero &mdash; e la tua guida &mdash; al livello meso.</div>
-    <p class="sources"><strong>Fonti:</strong>
-      Cristianini (2024/2025), <em>Machina Sapiens</em> &amp; intervista (livelli micro / meso / macro della cognizione delle macchine);
-      Marr (1982) livelli di analisi; Anderson (1972) <em>More Is Different</em>; Schaeffer et al. (2023) sulla sensibilità alla metrica dell'&ldquo;emergenza&rdquo;.
-    </p>
     <aside class="notes">
       Cita il livello mesoscopico di Cristianini in un fiato, poi passa alla metafora dell'atmosfera.
       I suoi tre livelli: microscopico (neuroni/connessioni), mesoscopico (i concetti astratti che il
