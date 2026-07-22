@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>AI Translator — Theory of Language Models &amp; Agents</title>
+  <title>AI Translator — Language Models &amp; Agents</title>
 
   <!-- reveal core -->
   <link rel="stylesheet" href="vendor/reveal/dist/reset.css">
@@ -14,15 +14,87 @@
   <!-- math: KaTeX CSS is injected by the reveal math plugin from vendor/katex/dist -->
   <!-- custom AI-Translator theme (overrides) -->
   <link rel="stylesheet" href="css/theme.css">
+
+  <style>
+    /* Language toggle — fixed, on every slide, above the deck. */
+    .lang-toggle{
+      position: fixed; top: 12px; right: 14px; z-index: 60;
+      display: inline-flex; gap: 2px; padding: 3px;
+      background: rgba(255,255,255,.82); border: 1px solid rgba(20,30,40,.14);
+      border-radius: 999px; box-shadow: 0 2px 10px rgba(20,30,40,.10);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      backdrop-filter: saturate(1.2) blur(4px);
+    }
+    .lang-toggle button{
+      appearance: none; border: 0; cursor: pointer; margin: 0;
+      padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 700;
+      letter-spacing: .04em; color: #55606b; background: transparent; line-height: 1;
+      transition: background .15s ease, color .15s ease;
+    }
+    .lang-toggle button:hover{ color: #1b2530; }
+    .lang-toggle button[aria-pressed="true"]{
+      background: var(--ait-amber, #e3a12f); color: #1b1206;
+    }
+    @media print{ .lang-toggle{ display: none !important; } }
+  </style>
 </head>
 <body>
-  <div class="reveal">
-    <div class="slides">
-<!-- ==== MODULES INJECTED BY build.mjs — DO NOT EDIT index.html BY HAND ==== -->
-{{MODULES}}
-<!-- ==== END MODULES ==== -->
-    </div>
+  <!-- Language switch: persists in localStorage, reloads keeping the slide
+       number (both decks share the same slide order, so you stay in place). -->
+  <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Language / Lingua">
+    <button type="button" data-lang="en" lang="en">EN</button>
+    <button type="button" data-lang="it" lang="it">IT</button>
   </div>
+
+  <div class="reveal">
+    <div class="slides"><!-- populated at runtime from the active-language template --></div>
+  </div>
+
+  <!-- Both decks are shipped inert inside <template> elements (ids inside a
+       template are inert, so no duplicate-id clashes). build.mjs fills these. -->
+  <template id="deck-en">
+<!-- ==== EN MODULES INJECTED BY build.mjs — DO NOT EDIT index.html BY HAND ==== -->
+{{DECK_EN}}
+<!-- ==== END EN MODULES ==== -->
+  </template>
+  <template id="deck-it">
+<!-- ==== IT MODULES INJECTED BY build.mjs — DO NOT EDIT index.html BY HAND ==== -->
+{{DECK_IT}}
+<!-- ==== END IT MODULES ==== -->
+  </template>
+
+  <!-- 1) Decide language and inject the matching deck BEFORE Reveal/widgets run.
+       document.documentElement.lang is read by theory-widgets.js, so it must be
+       set here first. -->
+  <script>
+    (function () {
+      var DEFAULT_LANG = 'it'; // change to 'en' to publish English by default
+      var lang = (localStorage.getItem('deck-lang') || DEFAULT_LANG).toLowerCase();
+      if (lang !== 'en' && lang !== 'it') lang = 'en';
+      document.documentElement.lang = lang;
+      var tpl = document.getElementById('deck-' + lang);
+      var slides = document.querySelector('.reveal .slides');
+      if (tpl && slides) slides.innerHTML = tpl.innerHTML;
+      // Free the memory of both templates once the active one is live.
+      var other = document.getElementById('deck-' + (lang === 'en' ? 'it' : 'en'));
+      if (tpl) tpl.remove();
+      if (other) other.remove();
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var btns = document.querySelectorAll('#lang-toggle button');
+        Array.prototype.forEach.call(btns, function (b) {
+          b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+          b.addEventListener('click', function () {
+            if (b.dataset.lang === lang) return;
+            localStorage.setItem('deck-lang', b.dataset.lang);
+            // Reload: Reveal keeps the slide number in the URL hash, so the
+            // other language opens on the very same slide.
+            location.reload();
+          });
+        });
+      });
+    })();
+  </script>
 
   <script src="vendor/reveal/dist/reveal.js"></script>
   <script src="vendor/reveal/plugin/notes/notes.js"></script>
@@ -30,7 +102,7 @@
   <script src="vendor/reveal/plugin/zoom/zoom.js"></script>
   <script src="vendor/reveal/plugin/search/search.js"></script>
   <script src="vendor/reveal/plugin/math/math.js"></script>
-  <script src="widgets/theory-widgets.js?v=light-revision-4-i18n"></script>
+  <script src="widgets/theory-widgets.js?v=light-revision-5-bilingual"></script>
   <script>
     Reveal.initialize({
       hash: true,
