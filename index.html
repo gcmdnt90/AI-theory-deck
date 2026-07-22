@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="vendor/reveal/plugin/highlight/monokai.css">
   <!-- math: KaTeX CSS is injected by the reveal math plugin from vendor/katex/dist -->
   <!-- custom AI-Translator theme (overrides) -->
-  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/theme.css?v=light-revision-6-bilingual">
 
   <style>
     /* Language toggle — fixed, on every slide, above the deck. */
@@ -343,34 +343,6 @@
   </section>
 
   <section>
-    <h2>One operation, repeated</h2>
-    <div class="cols">
-      <div class="col stack-sm" style="font-size:.82em;">
-        <p>An LLM computes a probability distribution over the next token:</p>
-        <p>$P(t_n \mid t_1, t_2, \dots, t_{n-1})$</p>
-        <p>It <strong>samples</strong> one token, appends it, and repeats.</p>
-        <div class="takeaway">Fluency is a loop, not a lookup.</div>
-      </div>
-      <div class="col visual-frame">
-        <div class="prob-widget" data-next-token-widget>
-          <div class="prompt-switcher" role="group" aria-label="Choose a starting phrase">
-            <button type="button" data-prompt="The satellite detected" aria-pressed="true">satellite</button>
-            <button type="button" data-prompt="The grant proposal needs" aria-pressed="false">grant</button>
-            <button type="button" data-prompt="To verify the result" aria-pressed="false">verify</button>
-            <button type="button" data-prompt="The old archive contains" aria-pressed="false">archive</button>
-          </div>
-          <div class="prompt-display" data-prompt-text>The satellite detected</div>
-          <div class="bar-list"></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes">
-      Hammer the loop. Hallucination, creativity and fluency all fall out of sampling from a
-      distribution. Forward-reference temperature.
-    </aside>
-  </section>
-
-  <section>
     <h2>Tokens, not words or letters</h2>
     <p style="font-size:.8em;">The model sees sub-word pieces. That is why some "obvious" letter tasks are mechanically awkward.</p>
     <div class="visual-frame">
@@ -436,6 +408,34 @@
     <aside class="notes">
       Plant the callback flag explicitly. Same vectors, three jobs: model input, specialised embedding
       models, and retrieval indexes.
+    </aside>
+  </section>
+
+  <section>
+    <h2>One operation, repeated</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.82em;">
+        <p>An LLM computes a probability distribution over the next token:</p>
+        <p>$P(t_n \mid t_1, t_2, \dots, t_{n-1})$</p>
+        <p>It <strong>samples</strong> one token, appends it, and repeats.</p>
+        <div class="takeaway">Fluency is a loop, not a lookup.</div>
+      </div>
+      <div class="col visual-frame">
+        <div class="prob-widget" data-next-token-widget>
+          <div class="prompt-switcher" role="group" aria-label="Choose a starting phrase">
+            <button type="button" data-prompt="The satellite detected" aria-pressed="true">satellite</button>
+            <button type="button" data-prompt="The grant proposal needs" aria-pressed="false">grant</button>
+            <button type="button" data-prompt="To verify the result" aria-pressed="false">verify</button>
+            <button type="button" data-prompt="The old archive contains" aria-pressed="false">archive</button>
+          </div>
+          <div class="prompt-display" data-prompt-text>The satellite detected</div>
+          <div class="bar-list"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Hammer the loop. Hallucination, creativity and fluency all fall out of sampling from a
+      distribution. Forward-reference temperature.
     </aside>
   </section>
 
@@ -731,6 +731,24 @@
   </section>
 
   <section>
+    <h2>Memory beyond the window</h2>
+    <div class="cols">
+      <div class="col visual-frame media-fit">
+        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay style="width:100%;height:auto;display:block;border-radius:16px;"></video>
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Short-term</h4><p>Conversation history replayed each turn.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Long-term</h4><p>Facts stored externally and retrieved when relevant.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Synthesis</h4><p>Old turns compressed into compact notes.</p></div>
+      </div>
+    </div>
+    <div class="takeaway">Memory is architecture around the model, not a magical internal recall.</div>
+    <aside class="notes">
+      Summarisation is lossy. Flag the trade-off: forgetting versus overflow. Bridges to Module 5.
+    </aside>
+  </section>
+
+  <section>
     <h2>RAG - retrieve, then generate</h2>
     <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="RAG pipeline: Query, Embed, Vector search, Top-k chunks, LLM, Answer">
       <img src="assets/img/m04-rag-flow-v2.png" alt="">
@@ -746,24 +764,6 @@
     <aside class="notes">
       RAG is the single most useful pattern this audience will actually build: retrieve the few
       relevant chunks, not the whole library.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Memory beyond the window</h2>
-    <div class="cols">
-      <div class="col visual-frame media-fit">
-        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay style="width:100%;height:auto;display:block;border-radius:16px;"></video>
-      </div>
-      <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Short-term</h4><p>Conversation history replayed each turn.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Long-term</h4><p>Facts stored externally and retrieved when relevant.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Synthesis</h4><p>Old turns compressed into compact notes.</p></div>
-      </div>
-    </div>
-    <div class="takeaway">Memory is architecture around the model, not a magical internal recall.</div>
-    <aside class="notes">
-      Summarisation is lossy. Flag the trade-off: forgetting versus overflow. Bridges to Module 5.
     </aside>
   </section>
 
@@ -785,24 +785,26 @@
   </section>
 
   <section>
-    <h2>Prose is the program</h2>
+    <h2>Prose steers behaviour</h2>
     <div class="cols">
       <div class="col" style="font-size:.82em;">
-        <p>Behaviour is specified in layered, plain-language instruction files.</p>
-        <p>Layers compose: hard rules, project context, task persona.</p>
+        <p>Agents are steered at two scopes: <strong>persistent instruction files</strong> and the <strong>current task prompt</strong>.</p>
+        <p>CO-STAR structures that task prompt: Context, Objective, Style, Tone, Audience, Response.</p>
         <div class="caption-row control-captions" style="grid-template-columns:1fr;">
-          <div class="mini-card"><strong>Rules</strong><span>Non-negotiable constraints: safety, style, source policy.</span></div>
-          <div class="mini-card"><strong>Context</strong><span>Project vocabulary, audience, data model, local conventions.</span></div>
-          <div class="mini-card"><strong>Persona</strong><span>The working posture: concise, sceptical, teacherly, playful.</span></div>
+          <div class="mini-card"><strong>Persistent rules</strong><span>Reusable constraints: safety, source policy, project vocabulary and conventions.</span></div>
+          <div class="mini-card"><strong>Task prompt · CO-STAR</strong><span>The goal and background, plus the desired style, tone, audience and response format.</span></div>
+          <div class="mini-card"><strong>Connected, not identical</strong><span>CO-STAR shapes one request; instruction files carry stable guidance across many requests.</span></div>
         </div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m05-prose-stack.png" alt="Layered instruction sheets guiding an agent behaviour signal">
       </div>
     </div>
-    <p class="footnote">Vendor flavours: CLAUDE.md, AGENTS.md, context.md, "soul" files. Same idea, different filenames.</p>
+    <p class="sources"><strong>Source:</strong> <a href="https://www.tech.gov.sg/technews/mastering-the-art-of-prompt-engineering-with-empower/">GovTech Singapore, CO-STAR framework</a> (2025).</p>
     <aside class="notes">
-      Stress principle over brand. This is reviewable, version-controllable and human-readable.
+      CO-STAR is genuinely related, but it is a prompt scaffold rather than a complete model of
+      persistent agent configuration. Stress principle over brand: both make prose explicit,
+      reviewable and reusable at different scopes.
     </aside>
   </section>
 
@@ -816,16 +818,18 @@
       </div>
       <div class="col visual-frame">
         <div class="layered-file">
-          <div class="rule"># Rules</div>
+          <div class="rule"># Persistent rules</div>
           <div>- cite primary sources</div>
           <div>- never hide uncertainty</div>
           <br>
-          <div class="context">## Context</div>
-          <div>- audience: STEM researchers</div>
-          <div>- examples should be local</div>
+          <div class="context">## Task prompt · CO-STAR</div>
+          <div>- Context: AI theory lesson</div>
+          <div>- Objective: explain RAG</div>
+          <div>- Style: concrete examples</div>
+          <div>- Tone: concise, sceptical</div>
+          <div>- Audience: STEM researchers</div>
+          <div>- Response: 3 bullets + diagram</div>
           <br>
-          <div class="persona">## Persona</div>
-          <div>- concise, warm, sceptical</div>
           <div class="comment"># behaviour is now reviewable</div>
         </div>
       </div>
@@ -901,20 +905,21 @@
   </section>
 
   <section>
-    <h2>The M x N problem</h2>
-    <p style="font-size:.8em;">This is not a diagram about shared data. It is about a shared <strong>language format</strong>: a convention for how agents ask for work and receive results.</p>
+    <h2>Why a shared protocol?</h2>
+    <p style="font-size:.8em;">If <strong>M assistants</strong> must connect to <strong>N tools</strong>, bespoke wiring can mean up to <strong>M × N pair-specific integrations</strong>. A shared protocol gives both sides one common interface.</p>
     <div class="art-copy-layout">
       <div class="visual-frame media-fit">
         <img src="assets/img/m06-mxn-convention.png" alt="Agents and servers exchanging common message envelopes through one shared protocol lane">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>Without a convention</strong><span>Each model/tool pair needs bespoke glue code.</span></div>
+        <div class="mini-card"><strong>M assistants × N tools</strong><span>Each pair may otherwise need bespoke glue code — the source of “M × N”.</span></div>
         <div class="mini-card"><strong>With MCP</strong><span>Agents and servers speak the same request/response grammar.</span></div>
-        <div class="mini-card"><strong>Important</strong><span>MCP moves context and capability descriptions; it does not magically merge data stores.</span></div>
+        <div class="mini-card"><strong>Not shared data</strong><span>MCP moves requests, results and capability descriptions; it does not merge data stores.</span></div>
       </div>
     </div>
     <aside class="notes">
-      Standard engineering motivation. Researchers will recognise the combinatorial explosion.
+      Define the notation aloud: M client applications times N tool servers. The title is now plain
+      language; the M × N term remains in the body as the reason standards reduce integration work.
     </aside>
   </section>
 
@@ -1010,7 +1015,7 @@
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
+  <section class="practice-slide" data-background-color="#f4f8fb">
     <h2>1 — Own the spec</h2>
     <div class="cols">
       <div class="col" style="font-size:.8em;">
@@ -1038,7 +1043,7 @@
     </aside>
   </section>
 
-  <section>
+  <section class="practice-slide">
     <h2>2 — Build a verification loop</h2>
     <div class="cols">
       <div class="col" style="font-size:.8em;">
@@ -1069,7 +1074,7 @@
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
+  <section class="practice-slide" data-background-color="#f4f8fb">
     <h2>3 — Invest in the environment</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.8em;">
@@ -1096,7 +1101,7 @@
     </aside>
   </section>
 
-  <section>
+  <section class="practice-slide">
     <h2>Outsource thinking, not understanding</h2>
     <div class="quote-strip" style="grid-template-columns:1fr;">
       <blockquote style="font-size:1.05em;">"You can outsource your thinking, but you can't outsource your understanding."<cite>a tweet Karpathy "keeps returning to" — AI Ascent (2026)</cite></blockquote>
@@ -1721,34 +1726,6 @@
   </section>
 
   <section>
-    <h2>Una sola operazione, ripetuta</h2>
-    <div class="cols">
-      <div class="col stack-sm" style="font-size:.82em;">
-        <p>Un LLM calcola una distribuzione di probabilità sul prossimo token:</p>
-        <p>$P(t_n \mid t_1, t_2, \dots, t_{n-1})$</p>
-        <p><strong>Campiona</strong> un token, lo accoda, e ripete.</p>
-        <div class="takeaway">La fluidità è un loop, non una consultazione.</div>
-      </div>
-      <div class="col visual-frame">
-        <div class="prob-widget" data-next-token-widget>
-          <div class="prompt-switcher" role="group" aria-label="Scegli una frase di partenza">
-            <button type="button" data-prompt="Il satellite ha rilevato" aria-pressed="true">satellite</button>
-            <button type="button" data-prompt="La proposta di progetto richiede" aria-pressed="false">progetto</button>
-            <button type="button" data-prompt="Per verificare il risultato" aria-pressed="false">verifica</button>
-            <button type="button" data-prompt="Il vecchio archivio contiene" aria-pressed="false">archivio</button>
-          </div>
-          <div class="prompt-display" data-prompt-text>Il satellite ha rilevato</div>
-          <div class="bar-list"></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes">
-      Martella il loop. Allucinazione, creatività e fluidità derivano tutte dal campionare da una
-      distribuzione. Anticipa la temperatura.
-    </aside>
-  </section>
-
-  <section>
     <h2>Token, non parole o lettere</h2>
     <p style="font-size:.8em;">Il modello vede pezzi di sotto-parola. Ecco perché alcuni compiti "ovvi" sulle lettere sono meccanicamente goffi.</p>
     <div class="visual-frame">
@@ -1814,6 +1791,34 @@
     <aside class="notes">
       Pianta esplicitamente la bandierina del richiamo. Stessi vettori, tre mestieri: input del
       modello, modelli di embedding specializzati, e indici di retrieval.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Una sola operazione, ripetuta</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.82em;">
+        <p>Un LLM calcola una distribuzione di probabilità sul prossimo token:</p>
+        <p>$P(t_n \mid t_1, t_2, \dots, t_{n-1})$</p>
+        <p><strong>Campiona</strong> un token, lo accoda, e ripete.</p>
+        <div class="takeaway">La fluidità è un loop, non una consultazione.</div>
+      </div>
+      <div class="col visual-frame">
+        <div class="prob-widget" data-next-token-widget>
+          <div class="prompt-switcher" role="group" aria-label="Scegli una frase di partenza">
+            <button type="button" data-prompt="Il satellite ha rilevato" aria-pressed="true">satellite</button>
+            <button type="button" data-prompt="La proposta di progetto richiede" aria-pressed="false">progetto</button>
+            <button type="button" data-prompt="Per verificare il risultato" aria-pressed="false">verifica</button>
+            <button type="button" data-prompt="Il vecchio archivio contiene" aria-pressed="false">archivio</button>
+          </div>
+          <div class="prompt-display" data-prompt-text>Il satellite ha rilevato</div>
+          <div class="bar-list"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Martella il loop. Allucinazione, creatività e fluidità derivano tutte dal campionare da una
+      distribuzione. Anticipa la temperatura.
     </aside>
   </section>
 
@@ -2111,25 +2116,6 @@
   </section>
 
   <section>
-    <h2>RAG - prima recupera, poi genera</h2>
-    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="Pipeline RAG: Query, Embed, Ricerca vettoriale, Top-k chunk, LLM, Risposta">
-      <img src="assets/img/m04-rag-flow-v2.png" alt="">
-      <span class="flow-label rag-query">Query</span>
-      <span class="flow-label rag-embed">Embed</span>
-      <span class="flow-label rag-search">Ricerca vettoriale</span>
-      <span class="flow-label rag-chunks">Top-k chunk</span>
-      <span class="flow-label rag-llm">LLM</span>
-      <span class="flow-label rag-answer">Risposta</span>
-    </div>
-    <p class="footnote">Gli stessi embedding del Modulo 2 - ora usati come indice di ricerca.</p>
-    <p class="sources"><strong>Fonti:</strong> Lewis et al. (2020); Karpukhin et al. (2020).</p>
-    <aside class="notes">
-      Il RAG è il pattern più utile che questo pubblico costruirà davvero: recuperare i pochi chunk
-      rilevanti, non l'intera biblioteca.
-    </aside>
-  </section>
-
-  <section>
     <h2>Memoria oltre la finestra</h2>
     <div class="cols">
       <div class="col visual-frame media-fit">
@@ -2145,6 +2131,25 @@
     <aside class="notes">
       La sintesi è con perdita. Segnala il compromesso: dimenticare contro traboccare. Fa da ponte
       al Modulo 5.
+    </aside>
+  </section>
+
+  <section>
+    <h2>RAG - prima recupera, poi genera</h2>
+    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="Pipeline RAG: Query, Embed, Ricerca vettoriale, Top-k chunk, LLM, Risposta">
+      <img src="assets/img/m04-rag-flow-v2.png" alt="">
+      <span class="flow-label rag-query">Query</span>
+      <span class="flow-label rag-embed">Embed</span>
+      <span class="flow-label rag-search">Ricerca vettoriale</span>
+      <span class="flow-label rag-chunks">Top-k chunk</span>
+      <span class="flow-label rag-llm">LLM</span>
+      <span class="flow-label rag-answer">Risposta</span>
+    </div>
+    <p class="footnote">Gli stessi embedding del Modulo 2 - ora usati come indice di ricerca.</p>
+    <p class="sources"><strong>Fonti:</strong> Lewis et al. (2020); Karpukhin et al. (2020).</p>
+    <aside class="notes">
+      Il RAG è il pattern più utile che questo pubblico costruirà davvero: recuperare i pochi chunk
+      rilevanti, non l'intera biblioteca.
     </aside>
   </section>
 
@@ -2167,24 +2172,26 @@
   </section>
 
   <section>
-    <h2>La prosa è il programma</h2>
+    <h2>La prosa guida il comportamento</h2>
     <div class="cols">
       <div class="col" style="font-size:.82em;">
-        <p>Il comportamento si specifica in file di istruzioni a strati, in linguaggio semplice.</p>
-        <p>Gli strati si compongono: regole ferree, contesto di progetto, persona del compito.</p>
+        <p>Gli agenti vengono guidati su due livelli: <strong>file di istruzioni persistenti</strong> e <strong>prompt del compito corrente</strong>.</p>
+        <p>CO-STAR struttura quel prompt: Contesto, Obiettivo, Stile, Tono, Audience, Risposta.</p>
         <div class="caption-row control-captions" style="grid-template-columns:1fr;">
-          <div class="mini-card"><strong>Regole</strong><span>Vincoli non negoziabili: sicurezza, stile, policy sulle fonti.</span></div>
-          <div class="mini-card"><strong>Contesto</strong><span>Vocabolario del progetto, pubblico, modello dei dati, convenzioni locali.</span></div>
-          <div class="mini-card"><strong>Persona</strong><span>La postura di lavoro: conciso, scettico, didattico, giocoso.</span></div>
+          <div class="mini-card"><strong>Regole persistenti</strong><span>Vincoli riutilizzabili: sicurezza, fonti, vocabolario e convenzioni del progetto.</span></div>
+          <div class="mini-card"><strong>Prompt del compito · CO-STAR</strong><span>Obiettivo e contesto, più stile, tono, pubblico e formato della risposta desiderati.</span></div>
+          <div class="mini-card"><strong>Connessi, non identici</strong><span>CO-STAR plasma una richiesta; i file di istruzioni guidano molte richieste nel tempo.</span></div>
         </div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m05-prose-stack.png" alt="Fogli di istruzioni a strati che guidano il segnale di comportamento di un agente">
       </div>
     </div>
-    <p class="footnote">Varianti dei vendor: CLAUDE.md, AGENTS.md, context.md, file "soul". Stessa idea, nomi di file diversi.</p>
+    <p class="sources"><strong>Fonte:</strong> <a href="https://www.tech.gov.sg/technews/mastering-the-art-of-prompt-engineering-with-empower/">GovTech Singapore, framework CO-STAR</a> (2025).</p>
     <aside class="notes">
-      Insisti sul principio più che sul marchio. È rivedibile, versionabile e leggibile da un umano.
+      CO-STAR è davvero collegato, ma è uno scaffold per il prompt e non un modello completo della
+      configurazione persistente di un agente. Insisti sul principio più che sul marchio: entrambi
+      rendono la prosa esplicita, rivedibile e riutilizzabile, ma su scale diverse.
     </aside>
   </section>
 
@@ -2198,16 +2205,18 @@
       </div>
       <div class="col visual-frame">
         <div class="layered-file">
-          <div class="rule"># Regole</div>
+          <div class="rule"># Regole persistenti</div>
           <div>- cita fonti primarie</div>
           <div>- mai nascondere l'incertezza</div>
           <br>
-          <div class="context">## Contesto</div>
-          <div>- pubblico: ricercatori STEM</div>
-          <div>- esempi il più possibile locali</div>
+          <div class="context">## Prompt del compito · CO-STAR</div>
+          <div>- Contesto: lezione di teoria AI</div>
+          <div>- Obiettivo: spiegare il RAG</div>
+          <div>- Stile: esempi concreti</div>
+          <div>- Tono: conciso, scettico</div>
+          <div>- Audience: ricercatori STEM</div>
+          <div>- Risposta: 3 punti + diagramma</div>
           <br>
-          <div class="persona">## Persona</div>
-          <div>- conciso, caldo, scettico</div>
           <div class="comment"># il comportamento ora è rivedibile</div>
         </div>
       </div>
@@ -2283,20 +2292,21 @@
   </section>
 
   <section>
-    <h2>Il problema M x N</h2>
-    <p style="font-size:.8em;">Questo non è un diagramma sui dati condivisi. Riguarda un <strong>formato di linguaggio</strong> condiviso: una convenzione per come gli agenti chiedono lavoro e ricevono risultati.</p>
+    <h2>Perché un protocollo condiviso?</h2>
+    <p style="font-size:.8em;">Se <strong>M assistenti</strong> devono connettersi a <strong>N strumenti</strong>, il cablaggio su misura può richiedere fino a <strong>M × N integrazioni specifiche per coppia</strong>. Un protocollo condiviso offre un'unica interfaccia comune.</p>
     <div class="art-copy-layout">
       <div class="visual-frame media-fit">
         <img src="assets/img/m06-mxn-convention.png" alt="Agenti e server che scambiano buste di messaggi comuni attraverso un'unica corsia di protocollo condiviso">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>Senza una convenzione</strong><span>Ogni coppia modello/strumento richiede codice-colla su misura.</span></div>
+        <div class="mini-card"><strong>M assistenti × N strumenti</strong><span>Ogni coppia può altrimenti richiedere codice-colla su misura: da qui “M × N”.</span></div>
         <div class="mini-card"><strong>Con MCP</strong><span>Agenti e server parlano la stessa grammatica richiesta/risposta.</span></div>
-        <div class="mini-card"><strong>Importante</strong><span>MCP muove contesto e descrizioni di capacità; non fonde magicamente gli archivi di dati.</span></div>
+        <div class="mini-card"><strong>Non sono dati condivisi</strong><span>MCP muove richieste, risultati e descrizioni di capacità; non fonde gli archivi di dati.</span></div>
       </div>
     </div>
     <aside class="notes">
-      Motivazione ingegneristica standard. I ricercatori riconosceranno l'esplosione combinatoria.
+      Definisci la notazione a voce: M applicazioni client per N server di strumenti. Il titolo ora è
+      in linguaggio semplice; M × N resta nel corpo come motivo per cui uno standard riduce il lavoro.
     </aside>
   </section>
 
@@ -2393,7 +2403,7 @@
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
+  <section class="practice-slide" data-background-color="#f4f8fb">
     <h2>1 — Possiedi la specifica</h2>
     <div class="cols">
       <div class="col" style="font-size:.8em;">
@@ -2422,7 +2432,7 @@
     </aside>
   </section>
 
-  <section>
+  <section class="practice-slide">
     <h2>2 — Costruisci un loop di verifica</h2>
     <div class="cols">
       <div class="col" style="font-size:.8em;">
@@ -2454,7 +2464,7 @@
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
+  <section class="practice-slide" data-background-color="#f4f8fb">
     <h2>3 — Investi nell'ambiente</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.8em;">
@@ -2482,7 +2492,7 @@
     </aside>
   </section>
 
-  <section>
+  <section class="practice-slide">
     <h2>Delega il pensiero, non la comprensione</h2>
     <div class="quote-strip" style="grid-template-columns:1fr;">
       <blockquote style="font-size:1.05em;">"You can outsource your thinking, but you can't outsource your understanding."<cite>un tweet a cui Karpathy "continua a tornare" — AI Ascent (2026)</cite></blockquote>
@@ -2857,7 +2867,7 @@
   <script src="vendor/reveal/plugin/zoom/zoom.js"></script>
   <script src="vendor/reveal/plugin/search/search.js"></script>
   <script src="vendor/reveal/plugin/math/math.js"></script>
-  <script src="widgets/theory-widgets.js?v=light-revision-5-bilingual"></script>
+  <script src="widgets/theory-widgets.js?v=light-revision-6-bilingual"></script>
   <script>
     Reveal.initialize({
       hash: true,

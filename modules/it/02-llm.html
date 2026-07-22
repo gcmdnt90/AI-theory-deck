@@ -12,34 +12,6 @@
   </section>
 
   <section>
-    <h2>Una sola operazione, ripetuta</h2>
-    <div class="cols">
-      <div class="col stack-sm" style="font-size:.82em;">
-        <p>Un LLM calcola una distribuzione di probabilità sul prossimo token:</p>
-        <p>$$P(t_n \mid t_1, t_2, \dots, t_{n-1})$$</p>
-        <p><strong>Campiona</strong> un token, lo accoda, e ripete.</p>
-        <div class="takeaway">La fluidità è un loop, non una consultazione.</div>
-      </div>
-      <div class="col visual-frame">
-        <div class="prob-widget" data-next-token-widget>
-          <div class="prompt-switcher" role="group" aria-label="Scegli una frase di partenza">
-            <button type="button" data-prompt="Il satellite ha rilevato" aria-pressed="true">satellite</button>
-            <button type="button" data-prompt="La proposta di progetto richiede" aria-pressed="false">progetto</button>
-            <button type="button" data-prompt="Per verificare il risultato" aria-pressed="false">verifica</button>
-            <button type="button" data-prompt="Il vecchio archivio contiene" aria-pressed="false">archivio</button>
-          </div>
-          <div class="prompt-display" data-prompt-text>Il satellite ha rilevato</div>
-          <div class="bar-list"></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes">
-      Martella il loop. Allucinazione, creatività e fluidità derivano tutte dal campionare da una
-      distribuzione. Anticipa la temperatura.
-    </aside>
-  </section>
-
-  <section>
     <h2>Token, non parole o lettere</h2>
     <p style="font-size:.8em;">Il modello vede pezzi di sotto-parola. Ecco perché alcuni compiti "ovvi" sulle lettere sono meccanicamente goffi.</p>
     <div class="visual-frame">
@@ -105,6 +77,34 @@
     <aside class="notes">
       Pianta esplicitamente la bandierina del richiamo. Stessi vettori, tre mestieri: input del
       modello, modelli di embedding specializzati, e indici di retrieval.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Una sola operazione, ripetuta</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.82em;">
+        <p>Un LLM calcola una distribuzione di probabilità sul prossimo token:</p>
+        <p>$$P(t_n \mid t_1, t_2, \dots, t_{n-1})$$</p>
+        <p><strong>Campiona</strong> un token, lo accoda, e ripete.</p>
+        <div class="takeaway">La fluidità è un loop, non una consultazione.</div>
+      </div>
+      <div class="col visual-frame">
+        <div class="prob-widget" data-next-token-widget>
+          <div class="prompt-switcher" role="group" aria-label="Scegli una frase di partenza">
+            <button type="button" data-prompt="Il satellite ha rilevato" aria-pressed="true">satellite</button>
+            <button type="button" data-prompt="La proposta di progetto richiede" aria-pressed="false">progetto</button>
+            <button type="button" data-prompt="Per verificare il risultato" aria-pressed="false">verifica</button>
+            <button type="button" data-prompt="Il vecchio archivio contiene" aria-pressed="false">archivio</button>
+          </div>
+          <div class="prompt-display" data-prompt-text>Il satellite ha rilevato</div>
+          <div class="bar-list"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Martella il loop. Allucinazione, creatività e fluidità derivano tutte dal campionare da una
+      distribuzione. Anticipa la temperatura.
     </aside>
   </section>
 

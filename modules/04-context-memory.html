@@ -56,6 +56,24 @@
   </section>
 
   <section>
+    <h2>Memory beyond the window</h2>
+    <div class="cols">
+      <div class="col visual-frame media-fit">
+        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay style="width:100%;height:auto;display:block;border-radius:16px;"></video>
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Short-term</h4><p>Conversation history replayed each turn.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Long-term</h4><p>Facts stored externally and retrieved when relevant.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Synthesis</h4><p>Old turns compressed into compact notes.</p></div>
+      </div>
+    </div>
+    <div class="takeaway">Memory is architecture around the model, not a magical internal recall.</div>
+    <aside class="notes">
+      Summarisation is lossy. Flag the trade-off: forgetting versus overflow. Bridges to Module 5.
+    </aside>
+  </section>
+
+  <section>
     <h2>RAG - retrieve, then generate</h2>
     <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="RAG pipeline: Query, Embed, Vector search, Top-k chunks, LLM, Answer">
       <img src="assets/img/m04-rag-flow-v2.png" alt="">
@@ -71,24 +89,6 @@
     <aside class="notes">
       RAG is the single most useful pattern this audience will actually build: retrieve the few
       relevant chunks, not the whole library.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Memory beyond the window</h2>
-    <div class="cols">
-      <div class="col visual-frame media-fit">
-        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay style="width:100%;height:auto;display:block;border-radius:16px;"></video>
-      </div>
-      <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Short-term</h4><p>Conversation history replayed each turn.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Long-term</h4><p>Facts stored externally and retrieved when relevant.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Synthesis</h4><p>Old turns compressed into compact notes.</p></div>
-      </div>
-    </div>
-    <div class="takeaway">Memory is architecture around the model, not a magical internal recall.</div>
-    <aside class="notes">
-      Summarisation is lossy. Flag the trade-off: forgetting versus overflow. Bridges to Module 5.
     </aside>
   </section>
 

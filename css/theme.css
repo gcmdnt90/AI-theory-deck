@@ -361,6 +361,48 @@
   line-height: 1.25;
 }
 
+/* Module 7's working-method slides carry dense, high-value captions. Keep the
+   supporting copy legible at presentation distance instead of treating it as
+   diagram annotation. */
+.practice-slide .caption-row {
+  gap: .5em;
+}
+
+.practice-slide .caption-row .mini-card {
+  padding: .55em .65em;
+}
+
+.practice-slide .caption-row .mini-card strong {
+  font-size: .76em;
+}
+
+.practice-slide .caption-row .mini-card span {
+  font-size: .62em;
+  line-height: 1.32;
+}
+
+.practice-slide .signal-card {
+  padding: .7em .82em;
+}
+
+.practice-slide .signal-card p {
+  font-size: .78em;
+  line-height: 1.35;
+}
+
+.practice-slide .quote-strip blockquote {
+  font-size: .7em;
+}
+
+.practice-slide .footnote {
+  font-size: .56em;
+}
+
+.practice-slide .sources {
+  font-size: .5em;
+  line-height: 1.5;
+}
+
 .hinge-captions .mini-card,
 .control-captions .mini-card {
   padding: .56em .66em;

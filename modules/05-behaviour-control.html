@@ -12,24 +12,26 @@
   </section>
 
   <section>
-    <h2>Prose is the program</h2>
+    <h2>Prose steers behaviour</h2>
     <div class="cols">
       <div class="col" style="font-size:.82em;">
-        <p>Behaviour is specified in layered, plain-language instruction files.</p>
-        <p>Layers compose: hard rules, project context, task persona.</p>
+        <p>Agents are steered at two scopes: <strong>persistent instruction files</strong> and the <strong>current task prompt</strong>.</p>
+        <p>CO-STAR structures that task prompt: Context, Objective, Style, Tone, Audience, Response.</p>
         <div class="caption-row control-captions" style="grid-template-columns:1fr;">
-          <div class="mini-card"><strong>Rules</strong><span>Non-negotiable constraints: safety, style, source policy.</span></div>
-          <div class="mini-card"><strong>Context</strong><span>Project vocabulary, audience, data model, local conventions.</span></div>
-          <div class="mini-card"><strong>Persona</strong><span>The working posture: concise, sceptical, teacherly, playful.</span></div>
+          <div class="mini-card"><strong>Persistent rules</strong><span>Reusable constraints: safety, source policy, project vocabulary and conventions.</span></div>
+          <div class="mini-card"><strong>Task prompt · CO-STAR</strong><span>The goal and background, plus the desired style, tone, audience and response format.</span></div>
+          <div class="mini-card"><strong>Connected, not identical</strong><span>CO-STAR shapes one request; instruction files carry stable guidance across many requests.</span></div>
         </div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m05-prose-stack.png" alt="Layered instruction sheets guiding an agent behaviour signal">
       </div>
     </div>
-    <p class="footnote">Vendor flavours: CLAUDE.md, AGENTS.md, context.md, "soul" files. Same idea, different filenames.</p>
+    <p class="sources"><strong>Source:</strong> <a href="https://www.tech.gov.sg/technews/mastering-the-art-of-prompt-engineering-with-empower/">GovTech Singapore, CO-STAR framework</a> (2025).</p>
     <aside class="notes">
-      Stress principle over brand. This is reviewable, version-controllable and human-readable.
+      CO-STAR is genuinely related, but it is a prompt scaffold rather than a complete model of
+      persistent agent configuration. Stress principle over brand: both make prose explicit,
+      reviewable and reusable at different scopes.
     </aside>
   </section>
 
@@ -43,16 +45,18 @@
       </div>
       <div class="col visual-frame">
         <div class="layered-file">
-          <div class="rule"># Rules</div>
+          <div class="rule"># Persistent rules</div>
           <div>- cite primary sources</div>
           <div>- never hide uncertainty</div>
           <br>
-          <div class="context">## Context</div>
-          <div>- audience: STEM researchers</div>
-          <div>- examples should be local</div>
+          <div class="context">## Task prompt · CO-STAR</div>
+          <div>- Context: AI theory lesson</div>
+          <div>- Objective: explain RAG</div>
+          <div>- Style: concrete examples</div>
+          <div>- Tone: concise, sceptical</div>
+          <div>- Audience: STEM researchers</div>
+          <div>- Response: 3 bullets + diagram</div>
           <br>
-          <div class="persona">## Persona</div>
-          <div>- concise, warm, sceptical</div>
           <div class="comment"># behaviour is now reviewable</div>
         </div>
       </div>

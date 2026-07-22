@@ -57,25 +57,6 @@
   </section>
 
   <section>
-    <h2>RAG - prima recupera, poi genera</h2>
-    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="Pipeline RAG: Query, Embed, Ricerca vettoriale, Top-k chunk, LLM, Risposta">
-      <img src="assets/img/m04-rag-flow-v2.png" alt="">
-      <span class="flow-label rag-query">Query</span>
-      <span class="flow-label rag-embed">Embed</span>
-      <span class="flow-label rag-search">Ricerca vettoriale</span>
-      <span class="flow-label rag-chunks">Top-k chunk</span>
-      <span class="flow-label rag-llm">LLM</span>
-      <span class="flow-label rag-answer">Risposta</span>
-    </div>
-    <p class="footnote">Gli stessi embedding del Modulo 2 - ora usati come indice di ricerca.</p>
-    <p class="sources"><strong>Fonti:</strong> Lewis et al. (2020); Karpukhin et al. (2020).</p>
-    <aside class="notes">
-      Il RAG è il pattern più utile che questo pubblico costruirà davvero: recuperare i pochi chunk
-      rilevanti, non l'intera biblioteca.
-    </aside>
-  </section>
-
-  <section>
     <h2>Memoria oltre la finestra</h2>
     <div class="cols">
       <div class="col visual-frame media-fit">
@@ -91,6 +72,25 @@
     <aside class="notes">
       La sintesi è con perdita. Segnala il compromesso: dimenticare contro traboccare. Fa da ponte
       al Modulo 5.
+    </aside>
+  </section>
+
+  <section>
+    <h2>RAG - prima recupera, poi genera</h2>
+    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="Pipeline RAG: Query, Embed, Ricerca vettoriale, Top-k chunk, LLM, Risposta">
+      <img src="assets/img/m04-rag-flow-v2.png" alt="">
+      <span class="flow-label rag-query">Query</span>
+      <span class="flow-label rag-embed">Embed</span>
+      <span class="flow-label rag-search">Ricerca vettoriale</span>
+      <span class="flow-label rag-chunks">Top-k chunk</span>
+      <span class="flow-label rag-llm">LLM</span>
+      <span class="flow-label rag-answer">Risposta</span>
+    </div>
+    <p class="footnote">Gli stessi embedding del Modulo 2 - ora usati come indice di ricerca.</p>
+    <p class="sources"><strong>Fonti:</strong> Lewis et al. (2020); Karpukhin et al. (2020).</p>
+    <aside class="notes">
+      Il RAG è il pattern più utile che questo pubblico costruirà davvero: recuperare i pochi chunk
+      rilevanti, non l'intera biblioteca.
     </aside>
   </section>
 

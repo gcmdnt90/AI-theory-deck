@@ -12,20 +12,21 @@
   </section>
 
   <section>
-    <h2>The M x N problem</h2>
-    <p style="font-size:.8em;">This is not a diagram about shared data. It is about a shared <strong>language format</strong>: a convention for how agents ask for work and receive results.</p>
+    <h2>Why a shared protocol?</h2>
+    <p style="font-size:.8em;">If <strong>M assistants</strong> must connect to <strong>N tools</strong>, bespoke wiring can mean up to <strong>M × N pair-specific integrations</strong>. A shared protocol gives both sides one common interface.</p>
     <div class="art-copy-layout">
       <div class="visual-frame media-fit">
         <img src="assets/img/m06-mxn-convention.png" alt="Agents and servers exchanging common message envelopes through one shared protocol lane">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>Without a convention</strong><span>Each model/tool pair needs bespoke glue code.</span></div>
+        <div class="mini-card"><strong>M assistants × N tools</strong><span>Each pair may otherwise need bespoke glue code — the source of “M × N”.</span></div>
         <div class="mini-card"><strong>With MCP</strong><span>Agents and servers speak the same request/response grammar.</span></div>
-        <div class="mini-card"><strong>Important</strong><span>MCP moves context and capability descriptions; it does not magically merge data stores.</span></div>
+        <div class="mini-card"><strong>Not shared data</strong><span>MCP moves requests, results and capability descriptions; it does not merge data stores.</span></div>
       </div>
     </div>
     <aside class="notes">
-      Standard engineering motivation. Researchers will recognise the combinatorial explosion.
+      Define the notation aloud: M client applications times N tool servers. The title is now plain
+      language; the M × N term remains in the body as the reason standards reduce integration work.
     </aside>
   </section>
 

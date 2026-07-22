@@ -13,24 +13,26 @@
   </section>
 
   <section>
-    <h2>La prosa è il programma</h2>
+    <h2>La prosa guida il comportamento</h2>
     <div class="cols">
       <div class="col" style="font-size:.82em;">
-        <p>Il comportamento si specifica in file di istruzioni a strati, in linguaggio semplice.</p>
-        <p>Gli strati si compongono: regole ferree, contesto di progetto, persona del compito.</p>
+        <p>Gli agenti vengono guidati su due livelli: <strong>file di istruzioni persistenti</strong> e <strong>prompt del compito corrente</strong>.</p>
+        <p>CO-STAR struttura quel prompt: Contesto, Obiettivo, Stile, Tono, Audience, Risposta.</p>
         <div class="caption-row control-captions" style="grid-template-columns:1fr;">
-          <div class="mini-card"><strong>Regole</strong><span>Vincoli non negoziabili: sicurezza, stile, policy sulle fonti.</span></div>
-          <div class="mini-card"><strong>Contesto</strong><span>Vocabolario del progetto, pubblico, modello dei dati, convenzioni locali.</span></div>
-          <div class="mini-card"><strong>Persona</strong><span>La postura di lavoro: conciso, scettico, didattico, giocoso.</span></div>
+          <div class="mini-card"><strong>Regole persistenti</strong><span>Vincoli riutilizzabili: sicurezza, fonti, vocabolario e convenzioni del progetto.</span></div>
+          <div class="mini-card"><strong>Prompt del compito · CO-STAR</strong><span>Obiettivo e contesto, più stile, tono, pubblico e formato della risposta desiderati.</span></div>
+          <div class="mini-card"><strong>Connessi, non identici</strong><span>CO-STAR plasma una richiesta; i file di istruzioni guidano molte richieste nel tempo.</span></div>
         </div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m05-prose-stack.png" alt="Fogli di istruzioni a strati che guidano il segnale di comportamento di un agente">
       </div>
     </div>
-    <p class="footnote">Varianti dei vendor: CLAUDE.md, AGENTS.md, context.md, file "soul". Stessa idea, nomi di file diversi.</p>
+    <p class="sources"><strong>Fonte:</strong> <a href="https://www.tech.gov.sg/technews/mastering-the-art-of-prompt-engineering-with-empower/">GovTech Singapore, framework CO-STAR</a> (2025).</p>
     <aside class="notes">
-      Insisti sul principio più che sul marchio. È rivedibile, versionabile e leggibile da un umano.
+      CO-STAR è davvero collegato, ma è uno scaffold per il prompt e non un modello completo della
+      configurazione persistente di un agente. Insisti sul principio più che sul marchio: entrambi
+      rendono la prosa esplicita, rivedibile e riutilizzabile, ma su scale diverse.
     </aside>
   </section>
 
@@ -44,16 +46,18 @@
       </div>
       <div class="col visual-frame">
         <div class="layered-file">
-          <div class="rule"># Regole</div>
+          <div class="rule"># Regole persistenti</div>
           <div>- cita fonti primarie</div>
           <div>- mai nascondere l'incertezza</div>
           <br>
-          <div class="context">## Contesto</div>
-          <div>- pubblico: ricercatori STEM</div>
-          <div>- esempi il più possibile locali</div>
+          <div class="context">## Prompt del compito · CO-STAR</div>
+          <div>- Contesto: lezione di teoria AI</div>
+          <div>- Obiettivo: spiegare il RAG</div>
+          <div>- Stile: esempi concreti</div>
+          <div>- Tono: conciso, scettico</div>
+          <div>- Audience: ricercatori STEM</div>
+          <div>- Risposta: 3 punti + diagramma</div>
           <br>
-          <div class="persona">## Persona</div>
-          <div>- conciso, caldo, scettico</div>
           <div class="comment"># il comportamento ora è rivedibile</div>
         </div>
       </div>

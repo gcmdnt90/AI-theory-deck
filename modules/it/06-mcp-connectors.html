@@ -12,20 +12,21 @@
   </section>
 
   <section>
-    <h2>Il problema M x N</h2>
-    <p style="font-size:.8em;">Questo non è un diagramma sui dati condivisi. Riguarda un <strong>formato di linguaggio</strong> condiviso: una convenzione per come gli agenti chiedono lavoro e ricevono risultati.</p>
+    <h2>Perché un protocollo condiviso?</h2>
+    <p style="font-size:.8em;">Se <strong>M assistenti</strong> devono connettersi a <strong>N strumenti</strong>, il cablaggio su misura può richiedere fino a <strong>M × N integrazioni specifiche per coppia</strong>. Un protocollo condiviso offre un'unica interfaccia comune.</p>
     <div class="art-copy-layout">
       <div class="visual-frame media-fit">
         <img src="assets/img/m06-mxn-convention.png" alt="Agenti e server che scambiano buste di messaggi comuni attraverso un'unica corsia di protocollo condiviso">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>Senza una convenzione</strong><span>Ogni coppia modello/strumento richiede codice-colla su misura.</span></div>
+        <div class="mini-card"><strong>M assistenti × N strumenti</strong><span>Ogni coppia può altrimenti richiedere codice-colla su misura: da qui “M × N”.</span></div>
         <div class="mini-card"><strong>Con MCP</strong><span>Agenti e server parlano la stessa grammatica richiesta/risposta.</span></div>
-        <div class="mini-card"><strong>Importante</strong><span>MCP muove contesto e descrizioni di capacità; non fonde magicamente gli archivi di dati.</span></div>
+        <div class="mini-card"><strong>Non sono dati condivisi</strong><span>MCP muove richieste, risultati e descrizioni di capacità; non fonde gli archivi di dati.</span></div>
       </div>
     </div>
     <aside class="notes">
-      Motivazione ingegneristica standard. I ricercatori riconosceranno l'esplosione combinatoria.
+      Definisci la notazione a voce: M applicazioni client per N server di strumenti. Il titolo ora è
+      in linguaggio semplice; M × N resta nel corpo come motivo per cui uno standard riduce il lavoro.
     </aside>
   </section>
 

@@ -12,34 +12,6 @@
   </section>
 
   <section>
-    <h2>One operation, repeated</h2>
-    <div class="cols">
-      <div class="col stack-sm" style="font-size:.82em;">
-        <p>An LLM computes a probability distribution over the next token:</p>
-        <p>$$P(t_n \mid t_1, t_2, \dots, t_{n-1})$$</p>
-        <p>It <strong>samples</strong> one token, appends it, and repeats.</p>
-        <div class="takeaway">Fluency is a loop, not a lookup.</div>
-      </div>
-      <div class="col visual-frame">
-        <div class="prob-widget" data-next-token-widget>
-          <div class="prompt-switcher" role="group" aria-label="Choose a starting phrase">
-            <button type="button" data-prompt="The satellite detected" aria-pressed="true">satellite</button>
-            <button type="button" data-prompt="The grant proposal needs" aria-pressed="false">grant</button>
-            <button type="button" data-prompt="To verify the result" aria-pressed="false">verify</button>
-            <button type="button" data-prompt="The old archive contains" aria-pressed="false">archive</button>
-          </div>
-          <div class="prompt-display" data-prompt-text>The satellite detected</div>
-          <div class="bar-list"></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes">
-      Hammer the loop. Hallucination, creativity and fluency all fall out of sampling from a
-      distribution. Forward-reference temperature.
-    </aside>
-  </section>
-
-  <section>
     <h2>Tokens, not words or letters</h2>
     <p style="font-size:.8em;">The model sees sub-word pieces. That is why some "obvious" letter tasks are mechanically awkward.</p>
     <div class="visual-frame">
@@ -105,6 +77,34 @@
     <aside class="notes">
       Plant the callback flag explicitly. Same vectors, three jobs: model input, specialised embedding
       models, and retrieval indexes.
+    </aside>
+  </section>
+
+  <section>
+    <h2>One operation, repeated</h2>
+    <div class="cols">
+      <div class="col stack-sm" style="font-size:.82em;">
+        <p>An LLM computes a probability distribution over the next token:</p>
+        <p>$$P(t_n \mid t_1, t_2, \dots, t_{n-1})$$</p>
+        <p>It <strong>samples</strong> one token, appends it, and repeats.</p>
+        <div class="takeaway">Fluency is a loop, not a lookup.</div>
+      </div>
+      <div class="col visual-frame">
+        <div class="prob-widget" data-next-token-widget>
+          <div class="prompt-switcher" role="group" aria-label="Choose a starting phrase">
+            <button type="button" data-prompt="The satellite detected" aria-pressed="true">satellite</button>
+            <button type="button" data-prompt="The grant proposal needs" aria-pressed="false">grant</button>
+            <button type="button" data-prompt="To verify the result" aria-pressed="false">verify</button>
+            <button type="button" data-prompt="The old archive contains" aria-pressed="false">archive</button>
+          </div>
+          <div class="prompt-display" data-prompt-text>The satellite detected</div>
+          <div class="bar-list"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Hammer the loop. Hallucination, creativity and fluency all fall out of sampling from a
+      distribution. Forward-reference temperature.
     </aside>
   </section>
 

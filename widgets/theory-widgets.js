@@ -26,15 +26,15 @@
   };
   const nextTokenExamples = {
     "The satellite detected": [
-      { name: "cloud cover", value: .34 },
-      { name: "heat plumes", value: .24 },
+      { name: "clouds", value: .34 },
+      { name: "heat", value: .24 },
       { name: "movement", value: .19 },
-      { name: "a signal", value: .14 },
+      { name: "a", value: .14 },
       { name: "nothing", value: .09 }
     ],
     "The grant proposal needs": [
       { name: "evidence", value: .31 },
-      { name: "a budget", value: .25 },
+      { name: "budget", value: .25 },
       { name: "revision", value: .19 },
       { name: "partners", value: .15 },
       { name: "clarity", value: .10 }
@@ -55,15 +55,15 @@
     ],
     // — Italian mirrors (same distributions) —
     "Il satellite ha rilevato": [
-      { name: "copertura nuvolosa", value: .34 },
-      { name: "pennacchi di calore", value: .24 },
+      { name: "nuvole", value: .34 },
+      { name: "calore", value: .24 },
       { name: "movimento", value: .19 },
-      { name: "un segnale", value: .14 },
+      { name: "un", value: .14 },
       { name: "nulla", value: .09 }
     ],
     "La proposta di progetto richiede": [
       { name: "evidenze", value: .31 },
-      { name: "un budget", value: .25 },
+      { name: "budget", value: .25 },
       { name: "revisione", value: .19 },
       { name: "partner", value: .15 },
       { name: "chiarezza", value: .10 }
