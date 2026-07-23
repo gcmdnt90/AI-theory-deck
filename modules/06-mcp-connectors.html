@@ -13,20 +13,20 @@
 
   <section>
     <h2>Why a shared protocol?</h2>
-    <p style="font-size:.8em;">If <strong>M assistants</strong> must connect to <strong>N tools</strong>, bespoke wiring can mean up to <strong>M × N pair-specific integrations</strong>. A shared protocol gives both sides one common interface.</p>
+    <p style="font-size:.8em;">If many assistants must connect to many tools, every bespoke connection is extra work. A shared protocol gives everyone <strong>one common socket</strong>.</p>
     <div class="art-copy-layout">
       <div class="visual-frame media-fit">
         <img src="assets/img/m06-mxn-convention.png" alt="Agents and servers exchanging common message envelopes through one shared protocol lane">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>M assistants × N tools</strong><span>Each pair may otherwise need bespoke glue code — the source of “M × N”.</span></div>
-        <div class="mini-card"><strong>With MCP</strong><span>Agents and servers speak the same request/response grammar.</span></div>
-        <div class="mini-card"><strong>Not shared data</strong><span>MCP moves requests, results and capability descriptions; it does not merge data stores.</span></div>
+        <div class="mini-card"><strong>Many bespoke connections</strong><span>Without a standard, every app-tool pair needs its own dedicated code.</span></div>
+        <div class="mini-card"><strong>With MCP</strong><span>Agents and tools speak the same language of request and response.</span></div>
+        <div class="mini-card"><strong>Not merging data</strong><span>MCP moves requests, results and capability descriptions; it does not merge your data stores.</span></div>
       </div>
     </div>
     <aside class="notes">
-      Define the notation aloud: M client applications times N tool servers. The title is now plain
-      language; the M × N term remains in the body as the reason standards reduce integration work.
+      Explain aloud: many assistants connecting to many tools. Everything is now plain language: too
+      many bespoke connections are the reason a common standard reduces the work.
     </aside>
   </section>
 
@@ -34,8 +34,8 @@
     <h2>Model Context Protocol</h2>
     <div class="cols">
       <div class="col" style="font-size:.8em;">
-        <p>An open standard where a <strong>host</strong> connects to servers that expose capability in a uniform way.</p>
-        <p>MCP standardises the envelope around tool calls, resources and prompt templates so an agent can discover what a server offers.</p>
+        <p>An open standard: an application connects to services that expose their capabilities in a uniform way.</p>
+        <p>MCP standardises the way an agent asks for tools, data and instructions, so it can discover for itself what a service offers.</p>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m06-mcp-primitives.png" alt="MCP host connected to tools, resources and prompt template capability shelves">

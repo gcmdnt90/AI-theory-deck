@@ -46,9 +46,9 @@
         <img src="assets/img/m03-training-pipeline.png" alt="Three-stage light infographic for pretraining, supervised fine-tuning and preference tuning">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>1. Pretraining</strong><span>Predict tokens over huge corpora. This builds general linguistic and world patterns.</span></div>
-        <div class="mini-card"><strong>2. Instruction tuning</strong><span>Examples teach the model to follow tasks as an assistant, not merely continue text.</span></div>
-        <div class="mini-card"><strong>3. Preference tuning</strong><span>Human or automated feedback pushes outputs toward helpful, harmless, verifiable behaviour.</span></div>
+        <div class="mini-card"><strong>1. Learns from text</strong><span>Predicts the next word over huge amounts of text. This builds general patterns of language and world.</span></div>
+        <div class="mini-card"><strong>2. Learns to follow instructions</strong><span>Examples teach it to carry out tasks as an assistant, not merely continue text.</span></div>
+        <div class="mini-card"><strong>3. Tuned with human feedback</strong><span>Feedback from people pushes answers toward helpful, harmless and verifiable behaviour.</span></div>
       </div>
     </div>
     <p class="footnote">Embeddings live here too: specialised embedding models are later used for retrieval.</p>
@@ -132,7 +132,7 @@
         <div class="mini-card"><strong>Memory</strong><span>State supplied around the model so the next call has useful context.</span></div>
       </div>
     </div>
-    <p class="footnote">Patterns: ReAct, planning, reflection, multi-agent orchestration. Tools and memory get their own modules.</p>
+    <p class="footnote">The loop repeats: decide &rarr; act &rarr; observe &rarr; decide again. Tools and memory get their own modules.</p>
     <p class="sources"><strong>Sources:</strong> Yao et al. (2023) ReAct; Schick et al. (2023) Toolformer.</p>
     <aside class="notes">
       Land the payoff: the leap from chatbot to agent is mostly scaffolding, not a smarter model.

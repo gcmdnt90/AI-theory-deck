@@ -3,8 +3,8 @@
   <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">01</span>
     <p class="kicker">Module 1</p>
-    <h1>A history of NLP</h1>
-    <p class="lede">From language entropy to the Transformer, to agents, to world models.</p>
+    <h1>A short history of AI that understands language</h1>
+    <p class="lede">From Shannon to the Transformer, to today's agents.</p>
     <aside class="notes">
       Thesis: the "new" idea behind LLMs is old. Shannon framed language as a stochastic process in
       1948. What changed was scale, data and architecture.
@@ -12,12 +12,11 @@
   </section>
 
   <section>
-    <h2>1948 - Language as a stochastic process</h2>
+    <h2>1948 - Language as a game of probability</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.82em;">
-        <p>Claude <strong>Shannon</strong> models text as a source emitting symbols with probabilities.</p>
-        <p>Predicting the next symbol = reducing <em>entropy</em>.</p>
-        <p>$$H = -\sum_i p_i \log_2 p_i$$</p>
+        <p>Claude <strong>Shannon</strong> describes text as a source emitting words with a certain probability.</p>
+        <p>Predicting the next word well = reducing the uncertainty about what comes next.</p>
         <div class="takeaway">Meaning becomes tractable when language has structure.</div>
       </div>
       <div class="col visual-frame tight">
@@ -121,7 +120,7 @@
         <text x="785" y="144" text-anchor="middle" class="mono-label">tools + loops</text>
       </svg>
     </div>
-    <div class="takeaway">The prediction substrate never changed. What emerged is a new <em>level</em> at which to read the system.</div>
+    <div class="takeaway">The predictive base never changed. What emerged is a new <em>level</em> at which to read the system.</div>
     <p class="sources"><strong>Sources:</strong> Devlin et al. (2018); Brown et al. (2020); Ouyang et al. (2022).</p>
     <aside class="notes">
       Tee up the levels slide: the base is still prediction, but "just prediction" is the wrong level
@@ -131,8 +130,7 @@
 
   <section data-background-color="#f4f8fb">
     <h2>Three levels, one machine</h2>
-    <p class="lede">Prediction is the <em>substrate</em>, not the ceiling. The mistake is reading a system at the wrong level.</p>
-    <p class="footnote" style="font-style:italic;">&ldquo;A livello microscopico abbiamo i neuroni, a livello mesoscopico di mezzo abbiamo queste idee.&rdquo; &mdash; Nello Cristianini <span style="font-style:normal;">(micro = neurons; meso = the learned ideas in between)</span></p>
+    <p class="lede">Prediction is the <em>base</em>, not the ceiling. The mistake is reading a system at the wrong level.</p>
     <div class="cols fit-two">
 
       <div class="col visual-frame media-fit levels-frame">
@@ -141,27 +139,23 @@
 
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4><span class="chip safe">macro &middot; exo</span> Behaviour &amp; judgement</h4>
-          <p>The system read at a behavioural, almost psychological level (Dennett's stance) &mdash; and the human judgement that governs it.</p>
+          <h4><span class="chip safe">macro</span> Behaviour &amp; judgement</h4>
+          <p>The system read at a behavioural, almost psychological level &mdash; and the human judgement that governs it.</p>
           <p class="mono-label">Relate by: understanding, contesting, overriding.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4><span class="chip around">meso &middot; meso</span> Learned concepts &amp; competence</h4>
-          <p>The abstract ideas the model built by itself (Cristianini's mesoscopic level) &mdash; the seat of reasoning, memory, skills and tools.</p>
+          <h4><span class="chip around">meso</span> Learned concepts &amp; competence</h4>
+          <p>The abstract ideas the model built by itself &mdash; the seat of reasoning, memory, skills and tools.</p>
           <p class="mono-label">Relate by: steering with prose, context and tools &mdash; this is where you work.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-cyan);">
-          <h4><span class="chip inside">micro &middot; tropo</span> Substrate</h4>
-          <p>Neurons and weights computing Shannon's next-token probabilities. Always on, intrinsically statistical.</p>
+          <h4><span class="chip inside">micro</span> The base</h4>
+          <p>Neurons and weights computing the next word's probabilities, Shannon-style. Always on, intrinsically statistical.</p>
           <p class="mono-label">Relate by: knowing its failure modes &mdash; sampling, temperature, hallucination.</p>
         </div>
       </div>
     </div>
     <div class="takeaway">Keep Shannon at the base. Do your thinking &mdash; and your steering &mdash; at the meso level.</div>
-    <p class="sources"><strong>Sources:</strong>
-      Cristianini (2024/2025), <em>Machina Sapiens</em> &amp; interview (micro / meso / macro levels of machine cognition);
-      Marr (1982) levels of analysis; Anderson (1972) <em>More Is Different</em>; Schaeffer et al. (2023) on the metric-sensitivity of &ldquo;emergence&rdquo;.
-    </p>
     <aside class="notes">
       Cite Cristianini's mesoscopic level in one breath, then hand over to the atmosphere metaphor.
       His three levels: microscopic (neurons/connections), mesoscopic (the abstract concepts the model

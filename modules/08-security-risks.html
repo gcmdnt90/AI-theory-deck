@@ -16,15 +16,15 @@
     <div class="cols c-3">
       <div class="signal-card" style="--card-accent:var(--ait-amber);">
         <h4>Hallucination</h4>
-        <p>Fluent, confident, false.</p>
+        <p>Fluent, confident, false. Not a bug: it is <strong>structural</strong>. It can be <em>reduced</em> (RAG + human check), not eliminated.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-red);">
         <h4>Bias</h4>
         <p>Training-data skews carried into outputs.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-violet);">
-        <h4>Sycophancy</h4>
-        <p>Agreeing with the user over being correct.</p>
+        <h4>Over-agreeableness</h4>
+        <p>Agrees with the user instead of correcting them.</p>
       </div>
     </div>
     <div class="visual-frame generated-flow-frame risk-sources-frame" style="margin-top:.8em;" role="img" aria-label="Model risk mechanisms: sampling, training data, feedback signals">
@@ -73,15 +73,16 @@
     <h2><span class="chip risk">data</span> Where data leaks</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.74em;">
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud vs local</h4><p>Who can see prompts and uploaded data?</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud vs local</h4><p>Who can see your questions and the data you upload?</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Untrusted text becomes an instruction.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Secret exposure</h4><p>RAG corpora and credentials become targets.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Data exposure</h4><p>Internal documents and credentials become targets.</p></div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m07-data-leaks.png" alt="Indirect prompt injection hijacking an agent tool path and causing unintended data movement">
       </div>
     </div>
     <div class="takeaway">The dangerous jump is when untrusted text stops being data and starts steering an action.</div>
+    <p class="footnote">A free app, a subscription or a paid <strong>API</strong> change <em>who sees your data</em> and <em>what can be reused</em>: weigh this before uploading business information. (Covered further in the workshop.)</p>
     <p class="sources"><strong>Sources:</strong> Greshake et al. (2023); OWASP Top 10 for LLM Applications.</p>
     <aside class="notes">
       Drive home that connectors widen the attack surface: the agent now acts on untrusted input.

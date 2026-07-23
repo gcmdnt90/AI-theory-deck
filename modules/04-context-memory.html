@@ -35,8 +35,8 @@
     <h2>Long context: placement still matters</h2>
     <div class="cols top context-placement-layout">
       <div class="col stack-sm" style="font-size:.74em;">
-        <p><em>Lost in the Middle</em> is about position-sensitive retrieval: evidence near the beginning or end of a long prompt is often used better than evidence buried in the middle.</p>
-        <p>A larger window gives more room, but it does not make all positions equally salient. Retrieval and ordering still matter.</p>
+        <p>AI uses what sits near the beginning or end of a long text better than what is buried in the middle, which risks getting lost.</p>
+        <p>A larger window gives more room, but it does not make all positions equally visible. What you put in, and in what order, still matters.</p>
         <div class="context-scale-grid">
           <div class="scale-card"><strong>GPT-3</strong><span>2k tokens<br>about 1,500 words</span></div>
           <div class="scale-card"><strong>GPT-4</strong><span>8k / 32k<br>about 6k / 24k words</span></div>
@@ -75,12 +75,12 @@
 
   <section>
     <h2>RAG - retrieve, then generate</h2>
-    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="RAG pipeline: Query, Embed, Vector search, Top-k chunks, LLM, Answer">
+    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="RAG pipeline: Question, Turn into numbers, Search by meaning, Most similar pieces, LLM, Answer">
       <img src="assets/img/m04-rag-flow-v2.png" alt="">
-      <span class="flow-label rag-query">Query</span>
-      <span class="flow-label rag-embed">Embed</span>
-      <span class="flow-label rag-search">Vector search</span>
-      <span class="flow-label rag-chunks">Top-k chunks</span>
+      <span class="flow-label rag-query">Question</span>
+      <span class="flow-label rag-embed">Turn into numbers</span>
+      <span class="flow-label rag-search">Search by meaning</span>
+      <span class="flow-label rag-chunks">Most similar pieces</span>
       <span class="flow-label rag-llm">LLM</span>
       <span class="flow-label rag-answer">Answer</span>
     </div>

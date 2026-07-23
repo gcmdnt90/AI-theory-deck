@@ -62,12 +62,12 @@
     <div class="cover-copy">
       <p class="kicker">AI Translator - Frontal &amp; recorded lesson</p>
       <h1>Language Models &amp; Agents</h1>
-      <p class="subtitle">From language entropy to autonomous agents: what these systems are, how they work, and where they fail.</p>
-      <p class="meta">UnivPM - Universit&agrave; Politecnica delle Marche | Theory track | 9 modules</p>
+      <p class="subtitle">From how words come to be to autonomous agents: what these systems are, how they work, and where they go wrong.</p>
+      <p class="meta">Universit&agrave; Politecnica delle Marche &amp; San Marino Innovation | Theory track | 9 modules</p>
     </div>
     <aside class="notes">
       Open by framing the lesson: this is the theory spine that the recorded lesson follows.
-      Audience = STEM researchers, not necessarily CS. Promise: by the end they will be able to
+      Audience = SME staff and owners, non-technical. Promise: by the end they will be able to
       reason about what an LLM is doing, not just use one. Keep the tone curious and sceptical.
     </aside>
   </section>
@@ -138,7 +138,7 @@
         </div>
       </div>
     </div>
-    <div class="takeaway">Prediction is the substrate. Loops turn it into action. Judgement decides when action is acceptable.</div>
+    <div class="takeaway">Prediction is the base. Loops turn it into action. Judgement decides when action is acceptable.</div>
     <aside class="notes">
       A short orientation slide for the recording: token prediction grows into action only when
       wrapped in systems. That is why governance and human judgement matter.
@@ -154,8 +154,8 @@
   <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">01</span>
     <p class="kicker">Module 1</p>
-    <h1>A history of NLP</h1>
-    <p class="lede">From language entropy to the Transformer, to agents, to world models.</p>
+    <h1>A short history of AI that understands language</h1>
+    <p class="lede">From Shannon to the Transformer, to today's agents.</p>
     <aside class="notes">
       Thesis: the "new" idea behind LLMs is old. Shannon framed language as a stochastic process in
       1948. What changed was scale, data and architecture.
@@ -163,12 +163,11 @@
   </section>
 
   <section>
-    <h2>1948 - Language as a stochastic process</h2>
+    <h2>1948 - Language as a game of probability</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.82em;">
-        <p>Claude <strong>Shannon</strong> models text as a source emitting symbols with probabilities.</p>
-        <p>Predicting the next symbol = reducing <em>entropy</em>.</p>
-        <p>$H = -\sum_i p_i \log_2 p_i$</p>
+        <p>Claude <strong>Shannon</strong> describes text as a source emitting words with a certain probability.</p>
+        <p>Predicting the next word well = reducing the uncertainty about what comes next.</p>
         <div class="takeaway">Meaning becomes tractable when language has structure.</div>
       </div>
       <div class="col visual-frame tight">
@@ -272,7 +271,7 @@
         <text x="785" y="144" text-anchor="middle" class="mono-label">tools + loops</text>
       </svg>
     </div>
-    <div class="takeaway">The prediction substrate never changed. What emerged is a new <em>level</em> at which to read the system.</div>
+    <div class="takeaway">The predictive base never changed. What emerged is a new <em>level</em> at which to read the system.</div>
     <p class="sources"><strong>Sources:</strong> Devlin et al. (2018); Brown et al. (2020); Ouyang et al. (2022).</p>
     <aside class="notes">
       Tee up the levels slide: the base is still prediction, but "just prediction" is the wrong level
@@ -282,8 +281,7 @@
 
   <section data-background-color="#f4f8fb">
     <h2>Three levels, one machine</h2>
-    <p class="lede">Prediction is the <em>substrate</em>, not the ceiling. The mistake is reading a system at the wrong level.</p>
-    <p class="footnote" style="font-style:italic;">&ldquo;A livello microscopico abbiamo i neuroni, a livello mesoscopico di mezzo abbiamo queste idee.&rdquo; &mdash; Nello Cristianini <span style="font-style:normal;">(micro = neurons; meso = the learned ideas in between)</span></p>
+    <p class="lede">Prediction is the <em>base</em>, not the ceiling. The mistake is reading a system at the wrong level.</p>
     <div class="cols fit-two">
 
       <div class="col visual-frame media-fit levels-frame">
@@ -292,27 +290,23 @@
 
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4><span class="chip safe">macro &middot; exo</span> Behaviour &amp; judgement</h4>
-          <p>The system read at a behavioural, almost psychological level (Dennett's stance) &mdash; and the human judgement that governs it.</p>
+          <h4><span class="chip safe">macro</span> Behaviour &amp; judgement</h4>
+          <p>The system read at a behavioural, almost psychological level &mdash; and the human judgement that governs it.</p>
           <p class="mono-label">Relate by: understanding, contesting, overriding.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4><span class="chip around">meso &middot; meso</span> Learned concepts &amp; competence</h4>
-          <p>The abstract ideas the model built by itself (Cristianini's mesoscopic level) &mdash; the seat of reasoning, memory, skills and tools.</p>
+          <h4><span class="chip around">meso</span> Learned concepts &amp; competence</h4>
+          <p>The abstract ideas the model built by itself &mdash; the seat of reasoning, memory, skills and tools.</p>
           <p class="mono-label">Relate by: steering with prose, context and tools &mdash; this is where you work.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-cyan);">
-          <h4><span class="chip inside">micro &middot; tropo</span> Substrate</h4>
-          <p>Neurons and weights computing Shannon's next-token probabilities. Always on, intrinsically statistical.</p>
+          <h4><span class="chip inside">micro</span> The base</h4>
+          <p>Neurons and weights computing the next word's probabilities, Shannon-style. Always on, intrinsically statistical.</p>
           <p class="mono-label">Relate by: knowing its failure modes &mdash; sampling, temperature, hallucination.</p>
         </div>
       </div>
     </div>
     <div class="takeaway">Keep Shannon at the base. Do your thinking &mdash; and your steering &mdash; at the meso level.</div>
-    <p class="sources"><strong>Sources:</strong>
-      Cristianini (2024/2025), <em>Machina Sapiens</em> &amp; interview (micro / meso / macro levels of machine cognition);
-      Marr (1982) levels of analysis; Anderson (1972) <em>More Is Different</em>; Schaeffer et al. (2023) on the metric-sensitivity of &ldquo;emergence&rdquo;.
-    </p>
     <aside class="notes">
       Cite Cristianini's mesoscopic level in one breath, then hand over to the atmosphere metaphor.
       His three levels: microscopic (neurons/connections), mesoscopic (the abstract concepts the model
@@ -376,8 +370,8 @@
     <h2>From tokens to vectors</h2>
     <div class="cols top token-vector-grid">
       <div class="col stack-sm" style="font-size:.76em;">
-        <p>Each token maps to a high-dimensional <strong>embedding</strong>.</p>
-        <p>Geometry carries relationships: similar meanings sit nearby.</p>
+        <p>Each token becomes a position on a large <strong>map of meanings</strong> (an <em>embedding</em>).</p>
+        <p>On this map, similar meanings sit nearby.</p>
         <p class="footnote">We meet embeddings again in Module 3 and Module 4.</p>
         <div class="visual-frame vector-diagram-frame">
         <svg class="diagram" viewBox="0 0 520 340" role="img" aria-label="Embedding space diagram">
@@ -449,7 +443,6 @@
           <li><strong>Low T</strong>: sharp, stable, repetitive</li>
           <li><strong>High T</strong>: flatter, creative, riskier</li>
         </ul>
-        <p>$p_i = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}$</p>
       </div>
       <div class="col visual-frame">
         <div class="temp-widget" data-temp-widget>
@@ -576,9 +569,9 @@
         <img src="assets/img/m03-training-pipeline.png" alt="Three-stage light infographic for pretraining, supervised fine-tuning and preference tuning">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>1. Pretraining</strong><span>Predict tokens over huge corpora. This builds general linguistic and world patterns.</span></div>
-        <div class="mini-card"><strong>2. Instruction tuning</strong><span>Examples teach the model to follow tasks as an assistant, not merely continue text.</span></div>
-        <div class="mini-card"><strong>3. Preference tuning</strong><span>Human or automated feedback pushes outputs toward helpful, harmless, verifiable behaviour.</span></div>
+        <div class="mini-card"><strong>1. Learns from text</strong><span>Predicts the next word over huge amounts of text. This builds general patterns of language and world.</span></div>
+        <div class="mini-card"><strong>2. Learns to follow instructions</strong><span>Examples teach it to carry out tasks as an assistant, not merely continue text.</span></div>
+        <div class="mini-card"><strong>3. Tuned with human feedback</strong><span>Feedback from people pushes answers toward helpful, harmless and verifiable behaviour.</span></div>
       </div>
     </div>
     <p class="footnote">Embeddings live here too: specialised embedding models are later used for retrieval.</p>
@@ -662,7 +655,7 @@
         <div class="mini-card"><strong>Memory</strong><span>State supplied around the model so the next call has useful context.</span></div>
       </div>
     </div>
-    <p class="footnote">Patterns: ReAct, planning, reflection, multi-agent orchestration. Tools and memory get their own modules.</p>
+    <p class="footnote">The loop repeats: decide &rarr; act &rarr; observe &rarr; decide again. Tools and memory get their own modules.</p>
     <p class="sources"><strong>Sources:</strong> Yao et al. (2023) ReAct; Schick et al. (2023) Toolformer.</p>
     <aside class="notes">
       Land the payoff: the leap from chatbot to agent is mostly scaffolding, not a smarter model.
@@ -710,8 +703,8 @@
     <h2>Long context: placement still matters</h2>
     <div class="cols top context-placement-layout">
       <div class="col stack-sm" style="font-size:.74em;">
-        <p><em>Lost in the Middle</em> is about position-sensitive retrieval: evidence near the beginning or end of a long prompt is often used better than evidence buried in the middle.</p>
-        <p>A larger window gives more room, but it does not make all positions equally salient. Retrieval and ordering still matter.</p>
+        <p>AI uses what sits near the beginning or end of a long text better than what is buried in the middle, which risks getting lost.</p>
+        <p>A larger window gives more room, but it does not make all positions equally visible. What you put in, and in what order, still matters.</p>
         <div class="context-scale-grid">
           <div class="scale-card"><strong>GPT-3</strong><span>2k tokens<br>about 1,500 words</span></div>
           <div class="scale-card"><strong>GPT-4</strong><span>8k / 32k<br>about 6k / 24k words</span></div>
@@ -750,12 +743,12 @@
 
   <section>
     <h2>RAG - retrieve, then generate</h2>
-    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="RAG pipeline: Query, Embed, Vector search, Top-k chunks, LLM, Answer">
+    <div class="visual-frame generated-flow-frame rag-frame" role="img" aria-label="RAG pipeline: Question, Turn into numbers, Search by meaning, Most similar pieces, LLM, Answer">
       <img src="assets/img/m04-rag-flow-v2.png" alt="">
-      <span class="flow-label rag-query">Query</span>
-      <span class="flow-label rag-embed">Embed</span>
-      <span class="flow-label rag-search">Vector search</span>
-      <span class="flow-label rag-chunks">Top-k chunks</span>
+      <span class="flow-label rag-query">Question</span>
+      <span class="flow-label rag-embed">Turn into numbers</span>
+      <span class="flow-label rag-search">Search by meaning</span>
+      <span class="flow-label rag-chunks">Most similar pieces</span>
       <span class="flow-label rag-llm">LLM</span>
       <span class="flow-label rag-answer">Answer</span>
     </div>
@@ -780,7 +773,7 @@
     <p class="lede">Steering an agent with natural language: instructions, skills, and tools.</p>
     <aside class="notes">
       Reframe programming for this audience: you shape behaviour mostly by writing prose, not code.
-      Markdown is the substrate. Filenames vary by vendor; the principle is general.
+      Markdown is the base. Filenames vary by vendor; the principle is general.
     </aside>
   </section>
 
@@ -788,7 +781,8 @@
     <h2>Prose steers behaviour</h2>
     <div class="cols">
       <div class="col" style="font-size:.82em;">
-        <p>Agents are steered at two scopes: <strong>persistent instruction files</strong> and the <strong>current task prompt</strong>.</p>
+        <p>A prompt is not a question: it is a <strong>setup</strong> that conditions the model. You prepare the ground, you don't query an archive.</p>
+        <p>You steer the agent at two scopes: <strong>persistent instruction files</strong> (e.g. CLAUDE.md &mdash; they apply to every request) and the <strong>current task prompt</strong>.</p>
         <p>CO-STAR structures that task prompt: Context, Objective, Style, Tone, Audience, Response.</p>
         <div class="caption-row control-captions" style="grid-template-columns:1fr;">
           <div class="mini-card"><strong>Persistent rules</strong><span>Reusable constraints: safety, source policy, project vocabulary and conventions.</span></div>
@@ -813,22 +807,22 @@
     <div class="cols">
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Readable</h4><p>Humans and models can parse it.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Diffable</h4><p>Behaviour changes show up in git.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Trackable</h4><p>Every change to behaviour stays visible and reversible.</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Structured</h4><p>Headings and lists give salient cues.</p></div>
       </div>
       <div class="col visual-frame">
         <div class="layered-file">
           <div class="rule"># Persistent rules</div>
-          <div>- cite primary sources</div>
-          <div>- never hide uncertainty</div>
+          <div>- always cite the catalogue reference</div>
+          <div>- never invent provenance data</div>
           <br>
           <div class="context">## Task prompt · CO-STAR</div>
-          <div>- Context: AI theory lesson</div>
-          <div>- Objective: explain RAG</div>
-          <div>- Style: concrete examples</div>
-          <div>- Tone: concise, sceptical</div>
-          <div>- Audience: STEM researchers</div>
-          <div>- Response: 3 bullets + diagram</div>
+          <div>- Context: an auction lot description</div>
+          <div>- Objective: a coin catalogue entry</div>
+          <div>- Style: professional, concise</div>
+          <div>- Tone: precise and verifiable</div>
+          <div>- Audience: collectors and buyers</div>
+          <div>- Response: 4 lines + condition grade</div>
           <br>
           <div class="comment"># behaviour is now reviewable</div>
         </div>
@@ -862,15 +856,12 @@
     <h2>Tools - actions the model can take</h2>
     <div class="cols">
       <div class="col stack-sm">
-        <p style="font-size:.72em;">A tool is procedural: the agent fills a typed input, external code runs, then the result returns to context.</p>
-        <pre><code class="language-json" data-trim>{
-  "name": "read_pdf",
-  "description": "Extract text and tables",
-  "input_schema": {
-    "file": "path",
-    "pages": "range"
-  }
-}</code></pre>
+        <p style="font-size:.72em;">A tool is a concrete action: the agent says which tool to use and with what inputs, an external program runs it, then the result returns to context.</p>
+        <div class="tool-flow-mini" style="font-size:.72em;">
+          <div class="mini-card"><strong>Which tool</strong><span>e.g. "read PDF"</span></div>
+          <div class="mini-card"><strong>Which inputs</strong><span>the file and the pages to read</span></div>
+          <div class="mini-card"><strong>What returns</strong><span>text and tables, ready to use</span></div>
+        </div>
         <div class="caption-row" style="grid-template-columns:1fr 1fr;">
           <div class="mini-card"><strong>Formats</strong><span>PDF, XLSX, DOCX, PPTX, CSV, images, audio.</span></div>
           <div class="mini-card"><strong>Result</strong><span>Parsed content returns as structured context the model can reason over.</span></div>
@@ -906,20 +897,20 @@
 
   <section>
     <h2>Why a shared protocol?</h2>
-    <p style="font-size:.8em;">If <strong>M assistants</strong> must connect to <strong>N tools</strong>, bespoke wiring can mean up to <strong>M × N pair-specific integrations</strong>. A shared protocol gives both sides one common interface.</p>
+    <p style="font-size:.8em;">If many assistants must connect to many tools, every bespoke connection is extra work. A shared protocol gives everyone <strong>one common socket</strong>.</p>
     <div class="art-copy-layout">
       <div class="visual-frame media-fit">
         <img src="assets/img/m06-mxn-convention.png" alt="Agents and servers exchanging common message envelopes through one shared protocol lane">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>M assistants × N tools</strong><span>Each pair may otherwise need bespoke glue code — the source of “M × N”.</span></div>
-        <div class="mini-card"><strong>With MCP</strong><span>Agents and servers speak the same request/response grammar.</span></div>
-        <div class="mini-card"><strong>Not shared data</strong><span>MCP moves requests, results and capability descriptions; it does not merge data stores.</span></div>
+        <div class="mini-card"><strong>Many bespoke connections</strong><span>Without a standard, every app-tool pair needs its own dedicated code.</span></div>
+        <div class="mini-card"><strong>With MCP</strong><span>Agents and tools speak the same language of request and response.</span></div>
+        <div class="mini-card"><strong>Not merging data</strong><span>MCP moves requests, results and capability descriptions; it does not merge your data stores.</span></div>
       </div>
     </div>
     <aside class="notes">
-      Define the notation aloud: M client applications times N tool servers. The title is now plain
-      language; the M × N term remains in the body as the reason standards reduce integration work.
+      Explain aloud: many assistants connecting to many tools. Everything is now plain language: too
+      many bespoke connections are the reason a common standard reduces the work.
     </aside>
   </section>
 
@@ -927,8 +918,8 @@
     <h2>Model Context Protocol</h2>
     <div class="cols">
       <div class="col" style="font-size:.8em;">
-        <p>An open standard where a <strong>host</strong> connects to servers that expose capability in a uniform way.</p>
-        <p>MCP standardises the envelope around tool calls, resources and prompt templates so an agent can discover what a server offers.</p>
+        <p>An open standard: an application connects to services that expose their capabilities in a uniform way.</p>
+        <p>MCP standardises the way an agent asks for tools, data and instructions, so it can discover for itself what a service offers.</p>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m06-mcp-primitives.png" alt="MCP host connected to tools, resources and prompt template capability shelves">
@@ -975,7 +966,7 @@
     <span class="modnum">07</span>
     <p class="kicker">Module 7 · interlude</p>
     <h1>Agents in practice</h1>
-    <p class="lede">How leading practitioners actually work with the meso-level system: spec, verify, environment.</p>
+    <p class="lede">How the most advanced practitioners actually work with these systems: spec, verify, environment.</p>
     <aside class="notes">
       Bridge module: Modules 3–6 described the system; before we discuss risks, show how people who
       use it seriously say you should drive it. Spine: Andrej Karpathy (OpenAI co-founder, ex-Tesla
@@ -1153,15 +1144,15 @@
     <div class="cols c-3">
       <div class="signal-card" style="--card-accent:var(--ait-amber);">
         <h4>Hallucination</h4>
-        <p>Fluent, confident, false.</p>
+        <p>Fluent, confident, false. Not a bug: it is <strong>structural</strong>. It can be <em>reduced</em> (RAG + human check), not eliminated.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-red);">
         <h4>Bias</h4>
         <p>Training-data skews carried into outputs.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-violet);">
-        <h4>Sycophancy</h4>
-        <p>Agreeing with the user over being correct.</p>
+        <h4>Over-agreeableness</h4>
+        <p>Agrees with the user instead of correcting them.</p>
       </div>
     </div>
     <div class="visual-frame generated-flow-frame risk-sources-frame" style="margin-top:.8em;" role="img" aria-label="Model risk mechanisms: sampling, training data, feedback signals">
@@ -1210,15 +1201,16 @@
     <h2><span class="chip risk">data</span> Where data leaks</h2>
     <div class="cols">
       <div class="col stack-sm" style="font-size:.74em;">
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud vs local</h4><p>Who can see prompts and uploaded data?</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud vs local</h4><p>Who can see your questions and the data you upload?</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Untrusted text becomes an instruction.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Secret exposure</h4><p>RAG corpora and credentials become targets.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Data exposure</h4><p>Internal documents and credentials become targets.</p></div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m07-data-leaks.png" alt="Indirect prompt injection hijacking an agent tool path and causing unintended data movement">
       </div>
     </div>
     <div class="takeaway">The dangerous jump is when untrusted text stops being data and starts steering an action.</div>
+    <p class="footnote">A free app, a subscription or a paid <strong>API</strong> change <em>who sees your data</em> and <em>what can be reused</em>: weigh this before uploading business information. (Covered further in the workshop.)</p>
     <p class="sources"><strong>Sources:</strong> Greshake et al. (2023); OWASP Top 10 for LLM Applications.</p>
     <aside class="notes">
       Drive home that connectors widen the attack surface: the agent now acts on untrusted input.
@@ -1277,8 +1269,11 @@
       <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Concentration</h4><p>Few firms control frontier compute.</p></div>
       <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Prompt data</h4><p>Your questions are data too.</p></div>
     </div>
+    <p class="footnote">EU regulatory frame: the <strong>EU AI Act</strong> (Regulation (EU) 2024/1689) classifies systems by risk level and sets transparency obligations; the <strong>GDPR</strong> governs personal data. Anyone adopting AI in a business must keep both in mind.</p>
+    <p class="sources"><strong>Sources:</strong> Regulation (EU) 2024/1689 (AI Act); Regulation (EU) 2016/679 (GDPR).</p>
     <aside class="notes">
       Present perspectives even-handedly. This is contested policy terrain, not a settled fact.
+      The AI Act is risk-tiered (prohibited practices, high-risk, transparency, GPAI); operational detail in the workshop.
     </aside>
   </section>
 
@@ -1321,7 +1316,7 @@
     <div class="visual-frame short recap-art">
       <img src="assets/img/m08-final-synthesis.png" alt="Course arc as an amber signal path through tokens, models, context, tools, risks and human judgement">
     </div>
-    <div class="takeaway">Shannon at the base, a cognitive-level system in your hands. The hard part is judgement.</div>
+    <div class="takeaway">At the base it is probability; in your hands it is a powerful tool. The hard part is judgement.</div>
     <aside class="notes">
       One-breath recap of the whole arc. This is the line to end the recording on, then hand off to
       the workshop where they apply it.
@@ -2535,7 +2530,7 @@
     <div class="cols c-3">
       <div class="signal-card" style="--card-accent:var(--ait-amber);">
         <h4>Allucinazione</h4>
-        <p>Fluente, sicura, falsa.</p>
+        <p>Fluente, sicura, falsa. Non è un bug: è <strong>strutturale</strong>. Si <em>riduce</em> (RAG + verifica umana), non si elimina.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-red);">
         <h4>Bias</h4>

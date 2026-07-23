@@ -7,7 +7,7 @@
     <p class="lede">Steering an agent with natural language: instructions, skills, and tools.</p>
     <aside class="notes">
       Reframe programming for this audience: you shape behaviour mostly by writing prose, not code.
-      Markdown is the substrate. Filenames vary by vendor; the principle is general.
+      Markdown is the base. Filenames vary by vendor; the principle is general.
     </aside>
   </section>
 
@@ -15,7 +15,8 @@
     <h2>Prose steers behaviour</h2>
     <div class="cols">
       <div class="col" style="font-size:.82em;">
-        <p>Agents are steered at two scopes: <strong>persistent instruction files</strong> and the <strong>current task prompt</strong>.</p>
+        <p>A prompt is not a question: it is a <strong>setup</strong> that conditions the model. You prepare the ground, you don't query an archive.</p>
+        <p>You steer the agent at two scopes: <strong>persistent instruction files</strong> (e.g. CLAUDE.md &mdash; they apply to every request) and the <strong>current task prompt</strong>.</p>
         <p>CO-STAR structures that task prompt: Context, Objective, Style, Tone, Audience, Response.</p>
         <div class="caption-row control-captions" style="grid-template-columns:1fr;">
           <div class="mini-card"><strong>Persistent rules</strong><span>Reusable constraints: safety, source policy, project vocabulary and conventions.</span></div>
@@ -40,22 +41,22 @@
     <div class="cols">
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Readable</h4><p>Humans and models can parse it.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Diffable</h4><p>Behaviour changes show up in git.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Trackable</h4><p>Every change to behaviour stays visible and reversible.</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-amber);"><h4>Structured</h4><p>Headings and lists give salient cues.</p></div>
       </div>
       <div class="col visual-frame">
         <div class="layered-file">
           <div class="rule"># Persistent rules</div>
-          <div>- cite primary sources</div>
-          <div>- never hide uncertainty</div>
+          <div>- always cite the catalogue reference</div>
+          <div>- never invent provenance data</div>
           <br>
           <div class="context">## Task prompt · CO-STAR</div>
-          <div>- Context: AI theory lesson</div>
-          <div>- Objective: explain RAG</div>
-          <div>- Style: concrete examples</div>
-          <div>- Tone: concise, sceptical</div>
-          <div>- Audience: STEM researchers</div>
-          <div>- Response: 3 bullets + diagram</div>
+          <div>- Context: an auction lot description</div>
+          <div>- Objective: a coin catalogue entry</div>
+          <div>- Style: professional, concise</div>
+          <div>- Tone: precise and verifiable</div>
+          <div>- Audience: collectors and buyers</div>
+          <div>- Response: 4 lines + condition grade</div>
           <br>
           <div class="comment"># behaviour is now reviewable</div>
         </div>
@@ -89,15 +90,12 @@
     <h2>Tools - actions the model can take</h2>
     <div class="cols">
       <div class="col stack-sm">
-        <p style="font-size:.72em;">A tool is procedural: the agent fills a typed input, external code runs, then the result returns to context.</p>
-        <pre><code class="language-json" data-trim>{
-  "name": "read_pdf",
-  "description": "Extract text and tables",
-  "input_schema": {
-    "file": "path",
-    "pages": "range"
-  }
-}</code></pre>
+        <p style="font-size:.72em;">A tool is a concrete action: the agent says which tool to use and with what inputs, an external program runs it, then the result returns to context.</p>
+        <div class="tool-flow-mini" style="font-size:.72em;">
+          <div class="mini-card"><strong>Which tool</strong><span>e.g. "read PDF"</span></div>
+          <div class="mini-card"><strong>Which inputs</strong><span>the file and the pages to read</span></div>
+          <div class="mini-card"><strong>What returns</strong><span>text and tables, ready to use</span></div>
+        </div>
         <div class="caption-row" style="grid-template-columns:1fr 1fr;">
           <div class="mini-card"><strong>Formats</strong><span>PDF, XLSX, DOCX, PPTX, CSV, images, audio.</span></div>
           <div class="mini-card"><strong>Result</strong><span>Parsed content returns as structured context the model can reason over.</span></div>
