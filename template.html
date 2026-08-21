@@ -63,13 +63,31 @@
 <!-- ==== END IT MODULES ==== -->
   </template>
 
+  <!-- Demo prompt database, inlined by build.mjs from demo-prompts.json so the
+       deck works from file:// with no server. Edited via the JSON, never here.
+       See PROMPTS.md. -->
+  <script id="demo-prompts" type="application/json">{{DEMO_PROMPTS}}</script>
+
   <!-- 1) Decide language and inject the matching deck BEFORE Reveal/widgets run.
        document.documentElement.lang is read by theory-widgets.js, so it must be
        set here first. -->
   <script>
     (function () {
+      // Which edition this file is: 'sme' (index.html) or 'academic'
+      // (academic.html). Read by the version-switch slide.
+      document.documentElement.dataset.edition = '{{EDITION}}';
+
+      // localStorage throws (not returns null) on file:// opaque origins and
+      // in strict privacy modes. Unguarded, that exception happens BEFORE the
+      // deck is injected and the room gets a blank screen — so every access
+      // goes through these helpers. Offline file:// use is a requirement here.
+      window.deckStore = {
+        get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+        set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+      };
+
       var DEFAULT_LANG = 'it'; // change to 'en' to publish English by default
-      var lang = (localStorage.getItem('deck-lang') || DEFAULT_LANG).toLowerCase();
+      var lang = (deckStore.get('deck-lang') || DEFAULT_LANG).toLowerCase();
       if (lang !== 'en' && lang !== 'it') lang = 'en';
       document.documentElement.lang = lang;
       var tpl = document.getElementById('deck-' + lang);
@@ -86,7 +104,7 @@
           b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
           b.addEventListener('click', function () {
             if (b.dataset.lang === lang) return;
-            localStorage.setItem('deck-lang', b.dataset.lang);
+            deckStore.set('deck-lang', b.dataset.lang);
             // Reload: Reveal keeps the slide number in the URL hash, so the
             // other language opens on the very same slide.
             location.reload();

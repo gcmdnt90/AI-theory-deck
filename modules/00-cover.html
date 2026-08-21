@@ -2,88 +2,85 @@
 
   <section class="deck-cover" data-background-image="assets/img/cover-signal.png" data-background-size="cover" data-background-color="#fbfaf6">
     <div class="cover-copy">
-      <p class="kicker">AI Translator - Frontal &amp; recorded lesson</p>
+      <p class="kicker">AI Translator &middot; SME edition</p>
       <h1>Language Models &amp; Agents</h1>
-      <p class="subtitle">From how words come to be to autonomous agents: what these systems are, how they work, and where they go wrong.</p>
-      <p class="meta">Universit&agrave; Politecnica delle Marche &amp; San Marino Innovation | Theory track | 9 modules</p>
+      <p class="subtitle">What these systems are, how they work, and where they go wrong &mdash; with the tools open on screen.</p>
+      <p class="meta">San Marino Innovation &amp; Universit&agrave; Politecnica delle Marche | 6 modules | 6 live demos</p>
     </div>
     <aside class="notes">
-      Open by framing the lesson: this is the theory spine that the recorded lesson follows.
-      Audience = SME staff and owners, non-technical. Promise: by the end they will be able to
-      reason about what an LLM is doing, not just use one. Keep the tone curious and sceptical.
+      Audience: SME staff and owners, near-zero prior exposure. Promise in one line: by the end you
+      will be able to tell what the machine is actually doing, and decide when to trust it.
+      Say up front that every module ends with something running on screen. That promise is what
+      buys their attention through the theory.
     </aside>
   </section>
 
   <section>
     <h2>The map</h2>
-    <p class="footnote">Mechanics first, then architectures, then consequences.</p>
-    <div class="course-map">
+    <div class="course-map map-6">
       <div class="map-node" style="--card-accent:var(--ait-amber);">
         <span class="icon-dot">1</span><span class="num">MODULE 01</span>
-        <h4>History</h4><p>Shannon to Transformers</p>
+        <h4>How words are made</h4><p>Tokens, odds, temperature</p>
       </div>
       <div class="map-node">
-        <span class="icon-dot">2</span><span class="num">MODULE 02</span>
-        <h4>LLM core</h4><p>Tokens, sampling, temperature</p>
+        <span class="icon-dot" style="color:var(--ait-cyan);border-color:rgba(21,151,181,.42);">2</span><span class="num">MODULE 02</span>
+        <h4>Inside vs around</h4><p>The model and its scaffolding</p>
       </div>
       <div class="map-node">
-        <span class="icon-dot" style="color:var(--ait-cyan);border-color:rgba(21,151,181,.42);">3</span><span class="num">MODULE 03</span>
-        <h4>Architectures</h4><p><span class="chip inside">inside</span> + <span class="chip around">around</span></p>
+        <span class="icon-dot">3</span><span class="num">MODULE 03</span>
+        <h4>Grounding</h4><p>Context, memory, your documents</p>
       </div>
       <div class="map-node">
-        <span class="icon-dot">4</span><span class="num">MODULE 04</span>
-        <h4>Context</h4><p>Window, RAG, memory</p>
+        <span class="icon-dot" style="color:var(--ait-violet);border-color:rgba(131,102,200,.48);">4</span><span class="num">MODULE 04</span>
+        <h4>Steering</h4><p>Rules written in plain language</p>
       </div>
       <div class="map-node">
         <span class="icon-dot">5</span><span class="num">MODULE 05</span>
-        <h4>Control</h4><p>Instructions, skills, tools</p>
+        <h4>Agents at work</h4><p>Connectors, loops, verification</p>
       </div>
       <div class="map-node">
-        <span class="icon-dot">6</span><span class="num">MODULE 06</span>
-        <h4>Connectors</h4><p>MCP and external systems</p>
-      </div>
-      <div class="map-node">
-        <span class="icon-dot" style="color:var(--ait-violet);border-color:rgba(131,102,200,.48);">7</span><span class="num">MODULE 07</span>
-        <h4>Agents in practice</h4><p>Spec, verify, environment</p>
-      </div>
-      <div class="map-node">
-        <span class="icon-dot" style="color:var(--ait-red);border-color:rgba(201,75,75,.48);">8</span><span class="num">MODULE 08</span>
-        <h4>Risks</h4><p>Model, user, data</p>
-      </div>
-      <div class="map-node">
-        <span class="icon-dot" style="color:var(--ait-green);border-color:rgba(52,149,111,.48);">9</span><span class="num">MODULE 09</span>
-        <h4>Ethics</h4><p>Judgement stays human</p>
+        <span class="icon-dot" style="color:var(--ait-red);border-color:rgba(201,75,75,.48);">6</span><span class="num">MODULE 06</span>
+        <h4>Risks &amp; judgement</h4><p>What goes wrong, and who decides</p>
       </div>
     </div>
+    <div class="takeaway">Every module ends with a live demo. Theory, then the thing itself.</div>
     <aside class="notes">
-      Walk the arc once: mechanics (1-2), boundary and architecture (3-6), practice and consequences (7-9).
-      The visual map should make the recorded version easy to navigate without overexplaining it.
+      Walk the arc once, fast: how it makes words (1-2), how to feed it and steer it (3-4), how it
+      acts (5), what can go wrong (6). Do not elaborate here - the map is orientation, not content.
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
-    <h2>One sentence to carry through</h2>
-    <div class="visual-frame sentence-flow-frame" role="img" aria-label="Course thesis flow from prediction to action to human judgement">
-      <img class="sentence-flow-bg" src="assets/img/m00-sentence-cards-bg.png" alt="">
-      <div class="sentence-cards" aria-hidden="true">
-        <div class="sentence-card" style="--card-accent:var(--ait-amber);">
-          <strong>predicts</strong>
-          <span>next token</span>
-        </div>
-        <div class="sentence-card" style="--card-accent:var(--ait-violet);">
-          <strong>acts</strong>
-          <span>through loops</span>
-        </div>
-        <div class="sentence-card" style="--card-accent:var(--ait-green);">
-          <strong>needs</strong>
-          <span>human judgement</span>
-        </div>
-      </div>
+  <section class="schedule-slide" data-background-color="#f4f8fb">
+    <h2>Today</h2>
+    <div class="schedule-head">
+      <label class="schedule-start">start
+        <input type="time" data-schedule-start aria-label="Lesson start time">
+      </label>
+      <button type="button" class="schedule-now" data-schedule-now>reset to now</button>
+      <span class="schedule-total" data-schedule-total></span>
     </div>
-    <div class="takeaway">Prediction is the base. Loops turn it into action. Judgement decides when action is acceptable.</div>
+    <table class="schedule" data-schedule-widget>
+      <thead>
+        <tr><th class="c-clock">time</th><th>block</th><th class="c-min">theory</th><th class="c-min">demo</th></tr>
+      </thead>
+      <tbody>
+        <tr data-block="open"  data-theory="6"  data-demo="0"><td class="c-clock"></td><td>Opening &amp; map</td><td class="c-min">6 min</td><td class="c-min">&mdash;</td></tr>
+        <tr data-block="m1"    data-theory="12" data-demo="5"><td class="c-clock"></td><td><strong>M1</strong> &nbsp;How words are made</td><td class="c-min">12 min</td><td class="c-min">5 min</td></tr>
+        <tr data-block="m2"    data-theory="8"  data-demo="5"><td class="c-clock"></td><td><strong>M2</strong> &nbsp;Inside vs around</td><td class="c-min">8 min</td><td class="c-min">5 min</td></tr>
+        <tr data-block="m3"    data-theory="9"  data-demo="8"><td class="c-clock"></td><td><strong>M3</strong> &nbsp;Grounding</td><td class="c-min">9 min</td><td class="c-min">8 min</td></tr>
+        <tr data-block="break" data-theory="10" data-demo="0" class="is-break"><td class="c-clock"></td><td>Break</td><td class="c-min">10 min</td><td class="c-min">&mdash;</td></tr>
+        <tr data-block="m4"    data-theory="7"  data-demo="7"><td class="c-clock"></td><td><strong>M4</strong> &nbsp;Steering</td><td class="c-min">7 min</td><td class="c-min">7 min</td></tr>
+        <tr data-block="m5"    data-theory="10" data-demo="8"><td class="c-clock"></td><td><strong>M5</strong> &nbsp;Agents at work</td><td class="c-min">10 min</td><td class="c-min">8 min</td></tr>
+        <tr data-block="m6"    data-theory="9"  data-demo="9"><td class="c-clock"></td><td><strong>M6</strong> &nbsp;Risks &amp; judgement</td><td class="c-min">9 min</td><td class="c-min">9 min</td></tr>
+        <tr data-block="close" data-theory="7"  data-demo="0"><td class="c-clock"></td><td>Close, commitment, Q&amp;A</td><td class="c-min">7 min</td><td class="c-min">&mdash;</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">Clock times fill in when the deck opens and the current block is highlighted. Change the start field if you begin late &mdash; every module cover updates with it.</p>
     <aside class="notes">
-      A short orientation slide for the recording: token prediction grows into action only when
-      wrapped in systems. That is why governance and human judgement matter.
+      Do not read this table aloud. Point at two things only: the break, and the fact that demo time
+      roughly equals theory time. That second point is the contract with the room.
+      The start field defaults to now rounded up to the next five minutes, and is remembered in this
+      browser. Each module cover then carries its own start time in small print.
     </aside>
   </section>
 

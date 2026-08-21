@@ -1,0 +1,103 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-05-behaviour-control.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">04</span>
+    <p class="kicker">Module 4 <span class="mod-clock" data-clock-for="m4"></span></p>
+    <h1>Steering it with plain language</h1>
+    <p class="lede">The programming language here is your own.</p>
+    <aside class="notes">
+      Reframe "programming" for this room: they already know how to write the instructions. What
+      they do not know yet is that writing them down, once, in a file, is the entire technique.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Two places to write the rules</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <p>A prompt is not a question. It is a <strong>setup</strong>: you prepare the ground, you don't query an archive.</p>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Standing rules</h4>
+          <p>Apply to every request. Safety, house style, vocabulary, what to never do.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>This request</h4>
+          <p>The job in front of you: context, objective, style, tone, audience, format.</p>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m05-prose-stack.png" alt="Layered instruction sheets guiding an agent behaviour signal">
+      </div>
+    </div>
+    <div class="takeaway">Write once, applies always. Write now, applies here.</div>
+    <aside class="notes">
+      The six task-prompt elements are CO-STAR (GovTech Singapore): Context, Objective, Style, Tone,
+      Audience, Response. Name it only if someone asks - the acronym costs more attention than it
+      returns with this audience. The distinction that matters is the two scopes, not the mnemonic.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>What it looks like</h2>
+    <div class="cols">
+      <div class="col visual-frame">
+        <div class="layered-file">
+          <div class="rule"># Standing rules</div>
+          <div>- always cite the catalogue reference</div>
+          <div>- never invent provenance data</div>
+          <div>- uncertain fields: leave blank, flag [TO BE VERIFIED]</div>
+          <br>
+          <div class="context">## This request</div>
+          <div>- Context: an auction lot description</div>
+          <div>- Objective: a coin catalogue entry</div>
+          <div>- Style: professional, concise</div>
+          <div>- Audience: collectors and buyers</div>
+          <div>- Response: 4 lines + condition grade</div>
+          <br>
+          <div class="comment"># the behaviour is now readable by a person</div>
+        </div>
+      </div>
+      <div class="col stack-sm">
+        <p>Plain text in a file. No code.</p>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>Why it matters</h4>
+          <p>The thing that controls the machine is the same thing a new colleague reads to learn the job.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Markdown is just text with a bit of structure - headings, dashes. Say that once, do not teach
+      it. The real point is the second card: this file is simultaneously the configuration and the
+      documentation. For an SME with staff turnover, that is the sales pitch.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Skills and tools</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Skill &mdash; <em>how</em> it works</h4>
+          <p>A saved way of working, loaded when it fits the request. Written in the same plain language.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Tool &mdash; <em>what</em> it can do</h4>
+          <p>A concrete action: open a PDF, read a spreadsheet, send a request. Result comes back as context.</p>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m05-tools-file-formats.png" alt="Procedural tool calls opening file formats such as PDF, spreadsheet and document outputs">
+      </div>
+    </div>
+    <div class="takeaway">Skills package your judgement. Tools give it hands.</div>
+    <aside class="notes">
+      A skill is triggered by its description matching the request - "grill me" loads a critique
+      flow. Worth one line: this deck's own repository is built with skills, so the method is
+      demonstrated by the thing they are looking at. Tools handle PDF, XLSX, DOCX, PPTX, CSV, images
+      and audio - relevant because their material is all PDFs and photographs.
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m4"></section>
+
+</section>

@@ -1,0 +1,151 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-07-security-risks.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">06</span>
+    <p class="kicker">Modulo 6 <span class="mod-clock" data-clock-for="m6"></span></p>
+    <h1>Rischi e giudizio</h1>
+    <p class="lede">Che cosa va storto &mdash; nel modello, in noi, nei dati.</p>
+    <aside class="notes">
+      Tre titolari di rischio: il modello, l'utente, i dati. Quella struttura deve sopravvivere anche
+      se dimenticano ogni esempio. Poi si chiude su chi decide.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">modello</span> Che cosa sbaglia il modello</h2>
+    <div class="cols c-3">
+      <div class="signal-card" style="--card-accent:var(--ait-amber);">
+        <h4>Allucinazione</h4>
+        <p>Fluente, sicura, falsa. &Egrave; strutturale, non un difetto. Si riduce, non si elimina.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-red);">
+        <h4>Distorsione</h4>
+        <p>Gli squilibri dei testi di addestramento passano nella risposta.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-violet);">
+        <h4>Accondiscendenza</h4>
+        <p>Vi d&agrave; ragione invece di correggervi. &Egrave; stato addestrato a piacere.</p>
+      </div>
+    </div>
+    <div class="takeaway">La fluidit&agrave; prova la padronanza degli schemi, mai la verit&agrave;.</div>
+    <p class="footnote">Tutte e tre risalgono al Modulo 1: ottimizza per il testo plausibile, non per il testo vero.</p>
+    <aside class="notes">
+      Collega causalmente al motore visto nel Modulo 1: campionamento da una distribuzione, senza
+      nessun oracolo di verit&agrave; attaccato. Per questo l'allucinazione &egrave; gestibile ma non
+      eliminabile, e per questo la scala del grounding del Modulo 3 la riduce invece di risolverla.
+      La provocazione del "pappagallo stocastico" (Bender et al. 2021) sta qui se qualcuno la tira
+      fuori: presentala come dibattito aperto, non come verdetto. Fonti: Ji et al. (2023); Perez et
+      al. (2022); Sharma et al. (2023).
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2><span class="chip risk">utente</span> Che cosa succede a noi</h2>
+    <div class="cols">
+      <div class="col visual-frame tight">
+        <img src="assets/img/cognitive-delegation.png" alt="Silhouette umana che passa un filo ambrato di pensiero a una parentesi meccanica">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Erosione della competenza</h4>
+          <p>Delegare il pensiero pu&ograve; consumare proprio la capacit&agrave; che avete delegato.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>La trappola della fluidit&agrave;</h4>
+          <p>Un testo levigato sembra pi&ugrave; accurato di quanto sia &mdash; soprattutto fuori dalla vostra materia.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Il rischio non &egrave; solo una risposta sbagliata. &Egrave; perdere la capacit&agrave; di accorgersene.</div>
+    <aside class="notes">
+      Rendilo concreto per una piccola impresa: l'esperto in sala riconosce un'attribuzione sbagliata
+      in un istante. Un giovane con lo stesso strumento no, e forse non svilupper&agrave; mai
+      l'occhio se lo strumento risponde sempre per primo. &Egrave; una decisione di organico e
+      formazione, non di tecnologia. Fonti: Risko &amp; Gilbert (2016); Lee &amp; See (2004);
+      Lee et al. (2025).
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">dati</span> Dove i dati escono</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud o locale</h4><p>Chi pu&ograve; vedere le vostre domande e i file che caricate?</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Il testo dentro un documento diventa di nascosto un'istruzione.</p></div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m07-data-leaks.png" alt="Prompt injection indiretta che dirotta il percorso degli strumenti di un agente e provoca movimenti di dati non voluti">
+      </div>
+    </div>
+    <div class="takeaway">Il momento pericoloso &egrave; quando il testo non fidato smette di essere dato e inizia a guidare un'azione.</div>
+    <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.5em;">
+      <div class="mini-card"><strong>App gratuita</strong><span>Costa meno. Garanzie sul riutilizzo pi&ugrave; deboli.</span></div>
+      <div class="mini-card"><strong>Abbonamento</strong><span>Condizioni business, dati non usati per addestrare.</span></div>
+      <div class="mini-card"><strong>API a pagamento</strong><span>Controllo contrattuale, log vostri.</span></div>
+      <div class="mini-card"><strong>Modello locale</strong><span>Non esce niente dall'azienda. Risposte pi&ugrave; deboli.</span></div>
+    </div>
+    <p class="footnote">Nell'UE l'<strong>AI Act</strong> (Reg. 2024/1689) e il <strong>GDPR</strong> si applicano comunque, qualunque opzione scegliate.</p>
+    <aside class="notes">
+      I connettori del Modulo 5 allargano la superficie d'attacco: ora l'agente agisce su input non
+      fidato. L'injection non ha una soluzione pulita: progettate per privilegio minimo e tenete le
+      azioni distruttive nel livello "non fare mai". Le quattro opzioni sono per loro una vera
+      decisione d'acquisto, non un avvertimento: la demo che segue si apre eseguendo la domanda del
+      Modulo 3 su un modello del tutto locale con la rete staccata, cos&igrave; possono sentire il
+      compromesso invece di sentirselo raccontare. Fonti: Greshake et al. (2023); OWASP Top 10 per
+      applicazioni LLM.
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m6"></section>
+
+  <section>
+    <h2>L'essere umano nel ciclo</h2>
+    <div class="cols">
+      <div class="col visual-frame tight">
+        <img src="assets/img/human-loop.png" alt="Ciclo verde e viola che si incontra su checkpoint ambrati">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Ciclo che funziona <span class="chip safe">sicuro</span></h4>
+          <p>Una persona fissa l'obiettivo, controlla ci&ograve; che conta e si prende la responsabilit&agrave;.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>Ciclo rotto <span class="chip risk">rischio</span></h4>
+          <p>Una persona mette il timbro. La supervisione esiste solo sulla carta.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">La supervisione &egrave; reale solo se qualcuno pu&ograve; capire, contestare e ribaltare.</div>
+    <aside class="notes">
+      Compiacimento da automazione: la vigilanza si degrada proprio perch&eacute; il sistema di solito
+      ha ragione. Per una casa d'aste il punto &egrave; netto: la responsabilit&agrave; verso gli
+      acquirenti non si delega a un modello, n&eacute; giuridicamente n&eacute; sul piano della
+      reputazione. Hanno appena visto l'esperto ribaltarlo dal vivo.
+    </aside>
+  </section>
+
+  <section data-background-color="#fbfaf6">
+    <h2>Dove siamo arrivati</h2>
+    <div class="recap-chain compact">
+      <div class="step"><strong>1</strong><span>prevede parole</span></div>
+      <div class="step"><strong>2</strong><span>dentro / intorno</span></div>
+      <div class="step"><strong>3</strong><span>dategli i vostri documenti</span></div>
+      <div class="step"><strong>4</strong><span>scrivete le regole</span></div>
+      <div class="step"><strong>5</strong><span>lasciatelo agire, poi controllate</span></div>
+      <div class="step"><strong>6</strong><span>tenetevi il giudizio</span></div>
+    </div>
+    <div class="quote-strip" style="grid-template-columns:1fr;">
+      <blockquote>&laquo;Puoi delegare il tuo pensiero, ma non puoi delegare la tua comprensione.&raquo;<cite>un tweet che Karpathy continua a citare &mdash; AI Ascent (2026)</cite></blockquote>
+    </div>
+    <div class="takeaway">Alla base &egrave; probabilit&agrave;. Nelle vostre mani &egrave; uno strumento. La parte difficile &egrave; il giudizio.</div>
+    <aside class="notes">
+      L'attribuzione conta: Karpathy dice esplicitamente che &egrave; un tweet che cita, non una sua
+      formula &mdash; pratica la stessa igiene delle fonti che predichiamo. Due posture da nominare se
+      c'&egrave; tempo (Mollick, dallo stesso studio BCG): centauro, con il lavoro diviso lungo una
+      linea netta; cyborg, con lo scambio a ogni passo. Poi fai la domanda dell'impegno: una cosa che
+      ciascuno prover&agrave; nei prossimi 30 giorni. Stessa formulazione della Q6.1 del T1: fatti
+      scrivere le risposte.
+    </aside>
+  </section>
+
+</section>

@@ -1,0 +1,113 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-03-architectures.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">02</span>
+    <p class="kicker">Module 2 <span class="mod-clock" data-clock-for="m2"></span></p>
+    <h1>Inside the model, around the model</h1>
+    <p class="lede">Two things people constantly confuse.</p>
+    <aside class="notes">
+      The single most useful conceptual correction in the course. Almost every "can AI do X?"
+      question is really a question about which side of this boundary X sits on.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>The boundary</h2>
+    <div class="cols">
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m03-boundary-motherboard.png" alt="LLM processor mounted in a motherboard of memory, tools and orchestration components">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Inside &mdash; the processor</h4>
+          <p>What the model learned during training. Fixed when you use it.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Around &mdash; the scaffolding</h4>
+          <p>Memory, documents, tools, rules, loops. Built by you, changeable today.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">The test: does it change the model itself, or only what the model is given?</div>
+    <aside class="notes">
+      The good news for an SME is entirely on the right-hand card: you cannot retrain a frontier
+      model, and you do not need to. Everything that will make this useful for their business is
+      "around" - and around is cheap, fast and reversible. Say that explicitly; it reframes the whole
+      afternoon from "expensive AI project" to "configuration".
+    </aside>
+  </section>
+
+  <section>
+    <h2>How a model is made</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-training-pipeline.png" alt="Three-stage light infographic for pretraining, supervised fine-tuning and preference tuning">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>1. Reads text</strong><span>Predicts the next word across enormous amounts of writing.</span></div>
+        <div class="mini-card"><strong>2. Learns to follow instructions</strong><span>Examples teach it to carry out a task instead of just continuing text.</span></div>
+        <div class="mini-card"><strong>3. Tuned by human feedback</strong><span>People rate answers; the model is pushed toward the helpful ones.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">The assistant you talk to is mostly made in steps 2 and 3.</div>
+    <aside class="notes">
+      Common belief in the room: "the model is one trained thing that knows facts". Correct it here.
+      Step 3 also explains over-agreeableness, which returns in Module 6 - it was trained to please
+      raters. Sources: Brown (2020); Ouyang (2022); Christiano (2017).
+    </aside>
+  </section>
+
+  <section>
+    <h2>&quot;Reasoning&quot; &mdash; two different things</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">inside</span> Trained</h4>
+          <p>Deliberation was built into the model itself.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">around</span> Prompted</h4>
+          <p>You ask an unchanged model to show its steps.</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="reason-widget" data-reason-widget>
+          <div class="mode-buttons">
+            <button type="button" data-mode="trained" aria-pressed="true">Trained</button>
+            <button type="button" data-mode="prompted" aria-pressed="false">Prompted</button>
+          </div>
+          <div class="reason-diagram" data-reason-diagram></div>
+          <p class="reason-copy" data-reason-copy></p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Same behaviour on screen, different mechanism underneath.</div>
+    <aside class="notes">
+      This is the slide the demo lands: the thinking toggle is the trained kind, "list your criteria
+      first" is the prompted kind. Sources: Wei et al. (2022); Nye et al. (2021).
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>An agent = model + loop + tools + memory</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-agent-loop.png" alt="Central LLM processor wrapped by a clean agent loop of actions, tools, memory and observation">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Loop</strong><span>Decide, act, look at the result, decide again.</span></div>
+        <div class="mini-card"><strong>Tools</strong><span>Actions outside the model: files, search, email, databases.</span></div>
+        <div class="mini-card"><strong>Memory</strong><span>What gets handed back to the model on the next turn.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">The jump from chatbot to agent is mostly scaffolding, not a smarter model.</div>
+    <aside class="notes">
+      Everything from here is "around". Say the loop out loud - decide, act, observe - because you
+      will narrate exactly those three words over the Cowork demo in Module 5, and they should
+      recognise them when they hear them again. Sources: Yao et al. (2023) ReAct; Schick et al. (2023).
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m2"></section>
+
+</section>

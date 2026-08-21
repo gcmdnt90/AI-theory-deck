@@ -1,0 +1,107 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-04-context-memory.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">03</span>
+    <p class="kicker">Modulo 3 <span class="mod-clock" data-clock-for="m3"></span></p>
+    <h1>Contesto, memoria, grounding</h1>
+    <p class="lede">Come la macchina arriva a conoscere <em>la vostra</em> azienda.</p>
+    <aside class="notes">
+      Il modulo con il valore commerciale pi&ugrave; diretto. Distinzione centrale: il contesto
+      &egrave; ci&ograve; che il modello ha davanti adesso; la memoria &egrave; ci&ograve; che
+      sopravvive fra una sessione e l'altra. Entrambe stanno "intorno".
+    </aside>
+  </section>
+
+  <section>
+    <h2>La finestra di contesto</h2>
+    <p>Il contesto &egrave; la scrivania del modello: tutto ci&ograve; che vede mentre risponde a questa domanda.</p>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m04-context-ram.png" alt="Finestra di contesto simile a una RAM con segmenti di token caricati negli slot di memoria immediata">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Regole</strong><span>Le vostre istruzioni stanno davanti sulla scrivania.</span></div>
+        <div class="mini-card"><strong>Conversazione + documenti</strong><span>Si contendono lo stesso spazio finito.</span></div>
+        <div class="mini-card"><strong>Spazio per rispondere</strong><span>Anche la risposta ha bisogno di posto sulla scrivania.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">La scrivania viene svuotata dopo ogni domanda, se non ci rimettete voi le cose.</div>
+    <aside class="notes">
+      L'immagine della scrivania svuotata &egrave; quella che devono portarsi via. Spiega perch&eacute;
+      una chat nuova "dimentica", perch&eacute; i thread lunghi peggiorano, e perch&eacute; il file di
+      istruzioni del Modulo 4 conta.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Una scrivania pi&ugrave; grande non &egrave; una scrivania gratis</h2>
+    <div class="cols top">
+      <div class="col stack-sm">
+        <p>Le finestre sono passate da circa 1.500 parole alla lunghezza di un libro in pochi anni.</p>
+        <p>Ma ci&ograve; che sta all'<strong>inizio</strong> e alla <strong>fine</strong> viene usato meglio di ci&ograve; che finisce sepolto in mezzo.</p>
+        <div class="takeaway">Che cosa ci mettete dentro, e in che ordine, conta ancora.</div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/middle_sag.png" alt="Curva &laquo;perso nel mezzo&raquo;: accuratezza pi&ugrave; bassa per le informazioni collocate a met&agrave; del contesto">
+      </div>
+    </div>
+    <aside class="notes">
+      Anticipa il riflesso "tanto ci incollo dentro tutto" prima che si formi. Fonte: Liu et al.
+      (2023/24), Lost in the Middle, TACL. Se chiedono numeri: GPT-3 stava a ~2k token, i modelli di
+      frontiera arrivano a ~1M, all'incirca un milione e mezzo di parole. Selezionare batte
+      ammassare.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Memoria oltre la finestra</h2>
+    <div class="cols">
+      <div class="col visual-frame media-fit">
+        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay style="width:100%;height:auto;display:block;border-radius:16px;"></video>
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Breve termine</h4><p>La conversazione, ripassata a ogni giro.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Lungo termine</h4><p>Fatti conservati fuori e ripescati quando servono.</p></div>
+      </div>
+    </div>
+    <div class="takeaway">La memoria &egrave; idraulica costruita attorno al modello, non ricordo magico.</div>
+    <aside class="notes">
+      Terzo meccanismo, solo da nominare: la sintesi &mdash; i vecchi scambi compressi in appunti, con
+      perdita di informazione. Segnala il compromesso fra dimenticare e straboccare, poi passa al RAG,
+      che &egrave; quello che davvero compreranno.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Recupero: prima trova, poi scrivi</h2>
+    <div class="visual-frame generated-flow-frame rag-frame full" role="img" aria-label="Pipeline RAG: Domanda, Trasforma in numeri, Cerca per significato, Pezzi pi&ugrave; simili, LLM, Risposta">
+      <img src="assets/img/m04-rag-flow-v2.png" alt="">
+      <span class="flow-label rag-query">Domanda</span>
+      <span class="flow-label rag-embed">In numeri</span>
+      <span class="flow-label rag-search">Cerca per significato</span>
+      <span class="flow-label rag-chunks">Pezzi pi&ugrave; simili</span>
+      <span class="flow-label rag-llm">LLM</span>
+      <span class="flow-label rag-answer">Risposta</span>
+    </div>
+    <div class="rag-under">
+      <div>
+        <p class="footnote">Le parole diventano posizioni su una mappa di significati: cos&igrave; la &laquo;ricerca per significato&raquo; trova il passaggio giusto anche se le parole usate sono diverse.</p>
+        <div class="takeaway">I vostri documenti non vengono addestrati nel modello. Gli vengono passati, una domanda alla volta.</div>
+      </div>
+      <div class="visual-frame vector-video-frame mini">
+        <video src="assets/video/latent_space.mp4" autoplay loop muted playsinline data-autoplay></video>
+      </div>
+    </div>
+    <aside class="notes">
+      Lo schema pi&ugrave; utile che questa platea adotter&agrave; davvero. Fai atterrare due
+      conseguenze: (1) niente viene memorizzato, quindi aggiornare un documento aggiorna subito le
+      risposte; (2) il modello pu&ograve; rispondere solo con ci&ograve; che il recupero ha trovato,
+      quindi la qualit&agrave; del recupero &Egrave; la qualit&agrave; della risposta. Il video si
+      guadagna il posto qui: stessa matematica della mappa dei significati, usata come indice di
+      ricerca. Fonti: Lewis et al. (2020); Karpukhin et al. (2020); Mikolov et al. (2013).
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m3"></section>
+
+</section>

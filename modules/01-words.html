@@ -1,0 +1,183 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">01</span>
+    <p class="kicker">Module 1 <span class="mod-clock" data-clock-for="m1"></span></p>
+    <h1>How the machine makes words</h1>
+    <p class="lede">One old idea, running very fast.</p>
+    <aside class="notes">
+      Thesis: the idea behind LLMs is from 1948. What changed is scale, data and architecture.
+      By the end of this module they should see the machine as a sampler, not an oracle.
+    </aside>
+  </section>
+
+  <section>
+    <h2>1948 &mdash; language as a game of probability</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <p>Claude <strong>Shannon</strong> described text as a source that emits words with a certain probability.</p>
+        <p>Guessing the next word well means knowing the language well.</p>
+        <div class="takeaway">Everything today still sits on that bet.</div>
+      </div>
+      <div class="col visual-frame tight">
+        <img src="assets/img/shannons.png" alt="Shannon: language as a source emitting symbols with a probability">
+      </div>
+    </div>
+    <aside class="notes">
+      Sources: Shannon (1948) A Mathematical Theory of Communication; Shannon (1951) Prediction and
+      Entropy of Printed English. An LLM is a very large learned estimator of Shannon's next-symbol
+      distribution; everything else is engineering around that bet. Do not put the formula on screen -
+      the widget two slides from now does the work.
+    </aside>
+  </section>
+
+  <section>
+    <h2>From rules to learned patterns</h2>
+    <div class="visual-frame">
+      <svg class="diagram" viewBox="0 0 1000 250" role="img" aria-label="Timeline from rule-based NLP through statistics to Transformers and agents">
+        <path d="M70 120 H930" stroke="#d9e1ea" stroke-width="2"/>
+        <path d="M120 120 H880" stroke="#e3a12f" stroke-width="2.4" class="glow-amber" opacity=".45"/>
+        <g fill="#ffffff" stroke-width="2.4">
+          <circle cx="130" cy="120" r="17" stroke="#e3a12f"/>
+          <circle cx="390" cy="120" r="17" stroke="#1597b5"/>
+          <circle cx="650" cy="120" r="19" stroke="#8366c8" class="glow-amber"/>
+          <circle cx="880" cy="120" r="17" stroke="#34956f"/>
+        </g>
+        <text x="130" y="78" text-anchor="middle" class="mono-label">1950s&ndash;80s</text>
+        <text x="390" y="78" text-anchor="middle" class="mono-label">1990s&ndash;2010s</text>
+        <text x="650" y="76" text-anchor="middle" class="mono-label">2017</text>
+        <text x="880" y="78" text-anchor="middle" class="mono-label">today</text>
+        <text x="130" y="165" text-anchor="middle" class="label">rules</text>
+        <text x="390" y="165" text-anchor="middle" class="label">counts</text>
+        <text x="650" y="167" text-anchor="middle" class="label">Transformer</text>
+        <text x="880" y="165" text-anchor="middle" class="label">agents</text>
+        <text x="130" y="196" text-anchor="middle" class="mono-label">hand-written grammars</text>
+        <text x="390" y="196" text-anchor="middle" class="mono-label">statistics beat rules</text>
+        <text x="650" y="198" text-anchor="middle" class="mono-label">trainable at scale</text>
+        <text x="880" y="196" text-anchor="middle" class="mono-label">tools + loops</text>
+      </svg>
+    </div>
+    <div class="takeaway">We stopped telling the machine the rules and let it infer them from data.</div>
+    <aside class="notes">
+      Two minutes, no more. The one architectural fact worth saying out loud: in 2017 "Attention Is
+      All You Need" (Vaswani et al.) let every word be compared with every other word in parallel,
+      which made training at scale practical. Do not open the encoder-decoder. Scaling era in one
+      breath: 2018-today, bigger models, then human feedback turned them into assistants.
+      Sources: Mikolov (2013); Vaswani (2017); Brown (2020); Ouyang (2022).
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Three levels, one machine</h2>
+    <div class="cols fit-two">
+      <div class="col visual-frame media-fit levels-frame">
+        <img src="assets/img/m01-levels-machine-v2.png" alt="Three-layer machine cutaway: probabilistic token substrate, learned concept layer, and human judgement layer">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4><span class="chip safe">macro</span> Judgement</h4>
+          <p>The human who decides whether the output is acceptable.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">meso</span> The system</h4>
+          <p>Memory, tools, skills, connectors. <strong>This is where you work.</strong></p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">micro</span> The base</h4>
+          <p>Probabilities over the next word. Always on.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Reading the machine at the wrong level is the most common mistake.</div>
+    <aside class="notes">
+      The deck's spine - the one slide to defend if time runs out. Cristianini's mesoscopic level:
+      micro = neurons, meso = the abstract ideas the model built by itself, macro = behaviour read
+      almost psychologically. Guard the flank: this is a claim about the right LEVEL of description
+      (Marr 1982), NOT that the model became a mind. "It's just predicting words" is true at micro
+      and useless at meso, which is where their actual work happens. Every later module answers:
+      which level are we on?
+    </aside>
+  </section>
+
+  <section>
+    <h2>Tokens, not words</h2>
+    <p>The machine reads sub-word pieces. That is why some &quot;obvious&quot; tasks are mechanically awkward for it.</p>
+    <div class="visual-frame">
+      <div class="tokenizer-widget" data-tokenizer-widget>
+        <div class="prompt-switcher token-presets" role="group" aria-label="Choose a sentence to tokenize">
+          <button type="button" data-sentence="Tokenisation splits text into sub-word pieces." aria-pressed="true">sub-word</button>
+          <button type="button" data-sentence="Count the letter r in strawberry." aria-pressed="false">letters</button>
+          <button type="button" data-sentence="The lot weighs 12.7 grams, struck in 42 BC." aria-pressed="false">numbers</button>
+          <button type="button" data-sentence="L'intelligenza artificiale aiuta la traduzione." aria-pressed="false">Italian</button>
+        </div>
+        <textarea class="tokenizer-input" rows="2" aria-label="Sentence to tokenize">Tokenisation splits text into sub-word pieces.</textarea>
+        <div class="token-output" data-token-output></div>
+        <div class="token-explainer" data-token-explainer>Hover or tap a token to see why it was split.</div>
+      </div>
+    </div>
+    <aside class="notes">
+      Live and low-load. Type one of their own words into the box - a coin term, a client name.
+      The "count the r in strawberry" preset is the fastest myth-buster in the deck: it fails not
+      because the model is stupid but because it never sees letters. Source: Sennrich et al. (2016).
+    </aside>
+  </section>
+
+  <section>
+    <h2>One operation, repeated</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <p>The machine works out the odds of the next piece of text, <strong>picks one</strong>, adds it, and starts again.</p>
+        <div class="takeaway">Fluency is a loop, not a lookup.</div>
+      </div>
+      <div class="col visual-frame">
+        <div class="prob-widget" data-next-token-widget>
+          <div class="prompt-switcher" role="group" aria-label="Choose a starting phrase">
+            <button type="button" data-prompt="The satellite detected" aria-pressed="true">satellite</button>
+            <button type="button" data-prompt="The grant proposal needs" aria-pressed="false">grant</button>
+            <button type="button" data-prompt="To verify the result" aria-pressed="false">verify</button>
+            <button type="button" data-prompt="The old archive contains" aria-pressed="false">archive</button>
+          </div>
+          <div class="prompt-display" data-prompt-text>The satellite detected</div>
+          <div class="bar-list"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Formula deliberately removed from the slide; say it if asked. Hammer the loop: every word it
+      writes becomes part of what it reads next, so early choices steer later ones. Hallucination,
+      creativity and fluency all fall out of this one mechanism. Forward-reference temperature.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Temperature: the randomness dial</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Low</h4><p>Sharp, stable, repetitive.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>High</h4><p>Flatter, more creative, riskier.</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="temp-widget" data-temp-widget>
+          <p class="micro">T = <span data-temp-value>0.7</span></p>
+          <input class="temp-slider" type="range" min="0.2" max="2.0" step="0.1" value="0.7" aria-label="Temperature">
+          <div class="bar-list"></div>
+          <svg class="temp-distribution" viewBox="0 0 520 185" data-temp-distribution role="img" aria-label="Live probability distribution curve"></svg>
+          <p class="temp-warning">Effect exaggerated for clarity.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Randomness is a setting, not a personality.</div>
+    <aside class="notes">
+      Best interactive moment in the deck - drag the slider slowly to both ends and let them watch
+      the bars move. Land the line, then go straight into the demo: they are about to see the same
+      question answered four different ways.
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m1"></section>
+
+</section>

@@ -1,0 +1,136 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-06-mcp-connectors.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">05</span>
+    <p class="kicker">Module 5 <span class="mod-clock" data-clock-for="m5"></span></p>
+    <h1>Agents at work</h1>
+    <p class="lede">Reaching your systems &mdash; and how to drive without crashing.</p>
+    <aside class="notes">
+      Two halves: how it connects (connectors), and how a serious practitioner actually works with it
+      (spec, verify, guardrails). The second half is the part that survives contact with their job.
+    </aside>
+  </section>
+
+  <section>
+    <h2>One socket instead of many</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m06-mxn-convention.png" alt="Agents and servers exchanging common message envelopes through one shared protocol lane">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Without a standard</strong><span>Every assistant-to-tool pair needs its own custom wiring.</span></div>
+        <div class="mini-card"><strong>With MCP</strong><span>Assistants and tools speak one shared language of request and reply.</span></div>
+        <div class="mini-card"><strong>Not a merge</strong><span>It moves requests and results. It does not pool your data.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">MCP is the USB-C of AI tooling: one plug, many devices.</div>
+    <aside class="notes">
+      Open standard from Anthropic, now widely adopted. Do not go near the specification. The line
+      that matters commercially: their existing systems do not have to be rebuilt to be reachable.
+      Sources: anthropic.com/news/model-context-protocol; modelcontextprotocol.io.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Connectors in practice</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m06-connectors-runtime.png" alt="Agent runtime calling a connector that reaches files, spreadsheets, documents, databases and APIs through permission boundaries">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Discover</strong><span>The connector says what it can do.</span></div>
+        <div class="mini-card"><strong>Call</strong><span>The agent sends a structured request.</span></div>
+        <div class="mini-card"><strong>Return</strong><span>The result comes back as new context.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">This is where a chatbot becomes a colleague that does things.</div>
+    <p class="footnote">Same questions as any integration: whose credentials, what scope, how much trust.</p>
+    <aside class="notes">
+      End on the capability jump but plant the risk seed - every connector is also an attack surface.
+      Direct hand-off to Module 6, which opens by exploiting exactly this.
+    </aside>
+  </section>
+
+  <section
+    data-background-image="assets/img/chatbots-vs-agentic-systems-light.png"
+    data-background-size="contain"
+    data-background-position="center"
+    data-background-repeat="no-repeat"
+    data-background-color="#fbfaf6"
+    aria-label="Chatbots compared with agentic systems">
+    <aside class="notes">
+      Deliberate breathing slide - nothing to read. A chatbot answers turn by turn; an agentic system
+      combines a model, a harness and an app to pursue a longer goal. Use it to let the room reset
+      before the two hardest ideas of the module.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Jagged, not human</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Jagged ability</h4>
+          <p>Brilliant at one task, hopeless at a neighbouring one that looks just as hard. There is no manual for which is which.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>The car-wash test</h4>
+          <p>A model that can rewrite a hundred thousand lines of code may tell you to <em>walk</em> to the car wash 50&nbsp;m away.</p>
+        </div>
+      </div>
+      <div class="col vertical-captions">
+        <div class="mini-card"><strong>A colleague</strong><span>Knows what they don't know. Asks. Adapts under pressure.</span></div>
+        <div class="mini-card"><strong>An agent</strong><span>Completes the pattern. Confidently blind to what is missing.</span></div>
+        <div class="mini-card"><strong>So</strong><span>Manage it by specifying and checking &mdash; not by trusting and delegating.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">Find the edges empirically, on your own work.</div>
+    <aside class="notes">
+      Karpathy: "We're not building animals. We're building ghosts" - statistical simulations of human
+      text, not evolved creatures. The car-wash example is his own. Measured version: a field
+      experiment with 758 BCG consultants (Dell'Acqua, Mollick et al., Organization Science) found AI
+      raised quality inside the frontier and DEGRADED it outside, on tasks of similar apparent
+      difficulty - 19 points less likely to be correct. Karpathy's metaphor, Mollick's data. This is
+      the practitioner's version of the anti-anthropomorphism thread from Module 1.
+    </aside>
+  </section>
+
+  <section class="practice-slide" data-background-color="#f4f8fb">
+    <h2>Own the spec, then verify</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>1. Own the spec</h4>
+          <p>The agent fills in blanks; you own the plan. Say what the work must let you <em>decide</em>, not just what to produce.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>2. Verify against something outside</h4>
+          <p>Decide what &quot;correct&quot; looks like <strong>before</strong> it generates. Then check against the source document, not against its own opinion.</p>
+        </div>
+      </div>
+      <div class="col stack-sm">
+        <p><strong>Guardrails by risk, not by politeness.</strong> Written rules are suggestions the model can override. Real limits live outside it.</p>
+        <div class="caption-row" style="grid-template-columns:1fr;">
+          <div class="mini-card"><strong>Always do</strong><span>Routine, low risk &mdash; runs on its own.</span></div>
+          <div class="mini-card"><strong>Ask first</strong><span>Moderate risk &mdash; confirmation required before acting.</span></div>
+          <div class="mini-card"><strong>Never do</strong><span>Destructive or irreversible &mdash; blocked at the tool, out of the model's reach.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">The generator is cheap. The check is the craft.</div>
+    <aside class="notes">
+      Karpathy's automation thesis: traditional software automates what you can specify; LLMs
+      automate what you can VERIFY - so make your own work verifiable. Cherny (creator of Claude
+      Code): "Give Claude a way to verify its work... it will 2-3x the quality" - a practitioner's
+      estimate, say so. Shankar et al. (UIST 2024) on criteria drift: grading real outputs changes
+      your criteria, so spec and verification feed each other; it is one loop, not a pipeline.
+      Cautionary tale worth telling verbally: Karpathy's agent matched payments to accounts by email
+      address instead of a persistent user ID - plausible code, wrong system design, caught only by
+      human judgement. The three-tier table foreshadows Module 6: prose lives in the context, and
+      context can be manipulated.
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m5"></section>
+
+</section>

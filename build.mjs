@@ -45,16 +45,55 @@ async function assembleDeck(modulesDir, label) {
   return parts.join('\n');
 }
 
-const en = await assembleDeck(join(root, 'modules'), 'en');
-const it = await assembleDeck(join(root, 'modules', 'it'), 'it');
+// Demo prompts are inlined (not fetched) so the deck still works from file://
+// with no server. The demo slides read them from a JSON <script> tag.
+let demoPrompts = '{}';
+try {
+  demoPrompts = await readFile(join(root, 'demo-prompts.json'), 'utf8');
+  JSON.parse(demoPrompts); // fail loudly here rather than silently in the room
+  console.log('[prompts] demo-prompts.json inlined.');
+} catch (err) {
+  console.warn(`[prompts] demo-prompts.json missing or invalid — demo slides will be empty.\n         ${err.message}`);
+}
+
+/**
+ * Two editions are built from the same template:
+ *   index.html    — SME edition (modules/), the live URL. Thinned, 6 modules.
+ *   academic.html — academic edition (modules-academic/), frozen 9-module
+ *                   deck as delivered to UnivPM PhD students. Kept buildable
+ *                   so the research instrument alignment is not lost.
+ * Both are bilingual; the in-page EN/IT toggle is unchanged.
+ */
+const editions = [
+  { id: 'sme', dir: 'modules', out: 'index.html', label: 'SME edition' },
+  { id: 'academic', dir: 'modules-academic', out: 'academic.html', label: 'academic edition' }
+];
 
 const template = await readFile(join(root, 'template.html'), 'utf8');
-const out = template
-  .replace('{{DECK_EN}}', en)
-  .replace('{{DECK_IT}}', it);
 
-await writeFile(join(root, 'index.html'), out, 'utf8');
-console.log('Built index.html (bilingual: EN + IT, toggle in-page).');
+for (const ed of editions) {
+  const base = join(root, ed.dir);
+  try {
+    await access(base);
+  } catch {
+    console.warn(`[${ed.id}] ${ed.dir}/ not found — skipping ${ed.out}.`);
+    continue;
+  }
+  const en = await assembleDeck(base, `${ed.id}:en`);
+  const it = await assembleDeck(join(base, 'it'), `${ed.id}:it`);
+
+  // Function replacements throughout: slide markup contains $$…$$ (KaTeX) and
+  // $-sequences are special in a string replacement, which would silently
+  // mangle display math into inline math.
+  const out = template
+    .replace('{{DECK_EN}}', () => en)
+    .replace('{{DECK_IT}}', () => it)
+    .replace('{{DEMO_PROMPTS}}', () => demoPrompts)
+    .replace(/\{\{EDITION\}\}/g, () => ed.id);
+
+  await writeFile(join(root, ed.out), out, 'utf8');
+  console.log(`Built ${ed.out} (${ed.label}, bilingual EN + IT).`);
+}
 
 // Legacy redirect: old links to index.it.html still work and land in Italian.
 const redirect = `<!DOCTYPE html>

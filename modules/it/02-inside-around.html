@@ -1,0 +1,117 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-03-architectures.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">02</span>
+    <p class="kicker">Modulo 2 <span class="mod-clock" data-clock-for="m2"></span></p>
+    <h1>Dentro il modello, intorno al modello</h1>
+    <p class="lede">Due cose che si confondono di continuo.</p>
+    <aside class="notes">
+      La correzione concettuale pi&ugrave; utile del corso. Quasi ogni domanda del tipo "l'AI sa fare
+      X?" &egrave; in realt&agrave; una domanda su quale lato di questo confine si trovi X.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Il confine</h2>
+    <div class="cols">
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m03-boundary-motherboard.png" alt="Processore LLM montato su una scheda madre di memoria, strumenti e orchestrazione">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Dentro &mdash; il processore</h4>
+          <p>Ci&ograve; che il modello ha imparato in addestramento. Fisso quando lo usate.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Intorno &mdash; l'impalcatura</h4>
+          <p>Memoria, documenti, strumenti, regole, cicli. La costruite voi, si cambia oggi.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">La prova: cambia il modello stesso, o solo ci&ograve; che gli viene dato?</div>
+    <aside class="notes">
+      La buona notizia per una PMI sta tutta nella scheda di destra: un modello di frontiera non
+      potete riaddestrarlo, e non ve ne serve. Tutto ci&ograve; che render&agrave; utile questa
+      tecnologia nella loro azienda sta "intorno" &mdash; e l'intorno costa poco, si fa in fretta e
+      si pu&ograve; disfare. Dillo esplicitamente: riformula l'intero pomeriggio da "progetto AI
+      costoso" a "configurazione".
+    </aside>
+  </section>
+
+  <section>
+    <h2>Come si costruisce un modello</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-training-pipeline.png" alt="Infografica in tre fasi: pre-addestramento, messa a punto supervisionata, allineamento con preferenze umane">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>1. Legge testo</strong><span>Prevede la parola successiva su quantit&agrave; enormi di scritto.</span></div>
+        <div class="mini-card"><strong>2. Impara a seguire istruzioni</strong><span>Degli esempi gli insegnano a svolgere un compito, non solo a continuare il testo.</span></div>
+        <div class="mini-card"><strong>3. Regolato dal feedback umano</strong><span>Delle persone valutano le risposte; il modello viene spinto verso quelle utili.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">L'assistente con cui parlate nasce soprattutto nei passi 2 e 3.</div>
+    <aside class="notes">
+      Convinzione comune in sala: "il modello &egrave; una cosa sola addestrata che sa dei fatti".
+      Correggila qui. Il passo 3 spiega anche l'eccesso di accondiscendenza, che torna nel Modulo 6:
+      &egrave; stato addestrato a piacere ai valutatori. Fonti: Brown (2020); Ouyang (2022);
+      Christiano (2017).
+    </aside>
+  </section>
+
+  <section>
+    <h2>&quot;Ragionamento&quot; &mdash; due cose diverse</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">dentro</span> Addestrato</h4>
+          <p>La deliberazione &egrave; stata costruita dentro al modello.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">intorno</span> Indotto</h4>
+          <p>Chiedete a un modello invariato di mostrare i passaggi.</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="reason-widget" data-reason-widget>
+          <div class="mode-buttons">
+            <button type="button" data-mode="trained" aria-pressed="true">Addestrato</button>
+            <button type="button" data-mode="prompted" aria-pressed="false">Indotto</button>
+          </div>
+          <div class="reason-diagram" data-reason-diagram></div>
+          <p class="reason-copy" data-reason-copy></p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Stesso comportamento a schermo, meccanismo diverso sotto.</div>
+    <aside class="notes">
+      &Egrave; la slide che la demo fa atterrare: l'interruttore del ragionamento esteso &egrave; il
+      tipo addestrato, "elenca prima i criteri" &egrave; il tipo indotto. Fonti: Wei et al. (2022);
+      Nye et al. (2021).
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Un agente = modello + ciclo + strumenti + memoria</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-agent-loop.png" alt="Processore LLM centrale avvolto da un ciclo agentico di azioni, strumenti, memoria e osservazione">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Ciclo</strong><span>Decide, agisce, guarda il risultato, decide di nuovo.</span></div>
+        <div class="mini-card"><strong>Strumenti</strong><span>Azioni fuori dal modello: file, ricerca, email, banche dati.</span></div>
+        <div class="mini-card"><strong>Memoria</strong><span>Ci&ograve; che viene restituito al modello al giro dopo.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">Il salto da chatbot ad agente &egrave; soprattutto impalcatura, non un modello pi&ugrave; intelligente.</div>
+    <aside class="notes">
+      Da qui in poi &egrave; tutto "intorno". Pronuncia il ciclo ad alta voce &mdash; decide, agisce,
+      osserva &mdash; perch&eacute; racconterai esattamente quelle tre parole sopra la demo di Cowork
+      del Modulo 5, e devono riconoscerle quando le risentono. Fonti: Yao et al. (2023) ReAct;
+      Schick et al. (2023).
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m2"></section>
+
+</section>

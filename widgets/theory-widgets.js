@@ -351,10 +351,313 @@
     });
   }
 
+  /* ------------------------------------------------------------------ *
+   * Demo slides — rendered from demo-prompts.json, inlined by build.mjs
+   * into a <script id="demo-prompts"> tag so the deck still works from
+   * file:// with no server. Edit the JSON, never the slide. See PROMPTS.md.
+   * ------------------------------------------------------------------ */
+
+  // Same guard as the template: never let a storage exception blank the deck.
+  const store = (typeof window !== "undefined" && window.deckStore) || {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  const DEMO_STR = IT ? {
+    banner: "PROVIAMOLO",
+    sector: "Esempio di settore",
+    sectors_one: "1 settore configurato",
+    sectors_n: "settori configurati",
+    copy: "copia",
+    copied: "copiato",
+    missing: "Prompt non trovati per questo modulo."
+  } : {
+    banner: "WE TRY IT",
+    sector: "Sector example",
+    sectors_one: "1 sector configured",
+    sectors_n: "sectors configured",
+    copy: "copy",
+    copied: "copied",
+    missing: "No prompts found for this module."
+  };
+
+  function loadDemoData() {
+    const tag = document.getElementById("demo-prompts");
+    if (!tag) return null;
+    try {
+      return JSON.parse(tag.textContent);
+    } catch (err) {
+      console.warn("demo-prompts.json is not valid JSON:", err.message);
+      return null;
+    }
+  }
+
+  // Italian mirrors live in `<field>_it`, falling back to the English field so
+  // a missing translation degrades to readable rather than to blank.
+  function loc(obj, key) {
+    if (!obj) return "";
+    return (IT && obj[key + "_it"]) || obj[key] || "";
+  }
+
+  // {{KEY}} → the selected sector's client profile. Unknown keys are left
+  // visible on purpose: an untouched placeholder on screen is a bug you can
+  // see, which is far safer than a silently invented business detail.
+  function fill(text, client) {
+    if (!text) return "";
+    return String(text).replace(/\{\{(\w+)\}\}/g, (whole, key) => {
+      if (!client) return whole;
+      if (IT && Object.prototype.hasOwnProperty.call(client, key + "_it")) return client[key + "_it"];
+      return Object.prototype.hasOwnProperty.call(client, key) ? client[key] : whole;
+    });
+  }
+
+  function copyText(text, button) {
+    const done = () => {
+      const original = button.dataset.label || button.textContent;
+      button.dataset.label = original;
+      button.textContent = DEMO_STR.copied;
+      button.classList.add("is-copied");
+      setTimeout(() => {
+        button.textContent = original;
+        button.classList.remove("is-copied");
+      }, 1400);
+    };
+    // navigator.clipboard is unavailable on file:// in some browsers, so the
+    // execCommand path is a real fallback here, not legacy cruft.
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+    function fallback() {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:absolute;left:-9999px;top:0;";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) { /* clipboard blocked */ }
+      document.body.removeChild(ta);
+    }
+  }
+
+  /* Demo slides are PROJECTED SURFACES: everything on them is meant to be seen
+     by the room. Trainer-facing material (what the demo lands, what to watch
+     for, per-prompt conduct notes) goes into the speaker notes instead — press
+     S for the speaker view. The only things on screen are the title, the tools,
+     the prompt itself and the way to change it. */
+  function initDemoSlides() {
+    const slides = document.querySelectorAll(".demo-slide[data-demo]");
+    if (!slides.length) return;
+    const data = loadDemoData();
+    const demos = (data && data.demos) || [];
+    const sectors = (data && data.sectors) || [];
+
+    const stored = store.get("deck-sector");
+    let sectorId = sectors.some((s) => s.id === stored)
+      ? stored
+      : (data && data.default_sector) || (sectors[0] && sectors[0].id);
+
+    const sectorOf = (id) => sectors.find((s) => s.id === id) || sectors[0] || null;
+    const renderers = [];
+
+    slides.forEach((slide) => {
+      const demo = demos.find((d) => d.id === slide.dataset.demo);
+      if (!demo) {
+        slide.innerHTML = `<h2>${DEMO_STR.banner}</h2><p class="footnote">${DEMO_STR.missing}</p>`;
+        return;
+      }
+
+      // Active prompts first, library ones after: the live run reads left to
+      // right, the archive stays reachable without cluttering it.
+      const prompts = (demo.prompts || [])
+        .slice()
+        .sort((a, b) => (a.status === "library") - (b.status === "library"));
+
+      const options = sectors
+        .map((s) => `<option value="${s.id}">${loc(s, "label")}</option>`)
+        .join("");
+      const count = sectors.length === 1
+        ? DEMO_STR.sectors_one
+        : `${sectors.length} ${DEMO_STR.sectors_n}`;
+
+      slide.innerHTML = `
+        <div class="demo-head">
+          <span class="demo-banner">&#9654; ${DEMO_STR.banner}</span>
+          <h2 data-demo-title></h2>
+          <span class="demo-min">${demo.minutes || "?"}&#8202;min</span>
+        </div>
+        <div class="demo-bar">
+          <label class="sector-pick">
+            <span class="sector-key">${DEMO_STR.sector}</span>
+            <select data-sector-select aria-label="${DEMO_STR.sector}">${options}</select>
+          </label>
+          <span class="sector-count">${count}</span>
+          <span class="demo-tools" data-demo-tools></span>
+        </div>
+        <div class="demo-panel">
+          <pre class="demo-prompt-text" data-demo-text></pre>
+          <button type="button" class="demo-copy" data-demo-copy>${DEMO_STR.copy}</button>
+        </div>
+        <div class="prompt-strip" role="group" aria-label="Prompt database">
+          ${prompts.map((p) => `
+            <button type="button" data-prompt-id="${p.id}"
+                    class="${p.status === "library" ? "is-library" : ""}"
+                    aria-pressed="false"><span class="p-label"></span></button>`).join("")}
+        </div>
+        <aside class="notes" data-demo-notes></aside>`;
+
+      const out = slide.querySelector("[data-demo-text]");
+      const copyBtn = slide.querySelector("[data-demo-copy]");
+      const buttons = Array.from(slide.querySelectorAll(".prompt-strip button"));
+      const select = slide.querySelector("[data-sector-select]");
+      let currentId = prompts[0] && prompts[0].id;
+
+      const paint = () => {
+        const client = (sectorOf(sectorId) || {}).client || {};
+        slide.querySelector("[data-demo-title]").textContent = fill(loc(demo, "title"), client);
+        slide.querySelector("[data-demo-tools]").innerHTML =
+          (demo.tools || []).map((t) => `<span class="demo-tool">${t}</span>`).join("");
+        buttons.forEach((b) => {
+          const p = prompts.find((x) => x.id === b.dataset.promptId);
+          b.querySelector(".p-label").textContent = fill(loc(p, "label"), client);
+          b.setAttribute("aria-pressed", String(b.dataset.promptId === currentId));
+        });
+        const p = prompts.find((x) => x.id === currentId);
+        out.textContent = p ? fill(loc(p, "text"), client) : "";
+        // Speaker view only — never rendered on the projected slide.
+        slide.querySelector("[data-demo-notes]").innerHTML = `
+          <p><strong>${fill(loc(demo, "lands"), client)}</strong></p>
+          <p><em>${fill(loc(demo, "watch_for"), client)}</em></p>
+          <ul>${prompts.map((x) =>
+            `<li><strong>${fill(loc(x, "label"), client)}</strong> — ${fill(loc(x, "note"), client)}</li>`
+          ).join("")}</ul>`;
+        if (select) select.value = sectorId;
+      };
+
+      buttons.forEach((b) => b.addEventListener("click", () => {
+        currentId = b.dataset.promptId;
+        paint();
+      }));
+      copyBtn.addEventListener("click", () => copyText(out.textContent, copyBtn));
+      if (select) {
+        select.addEventListener("change", () => {
+          sectorId = select.value;
+          store.set("deck-sector", sectorId);
+          // One choice, applied to every demo slide at once.
+          renderers.forEach((fn) => fn());
+        });
+      }
+      renderers.push(paint);
+      paint();
+    });
+  }
+
+  /* ------------------------------------------------------------------ *
+   * Schedule — wall-clock times computed from a start time, so the room
+   * sees "M3 at 15:20", not "M3 after 40 minutes". Start defaults to now,
+   * is editable, and is remembered per browser.
+   * ------------------------------------------------------------------ */
+
+  function initSchedule() {
+    const table = document.querySelector("[data-schedule-widget]");
+    if (!table) return;
+    const startInput = document.querySelector("[data-schedule-start]");
+    const totalOut = document.querySelector("[data-schedule-total]");
+    const nowBtn = document.querySelector("[data-schedule-now]");
+    const rows = Array.from(table.querySelectorAll("tbody tr"));
+
+    const pad = (n) => String(n).padStart(2, "0");
+    const hhmm = (mins) => `${pad(Math.floor((mins % 1440) / 60))}:${pad(mins % 60)}`;
+
+    const nowMinutes = () => {
+      const d = new Date();
+      return d.getHours() * 60 + d.getMinutes();
+    };
+    const roundedNow = () => Math.ceil(nowMinutes() / 5) * 5;
+
+    const parse = (value) => {
+      const m = /^(\d{1,2}):(\d{2})$/.exec(value || "");
+      return m ? (+m[1]) * 60 + (+m[2]) : null;
+    };
+
+    let start = parse(store.get("deck-start"));
+    if (start === null) start = roundedNow();
+    if (startInput) startInput.value = hhmm(start);
+
+    const render = () => {
+      let cursor = start;
+      const current = nowMinutes();
+      rows.forEach((row) => {
+        const mins = (+row.dataset.theory || 0) + (+row.dataset.demo || 0);
+        const from = cursor;
+        const to = cursor + mins;
+        const cell = row.querySelector(".c-clock");
+        if (cell) cell.textContent = hhmm(from);
+        row.classList.toggle("is-now", current >= from && current < to);
+        // Module covers carry their own start time in small print.
+        document.querySelectorAll(`[data-clock-for="${row.dataset.block}"]`)
+          .forEach((el) => { el.textContent = `${hhmm(from)}–${hhmm(to)}`; });
+        cursor = to;
+      });
+      if (totalOut) {
+        const total = cursor - start;
+        totalOut.textContent = `${hhmm(start)} → ${hhmm(cursor)} · ${Math.floor(total / 60)}h${pad(total % 60)}`;
+      }
+    };
+
+    if (startInput) {
+      startInput.addEventListener("change", () => {
+        const v = parse(startInput.value);
+        if (v === null) return;
+        start = v;
+        store.set("deck-start", startInput.value);
+        render();
+      });
+    }
+    if (nowBtn) {
+      nowBtn.addEventListener("click", () => {
+        start = roundedNow();
+        if (startInput) startInput.value = hhmm(start);
+        store.set("deck-start", hhmm(start));
+        render();
+      });
+    }
+    render();
+    // Keep the "you are here" highlight honest during the lesson.
+    setInterval(render, 30000);
+  }
+
+  /* ------------------------------------------------------------------ *
+   * Edition switch — index.html (SME) ⇄ academic.html. Both files are
+   * produced by the same build; the language choice is untouched.
+   * ------------------------------------------------------------------ */
+
+  function initVersionSwitch() {
+    const box = document.querySelector("[data-version-switch]");
+    if (!box) return;
+    const current = document.documentElement.dataset.edition || "sme";
+    const files = { sme: "index.html", academic: "academic.html" };
+    const label = document.querySelector("[data-version-current]");
+    if (label) label.textContent = current === "academic" ? (IT ? "Accademica" : "Academic") : "SME";
+    box.querySelectorAll("button[data-edition]").forEach((b) => {
+      const isCurrent = b.dataset.edition === current;
+      b.setAttribute("aria-pressed", String(isCurrent));
+      b.disabled = isCurrent;
+      b.addEventListener("click", () => {
+        const target = files[b.dataset.edition];
+        if (target) location.href = target;
+      });
+    });
+  }
+
   window.addEventListener("DOMContentLoaded", () => {
     initNextToken();
     initTokenizerWidget();
     initTemperature();
     initReasoningWidget();
+    initDemoSlides();
+    initSchedule();
+    initVersionSwitch();
   });
 })();

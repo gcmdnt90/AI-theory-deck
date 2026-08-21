@@ -1,0 +1,187 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">01</span>
+    <p class="kicker">Modulo 1 <span class="mod-clock" data-clock-for="m1"></span></p>
+    <h1>Come la macchina fabbrica le parole</h1>
+    <p class="lede">Un'idea vecchia, eseguita molto in fretta.</p>
+    <aside class="notes">
+      Tesi: l'idea dietro gli LLM &egrave; del 1948. Ci&ograve; che &egrave; cambiato sono scala, dati
+      e architettura. Alla fine del modulo devono vedere la macchina come un campionatore, non come
+      un oracolo.
+    </aside>
+  </section>
+
+  <section>
+    <h2>1948 &mdash; il linguaggio come gioco di probabilit&agrave;</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <p>Claude <strong>Shannon</strong> descrive il testo come una sorgente che emette parole con una certa probabilit&agrave;.</p>
+        <p>Indovinare bene la parola successiva significa conoscere bene la lingua.</p>
+        <div class="takeaway">Tutto quello che vediamo oggi poggia ancora su quella scommessa.</div>
+      </div>
+      <div class="col visual-frame tight">
+        <img src="assets/img/shannons.png" alt="Shannon: il linguaggio come sorgente che emette simboli con una probabilit&agrave;">
+      </div>
+    </div>
+    <aside class="notes">
+      Fonti: Shannon (1948) A Mathematical Theory of Communication; Shannon (1951) Prediction and
+      Entropy of Printed English. Un LLM &egrave; un enorme stimatore appreso della distribuzione del
+      simbolo successivo di Shannon; tutto il resto &egrave; ingegneria attorno a quella scommessa.
+      Non mettere la formula a schermo: ci pensa il widget fra due slide.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Dalle regole ai pattern appresi</h2>
+    <div class="visual-frame">
+      <svg class="diagram" viewBox="0 0 1000 250" role="img" aria-label="Linea del tempo dall'NLP a regole alla statistica, ai Transformer e agli agenti">
+        <path d="M70 120 H930" stroke="#d9e1ea" stroke-width="2"/>
+        <path d="M120 120 H880" stroke="#e3a12f" stroke-width="2.4" class="glow-amber" opacity=".45"/>
+        <g fill="#ffffff" stroke-width="2.4">
+          <circle cx="130" cy="120" r="17" stroke="#e3a12f"/>
+          <circle cx="390" cy="120" r="17" stroke="#1597b5"/>
+          <circle cx="650" cy="120" r="19" stroke="#8366c8" class="glow-amber"/>
+          <circle cx="880" cy="120" r="17" stroke="#34956f"/>
+        </g>
+        <text x="130" y="78" text-anchor="middle" class="mono-label">anni '50&ndash;'80</text>
+        <text x="390" y="78" text-anchor="middle" class="mono-label">anni '90&ndash;2010</text>
+        <text x="650" y="76" text-anchor="middle" class="mono-label">2017</text>
+        <text x="880" y="78" text-anchor="middle" class="mono-label">oggi</text>
+        <text x="130" y="165" text-anchor="middle" class="label">regole</text>
+        <text x="390" y="165" text-anchor="middle" class="label">conteggi</text>
+        <text x="650" y="167" text-anchor="middle" class="label">Transformer</text>
+        <text x="880" y="165" text-anchor="middle" class="label">agenti</text>
+        <text x="130" y="196" text-anchor="middle" class="mono-label">grammatiche scritte a mano</text>
+        <text x="390" y="196" text-anchor="middle" class="mono-label">la statistica batte le regole</text>
+        <text x="650" y="198" text-anchor="middle" class="mono-label">addestrabile su larga scala</text>
+        <text x="880" y="196" text-anchor="middle" class="mono-label">strumenti + cicli</text>
+      </svg>
+    </div>
+    <div class="takeaway">Abbiamo smesso di dire le regole alla macchina e l'abbiamo lasciata dedurle dai dati.</div>
+    <aside class="notes">
+      Due minuti, non di pi&ugrave;. L'unico fatto architetturale che vale dire ad alta voce: nel 2017
+      "Attention Is All You Need" (Vaswani et al.) permette di confrontare ogni parola con ogni altra
+      in parallelo, il che rende pratico l'addestramento su larga scala. Non aprire l'encoder-decoder.
+      Era della scala in un fiato: dal 2018 a oggi modelli sempre pi&ugrave; grandi, poi il feedback
+      umano li ha trasformati in assistenti. Fonti: Mikolov (2013); Vaswani (2017); Brown (2020);
+      Ouyang (2022).
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Tre livelli, una macchina</h2>
+    <div class="cols fit-two">
+      <div class="col visual-frame media-fit levels-frame">
+        <img src="assets/img/m01-levels-machine-v2.png" alt="Sezione della macchina a tre livelli: substrato probabilistico dei token, livello dei concetti appresi, livello del giudizio umano">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4><span class="chip safe">macro</span> Giudizio</h4>
+          <p>La persona che decide se l'output &egrave; accettabile.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">meso</span> Il sistema</h4>
+          <p>Memoria, strumenti, skill, connettori. <strong>&Egrave; qui che lavorate.</strong></p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">micro</span> La base</h4>
+          <p>Probabilit&agrave; sulla parola successiva. Sempre attiva.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Leggere la macchina al livello sbagliato &egrave; l'errore pi&ugrave; comune.</div>
+    <aside class="notes">
+      La spina dorsale del deck: la slide da difendere se il tempo stringe. Livello mesoscopico di
+      Cristianini: micro = neuroni, meso = le idee astratte che il modello si &egrave; costruito da
+      solo, macro = comportamento letto quasi psicologicamente. Copri il fianco: &egrave; una tesi sul
+      LIVELLO di descrizione giusto (Marr 1982), NON sul fatto che il modello sia diventato una mente.
+      "&Egrave; solo statistica sulle parole" &egrave; vero al micro e inutile al meso, che &egrave;
+      dove sta il loro lavoro vero. Ogni modulo successivo risponde a: a che livello siamo?
+    </aside>
+  </section>
+
+  <section>
+    <h2>Token, non parole</h2>
+    <p>La macchina legge pezzi di parola. Per questo alcuni compiti &quot;ovvi&quot; le riescono male.</p>
+    <div class="visual-frame">
+      <div class="tokenizer-widget" data-tokenizer-widget>
+        <div class="prompt-switcher token-presets" role="group" aria-label="Scegli una frase da tokenizzare">
+          <button type="button" data-sentence="La tokenizzazione divide il testo in pezzi di parola." aria-pressed="true">sotto-parola</button>
+          <button type="button" data-sentence="Conta la lettera r in strawberry." aria-pressed="false">lettere</button>
+          <button type="button" data-sentence="Il lotto pesa 12,7 grammi, coniato nel 42 a.C." aria-pressed="false">numeri</button>
+          <button type="button" data-sentence="L'intelligenza artificiale aiuta la traduzione." aria-pressed="false">italiano</button>
+        </div>
+        <textarea class="tokenizer-input" rows="2" aria-label="Frase da tokenizzare">La tokenizzazione divide il testo in pezzi di parola.</textarea>
+        <div class="token-output" data-token-output></div>
+        <div class="token-explainer" data-token-explainer>Passa sopra o tocca un token per vedere perch&eacute; &egrave; stato diviso.</div>
+      </div>
+    </div>
+    <aside class="notes">
+      Dal vivo e a basso carico. Scrivi nella casella una loro parola: un termine numismatico, il nome
+      di un cliente. Il preset "conta le r in strawberry" &egrave; lo sfata-miti pi&ugrave; rapido del
+      deck: fallisce non perch&eacute; il modello sia stupido, ma perch&eacute; non vede mai le
+      lettere. Fonte: Sennrich et al. (2016).
+    </aside>
+  </section>
+
+  <section>
+    <h2>Un'operazione, ripetuta</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <p>La macchina calcola le probabilit&agrave; del pezzo di testo successivo, <strong>ne sceglie uno</strong>, lo aggiunge e ricomincia.</p>
+        <div class="takeaway">La fluidit&agrave; &egrave; un ciclo, non una consultazione.</div>
+      </div>
+      <div class="col visual-frame">
+        <div class="prob-widget" data-next-token-widget>
+          <div class="prompt-switcher" role="group" aria-label="Scegli una frase iniziale">
+            <button type="button" data-prompt="Il satellite ha rilevato" aria-pressed="true">satellite</button>
+            <button type="button" data-prompt="La proposta di progetto richiede" aria-pressed="false">progetto</button>
+            <button type="button" data-prompt="Per verificare il risultato" aria-pressed="false">verifica</button>
+            <button type="button" data-prompt="Il vecchio archivio contiene" aria-pressed="false">archivio</button>
+          </div>
+          <div class="prompt-display" data-prompt-text>Il satellite ha rilevato</div>
+          <div class="bar-list"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Formula tolta dalla slide di proposito; dilla se te la chiedono. Martella il ciclo: ogni parola
+      che scrive entra in ci&ograve; che legge dopo, quindi le scelte iniziali orientano quelle
+      successive. Allucinazione, creativit&agrave; e fluidit&agrave; nascono tutte da questo stesso
+      meccanismo. Anticipa la temperatura.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Temperatura: la manopola della casualit&agrave;</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Bassa</h4><p>Netta, stabile, ripetitiva.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>Alta</h4><p>Pi&ugrave; piatta, pi&ugrave; creativa, pi&ugrave; rischiosa.</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="temp-widget" data-temp-widget>
+          <p class="micro">T = <span data-temp-value>0.7</span></p>
+          <input class="temp-slider" type="range" min="0.2" max="2.0" step="0.1" value="0.7" aria-label="Temperatura">
+          <div class="bar-list"></div>
+          <svg class="temp-distribution" viewBox="0 0 520 185" data-temp-distribution role="img" aria-label="Curva di distribuzione delle probabilit&agrave; in tempo reale"></svg>
+          <p class="temp-warning">Effetto esagerato per chiarezza.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">La casualit&agrave; &egrave; un'impostazione, non un carattere.</div>
+    <aside class="notes">
+      Il momento interattivo migliore del deck: trascina lo slider lentamente fino ai due estremi e
+      lascia che guardino muoversi le barre. Chiudi con la frase, poi entra subito nella demo: stanno
+      per vedere la stessa domanda con quattro risposte diverse.
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m1"></section>
+
+</section>
