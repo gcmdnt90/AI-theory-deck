@@ -1,0 +1,8 @@
+{
+  "name": "ai-theory-deck",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "check:build": "node build.mjs && git diff --exit-code -- index.html academic.html index.it.html"
+  }
+}
