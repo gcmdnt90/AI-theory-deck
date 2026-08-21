@@ -1,6 +1,11 @@
 *.log
-server.err.log
-server.out.log
+*.swp
+*.swo
+*.DS_Store
+
+Thumbs.db
+
+node_modules/
 
 # private working notes (promote/branch later)
 CONTEXT.md
