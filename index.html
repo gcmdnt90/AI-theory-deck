@@ -125,8 +125,8 @@
         <tr data-block="m2"    data-theory="8"  data-demo="5"><td class="c-clock"></td><td><strong>M2</strong> &nbsp;Inside vs around</td><td class="c-min">8 min</td><td class="c-min">5 min</td></tr>
         <tr data-block="m3"    data-theory="9"  data-demo="10"><td class="c-clock"></td><td><strong>M3</strong> &nbsp;Grounding</td><td class="c-min">9 min</td><td class="c-min">10 min</td></tr>
         <tr data-block="break" data-theory="9"  data-demo="0" class="is-break"><td class="c-clock"></td><td>Break</td><td class="c-min">9 min</td><td class="c-min">&mdash;</td></tr>
-        <tr data-block="m4"    data-theory="14" data-demo="12"><td class="c-clock"></td><td><strong>M4</strong> &nbsp;From instructions to tools</td><td class="c-min">14 min</td><td class="c-min">12 min</td></tr>
-        <tr data-block="m5"    data-theory="12" data-demo="12"><td class="c-clock"></td><td><strong>M5</strong> &nbsp;Risks &amp; judgement</td><td class="c-min">12 min</td><td class="c-min">12 min</td></tr>
+        <tr data-block="m4"    data-theory="15" data-demo="13"><td class="c-clock"></td><td><strong>M4</strong> &nbsp;From instructions to tools</td><td class="c-min">15 min</td><td class="c-min">13 min</td></tr>
+        <tr data-block="m5"    data-theory="10" data-demo="12"><td class="c-clock"></td><td><strong>M5</strong> &nbsp;Risks &amp; judgement</td><td class="c-min">10 min</td><td class="c-min">12 min</td></tr>
         <tr data-block="close" data-theory="7"  data-demo="0"><td class="c-clock"></td><td>Close, commitment, Q&amp;A</td><td class="c-min">7 min</td><td class="c-min">&mdash;</td></tr>
       </tbody>
     </table>
@@ -957,14 +957,23 @@
 <!-- ===== 05-risks-judgement.html ===== -->
 <section>
 
-  <section class="module-cover" data-background-image="assets/img/module-07-security-risks.png" data-background-size="cover" data-background-color="#fbfaf6">
+  <section class="module-cover" data-background-image="assets/img/module-08-ethics.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">05</span>
     <p class="kicker">Module 5 <span class="mod-clock" data-clock-for="m5"></span></p>
     <h1>Risks and judgement</h1>
-    <p class="lede">What goes wrong &mdash; in the model, in us, in the data.</p>
+    <p class="lede">What goes wrong and who stays responsible.</p>
     <aside class="notes">
-      Three risk owners: the model, the user, the data. That structure should survive even if every
-      example is forgotten. Then close on who decides.
+      The last module, and the one that makes everything else defensible: the previous four showed
+      what the machine can be made to do, this one says on what terms the result holds up in front of
+      a client. Three risk owners - the model, the person using it, the data - and then who decides:
+      that structure should survive even if every example is forgotten, and it is the one thing worth
+      saying twice.
+      This is not a module of warnings. Every risk named here already has its counter-move in the
+      earlier modules: ground it in documents (M3), write the rules and verify (M4), keep destructive
+      actions out of the tool's reach. Say so at the start, or the room stiffens and the closing demo
+      reads as a punishment.
+      Close on the commitment question: one thing each person will try in the next 30 days. Have it
+      written down, not just spoken.
     </aside>
   </section>
 
@@ -973,121 +982,150 @@
     <div class="cols c-3">
       <div class="signal-card" style="--card-accent:var(--ait-amber);">
         <h4>Hallucination</h4>
-        <p>Fluent, confident, false. Structural, not a bug. It can be reduced &mdash; not removed.</p>
+        <p>Fluent, confident, false. Structural, not a bug: it is reduced by anchoring it to documents and checking it. Not removed.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-red);">
         <h4>Bias</h4>
-        <p>Skews in the training text carried through into the answer.</p>
+        <p>With no references of its own it returns the average of what has already been written: the words, patterns and structures the web is full of.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-violet);">
         <h4>Agreeableness</h4>
-        <p>Agrees rather than correcting. It was trained to please.</p>
+        <p>Push back and it retracts &mdash; even when it was right. Finetuning rewards the answers people approve of.</p>
       </div>
     </div>
-    <div class="takeaway">Fluency is evidence of pattern mastery, never proof of truth.</div>
-    <p class="footnote">All three trace back to Module 1: it optimises for plausible text, not for true text.</p>
+    <div class="banner-media">
+      <img src="assets/img/m05-plausible-path.png" alt="Many thin traces braiding into one confident amber stroke while a few peel away and fade out">
+    </div>
+    <p class="footnote">The first two come from the engine of Module 1 &mdash; plausible text, not true text. The third comes from how it was finetuned: on human judgements.</p>
     <aside class="notes">
-      Connect causally to the engine they saw in Module 1: sampling from a distribution with no truth
-      oracle attached. That is why hallucination is manageable but not eliminable, and why the
-      grounding ladder in Module 3 reduces it rather than solving it. The "stochastic parrot"
-      provocation (Bender et al. 2021) belongs here if someone raises it - present it as a live
-      debate, not a verdict. Sources: Ji et al. (2023); Perez et al. (2022); Sharma et al. (2023).
+      The causal thread: in Module 1 they watched the engine sample from a distribution with no truth
+      oracle attached. The first two cards come from there. Hallucination is also the correct answer
+      to one of the ten test items - structural, reduced by grounding in documents and human
+      verification, never removed: say it in those words.
+      Bias, measured version: Doshi &amp; Hauser, <em>Science Advances</em> 10(28), eadn5290 (2024) -
+      an online experiment, peer-reviewed. With a single AI-generated idea, stories become more
+      original for the person writing them (+8.1% novelty) but 10.7% more similar to each other. This
+      is not a moral judgement on the training data: it is the average of what has already been
+      written resurfacing whenever a reference of one's own is missing. It is why the Module 3 ladder
+      changes the result, and why in the demo the disciplined prompt pulls a different structure out
+      of the same photo. Where the model touches people - hiring, assessment, credit - bias also
+      becomes a legal question (AI Act, high-risk systems): name it, do not open it, it is not what
+      this course demonstrates.
+      Agreeableness, measured version: Sharma et al., ICLR 2024 (Anthropic), across five
+      state-of-the-art assistants. When a user challenges a correct answer, models change their
+      initial answer between 32% and 86% of the time depending on the model; a user suggesting an
+      incorrect answer cuts accuracy by up to 27 points. Mechanism, not motive: finetuning uses human
+      judgements, and people prefer answers that confirm what they already think. It is the bridge to
+      the third card on the user slide: an assumption planted in the question comes back confirmed.
+      The "stochastic parrot" provocation (Bender et al. 2021) belongs here if someone raises it: a
+      live debate, not a verdict. Hallucination survey: Ji et al. (2023).
     </aside>
   </section>
 
-
-  <section>
-    <h2><span class="chip risk">model</span> Jagged, not human</h2>
-    <div class="cols">
-      <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4>Jagged ability</h4>
-          <p>Brilliant at one task, hopeless at a neighbouring one that looks just as hard. There is no manual for which is which.</p>
-        </div>
-        <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4>The car-wash test</h4>
-          <p>A model that can rewrite a hundred thousand lines of code may tell you to <em>walk</em> to the car wash 50&nbsp;m away.</p>
-        </div>
-      </div>
-      <div class="col vertical-captions">
-        <div class="mini-card"><strong>A colleague</strong><span>Knows what they don't know. Asks. Adapts under pressure.</span></div>
-        <div class="mini-card"><strong>An agent</strong><span>Completes the pattern. Confidently blind to what is missing.</span></div>
-        <div class="mini-card"><strong>So</strong><span>Manage it by specifying and checking &mdash; not by trusting and delegating.</span></div>
-      </div>
-    </div>
-    <div class="takeaway">The edges are found empirically, on real work.</div>
-    <aside class="notes">
-      The fourth model-side risk, after hallucination, bias and agreeableness: it does not fail where
-      you expect. Karpathy: "We're not building animals. We're building ghosts" - statistical
-      simulations of human text, not evolved creatures. The car-wash example is his own. Measured
-      version: a field experiment with 758 BCG consultants (Dell'Acqua, Mollick et al., Organization
-      Science) found AI raised quality inside the frontier and DEGRADED it outside, on tasks of
-      similar apparent difficulty - 19 points less likely to be correct. Karpathy's metaphor,
-      Mollick's data. This is the practitioner's version of the anti-anthropomorphism thread from
-      Module 1, and the reason Module 4 closed on spec and verification rather than on trust.
-    </aside>
-  </section>
 
   <section data-background-color="#f4f8fb">
-    <h2><span class="chip risk">user</span> What happens to us</h2>
+    <h2><span class="chip risk">user</span> What happens to the person using it</h2>
     <div class="cols">
       <div class="col visual-frame tight">
-        <img src="assets/img/cognitive-delegation.png" alt="Human silhouette passing an amber thread of thought to a machine bracket">
+        <img src="assets/img/cognitive-delegation.png" alt="A human silhouette handing an amber thread of thought to a mechanical bracket">
       </div>
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-green);">
           <h4>Skill erosion</h4>
-          <p>Offloading the thinking can erode the very skill that was offloaded.</p>
+          <p>What is delegated gets practised less. Those who trust the tool check less; those who trust themselves check more.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-amber);">
           <h4>The fluency trap</h4>
-          <p>Polished output feels more accurate than it is &mdash; especially outside one's own expertise.</p>
+          <p>Polished text moves confidence, not accuracy &mdash; and moves it most outside one's own field.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-violet);">
           <h4>The question enters the answer</h4>
-          <p>An assumption placed inside the question comes back as if it were established. &quot;Why is it rarer?&quot; does not check that it is.</p>
+          <p>An assumption planted in the question comes back as if established. Asking <em>why</em> something is true does not check that it is.</p>
         </div>
       </div>
     </div>
-    <div class="takeaway">The risk is not only a wrong answer. It is losing the ability to notice one.</div>
     <aside class="notes">
-      Make this concrete for a small firm: the expert in the room can spot a bad attribution
-      instantly. A junior using the same tool cannot, and may never develop the eye if the tool
-      always answers first. That is a staffing and training decision, not a technology one.
-      Third card: it closes the thread opened in Module 3 with "holidays" versus "annual leave".
-      There the wording moved the retrieval; here the assumption moves the generation, because the
-      prompt is the text the model continues. The operational rule to dictate: ask "what is missing
-      from this attribution?", not "confirm this attribution is right".
-      Sources: Risko &amp; Gilbert (2016); Lee &amp; See (2004); Lee et al. (2025).
+      Make it concrete for a small business: the expert in the room spots a wrong attribution in an
+      instant. A junior with the same tool does not, and may never develop the eye if the tool always
+      answers first. That is a staffing and training decision, not a technology one.
+      First card, and what kind of evidence it is: that what you offload you remember less is old and
+      solid (Sparrow, Liu &amp; Wegner 2011, <em>Science</em>, the Google effect). That the underlying
+      competence decays is NOT established: do not say it. The closest evidence is Lee, Sarkar,
+      Tankelevitch et al., CHI 2025 - 319 knowledge workers, 936 first-hand episodes: higher
+      confidence in the tool goes with less critical thinking, higher self-confidence with more. It is
+      an association in a self-reported survey, and must be said that way. The Risko &amp; Gilbert
+      (2016) review describes when people offload, not that the ability decays.
+      Second card: Perry, Srivastava, Kumar &amp; Boneh, CCS 2023 - a controlled user study.
+      Participants with the AI assistant wrote significantly less secure code and were more likely to
+      believe they had written secure code; and those who trusted it less, working on the wording of
+      their prompts, produced fewer vulnerabilities. Domain is code and the model is from 2022: say
+      so. The second half of that result is the thesis of part C of the demo, minutes away.
+      Third card: closes the thread from Module 3, "ferie" versus "congedi annuali". There it was the
+      words that moved retrieval; here it is the assumption that moves generation, because the prompt
+      is the text the model continues. The example is spoken aloud, per the sector in the room: "why
+      is this coin rarer?" - "why is this plant underperforming?" - "why did this test fail?" - none
+      of the three checks that the premise holds. The operating rule to dictate: ask "what is missing
+      from this attribution?", not "confirm that this attribution is right".
     </aside>
   </section>
 
   <section>
-    <h2><span class="chip risk">data</span> Where data leaks</h2>
+    <h2><span class="chip risk">data</span> When text becomes an instruction</h2>
     <div class="cols">
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud or local</h4><p>Who can see the questions and the files uploaded?</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Text inside a document quietly becomes an instruction.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>Prompt injection</h4>
+          <p>An untrusted document carries a sentence the model <em>executes</em> instead of summarising.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Why it matters now</h4>
+          <p>With the tools from Module 4 the model does not only answer: it opens files, writes, sends. Untrusted text stops being data and starts driving an action.</p>
+        </div>
       </div>
       <div class="col visual-frame media-fit">
-        <img src="assets/img/m07-data-leaks.png" alt="Indirect prompt injection hijacking an agent tool path and causing unintended data movement">
+        <img src="assets/img/m07-data-leaks.png" alt="Indirect prompt injection hijacking an agent's tool path and causing unintended data movement">
       </div>
     </div>
-    <div class="takeaway">The dangerous moment is when untrusted text stops being data and starts steering an action.</div>
-    <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.5em;">
-      <div class="mini-card"><strong>Free app</strong><span>Cheapest. Weakest guarantees about reuse.</span></div>
-      <div class="mini-card"><strong>Subscription</strong><span>Business terms, data not used for training.</span></div>
-      <div class="mini-card"><strong>Paid API</strong><span>Contractual control, the company's own logging.</span></div>
-      <div class="mini-card"><strong>Local model</strong><span>Nothing leaves the building. Weaker answers.</span></div>
-    </div>
-    <p class="footnote">In the EU the <strong>AI Act</strong> (Reg. 2024/1689) and the <strong>GDPR</strong> both apply whichever option is chosen.</p>
     <aside class="notes">
-      Connectors from Module 4 widen the attack surface: the agent now acts on untrusted input.
-      Injection has no clean fix - design for least privilege and keep destructive actions in the
-      "never do" tier. The four options are a real procurement decision for them, not a warning:
-      the demo that follows opens by running the M3 question on a fully local model with the network
-      unplugged, so they can feel the trade rather than be told about it.
-      Sources: Greshake et al. (2023); OWASP Top 10 for LLM Applications.
+      The line not to lose: while the model only writes text, a hidden instruction produces a wrong
+      answer; once it has tools, it produces an action. The connectors in Module 4 widened the attack
+      surface an hour ago, in this same room.
+      Injection has no clean fix - it is not a bug closed by a patch, it follows from instructions and
+      data reaching the model through the same channel, as text. So you design for least privilege:
+      the tool sees only the folder it needs, and destructive actions sit in the "never do" tier of the
+      table they already saw in M4.
+      In a few minutes part B of the demo runs the exact request of m4-p7 against the poisoned folder:
+      the only changed variable is the document. Then open the PDF, Ctrl+A, and reveal the grey text.
+      Do not pre-announce it: let it derail.
+      Sources: Greshake et al. (2023), <em>Indirect Prompt Injection</em>; OWASP Top 10 for LLM
+      applications.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">data</span> Who sees this data</h2>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-cyan);">
+      <h4>The question</h4>
+      <p>Who can see the questions and the uploaded files? The answer depends on the tool and the contract, not on the model.</p>
+    </div>
+    <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.6em;">
+      <div class="mini-card"><strong>Free app</strong><span>Is the data used for training? Where is that written, and since when?</span></div>
+      <div class="mini-card"><strong>Subscription</strong><span>Does the work plan exclude training? Is it in the contract or on a help page?</span></div>
+      <div class="mini-card"><strong>Paid API</strong><span>Who keeps the logs, for how long, in which country?</span></div>
+      <div class="mini-card"><strong>Local model</strong><span>Nothing leaves the company: it runs on the laptop. How much quality does that cost?</span></div>
+    </div>
+    <p class="footnote">In the EU the <strong>AI Act</strong> (Reg. 2024/1689) and the <strong>GDPR</strong> apply regardless of which option is chosen.</p>
+    <aside class="notes">
+      This is the pre-demo. The four columns are written as questions rather than guarantees on
+      purpose: terms differ by vendor, by plan and over time, and you are not their lawyer. What always
+      holds is the footnote: whichever box they tick, both regulations still apply - the technical
+      option is not a legal shortcut.
+      Close by opening Ollama and showing the window: no examples, no demonstration, just "this is a
+      model running in here". It removes the abstraction from the fourth card and removes the stage
+      management from the demo: part A starts from a tool already open and already explained, and all
+      that is left is to unplug the network and ask the Module 3 question.
+      If the room is engaged, the discussion prompt m5-p4 belongs here: which of the four they would
+      accept for a client's unpublished material. It makes the choice theirs rather than your warning.
     </aside>
   </section>
 
@@ -1097,46 +1135,149 @@
     <h2>The human in the loop</h2>
     <div class="cols">
       <div class="col visual-frame tight">
-        <img src="assets/img/human-loop.png" alt="Green and violet loop meeting at amber checkpoints">
+        <img src="assets/img/human-loop.png" alt="A green and violet loop meeting at amber checkpoints">
       </div>
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-green);">
-          <h4>Working loop <span class="chip safe">safe</span></h4>
-          <p>A person sets the goal, reviews what matters, and carries the responsibility.</p>
-        </div>
         <div class="signal-card" style="--card-accent:var(--ait-red);">
-          <h4>Broken loop <span class="chip risk">risk</span></h4>
-          <p>A person rubber-stamps. Oversight exists on paper only.</p>
+          <h4>Why oversight slackens</h4>
+          <p>The system is usually right, and attention moves elsewhere. It holds for experts as much as for novices, and it is not fixed by telling people to be careful.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>What stopped it</h4>
+          <p>Five minutes ago it was not an automated check: it was someone who knew the piece and could say no.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>The same tool, the other way round</h4>
+          <p>Have it argue the opposite, ask it what is missing, be interrogated by it. Those who interrogate it rather than delegate to it get better results.</p>
         </div>
       </div>
     </div>
-    <div class="takeaway">Oversight is real only if someone can understand, challenge and overrule.</div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>The test</h4>
+      <p>Oversight is real only if someone can <strong>understand</strong>, <strong>challenge</strong> and <strong>overturn</strong>. Missing any of the three, it is a rubber stamp.</p>
+    </div>
     <aside class="notes">
-      Automation complacency: oversight degrades precisely because the system is usually right.
-      For an auction house the point is sharp - responsibility toward buyers cannot be delegated to
-      a model, legally or reputationally. They have just watched the expert overrule it live.
+      The first card is the point worth defending, and it is measured: Parasuraman &amp; Manzey,
+      <em>Human Factors</em> 52(3) 381-410 (2010), a review integrating the empirical studies on
+      automation complacency. Two verbatim conclusions: complacency "is found in both naive and expert
+      participants and cannot be overcome with simple practice", and automation bias "cannot be
+      prevented by training or instructions". Said in the room: experience does not protect, and
+      telling people to pay attention is not a control. The remedy is not goodwill, it is design - the
+      guardrail tiers they saw in M4.
+      The classic, to be presented as an argument and not as a measure: Bainbridge,
+      <em>Ironies of Automation</em>, <em>Automatica</em> 19(6) 775-779 (1983). The more reliable the
+      automation, the less practised the operator remains at taking over exactly when they must.
+      And vigilance cannot be intermittent: success on one task does not license trust on the next,
+      because the boundary between the two is declared nowhere.
+      Third card, the cheerful one, said without inflating it: what is measured is that those who
+      trusted it less and worked on their phrasing got better results (Perry et al., CCS 2023), and
+      that with AI the cognitive work does not vanish but shifts towards verification and oversight
+      (Lee et al., CHI 2025). That this builds expertise over time is NOT established: do not promise
+      it. Promise the posture - asking "what is missing" and "argue the opposite" instead of "confirm
+      this" - which is the same operating rule dictated on the user slide.
+      For an auction house the point is sharp: responsibility towards buyers is not delegated to a
+      model, neither legally nor reputationally. They have just watched the expert overturn it live:
+      point at that moment, do not re-explain it.
     </aside>
   </section>
 
   <section data-background-color="#fbfaf6">
     <h2>Where we landed</h2>
     <div class="recap-chain compact">
-      <div class="step"><strong>1</strong><span>it predicts words</span></div>
-      <div class="step"><strong>2</strong><span>inside / around</span></div>
-      <div class="step"><strong>3</strong><span>feed it the documents</span></div>
-      <div class="step"><strong>4</strong><span>write the rules, then let it act</span></div>
-      <div class="step"><strong>5</strong><span>keep the judgement</span></div>
+      <div class="step"><strong>1</strong><span>predicts the next word</span></div>
+      <div class="step"><strong>2</strong><span>inside or around</span></div>
+      <div class="step"><strong>3</strong><span>anchor it to the documents</span></div>
+      <div class="step"><strong>4</strong><span>write the rules, then verify</span></div>
+      <div class="step"><strong>5</strong><span>understand, challenge, overturn</span></div>
     </div>
     <div class="quote-strip" style="grid-template-columns:1fr;">
-      <blockquote>&quot;You can outsource your thinking, but you can't outsource your understanding.&quot;<cite>a tweet Karpathy keeps returning to &mdash; AI Ascent (2026)</cite></blockquote>
+      <blockquote>&ldquo;You can outsource your thinking, but you cannot outsource your understanding.&rdquo;<cite>a tweet Karpathy keeps quoting &mdash; AI Ascent (2026)</cite></blockquote>
     </div>
-    <div class="takeaway">At the base it is probability. In a person's hands it is a tool. The hard part is judgement.</div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>The question</h4>
+      <p>&ldquo;One concrete thing you will do in the next 30 days applying what you learned today.&rdquo;</p>
+    </div>
+    <div class="takeaway">Underneath it is probability. In a person's hands it is a tool. The hard part is judgement.</div>
     <aside class="notes">
-      Attribution matters: Karpathy explicitly says this is a tweet he cites, not his own coinage -
-      model the citation hygiene we preach. Two postures worth naming if there is time (Mollick,
-      from the same BCG study): centaur, dividing the work at a clean seam; cyborg, interleaving at
-      every step. Then ask the commitment question: one thing each of you will try in the next 30
-      days. Same wording as T1 Q6.1 - write the answers down.
+      The chain is the last thing they read: read it aloud, one link at a time, without commenting on
+      it. Link 4 says "then verify" and not "then let it act" on purpose - that is the conclusion
+      Module 4 actually closes on. Link 5 is the test from the previous slide, word for word.
+      Attribution matters: Karpathy says explicitly that the line is a tweet he quotes, not his own
+      coinage. Practising source hygiene on the final slide is worth ten recommendations.
+      Then the commitment question, which is why it is on screen: the wording is identical to Q6.1 of
+      the exit questionnaire, and it is the field the three-month follow-up rests on. <strong>Have it
+      written, not spoken.</strong> A commitment said in the room leaves no trace; a written one does,
+      and in three months it can be asked whether it was kept.
+      Two postures to name only if time allows (Mollick, from the BCG study): centaur, with the work
+      split along a clean line; cyborg, with the exchange at every step.
+    </aside>
+  </section>
+
+</section>
+
+
+<!-- ===== 06-closing.html ===== -->
+<section>
+
+  <section class="module-cover" data-background-color="#fbfaf6">
+    <p class="kicker">Closing &mdash; optional</p>
+    <h1>What else is out there</h1>
+    <p class="lede">A quick tour, and the part that matters.</p>
+    <aside class="notes">
+      A block outside the module arc: it is not on the opening map and has no demo in
+      demo-prompts.json. Run it if time is left, otherwise it stays as a page on the site.
+      Mind the arithmetic: the run-sheet budgets this tour at 12 minutes (2+3+2+5), the cover
+      timetable gives the closing block 7, questions included. So walk in already knowing what you
+      cut. Cut order: Claude Code first, then Dispatch, then Claude Design. Grill-to-MVP is not cut:
+      if time is short, drop the whole tour and keep only that.
+      The commitment question was already asked on the previous slide and the answers are already
+      written: do not repeat it here.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Three surfaces, the same loop</h2>
+    <div class="cols c-3">
+      <div class="signal-card" style="--card-accent:var(--ait-violet);">
+        <h4>Claude Code</h4>
+        <p>Window, parallel sessions, diff review. The same loop as Module 4 on a different surface.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+        <h4>Claude Design</h4>
+        <p>From a written page to an exportable file. A useful artefact in minutes.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-amber);">
+        <h4>Dispatch</h4>
+        <p>Launch from a phone a task that runs on the office computer. Autonomy on a leash.</p>
+      </div>
+    </div>
+    <p class="footnote">Not a deep dive: a map of what exists, so it is clear what to look for next.</p>
+    <aside class="notes">
+      Claude Code: open it and show a session, <strong>without starting a real task</strong>. The
+      point is not the code, it is that the same loop - written rules, tools, verification - has
+      different surfaces depending on the trade. About 2 minutes.
+      Claude Design: one prompt rehearsed end to end, export included. The value is the time between
+      the request and a file that can be sent to someone. About 3 minutes.
+      Dispatch: the pairing with the computer must be tested <strong>the same day</strong>, it drops.
+      Launch it from the phone in front of them: the surprise is the point, and the line to say is
+      "autonomy on a leash" - it runs by itself, but a person set the perimeter. About 2 minutes.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Grill &rarr; MVP</h2>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>The conversation, walked live</h4>
+      <p>First be interrogated until the spec holds. Then build. This is the payoff of Module 4: own the spec, then verify.</p>
+    </div>
+    <p class="footnote">If time is short, everything else is cut and this is kept.</p>
+    <aside class="notes">
+      The prepared conversation already exists in your history and must be findable in under five
+      seconds: keep it open in a spare tab. Walk it, do not redo it live.
+      Why it is the part that is never cut: it is the only moment where they see a spec born out of
+      questions rather than from an idea already formed, and that is exactly what Module 4 asked of
+      them. About 5 minutes.
+      Close here: questions, and the questionnaire link shown before anyone leaves the room.
     </aside>
   </section>
 
@@ -1223,7 +1364,8 @@
         Mollick (2024), <em>Co-Intelligence: Living and Working with AI</em>, Portfolio.<br>
         Ji et al. (2023), <a href="https://doi.org/10.1145/3571730">Survey of Hallucination in NLG</a>.<br>
         Perez et al. (2022), <a href="https://arxiv.org/abs/2212.09251">Model-Written Evaluations</a>.<br>
-        Sharma et al. (2023), <a href="https://arxiv.org/abs/2310.13548">Towards Understanding Sycophancy</a>.<br>
+        Sharma et al. (2024), <a href="https://arxiv.org/abs/2310.13548">Towards Understanding Sycophancy in Language Models</a> (ICLR).<br>
+        Doshi &amp; Hauser (2024), <a href="https://doi.org/10.1126/sciadv.adn5290">Generative AI Enhances Individual Creativity but Reduces the Collective Diversity of Novel Content</a> (Science Advances).<br>
         Greshake et al. (2023), <a href="https://arxiv.org/abs/2302.12173">Indirect Prompt Injection</a>.<br>
         OWASP, <a href="https://genai.owasp.org/llm-top-10/">Top 10 for LLM Applications</a>.<br>
         Risko &amp; Gilbert (2016), <a href="https://doi.org/10.1016/j.tics.2016.07.002">Cognitive Offloading</a>.<br>
@@ -1240,7 +1382,7 @@
     </div>
   </section>
 
-  <section class="version-slide" data-background-color="#f4f8fb">
+  <section class="version-slide" data-visibility="hidden" data-background-color="#f4f8fb">
     <h2>Deck edition</h2>
     <p class="lede">Same course, two depths. The switch keeps your language and reloads at slide one.</p>
     <div class="version-switch" data-version-switch>
@@ -1340,8 +1482,8 @@
         <tr data-block="m2"    data-theory="8"  data-demo="5"><td class="c-clock"></td><td><strong>M2</strong> &nbsp;Dentro e intorno</td><td class="c-min">8 min</td><td class="c-min">5 min</td></tr>
         <tr data-block="m3"    data-theory="9"  data-demo="10"><td class="c-clock"></td><td><strong>M3</strong> &nbsp;Grounding</td><td class="c-min">9 min</td><td class="c-min">10 min</td></tr>
         <tr data-block="break" data-theory="9"  data-demo="0" class="is-break"><td class="c-clock"></td><td>Pausa</td><td class="c-min">9 min</td><td class="c-min">&mdash;</td></tr>
-        <tr data-block="m4"    data-theory="14" data-demo="12"><td class="c-clock"></td><td><strong>M4</strong> &nbsp;Dalle istruzioni agli strumenti</td><td class="c-min">14 min</td><td class="c-min">12 min</td></tr>
-        <tr data-block="m5"    data-theory="12" data-demo="12"><td class="c-clock"></td><td><strong>M5</strong> &nbsp;Rischi &amp; giudizio</td><td class="c-min">12 min</td><td class="c-min">12 min</td></tr>
+        <tr data-block="m4"    data-theory="15" data-demo="13"><td class="c-clock"></td><td><strong>M4</strong> &nbsp;Dalle istruzioni agli strumenti</td><td class="c-min">15 min</td><td class="c-min">13 min</td></tr>
+        <tr data-block="m5"    data-theory="10" data-demo="12"><td class="c-clock"></td><td><strong>M5</strong> &nbsp;Rischi &amp; giudizio</td><td class="c-min">10 min</td><td class="c-min">12 min</td></tr>
         <tr data-block="close" data-theory="7"  data-demo="0"><td class="c-clock"></td><td>Chiusura, impegno, domande</td><td class="c-min">7 min</td><td class="c-min">&mdash;</td></tr>
       </tbody>
     </table>
@@ -2198,14 +2340,23 @@
 <!-- ===== 05-risks-judgement.html ===== -->
 <section>
 
-  <section class="module-cover" data-background-image="assets/img/module-07-security-risks.png" data-background-size="cover" data-background-color="#fbfaf6">
+  <section class="module-cover" data-background-image="assets/img/module-08-ethics.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">05</span>
     <p class="kicker">Modulo 5 <span class="mod-clock" data-clock-for="m5"></span></p>
     <h1>Rischi e giudizio</h1>
-    <p class="lede">Che cosa va storto &mdash; nel modello, in noi, nei dati.</p>
+    <p class="lede">Che cosa va storto e chi resta responsabile.</p>
     <aside class="notes">
-      Tre titolari di rischio: il modello, l'utente, i dati. Quella struttura deve sopravvivere anche
-      se dimenticano ogni esempio. Poi si chiude su chi decide.
+      Ultimo modulo, ed &egrave; quello che rende difendibile tutto il resto: i quattro precedenti
+      hanno mostrato che cosa si pu&ograve; far fare alla macchina, questo dice a quali condizioni il
+      risultato regge davanti a un cliente. Tre titolari di rischio &mdash; il modello, chi lo usa, i
+      dati &mdash; e poi chi decide: quella struttura deve sopravvivere anche se dimenticano ogni
+      esempio, ed &egrave; l'unica cosa che vale la pena ripetere due volte.
+      Non &egrave; un modulo di avvertimenti. Ogni rischio nominato qui ha gi&agrave; la sua
+      contromossa nei moduli precedenti: ancorare ai documenti (M3), scrivere le regole e verificare
+      (M4), tenere l'azione distruttiva fuori dalla portata dello strumento. Dillo all'inizio,
+      altrimenti la sala si irrigidisce e la demo finale sembra una punizione.
+      Si chiude sulla domanda d'impegno: una cosa che ciascuno prover&agrave; nei prossimi 30 giorni.
+      Falla scrivere, non solo dire.
     </aside>
   </section>
 
@@ -2214,65 +2365,52 @@
     <div class="cols c-3">
       <div class="signal-card" style="--card-accent:var(--ait-amber);">
         <h4>Allucinazione</h4>
-        <p>Fluente, sicura, falsa. &Egrave; strutturale, non un difetto. Si riduce, non si elimina.</p>
+        <p>Fluente, sicura, falsa. Strutturale, non un difetto: si riduce ancorandola ai documenti e verificandola. Non si elimina.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-red);">
         <h4>Distorsione</h4>
-        <p>Gli squilibri dei testi di addestramento passano nella risposta.</p>
+        <p>Senza riferimenti propri restituisce la media del gi&agrave; scritto: le parole, gli schemi e le strutture di cui il web &egrave; pieno.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-violet);">
         <h4>Accondiscendenza</h4>
-        <p>D&agrave; ragione invece di correggere. &Egrave; stato addestrato a piacere.</p>
+        <p>Se la si contesta, ritratta: anche quando aveva ragione. Il rifinimento premia le risposte che le persone approvano.</p>
       </div>
     </div>
-    <div class="takeaway">La fluidit&agrave; prova la padronanza degli schemi, mai la verit&agrave;.</div>
-    <p class="footnote">Tutte e tre risalgono al Modulo 1: ottimizza per il testo plausibile, non per il testo vero.</p>
+    <div class="banner-media">
+      <img src="assets/img/m05-plausible-path.png" alt="Molte tracce sottili che si intrecciano in un unico tratto ambrato deciso, mentre alcune si staccano e sbiadiscono">
+    </div>
+    <p class="footnote">Le prime due vengono dal motore del Modulo 1 &mdash; testo plausibile, non testo vero. La terza viene da come &egrave; stato rifinito: con giudizi umani.</p>
     <aside class="notes">
-      Collega causalmente al motore visto nel Modulo 1: campionamento da una distribuzione, senza
-      nessun oracolo di verit&agrave; attaccato. Per questo l'allucinazione &egrave; gestibile ma non
-      eliminabile, e per questo la scala del grounding del Modulo 3 la riduce invece di risolverla.
-      La provocazione del "pappagallo stocastico" (Bender et al. 2021) sta qui se qualcuno la tira
-      fuori: presentala come dibattito aperto, non come verdetto. Fonti: Ji et al. (2023); Perez et
-      al. (2022); Sharma et al. (2023).
+      Il filo causale: nel Modulo 1 hanno visto il motore campionare da una distribuzione, senza
+      nessun oracolo di verit&agrave; attaccato. Da l&igrave; vengono le prime due card.
+      L'allucinazione &egrave; anche la risposta corretta di uno dei dieci item del test &mdash;
+      strutturale, si riduce con l'ancoraggio ai documenti e la verifica umana, non si elimina: dilla
+      con queste parole.
+      Distorsione, versione misurata: Doshi &amp; Hauser, <em>Science Advances</em> 10(28), eadn5290
+      (2024) &mdash; esperimento online, peer-reviewed. Con una sola idea generata dall'AI le storie
+      diventano pi&ugrave; originali per chi le scrive (+8,1% di novit&agrave;) ma si somigliano fra
+      loro il 10,7% in pi&ugrave;. Non &egrave; un giudizio morale sui dati di addestramento:
+      &egrave; la media del gi&agrave; scritto che riemerge ogni volta che manca un riferimento
+      proprio. &Egrave; la ragione per cui la scala del Modulo 3 cambia il risultato, ed &egrave;
+      quella per cui nella demo il prompt disciplinato tira fuori un'altra struttura dalla stessa
+      foto. Dove il modello tocca persone &mdash; selezione, valutazione, credito &mdash; la
+      distorsione diventa anche una questione giuridica (AI Act, sistemi ad alto rischio): nominala,
+      non aprirla, non &egrave; quello che questo corso dimostra.
+      Accondiscendenza, versione misurata: Sharma et al., ICLR 2024 (Anthropic), su cinque assistenti
+      allo stato dell'arte. Se l'utente contesta una risposta corretta i modelli cambiano la risposta
+      iniziale fra il 32% e l'86% delle volte secondo il modello; un utente che suggerisce una
+      risposta sbagliata abbassa l'accuratezza fino a 27 punti. Meccanismo, non movente: il
+      rifinimento usa giudizi umani, e le persone preferiscono le risposte che confermano quello che
+      gi&agrave; pensano. &Egrave; il ponte verso la terza card della slide sull'utente: il
+      presupposto messo nella domanda torna indietro confermato.
+      Il &laquo;pappagallo stocastico&raquo; (Bender et al. 2021) sta qui se qualcuno lo tira fuori:
+      dibattito aperto, non verdetto. Rassegna sull'allucinazione: Ji et al. (2023).
     </aside>
   </section>
 
-
-  <section>
-    <h2><span class="chip risk">modello</span> Frastagliato, non umano</h2>
-    <div class="cols">
-      <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4>Capacit&agrave; frastagliata</h4>
-          <p>Brillante su un compito, disastroso su quello accanto che sembrava identico. Non esiste un manuale che dica quale sia quale.</p>
-        </div>
-        <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4>La prova dell'autolavaggio</h4>
-          <p>Un modello capace di riscrivere centomila righe di codice pu&ograve; consigliarvi di andare <em>a piedi</em> all'autolavaggio a 50&nbsp;m.</p>
-        </div>
-      </div>
-      <div class="col vertical-captions">
-        <div class="mini-card"><strong>Un collega</strong><span>Sa quello che non sa. Chiede. Si adatta sotto pressione.</span></div>
-        <div class="mini-card"><strong>Un agente</strong><span>Completa lo schema. Cieco con sicurezza su ci&ograve; che manca.</span></div>
-        <div class="mini-card"><strong>Quindi</strong><span>Si governa specificando e controllando, non fidandosi e delegando.</span></div>
-      </div>
-    </div>
-    <div class="takeaway">I bordi si trovano per prova, sul lavoro reale.</div>
-    <aside class="notes">
-      Terza voce del rischio-modello, dopo allucinazione, distorsione e accondiscendenza: non sbaglia
-      dove ci si aspetta. Karpathy: "non stiamo costruendo animali, stiamo costruendo fantasmi"
-      &mdash; simulazioni statistiche di testo umano, non creature evolute. L'esempio
-      dell'autolavaggio &egrave; suo. Versione misurata: un esperimento sul campo con 758 consulenti
-      BCG (Dell'Acqua, Mollick et al., Organization Science) mostra che l'AI alza la qualit&agrave;
-      dentro la frontiera e la PEGGIORA fuori, su compiti di difficolt&agrave; apparente simile: 19
-      punti in meno di probabilit&agrave; di essere corretti. La metafora di Karpathy, i dati di
-      Mollick. &Egrave; la versione da professionisti del filo anti-antropomorfismo del Modulo 1, e
-      la ragione per cui il modulo 4 chiudeva su specifica e verifica invece che su fiducia.
-    </aside>
-  </section>
 
   <section data-background-color="#f4f8fb">
-    <h2><span class="chip risk">utente</span> Che cosa succede a noi</h2>
+    <h2><span class="chip risk">utente</span> Che cosa succede a chi lo usa</h2>
     <div class="cols">
       <div class="col visual-frame tight">
         <img src="assets/img/cognitive-delegation.png" alt="Silhouette umana che passa un filo ambrato di pensiero a una parentesi meccanica">
@@ -2280,60 +2418,109 @@
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-green);">
           <h4>Erosione della competenza</h4>
-          <p>Delegare il pensiero pu&ograve; consumare proprio la capacit&agrave; che &egrave; stata delegata.</p>
+          <p>Quello che si delega si esercita di meno. Chi si fida dello strumento verifica meno; chi si fida di s&eacute; verifica di pi&ugrave;.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-amber);">
           <h4>La trappola della fluidit&agrave;</h4>
-          <p>Un testo levigato sembra pi&ugrave; accurato di quanto sia &mdash; soprattutto fuori dalla propria materia.</p>
+          <p>Un testo levigato sposta la fiducia, non l'accuratezza &mdash; e la sposta di pi&ugrave; fuori dalla propria materia.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-violet);">
           <h4>La domanda entra nella risposta</h4>
-          <p>Un presupposto messo nella domanda torna indietro come se fosse acquisito. &laquo;Perch&eacute; &egrave; pi&ugrave; raro?&raquo; non verifica che lo sia.</p>
+          <p>Un presupposto messo nella domanda torna indietro come se fosse acquisito. Chiedere <em>perch&eacute;</em> una cosa &egrave; vera non verifica che lo sia.</p>
         </div>
       </div>
     </div>
-    <div class="takeaway">Il rischio non &egrave; solo una risposta sbagliata. &Egrave; perdere la capacit&agrave; di accorgersene.</div>
     <aside class="notes">
       Rendilo concreto per una piccola impresa: l'esperto in sala riconosce un'attribuzione sbagliata
-      in un istante. Un giovane con lo stesso strumento no, e forse non svilupper&agrave; mai
-      l'occhio se lo strumento risponde sempre per primo. &Egrave; una decisione di organico e
-      formazione, non di tecnologia.
-      Terza card: chiude il filo aperto nel modulo 3 con &laquo;ferie&raquo; contro &laquo;congedi
+      in un istante. Un giovane con lo stesso strumento no, e forse non svilupper&agrave; mai l'occhio
+      se lo strumento risponde sempre per primo. &Egrave; una decisione di organico e formazione, non
+      di tecnologia.
+      Prima card, e che tipo di prova &egrave;: che ci&ograve; che si delega si ricordi meno &egrave;
+      vecchio e solido (Sparrow, Liu &amp; Wegner 2011, <em>Science</em>, l'effetto Google). Che la
+      competenza si atrofizzi NON &egrave; dimostrato: non dirlo. Il dato pi&ugrave; vicino &egrave;
+      Lee, Sarkar, Tankelevitch et al., CHI 2025 &mdash; 319 lavoratori della conoscenza, 936 episodi
+      reali: pi&ugrave; fiducia nello strumento va con meno pensiero critico, pi&ugrave; fiducia in
+      s&eacute; con pi&ugrave; pensiero critico. &Egrave; un'associazione in un questionario
+      auto-riferito, e va detta cos&igrave;. La rassegna di Risko &amp; Gilbert (2016) descrive quando
+      si delega, non che la capacit&agrave; decada.
+      Seconda card: Perry, Srivastava, Kumar &amp; Boneh, CCS 2023 &mdash; esperimento controllato con
+      utenti. Chi aveva l'assistente ha scritto codice significativamente meno sicuro ed era
+      pi&ugrave; convinto di averlo scritto sicuro; e chi si fidava di meno, lavorando sulla
+      formulazione del prompt, produceva meno vulnerabilit&agrave;. Dominio codice e modello del 2022:
+      dichiaralo. La seconda met&agrave; di quel risultato &egrave; la tesi della parte C della demo,
+      che arriva fra pochi minuti.
+      Terza card: chiude il filo del Modulo 3, &laquo;ferie&raquo; contro &laquo;congedi
       annuali&raquo;. L&igrave; erano le parole a spostare il recupero; qui &egrave; il presupposto a
-      spostare la generazione, perch&eacute; il prompt &egrave; il testo che il modello continua. La
-      regola operativa da dettare: chiedere &laquo;che cosa manca in questa attribuzione?&raquo;,
-      non &laquo;conferma che questa attribuzione &egrave; giusta&raquo;. Fonti: Risko &amp; Gilbert
-      (2016); Lee &amp; See (2004); Lee et al. (2025).
+      spostare la generazione, perch&eacute; il prompt &egrave; il testo che il modello continua.
+      L'esempio si dice ad alta voce, secondo il settore in sala: &laquo;perch&eacute; questa moneta
+      &egrave; pi&ugrave; rara?&raquo; &middot; &laquo;perch&eacute; questo impianto rende di
+      meno?&raquo; &middot; &laquo;perch&eacute; questo collaudo &egrave; fallito?&raquo; &mdash;
+      nessuna delle tre verifica che la premessa sia vera. La regola operativa da dettare: chiedere
+      &laquo;che cosa manca in questa attribuzione?&raquo;, non &laquo;conferma che questa
+      attribuzione &egrave; giusta&raquo;.
     </aside>
   </section>
 
   <section>
-    <h2><span class="chip risk">dati</span> Dove i dati escono</h2>
+    <h2><span class="chip risk">dati</span> Quando il testo diventa istruzione</h2>
     <div class="cols">
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud o locale</h4><p>Chi pu&ograve; vedere le domande e i file caricati?</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Il testo dentro un documento diventa di nascosto un'istruzione.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>Prompt injection</h4>
+          <p>Un documento non fidato contiene una frase che il modello <em>esegue</em> invece di riassumere.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Perch&eacute; conta adesso</h4>
+          <p>Con gli strumenti del Modulo 4 il modello non risponde soltanto: apre file, scrive, invia. Il testo non fidato smette di essere dato e guida un'azione.</p>
+        </div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/m07-data-leaks.png" alt="Prompt injection indiretta che dirotta il percorso degli strumenti di un agente e provoca movimenti di dati non voluti">
       </div>
     </div>
-    <div class="takeaway">Il momento pericoloso &egrave; quando il testo non fidato smette di essere dato e inizia a guidare un'azione.</div>
-    <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.5em;">
-      <div class="mini-card"><strong>App gratuita</strong><span>Costa meno. Garanzie sul riutilizzo pi&ugrave; deboli.</span></div>
-      <div class="mini-card"><strong>Abbonamento</strong><span>Condizioni business, dati non usati per addestrare.</span></div>
-      <div class="mini-card"><strong>API a pagamento</strong><span>Controllo contrattuale, log dell'azienda.</span></div>
-      <div class="mini-card"><strong>Modello locale</strong><span>Non esce niente dall'azienda. Risposte pi&ugrave; deboli.</span></div>
+    <aside class="notes">
+      La riga da non perdere: finch&eacute; il modello scrive testo, un'istruzione nascosta produce
+      una risposta sbagliata; da quando ha strumenti, produce un'azione. I connettori del Modulo 4
+      hanno allargato la superficie d'attacco un'ora fa, in questa stessa aula.
+      L'injection non ha una soluzione pulita &mdash; non &egrave; un bug che si chiude con una patch,
+      &egrave; una conseguenza del fatto che istruzioni e dati arrivano al modello nello stesso canale,
+      come testo. Quindi si progetta per privilegio minimo: lo strumento vede solo la cartella che
+      serve, e le azioni distruttive stanno nel livello &laquo;non fare mai&raquo; della tabella che
+      hanno gi&agrave; visto in M4.
+      Fra pochi minuti la parte B della demo lancia sulla cartella avvelenata la stessa identica
+      richiesta di m4-p7: l'unica variabile cambiata &egrave; il documento. Poi si apre il PDF, Ctrl+A,
+      e si scopre il testo grigio. Non anticiparlo: lascia che deragli.
+      Fonti: Greshake et al. (2023), <em>Indirect Prompt Injection</em>; OWASP Top 10 per applicazioni
+      LLM.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">dati</span> Chi vede questi dati</h2>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-cyan);">
+      <h4>La domanda</h4>
+      <p>Chi pu&ograve; vedere le domande e i file caricati? La risposta dipende dallo strumento e dal contratto, non dal modello.</p>
+    </div>
+    <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.6em;">
+      <div class="mini-card"><strong>App gratuita</strong><span>I dati vengono usati per addestrare? Dov'&egrave; scritto, e da quando?</span></div>
+      <div class="mini-card"><strong>Abbonamento</strong><span>Il piano di lavoro esclude l'addestramento? Sta nel contratto o in una pagina d'aiuto?</span></div>
+      <div class="mini-card"><strong>API a pagamento</strong><span>Chi tiene i log, per quanto tempo, in quale paese?</span></div>
+      <div class="mini-card"><strong>Modello locale</strong><span>Non esce niente dall'azienda: gira sul portatile. Quanta qualit&agrave; costa?</span></div>
     </div>
     <p class="footnote">Nell'UE l'<strong>AI Act</strong> (Reg. 2024/1689) e il <strong>GDPR</strong> si applicano comunque, qualunque opzione si scelga.</p>
     <aside class="notes">
-      I connettori del Modulo 4 allargano la superficie d'attacco: ora l'agente agisce su input non
-      fidato. L'injection non ha una soluzione pulita: progettate per privilegio minimo e tenete le
-      azioni distruttive nel livello "non fare mai". Le quattro opzioni sono per loro una vera
-      decisione d'acquisto, non un avvertimento: la demo che segue si apre eseguendo la domanda del
-      Modulo 3 su un modello del tutto locale con la rete staccata, cos&igrave; possono sentire il
-      compromesso invece di sentirselo raccontare. Fonti: Greshake et al. (2023); OWASP Top 10 per
-      applicazioni LLM.
+      Questa &egrave; la pre-demo. Le quattro colonne sono scritte come domande e non come garanzie di
+      proposito: le condizioni cambiano per fornitore, per piano e nel tempo, e tu non sei il loro
+      avvocato. Quello che vale sempre &egrave; il footnote: qualunque casella scelgano, i due
+      regolamenti si applicano lo stesso &mdash; l'opzione tecnica non &egrave; una scorciatoia
+      giuridica.
+      Chiudi aprendo Ollama e mostrando la finestra: nessun esempio, nessuna prova, solo &laquo;questo
+      &egrave; un modello che gira qui dentro&raquo;. Serve a togliere l'astrazione dalla quarta card e
+      a togliere il montaggio alla demo: la parte A parte da uno strumento gi&agrave; aperto e
+      gi&agrave; spiegato, e resta soltanto da staccare la rete e fare la domanda del Modulo 3.
+      Se la sala &egrave; coinvolta, qui sta la domanda di discussione m5-p4: quale delle quattro
+      accetterebbero per il materiale inedito di un cliente. Rende la scelta loro invece che un tuo
+      avvertimento.
     </aside>
   </section>
 
@@ -2346,45 +2533,155 @@
         <img src="assets/img/human-loop.png" alt="Ciclo verde e viola che si incontra su checkpoint ambrati">
       </div>
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-green);">
-          <h4>Ciclo che funziona <span class="chip safe">sicuro</span></h4>
-          <p>Una persona fissa l'obiettivo, controlla ci&ograve; che conta e si prende la responsabilit&agrave;.</p>
-        </div>
         <div class="signal-card" style="--card-accent:var(--ait-red);">
-          <h4>Ciclo rotto <span class="chip risk">rischio</span></h4>
-          <p>Una persona mette il timbro. La supervisione esiste solo sulla carta.</p>
+          <h4>Perch&eacute; il controllo si allenta</h4>
+          <p>Il sistema di solito ha ragione, e l'attenzione si sposta altrove. Vale per gli esperti quanto per i principianti, e non si corregge raccomandando di stare attenti.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Che cosa l'ha fermato</h4>
+          <p>Cinque minuti fa non &egrave; stato un controllo automatico: &egrave; stato qualcuno che conosceva il pezzo e poteva dire di no.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>Lo stesso strumento, al contrario</h4>
+          <p>Fargli fare l'avvocato del diavolo, chiedergli che cosa manca, farsi interrogare. Chi lo interroga invece di delegargli ottiene risultati migliori.</p>
         </div>
       </div>
     </div>
-    <div class="takeaway">La supervisione &egrave; reale solo se qualcuno pu&ograve; capire, contestare e ribaltare.</div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>Il test</h4>
+      <p>La supervisione &egrave; reale solo se qualcuno pu&ograve; <strong>capire</strong>, <strong>contestare</strong> e <strong>ribaltare</strong>. Se manca uno dei tre, &egrave; un timbro.</p>
+    </div>
     <aside class="notes">
-      Compiacimento da automazione: la vigilanza si degrada proprio perch&eacute; il sistema di solito
-      ha ragione. Per una casa d'aste il punto &egrave; netto: la responsabilit&agrave; verso gli
-      acquirenti non si delega a un modello, n&eacute; giuridicamente n&eacute; sul piano della
-      reputazione. Hanno appena visto l'esperto ribaltarlo dal vivo.
+      La prima card &egrave; il punto che vale la pena difendere, ed &egrave; misurato: Parasuraman
+      &amp; Manzey, <em>Human Factors</em> 52(3) 381&ndash;410 (2010), una rassegna che integra gli
+      studi empirici sul compiacimento da automazione. Due conclusioni testuali: il compiacimento
+      &laquo;si riscontra sia nei partecipanti inesperti sia negli esperti e non si supera con la
+      semplice pratica&raquo;, e l'automation bias &laquo;non si previene con l'addestramento o con le
+      istruzioni&raquo;. Detto in aula: l'esperienza non protegge, e dire alla gente di stare attenta
+      non &egrave; un controllo. Il rimedio non &egrave; la buona volont&agrave;, &egrave; la
+      progettazione &mdash; i livelli di guardrail visti in M4.
+      Il classico, da presentare come argomento e non come misura: Bainbridge,
+      <em>Ironies of Automation</em>, <em>Automatica</em> 19(6) 775&ndash;779 (1983). Pi&ugrave;
+      l'automazione &egrave; affidabile, meno l'operatore resta allenato a subentrare proprio nel
+      momento in cui deve.
+      E non si pu&ograve; essere vigili a intermittenza: un successo su un compito non autorizza a
+      fidarsi sul compito dopo, perch&eacute; il confine fra i due non &egrave; dichiarato da nessuna
+      parte.
+      Terza card, la nota lieta, ma detta senza gonfiarla: quello che &egrave; misurato &egrave; che
+      chi si fidava di meno e lavorava sulla formulazione otteneva risultati migliori (Perry et al.,
+      CCS 2023), e che con l'AI il lavoro cognitivo non sparisce ma si sposta verso la verifica e la
+      supervisione (Lee et al., CHI 2025). Che questo costruisca competenza nel tempo non &egrave;
+      dimostrato: non prometterlo. Prometti la postura &mdash; chiedere &laquo;che cosa manca&raquo; e
+      &laquo;argomenta il contrario&raquo; invece di &laquo;confermami&raquo; &mdash; che &egrave; la
+      stessa regola operativa dettata sulla slide dell'utente.
+      Per una casa d'aste il punto &egrave; netto: la responsabilit&agrave; verso gli acquirenti non
+      si delega a un modello, n&eacute; giuridicamente n&eacute; sul piano della reputazione. Hanno
+      appena visto l'esperto ribaltarlo dal vivo: indica quel momento, non rispiegarlo.
     </aside>
   </section>
 
   <section data-background-color="#fbfaf6">
     <h2>Dove siamo arrivati</h2>
     <div class="recap-chain compact">
-      <div class="step"><strong>1</strong><span>prevede parole</span></div>
-      <div class="step"><strong>2</strong><span>dentro / intorno</span></div>
-      <div class="step"><strong>3</strong><span>dargli i documenti</span></div>
-      <div class="step"><strong>4</strong><span>scrivere le regole, poi lasciarlo agire</span></div>
-      <div class="step"><strong>5</strong><span>tenersi il giudizio</span></div>
+      <div class="step"><strong>1</strong><span>prevede la parola dopo</span></div>
+      <div class="step"><strong>2</strong><span>dentro o intorno</span></div>
+      <div class="step"><strong>3</strong><span>ancorarlo ai documenti</span></div>
+      <div class="step"><strong>4</strong><span>scrivere le regole, poi verificare</span></div>
+      <div class="step"><strong>5</strong><span>capire, contestare, ribaltare</span></div>
     </div>
     <div class="quote-strip" style="grid-template-columns:1fr;">
       <blockquote>&laquo;Puoi delegare il tuo pensiero, ma non puoi delegare la tua comprensione.&raquo;<cite>un tweet che Karpathy continua a citare &mdash; AI Ascent (2026)</cite></blockquote>
     </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>La domanda</h4>
+      <p>&laquo;Una cosa concreta che farai nei prossimi 30 giorni applicando quello che hai imparato oggi.&raquo;</p>
+    </div>
     <div class="takeaway">Alla base &egrave; probabilit&agrave;. In mano a una persona &egrave; uno strumento. La parte difficile &egrave; il giudizio.</div>
     <aside class="notes">
-      L'attribuzione conta: Karpathy dice esplicitamente che &egrave; un tweet che cita, non una sua
-      formula &mdash; pratica la stessa igiene delle fonti che predichiamo. Due posture da nominare se
-      c'&egrave; tempo (Mollick, dallo stesso studio BCG): centauro, con il lavoro diviso lungo una
-      linea netta; cyborg, con lo scambio a ogni passo. Poi fai la domanda dell'impegno: una cosa che
-      ciascuno prover&agrave; nei prossimi 30 giorni. Stessa formulazione della Q6.1 del T1: fatti
-      scrivere le risposte.
+      La catena &egrave; l'ultima cosa che leggono: leggila ad alta voce, un anello alla volta, senza
+      commentarla. L'anello 4 dice &laquo;poi verificare&raquo; e non &laquo;poi lasciarlo
+      agire&raquo; di proposito &mdash; &egrave; la conclusione su cui il Modulo 4 si chiude davvero.
+      L'anello 5 &egrave; il test della slide precedente, parola per parola.
+      L'attribuzione conta: Karpathy dice esplicitamente che quella frase &egrave; un tweet che cita,
+      non una sua formula. Praticare l'igiene delle fonti nella slide finale vale pi&ugrave; di dieci
+      raccomandazioni.
+      Poi la domanda d'impegno, che &egrave; il motivo per cui &egrave; scritta a schermo: la
+      formulazione &egrave; identica alla Q6.1 del questionario di uscita, ed &egrave; il campo su cui
+      si regge il follow-up a tre mesi. <strong>Falla scrivere, non dire.</strong> Un impegno
+      pronunciato in sala non lascia traccia; uno scritto s&igrave;, e fra tre mesi si potr&agrave;
+      chiedere se &egrave; stato mantenuto.
+      Due posture da nominare solo se avanza tempo (Mollick, dallo studio BCG): centauro, con il
+      lavoro diviso lungo una linea netta; cyborg, con lo scambio a ogni passo.
+    </aside>
+  </section>
+
+</section>
+
+
+<!-- ===== 06-closing.html ===== -->
+<section>
+
+  <section class="module-cover" data-background-color="#fbfaf6">
+    <p class="kicker">Chiusura &mdash; facoltativa</p>
+    <h1>Che cos'altro esiste</h1>
+    <p class="lede">Un giro rapido, e il pezzo che conta.</p>
+    <aside class="notes">
+      Blocco fuori dall'arco dei moduli: non &egrave; nella mappa iniziale e non ha demo in
+      demo-prompts.json. Si fa se resta tempo, altrimenti resta come pagina del sito.
+      Attenzione all'aritmetica: il run-sheet valuta questo giro 12 minuti (2+3+2+5), la tabella di
+      copertina ne assegna 7 al blocco di chiusura, domande comprese. Quindi si entra qui
+      gi&agrave; sapendo che cosa si taglia. Ordine di taglio: prima Claude Code, poi Dispatch, poi
+      Claude Design. Grill&rarr;MVP non si taglia: se il tempo &egrave; poco si salta tutto il tour e
+      si tiene solo quello.
+      La domanda d'impegno &egrave; gi&agrave; stata fatta sulla slide precedente e le risposte sono
+      gi&agrave; scritte: non rifarla qui.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Tre superfici, lo stesso ciclo</h2>
+    <div class="cols c-3">
+      <div class="signal-card" style="--card-accent:var(--ait-violet);">
+        <h4>Claude Code</h4>
+        <p>Finestra, sessioni in parallelo, revisione delle differenze. Lo stesso ciclo del Modulo 4 su un'altra superficie.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+        <h4>Claude Design</h4>
+        <p>Da una pagina scritta a un file esportabile. Un artefatto utile in pochi minuti.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-amber);">
+        <h4>Dispatch</h4>
+        <p>Lanciare dal telefono un lavoro che gira sul computer dell'ufficio. Autonomia al guinzaglio.</p>
+      </div>
+    </div>
+    <p class="footnote">Non &egrave; un approfondimento: &egrave; una mappa di che cosa esiste, per sapere che cosa cercare dopo.</p>
+    <aside class="notes">
+      Claude Code: aprire e mostrare una sessione, <strong>senza avviare un lavoro vero</strong>. Il
+      punto non &egrave; il codice, &egrave; che lo stesso ciclo &mdash; regole scritte, strumenti,
+      verifica &mdash; ha superfici diverse a seconda del mestiere. Circa 2 minuti.
+      Claude Design: un prompt provato fino in fondo, export compreso. Il valore &egrave; il tempo fra
+      la richiesta e un file che si pu&ograve; mandare a qualcuno. Circa 3 minuti.
+      Dispatch: l'associazione col computer va provata <strong>lo stesso giorno</strong>, si perde. Si
+      lancia davanti a loro dal telefono: la sorpresa &egrave; il punto, e la frase da dire &egrave;
+      &laquo;autonomia al guinzaglio&raquo; &mdash; parte da sola, ma il perimetro l'ha deciso una
+      persona. Circa 2 minuti.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Grill &rarr; MVP</h2>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>La conversazione, percorsa dal vivo</h4>
+      <p>Prima farsi interrogare finch&eacute; la specifica non regge. Poi costruire. &Egrave; la resa del Modulo 4: possedere la specifica, e poi verificare.</p>
+    </div>
+    <p class="footnote">Se il tempo &egrave; poco, si taglia tutto il resto e si tiene questo.</p>
+    <aside class="notes">
+      La conversazione preparata esiste gi&agrave; nella cronologia e va trovata in meno di cinque
+      secondi: tienila aperta in una scheda di riserva. Si percorre, non si rifa' dal vivo.
+      Perch&eacute; &egrave; il pezzo che non si taglia: &egrave; l'unico momento in cui vedono la
+      specifica nascere da domande invece che da un'idea gi&agrave; formata, ed &egrave; esattamente
+      quello che il Modulo 4 ha chiesto loro di fare. Circa 5 minuti.
+      Chiudi qui: domande, e il link al questionario mostrato prima che escano dalla sala.
     </aside>
   </section>
 
@@ -2471,7 +2768,8 @@
         Mollick (2024), <em>Co-Intelligence: Living and Working with AI</em>, Portfolio.<br>
         Ji et al. (2023), <a href="https://doi.org/10.1145/3571730">Survey of Hallucination in NLG</a>.<br>
         Perez et al. (2022), <a href="https://arxiv.org/abs/2212.09251">Model-Written Evaluations</a>.<br>
-        Sharma et al. (2023), <a href="https://arxiv.org/abs/2310.13548">Towards Understanding Sycophancy</a>.<br>
+        Sharma et al. (2024), <a href="https://arxiv.org/abs/2310.13548">Towards Understanding Sycophancy in Language Models</a> (ICLR).<br>
+        Doshi &amp; Hauser (2024), <a href="https://doi.org/10.1126/sciadv.adn5290">Generative AI Enhances Individual Creativity but Reduces the Collective Diversity of Novel Content</a> (Science Advances).<br>
         Greshake et al. (2023), <a href="https://arxiv.org/abs/2302.12173">Indirect Prompt Injection</a>.<br>
         OWASP, <a href="https://genai.owasp.org/llm-top-10/">Top 10 for LLM Applications</a>.<br>
         Risko &amp; Gilbert (2016), <a href="https://doi.org/10.1016/j.tics.2016.07.002">Cognitive Offloading</a>.<br>
@@ -2488,7 +2786,7 @@
     </div>
   </section>
 
-  <section class="version-slide" data-background-color="#f4f8fb">
+  <section class="version-slide" data-visibility="hidden" data-background-color="#f4f8fb">
     <h2>Edizione del deck</h2>
     <p class="lede">Stesso corso, due profondit&agrave;. Il cambio mantiene la lingua e riparte dalla prima slide.</p>
     <div class="version-switch" data-version-switch>
@@ -3682,7 +3980,9 @@
             }
           },
           "paste": "five attributes taken from a real sheet or from the synthetic demo folder",
-          "paste_it": "cinque attributi presi da una scheda reale o dai dati sintetici della cartella demo"
+          "paste_it": "cinque attributi presi da una scheda reale o dai dati sintetici della cartella demo",
+          "requires": "the generated file demo/m2-cinque-attributi.md",
+          "requires_it": "il file generato demo/m2-cinque-attributi.md"
         },
         {
           "id": "m2-p2",
@@ -3708,8 +4008,8 @@
               "text_it": "Tre commesse si contendono l'unico collaudo in sede della settimana. Considerando fermo linea del cliente, test ancora aperti e trasferta, argomenta a favore di uno e di' che cosa ti farebbe cambiare idea."
             }
           },
-          "requires": "a model with extended thinking available, and the toggle found before the lesson",
-          "requires_it": "un modello con il ragionamento esteso disponibile, e l'interruttore individuato prima della lezione"
+          "requires": "the generated file demo/m2-tre-candidati.md",
+          "requires_it": "il file generato demo/m2-tre-candidati.md"
         },
         {
           "id": "m2-p3",
@@ -3831,8 +4131,8 @@
               "text_it": "Nel documento che ho caricato, che cosa dice la clausola a metà della sezione 3 sui collaudi che si chiudono con esito parziale?"
             }
           },
-          "requires": "Raggy running on the local folder",
-          "requires_it": "Raggy in esecuzione sulla cartella locale"
+          "requires": "a Claude Project with regole/ uploaded",
+          "requires_it": "un Progetto Claude con la cartella regole/ caricata"
         },
         {
           "id": "m3-p4",
@@ -3929,8 +4229,8 @@
               "text_it": "Prepara la scheda di protocollo di collaudo per questa macchina: [INCOLLA DATI GREZZI]."
             }
           },
-          "requires": "raw data to paste - grezzi/<sector>.md in the demo data kit",
-          "requires_it": "dei dati grezzi da incollare: grezzi/<settore>.md nel kit dei dati demo"
+          "requires": "the generated file demo/m4-grezzi.md",
+          "requires_it": "il file generato demo/m4-grezzi.md"
         },
         {
           "id": "m4-p2",
@@ -4127,8 +4427,8 @@
               "text_it": "Contesto: software PLC/HMI per un pallettizzatore a 4 assi, collaudo chiuso.\nObiettivo: una scheda di protocollo di collaudo.\nStile: professionale, conciso.\nTono: preciso e verificabile.\nDestinatari: il team di sviluppo e i tecnici di collaudo.\nRisposta: 4 righe più la classe di esito collaudo.\n\nDati: [INCOLLA DATI GREZZI]"
             }
           },
-          "requires": "raw data to paste - grezzi/<sector>.md in the demo data kit",
-          "requires_it": "dei dati grezzi da incollare: grezzi/<settore>.md nel kit dei dati demo"
+          "requires": "the generated file demo/m4-grezzi.md",
+          "requires_it": "il file generato demo/m4-grezzi.md"
         },
         {
           "id": "m4-p10",
@@ -4177,25 +4477,25 @@
       "title_it": "In locale, avvelenato, e smentito",
       "minutes": 12,
       "tools": [
-        "Ollama",
+        "Raggy + Ollama",
         "Cowork",
         "claude.ai"
       ],
       "lands": "Cloud vs local; prompt injection; fluency is not accuracy; the human in the loop.",
       "lands_it": "Cloud contro locale; prompt injection; la fluidità non è accuratezza; l'essere umano nel ciclo.",
-      "watch_for": "Part C only works if {{EXPERT_ROLE}} corrects it out loud. Hand him the floor.",
-      "watch_for_it": "La parte C funziona solo se {{EXPERT_ROLE}} lo corregge ad alta voce. Dagli la parola.",
+      "watch_for": "A - one variable changed. Rung 3 of M3 comes back identical: same Raggy window, same regole/ index, only the provider switches to the local model - then unplug the network in full view. The gesture matters more than the answer: show it, do not narrate it. Then open the retrieved passages and have them compared with M3's: they are the same. What changed is not what it reads but who writes. The answer will be slower and plainer - say so before they think it: that is the price, and the decision is theirs. On a 4B local model, keep the simplest wording of the scale question. B - the poisoned folder. Exactly the request of m4-p7: the only changed variable is the document, and say that out loud before running it. Two outcomes, two different sentences. If it derails: \"I did not write that instruction, it was inside a file - and the model has no way to tell the two apart, because they arrive through the same channel.\" If it stops at the confirmation prompt: \"the guardrail held - and it is a guardrail somebody had to configure, not a property of the model.\" Then open the PDF, Ctrl+A, reveal the grey text: that is the part the room remembers. If the sector in the room is not numismatics the poisoned folder does not exist and this beat is dropped - they have just seen the theory on the slide. This is also the beat to cut if the clock is against you. C - cold, then disciplined. C1 on a genuinely hard piece from his own archive: confident and wrong. Do not correct it yourself - hand the floor to {{EXPERT_ROLE}}, who agreed before the lesson to dismantle it live. It is the one moment of the day when a human beats the machine in front of everyone, and it is worth the whole module. Then C2: same photo, same model, disciplined prompt - what it SEES kept apart from what it INFERS, with a confidence per field. The only difference is the prose. Close by naming deliberate failure #1 from Module 1, the two tools that invented a reference and contradicted each other. It was left unexplained there. This is where it is explained.",
+      "watch_for_it": "A — una variabile sola. Il gradino 3 di M3 torna identico: stessa finestra di Raggy, stesse regole/ indicizzate, cambia solo il provider, che passa al modello locale — poi si stacca la rete davanti a loro. Il gesto conta più della risposta: fallo vedere, non raccontarlo. Poi apri i passaggi recuperati e falli confrontare con quelli di M3: sono gli stessi. Non è cambiato che cosa legge, è cambiato chi scrive. La risposta sarà più lenta e più piatta: dillo prima che lo pensino — è il prezzo, e la decisione è loro. Con un modello locale da 4B tieni la formulazione più semplice della domanda della scala. B — la cartella avvelenata. Esattamente la richiesta di m4-p7: l'unica variabile cambiata è il documento, e va detto ad alta voce prima di lanciare. Due esiti, due frasi diverse. Se deraglia: «quell'istruzione non l'ho scritta io, stava dentro un file — e il modello non ha modo di distinguere le due cose, perché gli arrivano nello stesso canale». Se invece si ferma sulla richiesta di conferma: «il guardrail ha retto — ed è un guardrail che qualcuno ha dovuto configurare, non una proprietà del modello». Poi apri il PDF, Ctrl+A, e scopri il testo grigio: è la parte che la sala ricorda. Se il settore in sala non è la numismatica la cartella avvelenata non esiste e questa battuta salta — la teoria l'hanno appena vista sulla slide. È anche la battuta da tagliare se il tempo stringe. C — a freddo, poi disciplinato. C1 su un pezzo davvero difficile del suo archivio: sicuro di sé e sbagliato. Non correggerlo tu: dai la parola a {{EXPERT_ROLE}}, che ha accettato prima della lezione di smontarlo dal vivo. È l'unico momento della giornata in cui un essere umano batte la macchina davanti a tutti, e vale quanto tutto il modulo. Poi C2: stessa foto, stesso modello, prompt disciplinato — ciò che VEDE tenuto separato da ciò che INFERISCE, con la confidenza campo per campo. L'unica differenza è la prosa. Chiudi nominando il fallimento deliberato n. 1 del Modulo 1, i due strumenti che avevano inventato un riferimento e si erano contraddetti. Lì non era stato spiegato: è qui che si spiega.",
       "prompts": [
         {
           "id": "m5-p5",
           "label": "A — Nothing leaves the building",
           "label_it": "A — Non esce nulla dall'azienda",
           "status": "active",
-          "tool": "Ollama, offline",
+          "tool": "Raggy + local model, network off",
           "text": "What {{QUALITY_FIELD}} scale do we use, and what has to appear in every {{DOMAIN_OBJECT}} description?",
           "text_it": "Che scala di {{QUALITY_FIELD}} usiamo, e che cosa deve comparire in ogni descrizione di {{DOMAIN_OBJECT}}?",
-          "note": "Same question as the M3 ladder, now on a local model with the network physically unplugged. The answer is weaker — that is the trade, and it is theirs to make. Free app / subscription / API / local: four different answers to 'who sees this?'.",
-          "note_it": "Stessa domanda della scala di M3, ora su un modello locale con la rete staccata fisicamente. La risposta è più debole: è questo il compromesso, ed è una scelta loro. App gratuita / abbonamento / API / locale: quattro risposte diverse alla domanda «chi vede questi dati?».",
+          "note": "The M3 ladder with one variable changed: same Raggy index over the same regole/ .md files, generation moved from the API to the local model, network physically unplugged. The retrieved passages are identical to rung 3 - only the writer changed. The answer is weaker and slower: that is the trade, and it is theirs to make. Free app / subscription / API / local are four different answers to 'who sees this?'.",
+          "note_it": "La scala di M3 con una variabile cambiata: stesso indice di Raggy sugli stessi file .md di regole/, la generazione spostata dall'API al modello locale, la rete staccata fisicamente. I passaggi recuperati sono identici a quelli del gradino 3: è cambiato solo chi scrive. La risposta è più debole e più lenta — è questo il compromesso, ed è una scelta loro. App gratuita / abbonamento / API / locale sono quattro risposte diverse alla domanda «chi vede questi dati?».",
           "variants": {
             "numismatics": {
               "text": "What condition grading scale do we use, and what has to appear in every lot description?",
@@ -4210,8 +4510,8 @@
               "text_it": "Che classi di esito collaudo usiamo, e che cosa deve comparire in ogni scheda di protocollo di collaudo?"
             }
           },
-          "requires": "Ollama running locally with the model pulled, and the network off",
-          "requires_it": "Ollama in locale con il modello già scaricato, e la rete staccata"
+          "requires": "the Raggy index already used in M3, the local model pulled, and a visible way to cut the network",
+          "requires_it": "l'indice di Raggy già usato in M3, il modello locale già scaricato, e un modo visibile di staccare la rete"
         },
         {
           "id": "m5-p1",
@@ -4242,8 +4542,8 @@
         },
         {
           "id": "m5-p2",
-          "label": "C — Cold attribution (it will be wrong)",
-          "label_it": "C — Attribuzione a freddo (sarà sbagliata)",
+          "label": "C1 — Cold attribution (it will be wrong)",
+          "label_it": "C1 — Attribuzione a freddo (sarà sbagliata)",
           "status": "active",
           "tool": "claude.ai — upload the rare coin photo",
           "text": "What coin is this? Give me the full attribution and the date of issue.",
@@ -4269,8 +4569,8 @@
         },
         {
           "id": "m5-p3",
-          "label": "C — The disciplined prompt",
-          "label_it": "C — Il prompt disciplinato",
+          "label": "C2 — The disciplined prompt",
+          "label_it": "C2 — Il prompt disciplinato",
           "status": "active",
           "tool": "claude.ai — same photo",
           "text": "Describe this coin as a cataloguer would: apparent metal, obverse and reverse type, transcription of the legend if legible, possible issuing authority and period. Separate clearly what you SEE from what you INFER, and state your confidence for each field.",

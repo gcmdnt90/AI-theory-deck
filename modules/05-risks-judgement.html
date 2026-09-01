@@ -1,13 +1,22 @@
 <section>
 
-  <section class="module-cover" data-background-image="assets/img/module-07-security-risks.png" data-background-size="cover" data-background-color="#fbfaf6">
+  <section class="module-cover" data-background-image="assets/img/module-08-ethics.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">05</span>
     <p class="kicker">Module 5 <span class="mod-clock" data-clock-for="m5"></span></p>
     <h1>Risks and judgement</h1>
-    <p class="lede">What goes wrong &mdash; in the model, in us, in the data.</p>
+    <p class="lede">What goes wrong and who stays responsible.</p>
     <aside class="notes">
-      Three risk owners: the model, the user, the data. That structure should survive even if every
-      example is forgotten. Then close on who decides.
+      The last module, and the one that makes everything else defensible: the previous four showed
+      what the machine can be made to do, this one says on what terms the result holds up in front of
+      a client. Three risk owners - the model, the person using it, the data - and then who decides:
+      that structure should survive even if every example is forgotten, and it is the one thing worth
+      saying twice.
+      This is not a module of warnings. Every risk named here already has its counter-move in the
+      earlier modules: ground it in documents (M3), write the rules and verify (M4), keep destructive
+      actions out of the tool's reach. Say so at the start, or the room stiffens and the closing demo
+      reads as a punishment.
+      Close on the commitment question: one thing each person will try in the next 30 days. Have it
+      written down, not just spoken.
     </aside>
   </section>
 
@@ -16,121 +25,150 @@
     <div class="cols c-3">
       <div class="signal-card" style="--card-accent:var(--ait-amber);">
         <h4>Hallucination</h4>
-        <p>Fluent, confident, false. Structural, not a bug. It can be reduced &mdash; not removed.</p>
+        <p>Fluent, confident, false. Structural, not a bug: it is reduced by anchoring it to documents and checking it. Not removed.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-red);">
         <h4>Bias</h4>
-        <p>Skews in the training text carried through into the answer.</p>
+        <p>With no references of its own it returns the average of what has already been written: the words, patterns and structures the web is full of.</p>
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-violet);">
         <h4>Agreeableness</h4>
-        <p>Agrees rather than correcting. It was trained to please.</p>
+        <p>Push back and it retracts &mdash; even when it was right. Finetuning rewards the answers people approve of.</p>
       </div>
     </div>
-    <div class="takeaway">Fluency is evidence of pattern mastery, never proof of truth.</div>
-    <p class="footnote">All three trace back to Module 1: it optimises for plausible text, not for true text.</p>
+    <div class="banner-media">
+      <img src="assets/img/m05-plausible-path.png" alt="Many thin traces braiding into one confident amber stroke while a few peel away and fade out">
+    </div>
+    <p class="footnote">The first two come from the engine of Module 1 &mdash; plausible text, not true text. The third comes from how it was finetuned: on human judgements.</p>
     <aside class="notes">
-      Connect causally to the engine they saw in Module 1: sampling from a distribution with no truth
-      oracle attached. That is why hallucination is manageable but not eliminable, and why the
-      grounding ladder in Module 3 reduces it rather than solving it. The "stochastic parrot"
-      provocation (Bender et al. 2021) belongs here if someone raises it - present it as a live
-      debate, not a verdict. Sources: Ji et al. (2023); Perez et al. (2022); Sharma et al. (2023).
+      The causal thread: in Module 1 they watched the engine sample from a distribution with no truth
+      oracle attached. The first two cards come from there. Hallucination is also the correct answer
+      to one of the ten test items - structural, reduced by grounding in documents and human
+      verification, never removed: say it in those words.
+      Bias, measured version: Doshi &amp; Hauser, <em>Science Advances</em> 10(28), eadn5290 (2024) -
+      an online experiment, peer-reviewed. With a single AI-generated idea, stories become more
+      original for the person writing them (+8.1% novelty) but 10.7% more similar to each other. This
+      is not a moral judgement on the training data: it is the average of what has already been
+      written resurfacing whenever a reference of one's own is missing. It is why the Module 3 ladder
+      changes the result, and why in the demo the disciplined prompt pulls a different structure out
+      of the same photo. Where the model touches people - hiring, assessment, credit - bias also
+      becomes a legal question (AI Act, high-risk systems): name it, do not open it, it is not what
+      this course demonstrates.
+      Agreeableness, measured version: Sharma et al., ICLR 2024 (Anthropic), across five
+      state-of-the-art assistants. When a user challenges a correct answer, models change their
+      initial answer between 32% and 86% of the time depending on the model; a user suggesting an
+      incorrect answer cuts accuracy by up to 27 points. Mechanism, not motive: finetuning uses human
+      judgements, and people prefer answers that confirm what they already think. It is the bridge to
+      the third card on the user slide: an assumption planted in the question comes back confirmed.
+      The "stochastic parrot" provocation (Bender et al. 2021) belongs here if someone raises it: a
+      live debate, not a verdict. Hallucination survey: Ji et al. (2023).
     </aside>
   </section>
 
-
-  <section>
-    <h2><span class="chip risk">model</span> Jagged, not human</h2>
-    <div class="cols">
-      <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4>Jagged ability</h4>
-          <p>Brilliant at one task, hopeless at a neighbouring one that looks just as hard. There is no manual for which is which.</p>
-        </div>
-        <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4>The car-wash test</h4>
-          <p>A model that can rewrite a hundred thousand lines of code may tell you to <em>walk</em> to the car wash 50&nbsp;m away.</p>
-        </div>
-      </div>
-      <div class="col vertical-captions">
-        <div class="mini-card"><strong>A colleague</strong><span>Knows what they don't know. Asks. Adapts under pressure.</span></div>
-        <div class="mini-card"><strong>An agent</strong><span>Completes the pattern. Confidently blind to what is missing.</span></div>
-        <div class="mini-card"><strong>So</strong><span>Manage it by specifying and checking &mdash; not by trusting and delegating.</span></div>
-      </div>
-    </div>
-    <div class="takeaway">The edges are found empirically, on real work.</div>
-    <aside class="notes">
-      The fourth model-side risk, after hallucination, bias and agreeableness: it does not fail where
-      you expect. Karpathy: "We're not building animals. We're building ghosts" - statistical
-      simulations of human text, not evolved creatures. The car-wash example is his own. Measured
-      version: a field experiment with 758 BCG consultants (Dell'Acqua, Mollick et al., Organization
-      Science) found AI raised quality inside the frontier and DEGRADED it outside, on tasks of
-      similar apparent difficulty - 19 points less likely to be correct. Karpathy's metaphor,
-      Mollick's data. This is the practitioner's version of the anti-anthropomorphism thread from
-      Module 1, and the reason Module 4 closed on spec and verification rather than on trust.
-    </aside>
-  </section>
 
   <section data-background-color="#f4f8fb">
-    <h2><span class="chip risk">user</span> What happens to us</h2>
+    <h2><span class="chip risk">user</span> What happens to the person using it</h2>
     <div class="cols">
       <div class="col visual-frame tight">
-        <img src="assets/img/cognitive-delegation.png" alt="Human silhouette passing an amber thread of thought to a machine bracket">
+        <img src="assets/img/cognitive-delegation.png" alt="A human silhouette handing an amber thread of thought to a mechanical bracket">
       </div>
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-green);">
           <h4>Skill erosion</h4>
-          <p>Offloading the thinking can erode the very skill that was offloaded.</p>
+          <p>What is delegated gets practised less. Those who trust the tool check less; those who trust themselves check more.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-amber);">
           <h4>The fluency trap</h4>
-          <p>Polished output feels more accurate than it is &mdash; especially outside one's own expertise.</p>
+          <p>Polished text moves confidence, not accuracy &mdash; and moves it most outside one's own field.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-violet);">
           <h4>The question enters the answer</h4>
-          <p>An assumption placed inside the question comes back as if it were established. &quot;Why is it rarer?&quot; does not check that it is.</p>
+          <p>An assumption planted in the question comes back as if established. Asking <em>why</em> something is true does not check that it is.</p>
         </div>
       </div>
     </div>
-    <div class="takeaway">The risk is not only a wrong answer. It is losing the ability to notice one.</div>
     <aside class="notes">
-      Make this concrete for a small firm: the expert in the room can spot a bad attribution
-      instantly. A junior using the same tool cannot, and may never develop the eye if the tool
-      always answers first. That is a staffing and training decision, not a technology one.
-      Third card: it closes the thread opened in Module 3 with "holidays" versus "annual leave".
-      There the wording moved the retrieval; here the assumption moves the generation, because the
-      prompt is the text the model continues. The operational rule to dictate: ask "what is missing
-      from this attribution?", not "confirm this attribution is right".
-      Sources: Risko &amp; Gilbert (2016); Lee &amp; See (2004); Lee et al. (2025).
+      Make it concrete for a small business: the expert in the room spots a wrong attribution in an
+      instant. A junior with the same tool does not, and may never develop the eye if the tool always
+      answers first. That is a staffing and training decision, not a technology one.
+      First card, and what kind of evidence it is: that what you offload you remember less is old and
+      solid (Sparrow, Liu &amp; Wegner 2011, <em>Science</em>, the Google effect). That the underlying
+      competence decays is NOT established: do not say it. The closest evidence is Lee, Sarkar,
+      Tankelevitch et al., CHI 2025 - 319 knowledge workers, 936 first-hand episodes: higher
+      confidence in the tool goes with less critical thinking, higher self-confidence with more. It is
+      an association in a self-reported survey, and must be said that way. The Risko &amp; Gilbert
+      (2016) review describes when people offload, not that the ability decays.
+      Second card: Perry, Srivastava, Kumar &amp; Boneh, CCS 2023 - a controlled user study.
+      Participants with the AI assistant wrote significantly less secure code and were more likely to
+      believe they had written secure code; and those who trusted it less, working on the wording of
+      their prompts, produced fewer vulnerabilities. Domain is code and the model is from 2022: say
+      so. The second half of that result is the thesis of part C of the demo, minutes away.
+      Third card: closes the thread from Module 3, "ferie" versus "congedi annuali". There it was the
+      words that moved retrieval; here it is the assumption that moves generation, because the prompt
+      is the text the model continues. The example is spoken aloud, per the sector in the room: "why
+      is this coin rarer?" - "why is this plant underperforming?" - "why did this test fail?" - none
+      of the three checks that the premise holds. The operating rule to dictate: ask "what is missing
+      from this attribution?", not "confirm that this attribution is right".
     </aside>
   </section>
 
   <section>
-    <h2><span class="chip risk">data</span> Where data leaks</h2>
+    <h2><span class="chip risk">data</span> When text becomes an instruction</h2>
     <div class="cols">
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud or local</h4><p>Who can see the questions and the files uploaded?</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Text inside a document quietly becomes an instruction.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>Prompt injection</h4>
+          <p>An untrusted document carries a sentence the model <em>executes</em> instead of summarising.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Why it matters now</h4>
+          <p>With the tools from Module 4 the model does not only answer: it opens files, writes, sends. Untrusted text stops being data and starts driving an action.</p>
+        </div>
       </div>
       <div class="col visual-frame media-fit">
-        <img src="assets/img/m07-data-leaks.png" alt="Indirect prompt injection hijacking an agent tool path and causing unintended data movement">
+        <img src="assets/img/m07-data-leaks.png" alt="Indirect prompt injection hijacking an agent's tool path and causing unintended data movement">
       </div>
     </div>
-    <div class="takeaway">The dangerous moment is when untrusted text stops being data and starts steering an action.</div>
-    <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.5em;">
-      <div class="mini-card"><strong>Free app</strong><span>Cheapest. Weakest guarantees about reuse.</span></div>
-      <div class="mini-card"><strong>Subscription</strong><span>Business terms, data not used for training.</span></div>
-      <div class="mini-card"><strong>Paid API</strong><span>Contractual control, the company's own logging.</span></div>
-      <div class="mini-card"><strong>Local model</strong><span>Nothing leaves the building. Weaker answers.</span></div>
-    </div>
-    <p class="footnote">In the EU the <strong>AI Act</strong> (Reg. 2024/1689) and the <strong>GDPR</strong> both apply whichever option is chosen.</p>
     <aside class="notes">
-      Connectors from Module 4 widen the attack surface: the agent now acts on untrusted input.
-      Injection has no clean fix - design for least privilege and keep destructive actions in the
-      "never do" tier. The four options are a real procurement decision for them, not a warning:
-      the demo that follows opens by running the M3 question on a fully local model with the network
-      unplugged, so they can feel the trade rather than be told about it.
-      Sources: Greshake et al. (2023); OWASP Top 10 for LLM Applications.
+      The line not to lose: while the model only writes text, a hidden instruction produces a wrong
+      answer; once it has tools, it produces an action. The connectors in Module 4 widened the attack
+      surface an hour ago, in this same room.
+      Injection has no clean fix - it is not a bug closed by a patch, it follows from instructions and
+      data reaching the model through the same channel, as text. So you design for least privilege:
+      the tool sees only the folder it needs, and destructive actions sit in the "never do" tier of the
+      table they already saw in M4.
+      In a few minutes part B of the demo runs the exact request of m4-p7 against the poisoned folder:
+      the only changed variable is the document. Then open the PDF, Ctrl+A, and reveal the grey text.
+      Do not pre-announce it: let it derail.
+      Sources: Greshake et al. (2023), <em>Indirect Prompt Injection</em>; OWASP Top 10 for LLM
+      applications.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">data</span> Who sees this data</h2>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-cyan);">
+      <h4>The question</h4>
+      <p>Who can see the questions and the uploaded files? The answer depends on the tool and the contract, not on the model.</p>
+    </div>
+    <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.6em;">
+      <div class="mini-card"><strong>Free app</strong><span>Is the data used for training? Where is that written, and since when?</span></div>
+      <div class="mini-card"><strong>Subscription</strong><span>Does the work plan exclude training? Is it in the contract or on a help page?</span></div>
+      <div class="mini-card"><strong>Paid API</strong><span>Who keeps the logs, for how long, in which country?</span></div>
+      <div class="mini-card"><strong>Local model</strong><span>Nothing leaves the company: it runs on the laptop. How much quality does that cost?</span></div>
+    </div>
+    <p class="footnote">In the EU the <strong>AI Act</strong> (Reg. 2024/1689) and the <strong>GDPR</strong> apply regardless of which option is chosen.</p>
+    <aside class="notes">
+      This is the pre-demo. The four columns are written as questions rather than guarantees on
+      purpose: terms differ by vendor, by plan and over time, and you are not their lawyer. What always
+      holds is the footnote: whichever box they tick, both regulations still apply - the technical
+      option is not a legal shortcut.
+      Close by opening Ollama and showing the window: no examples, no demonstration, just "this is a
+      model running in here". It removes the abstraction from the fourth card and removes the stage
+      management from the demo: part A starts from a tool already open and already explained, and all
+      that is left is to unplug the network and ask the Module 3 question.
+      If the room is engaged, the discussion prompt m5-p4 belongs here: which of the four they would
+      accept for a client's unpublished material. It makes the choice theirs rather than your warning.
     </aside>
   </section>
 
@@ -140,46 +178,81 @@
     <h2>The human in the loop</h2>
     <div class="cols">
       <div class="col visual-frame tight">
-        <img src="assets/img/human-loop.png" alt="Green and violet loop meeting at amber checkpoints">
+        <img src="assets/img/human-loop.png" alt="A green and violet loop meeting at amber checkpoints">
       </div>
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-green);">
-          <h4>Working loop <span class="chip safe">safe</span></h4>
-          <p>A person sets the goal, reviews what matters, and carries the responsibility.</p>
-        </div>
         <div class="signal-card" style="--card-accent:var(--ait-red);">
-          <h4>Broken loop <span class="chip risk">risk</span></h4>
-          <p>A person rubber-stamps. Oversight exists on paper only.</p>
+          <h4>Why oversight slackens</h4>
+          <p>The system is usually right, and attention moves elsewhere. It holds for experts as much as for novices, and it is not fixed by telling people to be careful.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>What stopped it</h4>
+          <p>Five minutes ago it was not an automated check: it was someone who knew the piece and could say no.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>The same tool, the other way round</h4>
+          <p>Have it argue the opposite, ask it what is missing, be interrogated by it. Those who interrogate it rather than delegate to it get better results.</p>
         </div>
       </div>
     </div>
-    <div class="takeaway">Oversight is real only if someone can understand, challenge and overrule.</div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>The test</h4>
+      <p>Oversight is real only if someone can <strong>understand</strong>, <strong>challenge</strong> and <strong>overturn</strong>. Missing any of the three, it is a rubber stamp.</p>
+    </div>
     <aside class="notes">
-      Automation complacency: oversight degrades precisely because the system is usually right.
-      For an auction house the point is sharp - responsibility toward buyers cannot be delegated to
-      a model, legally or reputationally. They have just watched the expert overrule it live.
+      The first card is the point worth defending, and it is measured: Parasuraman &amp; Manzey,
+      <em>Human Factors</em> 52(3) 381-410 (2010), a review integrating the empirical studies on
+      automation complacency. Two verbatim conclusions: complacency "is found in both naive and expert
+      participants and cannot be overcome with simple practice", and automation bias "cannot be
+      prevented by training or instructions". Said in the room: experience does not protect, and
+      telling people to pay attention is not a control. The remedy is not goodwill, it is design - the
+      guardrail tiers they saw in M4.
+      The classic, to be presented as an argument and not as a measure: Bainbridge,
+      <em>Ironies of Automation</em>, <em>Automatica</em> 19(6) 775-779 (1983). The more reliable the
+      automation, the less practised the operator remains at taking over exactly when they must.
+      And vigilance cannot be intermittent: success on one task does not license trust on the next,
+      because the boundary between the two is declared nowhere.
+      Third card, the cheerful one, said without inflating it: what is measured is that those who
+      trusted it less and worked on their phrasing got better results (Perry et al., CCS 2023), and
+      that with AI the cognitive work does not vanish but shifts towards verification and oversight
+      (Lee et al., CHI 2025). That this builds expertise over time is NOT established: do not promise
+      it. Promise the posture - asking "what is missing" and "argue the opposite" instead of "confirm
+      this" - which is the same operating rule dictated on the user slide.
+      For an auction house the point is sharp: responsibility towards buyers is not delegated to a
+      model, neither legally nor reputationally. They have just watched the expert overturn it live:
+      point at that moment, do not re-explain it.
     </aside>
   </section>
 
   <section data-background-color="#fbfaf6">
     <h2>Where we landed</h2>
     <div class="recap-chain compact">
-      <div class="step"><strong>1</strong><span>it predicts words</span></div>
-      <div class="step"><strong>2</strong><span>inside / around</span></div>
-      <div class="step"><strong>3</strong><span>feed it the documents</span></div>
-      <div class="step"><strong>4</strong><span>write the rules, then let it act</span></div>
-      <div class="step"><strong>5</strong><span>keep the judgement</span></div>
+      <div class="step"><strong>1</strong><span>predicts the next word</span></div>
+      <div class="step"><strong>2</strong><span>inside or around</span></div>
+      <div class="step"><strong>3</strong><span>anchor it to the documents</span></div>
+      <div class="step"><strong>4</strong><span>write the rules, then verify</span></div>
+      <div class="step"><strong>5</strong><span>understand, challenge, overturn</span></div>
     </div>
     <div class="quote-strip" style="grid-template-columns:1fr;">
-      <blockquote>&quot;You can outsource your thinking, but you can't outsource your understanding.&quot;<cite>a tweet Karpathy keeps returning to &mdash; AI Ascent (2026)</cite></blockquote>
+      <blockquote>&ldquo;You can outsource your thinking, but you cannot outsource your understanding.&rdquo;<cite>a tweet Karpathy keeps quoting &mdash; AI Ascent (2026)</cite></blockquote>
     </div>
-    <div class="takeaway">At the base it is probability. In a person's hands it is a tool. The hard part is judgement.</div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>The question</h4>
+      <p>&ldquo;One concrete thing you will do in the next 30 days applying what you learned today.&rdquo;</p>
+    </div>
+    <div class="takeaway">Underneath it is probability. In a person's hands it is a tool. The hard part is judgement.</div>
     <aside class="notes">
-      Attribution matters: Karpathy explicitly says this is a tweet he cites, not his own coinage -
-      model the citation hygiene we preach. Two postures worth naming if there is time (Mollick,
-      from the same BCG study): centaur, dividing the work at a clean seam; cyborg, interleaving at
-      every step. Then ask the commitment question: one thing each of you will try in the next 30
-      days. Same wording as T1 Q6.1 - write the answers down.
+      The chain is the last thing they read: read it aloud, one link at a time, without commenting on
+      it. Link 4 says "then verify" and not "then let it act" on purpose - that is the conclusion
+      Module 4 actually closes on. Link 5 is the test from the previous slide, word for word.
+      Attribution matters: Karpathy says explicitly that the line is a tweet he quotes, not his own
+      coinage. Practising source hygiene on the final slide is worth ten recommendations.
+      Then the commitment question, which is why it is on screen: the wording is identical to Q6.1 of
+      the exit questionnaire, and it is the field the three-month follow-up rests on. <strong>Have it
+      written, not spoken.</strong> A commitment said in the room leaves no trace; a written one does,
+      and in three months it can be asked whether it was kept.
+      Two postures to name only if time allows (Mollick, from the BCG study): centaur, with the work
+      split along a clean line; cyborg, with the exchange at every step.
     </aside>
   </section>
 

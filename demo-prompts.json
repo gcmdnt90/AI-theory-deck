@@ -1161,7 +1161,9 @@
             }
           },
           "paste": "five attributes taken from a real sheet or from the synthetic demo folder",
-          "paste_it": "cinque attributi presi da una scheda reale o dai dati sintetici della cartella demo"
+          "paste_it": "cinque attributi presi da una scheda reale o dai dati sintetici della cartella demo",
+          "requires": "the generated file demo/m2-cinque-attributi.md",
+          "requires_it": "il file generato demo/m2-cinque-attributi.md"
         },
         {
           "id": "m2-p2",
@@ -1187,8 +1189,8 @@
               "text_it": "Tre commesse si contendono l'unico collaudo in sede della settimana. Considerando fermo linea del cliente, test ancora aperti e trasferta, argomenta a favore di uno e di' che cosa ti farebbe cambiare idea."
             }
           },
-          "requires": "a model with extended thinking available, and the toggle found before the lesson",
-          "requires_it": "un modello con il ragionamento esteso disponibile, e l'interruttore individuato prima della lezione"
+          "requires": "the generated file demo/m2-tre-candidati.md",
+          "requires_it": "il file generato demo/m2-tre-candidati.md"
         },
         {
           "id": "m2-p3",
@@ -1310,8 +1312,8 @@
               "text_it": "Nel documento che ho caricato, che cosa dice la clausola a metà della sezione 3 sui collaudi che si chiudono con esito parziale?"
             }
           },
-          "requires": "Raggy running on the local folder",
-          "requires_it": "Raggy in esecuzione sulla cartella locale"
+          "requires": "a Claude Project with regole/ uploaded",
+          "requires_it": "un Progetto Claude con la cartella regole/ caricata"
         },
         {
           "id": "m3-p4",
@@ -1408,8 +1410,8 @@
               "text_it": "Prepara la scheda di protocollo di collaudo per questa macchina: [INCOLLA DATI GREZZI]."
             }
           },
-          "requires": "raw data to paste - grezzi/<sector>.md in the demo data kit",
-          "requires_it": "dei dati grezzi da incollare: grezzi/<settore>.md nel kit dei dati demo"
+          "requires": "the generated file demo/m4-grezzi.md",
+          "requires_it": "il file generato demo/m4-grezzi.md"
         },
         {
           "id": "m4-p2",
@@ -1606,8 +1608,8 @@
               "text_it": "Contesto: software PLC/HMI per un pallettizzatore a 4 assi, collaudo chiuso.\nObiettivo: una scheda di protocollo di collaudo.\nStile: professionale, conciso.\nTono: preciso e verificabile.\nDestinatari: il team di sviluppo e i tecnici di collaudo.\nRisposta: 4 righe più la classe di esito collaudo.\n\nDati: [INCOLLA DATI GREZZI]"
             }
           },
-          "requires": "raw data to paste - grezzi/<sector>.md in the demo data kit",
-          "requires_it": "dei dati grezzi da incollare: grezzi/<settore>.md nel kit dei dati demo"
+          "requires": "the generated file demo/m4-grezzi.md",
+          "requires_it": "il file generato demo/m4-grezzi.md"
         },
         {
           "id": "m4-p10",
@@ -1656,25 +1658,25 @@
       "title_it": "In locale, avvelenato, e smentito",
       "minutes": 12,
       "tools": [
-        "Ollama",
+        "Raggy + Ollama",
         "Cowork",
         "claude.ai"
       ],
       "lands": "Cloud vs local; prompt injection; fluency is not accuracy; the human in the loop.",
       "lands_it": "Cloud contro locale; prompt injection; la fluidità non è accuratezza; l'essere umano nel ciclo.",
-      "watch_for": "Part C only works if {{EXPERT_ROLE}} corrects it out loud. Hand him the floor.",
-      "watch_for_it": "La parte C funziona solo se {{EXPERT_ROLE}} lo corregge ad alta voce. Dagli la parola.",
+      "watch_for": "A - one variable changed. Rung 3 of M3 comes back identical: same Raggy window, same regole/ index, only the provider switches to the local model - then unplug the network in full view. The gesture matters more than the answer: show it, do not narrate it. Then open the retrieved passages and have them compared with M3's: they are the same. What changed is not what it reads but who writes. The answer will be slower and plainer - say so before they think it: that is the price, and the decision is theirs. On a 4B local model, keep the simplest wording of the scale question. B - the poisoned folder. Exactly the request of m4-p7: the only changed variable is the document, and say that out loud before running it. Two outcomes, two different sentences. If it derails: \"I did not write that instruction, it was inside a file - and the model has no way to tell the two apart, because they arrive through the same channel.\" If it stops at the confirmation prompt: \"the guardrail held - and it is a guardrail somebody had to configure, not a property of the model.\" Then open the PDF, Ctrl+A, reveal the grey text: that is the part the room remembers. If the sector in the room is not numismatics the poisoned folder does not exist and this beat is dropped - they have just seen the theory on the slide. This is also the beat to cut if the clock is against you. C - cold, then disciplined. C1 on a genuinely hard piece from his own archive: confident and wrong. Do not correct it yourself - hand the floor to {{EXPERT_ROLE}}, who agreed before the lesson to dismantle it live. It is the one moment of the day when a human beats the machine in front of everyone, and it is worth the whole module. Then C2: same photo, same model, disciplined prompt - what it SEES kept apart from what it INFERS, with a confidence per field. The only difference is the prose. Close by naming deliberate failure #1 from Module 1, the two tools that invented a reference and contradicted each other. It was left unexplained there. This is where it is explained.",
+      "watch_for_it": "A — una variabile sola. Il gradino 3 di M3 torna identico: stessa finestra di Raggy, stesse regole/ indicizzate, cambia solo il provider, che passa al modello locale — poi si stacca la rete davanti a loro. Il gesto conta più della risposta: fallo vedere, non raccontarlo. Poi apri i passaggi recuperati e falli confrontare con quelli di M3: sono gli stessi. Non è cambiato che cosa legge, è cambiato chi scrive. La risposta sarà più lenta e più piatta: dillo prima che lo pensino — è il prezzo, e la decisione è loro. Con un modello locale da 4B tieni la formulazione più semplice della domanda della scala. B — la cartella avvelenata. Esattamente la richiesta di m4-p7: l'unica variabile cambiata è il documento, e va detto ad alta voce prima di lanciare. Due esiti, due frasi diverse. Se deraglia: «quell'istruzione non l'ho scritta io, stava dentro un file — e il modello non ha modo di distinguere le due cose, perché gli arrivano nello stesso canale». Se invece si ferma sulla richiesta di conferma: «il guardrail ha retto — ed è un guardrail che qualcuno ha dovuto configurare, non una proprietà del modello». Poi apri il PDF, Ctrl+A, e scopri il testo grigio: è la parte che la sala ricorda. Se il settore in sala non è la numismatica la cartella avvelenata non esiste e questa battuta salta — la teoria l'hanno appena vista sulla slide. È anche la battuta da tagliare se il tempo stringe. C — a freddo, poi disciplinato. C1 su un pezzo davvero difficile del suo archivio: sicuro di sé e sbagliato. Non correggerlo tu: dai la parola a {{EXPERT_ROLE}}, che ha accettato prima della lezione di smontarlo dal vivo. È l'unico momento della giornata in cui un essere umano batte la macchina davanti a tutti, e vale quanto tutto il modulo. Poi C2: stessa foto, stesso modello, prompt disciplinato — ciò che VEDE tenuto separato da ciò che INFERISCE, con la confidenza campo per campo. L'unica differenza è la prosa. Chiudi nominando il fallimento deliberato n. 1 del Modulo 1, i due strumenti che avevano inventato un riferimento e si erano contraddetti. Lì non era stato spiegato: è qui che si spiega.",
       "prompts": [
         {
           "id": "m5-p5",
           "label": "A — Nothing leaves the building",
           "label_it": "A — Non esce nulla dall'azienda",
           "status": "active",
-          "tool": "Ollama, offline",
+          "tool": "Raggy + local model, network off",
           "text": "What {{QUALITY_FIELD}} scale do we use, and what has to appear in every {{DOMAIN_OBJECT}} description?",
           "text_it": "Che scala di {{QUALITY_FIELD}} usiamo, e che cosa deve comparire in ogni descrizione di {{DOMAIN_OBJECT}}?",
-          "note": "Same question as the M3 ladder, now on a local model with the network physically unplugged. The answer is weaker — that is the trade, and it is theirs to make. Free app / subscription / API / local: four different answers to 'who sees this?'.",
-          "note_it": "Stessa domanda della scala di M3, ora su un modello locale con la rete staccata fisicamente. La risposta è più debole: è questo il compromesso, ed è una scelta loro. App gratuita / abbonamento / API / locale: quattro risposte diverse alla domanda «chi vede questi dati?».",
+          "note": "The M3 ladder with one variable changed: same Raggy index over the same regole/ .md files, generation moved from the API to the local model, network physically unplugged. The retrieved passages are identical to rung 3 - only the writer changed. The answer is weaker and slower: that is the trade, and it is theirs to make. Free app / subscription / API / local are four different answers to 'who sees this?'.",
+          "note_it": "La scala di M3 con una variabile cambiata: stesso indice di Raggy sugli stessi file .md di regole/, la generazione spostata dall'API al modello locale, la rete staccata fisicamente. I passaggi recuperati sono identici a quelli del gradino 3: è cambiato solo chi scrive. La risposta è più debole e più lenta — è questo il compromesso, ed è una scelta loro. App gratuita / abbonamento / API / locale sono quattro risposte diverse alla domanda «chi vede questi dati?».",
           "variants": {
             "numismatics": {
               "text": "What condition grading scale do we use, and what has to appear in every lot description?",
@@ -1689,8 +1691,8 @@
               "text_it": "Che classi di esito collaudo usiamo, e che cosa deve comparire in ogni scheda di protocollo di collaudo?"
             }
           },
-          "requires": "Ollama running locally with the model pulled, and the network off",
-          "requires_it": "Ollama in locale con il modello già scaricato, e la rete staccata"
+          "requires": "the Raggy index already used in M3, the local model pulled, and a visible way to cut the network",
+          "requires_it": "l'indice di Raggy già usato in M3, il modello locale già scaricato, e un modo visibile di staccare la rete"
         },
         {
           "id": "m5-p1",
@@ -1721,8 +1723,8 @@
         },
         {
           "id": "m5-p2",
-          "label": "C — Cold attribution (it will be wrong)",
-          "label_it": "C — Attribuzione a freddo (sarà sbagliata)",
+          "label": "C1 — Cold attribution (it will be wrong)",
+          "label_it": "C1 — Attribuzione a freddo (sarà sbagliata)",
           "status": "active",
           "tool": "claude.ai — upload the rare coin photo",
           "text": "What coin is this? Give me the full attribution and the date of issue.",
@@ -1748,8 +1750,8 @@
         },
         {
           "id": "m5-p3",
-          "label": "C — The disciplined prompt",
-          "label_it": "C — Il prompt disciplinato",
+          "label": "C2 — The disciplined prompt",
+          "label_it": "C2 — Il prompt disciplinato",
           "status": "active",
           "tool": "claude.ai — same photo",
           "text": "Describe this coin as a cataloguer would: apparent metal, obverse and reverse type, transcription of the legend if legible, possible issuing authority and period. Separate clearly what you SEE from what you INFER, and state your confidence for each field.",

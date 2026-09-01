@@ -146,6 +146,7 @@
 }
 
 .cols.c-3 {
+  align-items: stretch;
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -298,6 +299,22 @@
 .visual-frame.media-fit video {
   border-radius: 10px;
   display: block;
+  width: 100%;
+}
+
+.reveal .banner-media {
+  margin: .6em 0 0;
+}
+
+.reveal .banner-media img {
+  border: 1px solid var(--ait-line);
+  border-radius: 8px;
+  display: block;
+  height: 200px;
+  margin: 0;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 

@@ -153,7 +153,7 @@ Plus: deck cover, map, closing slide. **28 content slides, down from 43.**
 | Model Context Protocol | **Merged.** Keep the M×N image, cut the quote-strip (two blockquotes of marketing copy). |
 | Connectors in practice | **Keep** — the operational one. |
 | Chatbots vs agentic systems (full-bleed image) | **Keep** — zero reading load, ideal recovery slide. |
-| Ghosts, not animals | **Keep**, cut to 2 cards: jagged intelligence + the car-wash test. Drop the BCG card and the quote-strip (both → notes). |
+| Ghosts, not animals | ~~**Keep**, cut to 2 cards: jagged intelligence + the car-wash test.~~ **Cut entirely 2026-09-01** — moved into M5 by the M4+M5 merge, then dropped during the M5 review: both supports had aged (see CONTEXT.md). Survives in the academic edition. |
 | 1 — Own the spec | **Merge** with the next. |
 | 2 — Build a verification loop | **Merged** into "Spec, then verify" — the two moves they must remember. Cut the Stripe anecdote from the slide, tell it verbally. |
 | 3 — Invest in the environment | **Keep only the guardrail table** (always do / ask first / never do). Highest practical value of the module for a business. Merge into the spec+verify slide if it fits, else keep separate. |
