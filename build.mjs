@@ -58,7 +58,7 @@ try {
 
 /**
  * Two editions are built from the same template:
- *   index.html    — SME edition (modules/), the live URL. Thinned, 6 modules.
+ *   index.html    — SME edition (modules/), the live URL. Thinned, 5 modules.
  *   academic.html — academic edition (modules-academic/), frozen 9-module
  *                   deck as delivered to UnivPM PhD students. Kept buildable
  *                   so the research instrument alignment is not lost.

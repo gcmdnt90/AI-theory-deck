@@ -4,7 +4,7 @@
     <span class="modnum">03</span>
     <p class="kicker">Module 3 <span class="mod-clock" data-clock-for="m3"></span></p>
     <h1>Context, memory, grounding</h1>
-    <p class="lede">How the machine gets to know <em>your</em> business.</p>
+    <p class="lede">How the machine gets to know <em>a</em> business.</p>
     <aside class="notes">
       The module with the highest direct business value. Core distinction: context is what is in
       front of the model right now; memory is what survives between sessions. Both are "around".
@@ -19,12 +19,15 @@
         <img src="assets/img/m04-context-ram.png" alt="RAM-like context window with colored token segments loaded into immediate memory slots">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>Rules</strong><span>Your instructions sit at the front of the desk.</span></div>
-        <div class="mini-card"><strong>Conversation + documents</strong><span>They compete for the same finite space.</span></div>
-        <div class="mini-card"><strong>Room to answer</strong><span>The reply needs space on the desk too.</span></div>
+        <div class="mini-card"><strong>Rules</strong><span>The instructions sit at the front of the desk.</span><span class="fig">they stay only if they are written down: module 4</span></div>
+        <div class="mini-card"><strong>Conversation + documents</strong><span>They compete for the same finite space.</span><span class="fig">measured in tokens, the ones from earlier</span></div>
+        <div class="mini-card"><strong>Room to answer</strong><span>The reply needs space on the desk too.</span><span class="fig">full desk, shorter reply</span></div>
       </div>
     </div>
-    <div class="takeaway">The desk is wiped after every question unless you put things back on it.</div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-violet);">
+      <p>Every question re-sends <strong>the whole</strong> conversation. When it no longer fits, the oldest part is summarised or cut &mdash; and it is worth paying attention to when that happens.</p>
+    </div>
+    <div class="takeaway">The desk is wiped after every question unless things are put back on it.</div>
     <aside class="notes">
       The wiped-desk image is the one they must keep. It explains why a fresh chat "forgets", why
       long threads degrade, and why the project/instruction file in Module 4 matters.
@@ -32,69 +35,128 @@
   </section>
 
   <section data-background-color="#f4f8fb">
-    <h2>A bigger desk is not a free desk</h2>
+    <h2>The context problem</h2>
     <div class="cols top">
       <div class="col stack-sm">
-        <p>Windows grew from about 1,500 words to book length in a few years.</p>
-        <p>But what sits at the <strong>beginning</strong> and the <strong>end</strong> is used better than what is buried in the middle.</p>
-        <div class="takeaway">What you put in, and in what order, still matters.</div>
+        <p>Declared windows went from <strong>~2,000 tokens</strong> (2020) to <strong>~1,000,000</strong> on some models: from a few pages to a few hundred.</p>
+        <p>But the declared window is not the usable one:</p>
+        <ul class="slide-list">
+          <li>what sits at the <strong>start</strong> and at the <strong>end</strong> is used better than what ends up buried in the middle;</li>
+          <li>at 32,000 tokens <strong>11 models out of 13</strong> fall below half the score they reach on short texts.</li>
+        </ul>
+        <p class="ask">&rarr; a few relevant documents beat &ldquo;paste everything in&rdquo;</p>
+        <div class="takeaway">What goes in, and in what order, still matters.</div>
       </div>
       <div class="col visual-frame media-fit">
-        <img src="assets/img/middle_sag.png" alt="Lost in the middle curve showing lower retrieval accuracy for information placed in the middle of context">
+        <img src="assets/img/middle_sag.png" alt="&ldquo;Lost in the middle&rdquo; curve: lower accuracy for information placed halfway through the context">
       </div>
     </div>
+    <p class="footnote">Chart: Liu et al., &ldquo;Lost in the Middle&rdquo; (TACL 2024), gpt-3.5-turbo over 20 retrieved documents. The 32,000-token figure: NoLiMa (ICML 2025).</p>
     <aside class="notes">
-      Counter the "just paste everything in" reflex before they develop it. Source: Liu et al.
-      (2023/24), Lost in the Middle, TACL. If asked for numbers: GPT-3 was ~2k tokens, current
-      frontier models reach ~1M, roughly a million and a half words. Curation still beats dumping.
+      Head off the "we'll just paste everything in" reflex before it forms.
+      The numbers, if asked: GPT-3 sat at ~2,000 tokens, frontier models declare up to ~1,000,000,
+      which is roughly 700-750 thousand words (a token is about three quarters of a word - NOT one
+      and a half million words).
+      The two lines say different things and should stay distinct. The first is about position: the
+      chart is from 2023 on gpt-3.5-turbo, so do not sell it as the last word. The second is recent
+      and harder: in the NoLiMa benchmark (ICML 2025), at 32,000 tokens 11 of 13 models drop below
+      half their short-text score, and GPT-4o goes from 99.3% to 69.7%. That is the ready answer to
+      "but windows are huge now": huge yes, usable in full no.
+      The closing arrow is the bridge to retrieval: if a few relevant documents beat the pile,
+      something has to choose them. Sources: Liu et al. (2023/24) Lost in the Middle, TACL;
+      Modarressi et al. (2025) NoLiMa, ICML.
     </aside>
   </section>
 
   <section>
-    <h2>Memory beyond the window</h2>
-    <div class="cols">
+    <h2>Three ways not to start from scratch</h2>
+    <p>When the desk fills up, something has to go. Three mechanisms decide what stays.</p>
+    <div class="cols fit-two">
       <div class="col visual-frame media-fit">
-        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay style="width:100%;height:auto;display:block;border-radius:16px;"></video>
+        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay></video>
       </div>
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Short-term</h4><p>The conversation, replayed each turn.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Long-term</h4><p>Facts stored outside and fetched when relevant.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>1 &middot; Summarisation</h4>
+          <p>The oldest part is compressed into notes. Automatic and lossy: details disappear without warning.</p>
+          <p class="ask">&rarr; &ldquo;why has it forgotten what it was told an hour ago?&rdquo;</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>2 &middot; Persistent notes</h4>
+          <p>Facts written to a file, put back on the desk at the start of every session. Explicit and correctable &mdash; but someone has to write them.</p>
+          <p class="ask">&rarr; module 4</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>3 &middot; Searchable archive</h4>
+          <p>The documents stay outside. Each question triggers a search, and only the relevant pieces are inserted.</p>
+          <p class="ask">&rarr; next slide</p>
+        </div>
       </div>
     </div>
-    <div class="takeaway">Memory is plumbing around the model, not magical recall.</div>
+    <div class="takeaway">None of the three writes inside the model: all three rewrite the desk.</div>
     <aside class="notes">
-      Third mechanism, mention only: summarisation - old turns compressed into notes, which is lossy.
-      Flag the trade-off between forgetting and overflow, then move on to RAG which is what they will
-      actually buy.
+      Open on the video, which shows the first mechanism end to end: the container fills, hits
+      saturation ("context saturation reached"), and the contents collapse into a summary bar.
+      Card 1 is the ready answer to the question that always comes: the three-hour conversation in
+      which the chatbot "forgets" the beginning. It is not a fault and not a privacy choice: past a
+      certain number of tokens the old part is compacted or cut, and granularity is lost. Every model
+      has this limit; the size changes, the mechanism does not. Honest caveat: this is documented
+      product behaviour of the chat interfaces, not a benchmark result - the two numbered lines are on
+      the previous slide.
+      Card 2 is the bridge to module 4: the memory that can be inspected and corrected is the one
+      someone wrote. Card 3 is the bridge to the next slide: if the documents stay outside, something
+      has to choose which pieces come in.
+      The takeaway carries the rest of the module: none of the three touches the parameters.
+      Immediate operational consequence: update a document and the answers change at once, with no
+      retraining. Never say the system "learns" or "remembers". It puts text back on the desk.
     </aside>
   </section>
 
   <section>
     <h2>Retrieval: find first, then write</h2>
-    <div class="visual-frame generated-flow-frame rag-frame full" role="img" aria-label="RAG pipeline: Question, Turn into numbers, Search by meaning, Most similar pieces, LLM, Answer">
-      <img src="assets/img/m04-rag-flow-v2.png" alt="">
-      <span class="flow-label rag-query">Question</span>
-      <span class="flow-label rag-embed">Turn into numbers</span>
-      <span class="flow-label rag-search">Search by meaning</span>
-      <span class="flow-label rag-chunks">Most similar pieces</span>
-      <span class="flow-label rag-llm">LLM</span>
-      <span class="flow-label rag-answer">Answer</span>
-    </div>
-    <div class="rag-under">
-      <div>
-        <p class="footnote">Words become positions on a map of meanings &mdash; so &quot;search by meaning&quot; finds the right passage even when the wording differs.</p>
-        <div class="takeaway">Your documents are not trained into the model. They are handed to it, one question at a time.</div>
+    <div class="cols fit-two">
+      <div class="col">
+        <div class="visual-frame media-fit">
+          <video src="assets/video/retrieval.mp4" autoplay loop muted playsinline data-autoplay></video>
+        </div>
       </div>
-      <div class="visual-frame vector-video-frame mini">
-        <video src="assets/video/latent_space.mp4" autoplay loop muted playsinline data-autoplay></video>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Once: it is indexed</h4>
+          <p>Documents are cut into pieces; each piece becomes a position on a map of meanings. They stay outside the model.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Each question: it is searched</h4>
+          <p>The question becomes a position too. Only the nearest pieces come in: that is the anchoring, the <em>grounding</em>.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>When it fails</h4>
+          <p>If the question is worded far from the document's wording, the right pieces never come in. And an answer arrives anyway.</p>
+        </div>
       </div>
     </div>
+    <p class="chain">question &rarr; into numbers &rarr; search by meaning &rarr; most similar pieces &rarr; LLM &rarr; answer</p>
+    <div class="takeaway">The company's documents are not trained into the model: they are handed to it, one question at a time.</div>
     <aside class="notes">
-      The most useful pattern this audience will actually adopt. Land two consequences: (1) nothing
-      is memorised, so updating a document updates the answers immediately; (2) the model can only
-      answer from what retrieval found, so retrieval quality IS answer quality. The embedding video
-      earns its place here: same maths as the map of meanings, used as a search index.
-      Sources: Lewis et al. (2020); Karpukhin et al. (2020); Mikolov et al. (2013).
+      The most useful pattern this audience will actually adopt. The video carries the point on its
+      own: the wall of documents does not move, the empty slots stay visible, only a few pieces travel.
+      Card 1 is the step missing from most explanations, and it dismantles the three most common wrong
+      ideas about "uploading documents": it is not a Ctrl+F over the archive, it is not the model
+      learning the document, it is not indexing by name and date. Cut, converted into numbers, saved as
+      an index - once, and outside the model. The map of meanings is the one seen in module 1 at the
+      "vectors" stop.
+      Card 2: name the word here. Anchoring an answer to a retrieved source is grounding, and it is the
+      title of the demo that follows.
+      Card 3 is the part to say out loud, with the example: "how do I handle holidays?" finds nothing,
+      "how do I request annual leave?" finds it at once. Same question, different words. Search works
+      by proximity of meaning, not by exact words; if the question falls far from the way the document
+      is written, the right passage does not come back - and nothing warns you. That is why the demo
+      shows the retrieved passages instead of trusting the answer.
+      The two operational consequences to land: (1) nothing is memorised, so updating a document
+      changes the answers at once, with no retraining; (2) the model can only answer from what
+      retrieval found, so retrieval quality IS answer quality.
+      Sources: Lewis et al. (2020) RAG; Karpukhin et al. (2020) Dense Passage Retrieval; Mikolov et al.
+      (2013).
     </aside>
   </section>
 

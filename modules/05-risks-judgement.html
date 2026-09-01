@@ -1,8 +1,8 @@
 <section>
 
   <section class="module-cover" data-background-image="assets/img/module-07-security-risks.png" data-background-size="cover" data-background-color="#fbfaf6">
-    <span class="modnum">06</span>
-    <p class="kicker">Module 6 <span class="mod-clock" data-clock-for="m6"></span></p>
+    <span class="modnum">05</span>
+    <p class="kicker">Module 5 <span class="mod-clock" data-clock-for="m5"></span></p>
     <h1>Risks and judgement</h1>
     <p class="lede">What goes wrong &mdash; in the model, in us, in the data.</p>
     <aside class="notes">
@@ -24,7 +24,7 @@
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-violet);">
         <h4>Agreeableness</h4>
-        <p>Agrees with you rather than correcting you. It was trained to please.</p>
+        <p>Agrees rather than correcting. It was trained to please.</p>
       </div>
     </div>
     <div class="takeaway">Fluency is evidence of pattern mastery, never proof of truth.</div>
@@ -38,6 +38,39 @@
     </aside>
   </section>
 
+
+  <section>
+    <h2><span class="chip risk">model</span> Jagged, not human</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Jagged ability</h4>
+          <p>Brilliant at one task, hopeless at a neighbouring one that looks just as hard. There is no manual for which is which.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>The car-wash test</h4>
+          <p>A model that can rewrite a hundred thousand lines of code may tell you to <em>walk</em> to the car wash 50&nbsp;m away.</p>
+        </div>
+      </div>
+      <div class="col vertical-captions">
+        <div class="mini-card"><strong>A colleague</strong><span>Knows what they don't know. Asks. Adapts under pressure.</span></div>
+        <div class="mini-card"><strong>An agent</strong><span>Completes the pattern. Confidently blind to what is missing.</span></div>
+        <div class="mini-card"><strong>So</strong><span>Manage it by specifying and checking &mdash; not by trusting and delegating.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">The edges are found empirically, on real work.</div>
+    <aside class="notes">
+      The fourth model-side risk, after hallucination, bias and agreeableness: it does not fail where
+      you expect. Karpathy: "We're not building animals. We're building ghosts" - statistical
+      simulations of human text, not evolved creatures. The car-wash example is his own. Measured
+      version: a field experiment with 758 BCG consultants (Dell'Acqua, Mollick et al., Organization
+      Science) found AI raised quality inside the frontier and DEGRADED it outside, on tasks of
+      similar apparent difficulty - 19 points less likely to be correct. Karpathy's metaphor,
+      Mollick's data. This is the practitioner's version of the anti-anthropomorphism thread from
+      Module 1, and the reason Module 4 closed on spec and verification rather than on trust.
+    </aside>
+  </section>
+
   <section data-background-color="#f4f8fb">
     <h2><span class="chip risk">user</span> What happens to us</h2>
     <div class="cols">
@@ -47,11 +80,15 @@
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-green);">
           <h4>Skill erosion</h4>
-          <p>Offloading the thinking can erode the very skill you offloaded.</p>
+          <p>Offloading the thinking can erode the very skill that was offloaded.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-amber);">
           <h4>The fluency trap</h4>
-          <p>Polished output feels more accurate than it is &mdash; especially outside your expertise.</p>
+          <p>Polished output feels more accurate than it is &mdash; especially outside one's own expertise.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>The question enters the answer</h4>
+          <p>An assumption placed inside the question comes back as if it were established. &quot;Why is it rarer?&quot; does not check that it is.</p>
         </div>
       </div>
     </div>
@@ -60,6 +97,10 @@
       Make this concrete for a small firm: the expert in the room can spot a bad attribution
       instantly. A junior using the same tool cannot, and may never develop the eye if the tool
       always answers first. That is a staffing and training decision, not a technology one.
+      Third card: it closes the thread opened in Module 3 with "holidays" versus "annual leave".
+      There the wording moved the retrieval; here the assumption moves the generation, because the
+      prompt is the text the model continues. The operational rule to dictate: ask "what is missing
+      from this attribution?", not "confirm this attribution is right".
       Sources: Risko &amp; Gilbert (2016); Lee &amp; See (2004); Lee et al. (2025).
     </aside>
   </section>
@@ -68,7 +109,7 @@
     <h2><span class="chip risk">data</span> Where data leaks</h2>
     <div class="cols">
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud or local</h4><p>Who can see your questions and the files you upload?</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud or local</h4><p>Who can see the questions and the files uploaded?</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Text inside a document quietly becomes an instruction.</p></div>
       </div>
       <div class="col visual-frame media-fit">
@@ -79,12 +120,12 @@
     <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.5em;">
       <div class="mini-card"><strong>Free app</strong><span>Cheapest. Weakest guarantees about reuse.</span></div>
       <div class="mini-card"><strong>Subscription</strong><span>Business terms, data not used for training.</span></div>
-      <div class="mini-card"><strong>Paid API</strong><span>Contractual control, your own logging.</span></div>
+      <div class="mini-card"><strong>Paid API</strong><span>Contractual control, the company's own logging.</span></div>
       <div class="mini-card"><strong>Local model</strong><span>Nothing leaves the building. Weaker answers.</span></div>
     </div>
-    <p class="footnote">In the EU the <strong>AI Act</strong> (Reg. 2024/1689) and the <strong>GDPR</strong> both apply whichever you pick.</p>
+    <p class="footnote">In the EU the <strong>AI Act</strong> (Reg. 2024/1689) and the <strong>GDPR</strong> both apply whichever option is chosen.</p>
     <aside class="notes">
-      Connectors from Module 5 widen the attack surface: the agent now acts on untrusted input.
+      Connectors from Module 4 widen the attack surface: the agent now acts on untrusted input.
       Injection has no clean fix - design for least privilege and keep destructive actions in the
       "never do" tier. The four options are a real procurement decision for them, not a warning:
       the demo that follows opens by running the M3 question on a fully local model with the network
@@ -93,7 +134,7 @@
     </aside>
   </section>
 
-  <section class="demo-slide" data-demo="m6"></section>
+  <section class="demo-slide" data-demo="m5"></section>
 
   <section>
     <h2>The human in the loop</h2>
@@ -125,15 +166,14 @@
     <div class="recap-chain compact">
       <div class="step"><strong>1</strong><span>it predicts words</span></div>
       <div class="step"><strong>2</strong><span>inside / around</span></div>
-      <div class="step"><strong>3</strong><span>feed it your documents</span></div>
-      <div class="step"><strong>4</strong><span>write the rules down</span></div>
-      <div class="step"><strong>5</strong><span>let it act, then check</span></div>
-      <div class="step"><strong>6</strong><span>keep the judgement</span></div>
+      <div class="step"><strong>3</strong><span>feed it the documents</span></div>
+      <div class="step"><strong>4</strong><span>write the rules, then let it act</span></div>
+      <div class="step"><strong>5</strong><span>keep the judgement</span></div>
     </div>
     <div class="quote-strip" style="grid-template-columns:1fr;">
       <blockquote>&quot;You can outsource your thinking, but you can't outsource your understanding.&quot;<cite>a tweet Karpathy keeps returning to &mdash; AI Ascent (2026)</cite></blockquote>
     </div>
-    <div class="takeaway">At the base it is probability. In your hands it is a tool. The hard part is judgement.</div>
+    <div class="takeaway">At the base it is probability. In a person's hands it is a tool. The hard part is judgement.</div>
     <aside class="notes">
       Attribution matters: Karpathy explicitly says this is a tweet he cites, not his own coinage -
       model the citation hygiene we preach. Two postures worth naming if there is time (Mollick,

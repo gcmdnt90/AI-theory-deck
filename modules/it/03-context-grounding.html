@@ -4,7 +4,7 @@
     <span class="modnum">03</span>
     <p class="kicker">Modulo 3 <span class="mod-clock" data-clock-for="m3"></span></p>
     <h1>Contesto, memoria, grounding</h1>
-    <p class="lede">Come la macchina arriva a conoscere <em>la vostra</em> azienda.</p>
+    <p class="lede">Come la macchina arriva a conoscere <em>un'azienda</em>.</p>
     <aside class="notes">
       Il modulo con il valore commerciale pi&ugrave; diretto. Distinzione centrale: il contesto
       &egrave; ci&ograve; che il modello ha davanti adesso; la memoria &egrave; ci&ograve; che
@@ -20,12 +20,15 @@
         <img src="assets/img/m04-context-ram.png" alt="Finestra di contesto simile a una RAM con segmenti di token caricati negli slot di memoria immediata">
       </div>
       <div class="vertical-captions">
-        <div class="mini-card"><strong>Regole</strong><span>Le vostre istruzioni stanno davanti sulla scrivania.</span></div>
-        <div class="mini-card"><strong>Conversazione + documenti</strong><span>Si contendono lo stesso spazio finito.</span></div>
-        <div class="mini-card"><strong>Spazio per rispondere</strong><span>Anche la risposta ha bisogno di posto sulla scrivania.</span></div>
+        <div class="mini-card"><strong>Regole</strong><span>Le istruzioni stanno davanti sulla scrivania.</span><span class="fig">ci restano solo se sono scritte: modulo 4</span></div>
+        <div class="mini-card"><strong>Conversazione + documenti</strong><span>Si contendono lo stesso spazio finito.</span><span class="fig">si misura in token, quelli esposti precedentemente</span></div>
+        <div class="mini-card"><strong>Spazio per rispondere</strong><span>Anche la risposta ha bisogno di posto sulla scrivania.</span><span class="fig">scrivania piena, risposta pi&ugrave; corta</span></div>
       </div>
     </div>
-    <div class="takeaway">La scrivania viene svuotata dopo ogni domanda, se non ci rimettete voi le cose.</div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-violet);">
+      <p>Ogni domanda rispedisce <strong>tutta</strong> la conversazione. Quando non ci sta pi&ugrave;, la parte pi&ugrave; vecchia viene riassunta o tagliata &mdash; e bisogna prestare attenzione a quando accade.</p>
+    </div>
+    <div class="takeaway">La scrivania viene svuotata dopo ogni domanda, se non ci vengono rimesse le cose.</div>
     <aside class="notes">
       L'immagine della scrivania svuotata &egrave; quella che devono portarsi via. Spiega perch&eacute;
       una chat nuova "dimentica", perch&eacute; i thread lunghi peggiorano, e perch&eacute; il file di
@@ -34,71 +37,135 @@
   </section>
 
   <section data-background-color="#f4f8fb">
-    <h2>Una scrivania pi&ugrave; grande non &egrave; una scrivania gratis</h2>
+    <h2>Il problema del contesto</h2>
     <div class="cols top">
       <div class="col stack-sm">
-        <p>Le finestre sono passate da circa 1.500 parole alla lunghezza di un libro in pochi anni.</p>
-        <p>Ma ci&ograve; che sta all'<strong>inizio</strong> e alla <strong>fine</strong> viene usato meglio di ci&ograve; che finisce sepolto in mezzo.</p>
-        <div class="takeaway">Che cosa ci mettete dentro, e in che ordine, conta ancora.</div>
+        <p>Le finestre dichiarate sono passate da <strong>~2.000 token</strong> (2020) a <strong>~1.000.000</strong> su alcuni modelli: da poche pagine a qualche centinaio.</p>
+        <p>Ma la finestra dichiarata non &egrave; quella utile:</p>
+        <ul class="slide-list">
+          <li>ci&ograve; che sta all'<strong>inizio</strong> e alla <strong>fine</strong> viene usato meglio di ci&ograve; che finisce sepolto in mezzo;</li>
+          <li>a 32.000 token <strong>11 modelli su 13</strong> scendono sotto met&agrave; del punteggio che ottengono sui testi brevi.</li>
+        </ul>
+        <p class="ask">&rarr; pochi documenti pertinenti battono &laquo;incollo tutto&raquo;</p>
+        <div class="takeaway">Che cosa ci si mette dentro, e in che ordine, conta ancora.</div>
       </div>
       <div class="col visual-frame media-fit">
         <img src="assets/img/middle_sag.png" alt="Curva &laquo;perso nel mezzo&raquo;: accuratezza pi&ugrave; bassa per le informazioni collocate a met&agrave; del contesto">
       </div>
     </div>
+    <p class="footnote">Grafico: Liu et al., &laquo;Lost in the Middle&raquo; (TACL 2024), gpt-3.5-turbo su 20 documenti recuperati. Il dato sui 32.000 token: NoLiMa (ICML 2025).</p>
     <aside class="notes">
-      Anticipa il riflesso "tanto ci incollo dentro tutto" prima che si formi. Fonte: Liu et al.
-      (2023/24), Lost in the Middle, TACL. Se chiedono numeri: GPT-3 stava a ~2k token, i modelli di
-      frontiera arrivano a ~1M, all'incirca un milione e mezzo di parole. Selezionare batte
-      ammassare.
+      Anticipa il riflesso "tanto ci incollo dentro tutto" prima che si formi.
+      I numeri, se li chiedono: GPT-3 stava a ~2.000 token, i modelli di frontiera dichiarano fino a
+      ~1.000.000, che sono circa 700-750 mila parole (un token vale circa tre quarti di parola: NON
+      un milione e mezzo).
+      Le due righe dicono due cose diverse e vanno tenute distinte. La prima &egrave; la posizione:
+      il grafico &egrave; del 2023 su gpt-3.5-turbo, quindi non spacciarlo per l'ultima parola. La
+      seconda &egrave; recente e pi&ugrave; dura: nel benchmark NoLiMa (ICML 2025), a 32.000 token
+      11 modelli su 13 scendono sotto la met&agrave; del loro punteggio sui testi brevi, e GPT-4o
+      passa da 99,3% a 69,7%. &Egrave; la risposta pronta all'obiezione "ma ormai le finestre sono
+      enormi": enormi s&igrave;, utili per intero no.
+      La freccia finale &egrave; il ponte verso il recupero: se pochi documenti pertinenti battono
+      l'ammasso, serve qualcosa che li scelga. Fonti: Liu et al. (2023/24) Lost in the Middle, TACL;
+      Modarressi et al. (2025) NoLiMa, ICML.
     </aside>
   </section>
 
   <section>
-    <h2>Memoria oltre la finestra</h2>
-    <div class="cols">
+    <h2>Tre modi per non ricominciare da zero</h2>
+    <p>Quando la scrivania si riempie, qualcosa deve andarsene. Tre meccanismi decidono che cosa resta.</p>
+    <div class="cols fit-two">
       <div class="col visual-frame media-fit">
-        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay style="width:100%;height:auto;display:block;border-radius:16px;"></video>
+        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay></video>
       </div>
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-violet);"><h4>Breve termine</h4><p>La conversazione, ripassata a ogni giro.</p></div>
-        <div class="signal-card" style="--card-accent:var(--ait-green);"><h4>Lungo termine</h4><p>Fatti conservati fuori e ripescati quando servono.</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>1 &middot; Riassunto</h4>
+          <p>La parte pi&ugrave; vecchia viene compressa in appunti. Automatico e con perdita: i dettagli spariscono senza avviso.</p>
+          <p class="ask">&rarr; &laquo;perch&eacute; ha dimenticato quello che gli ho detto un'ora fa?&raquo;</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>2 &middot; Appunti persistenti</h4>
+          <p>Fatti scritti in un file, rimessi sulla scrivania all'inizio di ogni sessione. Espliciti e correggibili &mdash; ma vanno scritti.</p>
+          <p class="ask">&rarr; modulo 4</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>3 &middot; Archivio consultabile</h4>
+          <p>I documenti restano fuori. A ogni domanda si cercano e si inseriscono solo i pezzi pertinenti.</p>
+          <p class="ask">&rarr; prossima slide</p>
+        </div>
       </div>
     </div>
-    <div class="takeaway">La memoria &egrave; idraulica costruita attorno al modello, non ricordo magico.</div>
+    <div class="takeaway">Nessuno dei tre scrive dentro il modello: tutti e tre riscrivono la scrivania.</div>
     <aside class="notes">
-      Terzo meccanismo, solo da nominare: la sintesi &mdash; i vecchi scambi compressi in appunti, con
-      perdita di informazione. Segnala il compromesso fra dimenticare e straboccare, poi passa al RAG,
-      che &egrave; quello che davvero compreranno.
+      Si apre con il video, che mostra il primo meccanismo per intero: il contenitore si riempie,
+      arriva a saturazione (&laquo;context saturation reached&raquo;) e il contenuto collassa in una
+      barra di riassunto (&laquo;summary&raquo;). Le etichette sono in inglese: vanno dette in italiano
+      ad alta voce mentre scorre.
+      Card 1 &egrave; la risposta pronta alla domanda che arriva sempre: la conversazione di tre ore in
+      cui il chatbot &laquo;dimentica&raquo; l'inizio. Non &egrave; un guasto e non &egrave; una scelta
+      di privacy: oltre un certo numero di token la parte vecchia viene compattata o tagliata, e si
+      perde granularit&agrave;. Tutti i modelli hanno questo limite; cambia la dimensione, non il
+      meccanismo. Precisazione onesta: questo &egrave; comportamento documentato dei prodotti di chat,
+      non il risultato di un benchmark &mdash; le due righe con i numeri stanno sulla slide precedente.
+      Card 2 &egrave; il ponte al modulo 4: la memoria che si pu&ograve; ispezionare e correggere
+      &egrave; quella che qualcuno ha scritto. Card 3 &egrave; il ponte alla slide dopo: se i documenti
+      restano fuori, serve qualcosa che scelga quali pezzi far entrare.
+      Il takeaway &egrave; il punto che regge il resto del modulo: nessuno dei tre meccanismi tocca i
+      parametri. Conseguenza operativa immediata: si aggiorna un documento e le risposte cambiano
+      subito, senza riaddestrare niente. Da non dire mai: che il sistema &laquo;impara&raquo; o
+      &laquo;si ricorda&raquo;. Rimette del testo sulla scrivania, e basta.
     </aside>
   </section>
 
   <section>
     <h2>Recupero: prima trova, poi scrivi</h2>
-    <div class="visual-frame generated-flow-frame rag-frame full" role="img" aria-label="Pipeline RAG: Domanda, Trasforma in numeri, Cerca per significato, Pezzi pi&ugrave; simili, LLM, Risposta">
-      <img src="assets/img/m04-rag-flow-v2.png" alt="">
-      <span class="flow-label rag-query">Domanda</span>
-      <span class="flow-label rag-embed">In numeri</span>
-      <span class="flow-label rag-search">Cerca per significato</span>
-      <span class="flow-label rag-chunks">Pezzi pi&ugrave; simili</span>
-      <span class="flow-label rag-llm">LLM</span>
-      <span class="flow-label rag-answer">Risposta</span>
-    </div>
-    <div class="rag-under">
-      <div>
-        <p class="footnote">Le parole diventano posizioni su una mappa di significati: cos&igrave; la &laquo;ricerca per significato&raquo; trova il passaggio giusto anche se le parole usate sono diverse.</p>
-        <div class="takeaway">I vostri documenti non vengono addestrati nel modello. Gli vengono passati, una domanda alla volta.</div>
+    <div class="cols fit-two">
+      <div class="col">
+        <div class="visual-frame media-fit">
+          <video src="assets/video/retrieval.mp4" autoplay loop muted playsinline data-autoplay></video>
+        </div>
       </div>
-      <div class="visual-frame vector-video-frame mini">
-        <video src="assets/video/latent_space.mp4" autoplay loop muted playsinline data-autoplay></video>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Una volta: si indicizza</h4>
+          <p>I documenti vengono spezzati in pezzi; ogni pezzo diventa una posizione su una mappa di significati. Restano fuori dal modello.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>A ogni domanda: si cerca</h4>
+          <p>Anche la domanda diventa una posizione. Entrano solo i pezzi pi&ugrave; vicini: &egrave; questo l'ancoraggio, il <em>grounding</em>.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>Quando fallisce</h4>
+          <p>Se la domanda &egrave; formulata lontano dalle parole del documento, i pezzi giusti non entrano. E la risposta arriva lo stesso.</p>
+        </div>
       </div>
     </div>
+    <p class="chain">domanda &rarr; in numeri &rarr; cerca per significato &rarr; pezzi pi&ugrave; simili &rarr; LLM &rarr; risposta</p>
+    <div class="takeaway">I documenti dell'azienda non vengono addestrati nel modello: vengono passati, una domanda alla volta.</div>
     <aside class="notes">
-      Lo schema pi&ugrave; utile che questa platea adotter&agrave; davvero. Fai atterrare due
-      conseguenze: (1) niente viene memorizzato, quindi aggiornare un documento aggiorna subito le
-      risposte; (2) il modello pu&ograve; rispondere solo con ci&ograve; che il recupero ha trovato,
-      quindi la qualit&agrave; del recupero &Egrave; la qualit&agrave; della risposta. Il video si
-      guadagna il posto qui: stessa matematica della mappa dei significati, usata come indice di
-      ricerca. Fonti: Lewis et al. (2020); Karpukhin et al. (2020); Mikolov et al. (2013).
+      Lo schema pi&ugrave; utile che questa platea adotter&agrave; davvero. Il video regge il punto da
+      solo: il muro dei documenti non si muove, restano gli slot vuoti, viaggiano solo pochi pezzi.
+      Card 1 &egrave; il passaggio che manca in tutte le spiegazioni sentite in giro, ed &egrave; quello
+      che smonta le tre idee sbagliate pi&ugrave; comuni su &laquo;caricare i documenti&raquo;: non
+      &egrave; un Ctrl+F sull'archivio, non &egrave; il modello che impara il documento, non &egrave;
+      un'indicizzazione per nome e data. Si spezza, si converte in numeri, si salva l'indice: una volta
+      sola, e fuori dal modello. La mappa dei significati &egrave; la stessa vista nel modulo 1 alla
+      fermata &laquo;vettori&raquo;.
+      Card 2: qui si nomina la parola. Ancorare la risposta a una fonte recuperata &egrave; il
+      grounding, ed &egrave; il titolo della demo che segue.
+      Card 3 &egrave; la parte che va detta ad alta voce, con l'esempio: &laquo;come gestisco le
+      ferie?&raquo; non trova nulla, &laquo;come richiedo i congedi annuali?&raquo; trova subito. Stessa
+      domanda, parole diverse. La ricerca funziona per vicinanza di significato, non per parole esatte;
+      se la domanda cade lontano dal modo in cui il documento &egrave; scritto, il passaggio giusto non
+      torna &mdash; e nessuno avvisa. &Egrave; il motivo per cui nella demo si fanno vedere i passaggi
+      recuperati invece di fidarsi della risposta.
+      Le due conseguenze operative da far atterrare: (1) niente viene memorizzato, quindi si aggiorna
+      un documento e le risposte cambiano subito, senza riaddestrare nulla; (2) il modello pu&ograve;
+      rispondere solo con ci&ograve; che il recupero ha trovato, quindi la qualit&agrave; del recupero
+      &Egrave; la qualit&agrave; della risposta.
+      Fonti: Lewis et al. (2020) RAG; Karpukhin et al. (2020) Dense Passage Retrieval; Mikolov et al.
+      (2013).
     </aside>
   </section>
 

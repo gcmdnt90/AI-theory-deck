@@ -290,9 +290,15 @@
   min-height: 320px;
 }
 
-.visual-frame.media-fit img {
+.visual-frame.media-fit img,
+.visual-frame.media-fit video {
   max-height: 430px;
   object-fit: contain;
+}
+.visual-frame.media-fit video {
+  border-radius: 10px;
+  display: block;
+  width: 100%;
 }
 
 .visual-frame.short img {
@@ -315,6 +321,9 @@
 
 .cols.fit-two .visual-frame.media-fit img {
   max-height: 270px;
+}
+.cols.fit-two .visual-frame.media-fit video {
+  max-height: 420px;
 }
 
 .cols.fit-two .signal-card {
@@ -685,7 +694,7 @@
 }
 
 .token-presets {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .tokenizer-input {
@@ -1097,6 +1106,7 @@
 .bar-fill {
   background: linear-gradient(90deg, var(--ait-amber), var(--ait-cyan));
   border-radius: inherit;
+  display: block;
   height: 100%;
   min-width: 2px;
   transition: width .22s ease;
@@ -1235,6 +1245,12 @@
 /* --- map at 6 modules (3×2 instead of 4×N) --- */
 .course-map.map-6 { grid-template-columns: repeat(3, 1fr); }
 .course-map.map-6 .map-node { min-height: 132px; }
+
+/* --- map at 5 modules (3 on top, 2 centred below) --- */
+.course-map.map-5 { grid-template-columns: repeat(6, 1fr); }
+.course-map.map-5 .map-node { grid-column: span 2; min-height: 132px; }
+.course-map.map-5 .map-node:nth-child(4) { grid-column: 2 / span 2; }
+.course-map.map-5 .map-node:nth-child(5) { grid-column: 4 / span 2; }
 
 /* --- schedule slide ------------------------------------------------ */
 .schedule-head {
@@ -1495,6 +1511,10 @@ pre.demo-prompt-text {
 /* prompt database: horizontal strip, scrolls when it outgrows the slide */
 .prompt-strip {
   display: flex;
+  /* wraps since 2026-09-01: the merged M4 demo has 11 prompts, and a
+     single scrollable row hides the later beats behind a sideways scroll
+     the speaker cannot perform while presenting. */
+  flex-wrap: wrap;
   gap: .4em;
   margin-top: .55em;
   overflow-x: auto;
@@ -1603,4 +1623,298 @@ pre.demo-prompt-text {
   gap: .8em;
   grid-template-columns: 1.45fr 1fr;
   margin-top: .5em;
+}
+
+/* --- review 2026-08: on-slide lists, single-quote sample, small portrait --- */
+.slide-list {
+  font-size: .78em;
+  line-height: 1.34;
+  margin-left: .9em;
+}
+
+.slide-list li {
+  margin: .32em 0;
+}
+
+.quote-strip.single {
+  grid-template-columns: 1fr;
+}
+
+.quote-strip.sample blockquote {
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: .5em;
+  letter-spacing: .005em;
+  line-height: 1.42;
+}
+
+.portrait {
+  align-items: center;
+  display: flex;
+  gap: .6em;
+  margin: 0;
+}
+
+.portrait img {
+  border: 1px solid var(--ait-line);
+  border-radius: 6px;
+  max-width: 170px;
+  width: 38%;
+}
+
+.portrait figcaption {
+  color: var(--ait-muted);
+  font-size: .46em;
+  line-height: 1.4;
+}
+
+.signal-card .ask,
+.card .ask {
+  color: var(--ait-muted);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: .58em;
+  margin-top: .35em;
+}
+
+.token-stats {
+  color: var(--ait-ink);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: .52em;
+  font-weight: 700;
+  margin-top: .35em;
+}
+
+.bar-row.rest {
+  margin-top: .3em;
+  opacity: .78;
+}
+
+.bar-row.rest .bar-fill {
+  background: rgba(36, 48, 68, .28);
+}
+
+.bar-row.rest .name {
+  font-style: italic;
+}
+
+/* --- global sector picker (schedule slide) --- */
+.sector-picker {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6em;
+  margin: .2em 0 .7em;
+}
+
+.sector-picker .sector-count {
+  color: var(--ait-muted);
+  font-size: .5em;
+}
+
+.sector-chip {
+  background: rgba(255, 255, 255, .82);
+  border: 1px solid var(--ait-line);
+  border-radius: 999px;
+  color: var(--ait-muted);
+  font-size: .5em;
+  font-weight: 700;
+  padding: .25em .7em;
+}
+
+
+.signal-card.card-wide {
+  margin-top: .6em;
+  min-height: 0;
+  text-align: center;
+}
+
+.signal-card.card-wide h4 {
+  font-size: .82em;
+  margin: 0;
+}
+
+.mini-card .fig {
+  color: var(--ait-ink);
+  display: block;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: .56em;
+  font-weight: 700;
+  margin-top: .3em;
+}
+
+.cap-eyebrow {
+  color: var(--ait-muted);
+  font-size: .5em;
+  font-weight: 850;
+  letter-spacing: .1em;
+  margin: 0 0 .1em;
+  text-transform: uppercase;
+}
+
+/* 2.3 fits on one screen: the cards now carry the mechanism, so the widget
+   only has to show the contrast. */
+.reason-art img {
+  max-height: 200px;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* The two cards now carry the mechanism in words; the widget only has to show
+   the contrast, so its paragraph would just repeat them. */
+.reason-copy {
+  display: none;
+}
+
+.reason-labels span {
+  font-size: .4em;
+  padding: .3em .4em;
+}
+
+/* A hole the speaker fills live, so the room can see it is not part of the prompt. */
+.prompt-hole {
+  background: rgba(227, 161, 47, .22);
+  border-radius: 4px;
+  box-shadow: inset 0 -1px 0 rgba(227, 161, 47, .55);
+  padding: 0 .2em;
+}
+
+.demo-limits {
+  color: var(--ait-muted);
+  font-size: .46em;
+  line-height: 1.4;
+  margin: .3em 0 0;
+}
+
+.demo-limits[hidden] {
+  display: none;
+}
+
+.col > .ask {
+  color: var(--ait-muted);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: .58em;
+  margin: 0;
+}
+
+/* Media strip pinned to the slide's top-right, beside the title.
+   Crops its source (16:9) to the strip's ratio via object-fit. */
+.corner-media {
+  border: 1px solid var(--ait-line);
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(36, 48, 68, .08);
+  overflow: hidden;
+  position: absolute;
+  right: 8.5%;
+  top: 0;
+  width: 33%;
+  z-index: 2;
+}
+/* Keep the title out of the strip whatever the font metrics. */
+section:has(> .corner-media) > h2 {
+  padding-right: 38%;
+}
+.corner-media video {
+  aspect-ratio: 4 / 1;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* One-line step vocabulary under a media panel. */
+.chain {
+  color: var(--ait-muted);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: .52em;
+  margin: .45em 0 0;
+  text-align: center;
+}
+
+/* The three rungs of a laddered demo - projected, not speaker-only. */
+.reveal .demo-rungs {
+  display: grid;
+  list-style-type: none;
+  gap: .5em;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  margin: .7em 0 0;
+  padding: 0;
+}
+.reveal .demo-rungs li {
+  background: rgba(255, 255, 255, .84);
+  border: 1px solid var(--ait-line);
+  border-radius: 8px;
+  padding: .5em .65em;
+  position: relative;
+}
+.reveal .demo-rungs .rung-n {
+  background: var(--ait-amber);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-block;
+  font-size: .52em;
+  font-weight: 700;
+  height: 1.7em;
+  line-height: 1.7em;
+  text-align: center;
+  width: 1.7em;
+}
+.reveal .demo-rungs .rung-tool {
+  color: var(--ait-muted);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: .5em;
+  margin-left: .5em;
+}
+.reveal .demo-rungs strong {
+  display: block;
+  font-size: .62em;
+  margin-top: .3em;
+}
+.reveal .demo-rungs .rung-what {
+  color: var(--ait-muted);
+  display: block;
+  font-size: .55em;
+  margin-top: .15em;
+}
+
+/* Attributed quotation used as a slide's opening line (M4 · MCP). It is a
+   real citation, not a house metaphor, so it is typeset as one: quiet,
+   italic, with the source visible on the projected surface. */
+.quote-line {
+  border-left: 3px solid var(--ait-line);
+  color: var(--ait-muted);
+  font-size: .52em;
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0 0 .5em;
+  padding-left: .6em;
+}
+.quote-line .attrib {
+  color: var(--ait-ink);
+  font-style: normal;
+  white-space: nowrap;
+}
+
+/* "Requires X first" line under a demo prompt. It is projected on purpose:
+   a prompt that needs a skill or a connector installed fails silently
+   otherwise, and a silent failure in front of a room reads as the model
+   refusing to work. */
+.demo-requires {
+  color: var(--ait-muted);
+  font-size: .42em;
+  margin: .3em 0 0;
+}
+.demo-requires[hidden] { display: none; }
+
+/* Source line under a module cover's lede (M4's asterisk). Kept to the text
+   column so it never runs across the cover artwork. */
+.module-cover .footnote {
+  max-width: 46ch;
+  opacity: .85;
+}
+
+/* A .chain used inside a card is a list of file names, not a caption under a
+   figure: left-align it so a wrapped last name does not sit centred alone. */
+.signal-card .chain {
+  margin-top: .35em;
+  text-align: left;
 }

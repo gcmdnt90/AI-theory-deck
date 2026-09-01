@@ -1,8 +1,8 @@
 <section>
 
   <section class="module-cover" data-background-image="assets/img/module-07-security-risks.png" data-background-size="cover" data-background-color="#fbfaf6">
-    <span class="modnum">06</span>
-    <p class="kicker">Modulo 6 <span class="mod-clock" data-clock-for="m6"></span></p>
+    <span class="modnum">05</span>
+    <p class="kicker">Modulo 5 <span class="mod-clock" data-clock-for="m5"></span></p>
     <h1>Rischi e giudizio</h1>
     <p class="lede">Che cosa va storto &mdash; nel modello, in noi, nei dati.</p>
     <aside class="notes">
@@ -24,7 +24,7 @@
       </div>
       <div class="signal-card" style="--card-accent:var(--ait-violet);">
         <h4>Accondiscendenza</h4>
-        <p>Vi d&agrave; ragione invece di correggervi. &Egrave; stato addestrato a piacere.</p>
+        <p>D&agrave; ragione invece di correggere. &Egrave; stato addestrato a piacere.</p>
       </div>
     </div>
     <div class="takeaway">La fluidit&agrave; prova la padronanza degli schemi, mai la verit&agrave;.</div>
@@ -39,6 +39,40 @@
     </aside>
   </section>
 
+
+  <section>
+    <h2><span class="chip risk">modello</span> Frastagliato, non umano</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Capacit&agrave; frastagliata</h4>
+          <p>Brillante su un compito, disastroso su quello accanto che sembrava identico. Non esiste un manuale che dica quale sia quale.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>La prova dell'autolavaggio</h4>
+          <p>Un modello capace di riscrivere centomila righe di codice pu&ograve; consigliarvi di andare <em>a piedi</em> all'autolavaggio a 50&nbsp;m.</p>
+        </div>
+      </div>
+      <div class="col vertical-captions">
+        <div class="mini-card"><strong>Un collega</strong><span>Sa quello che non sa. Chiede. Si adatta sotto pressione.</span></div>
+        <div class="mini-card"><strong>Un agente</strong><span>Completa lo schema. Cieco con sicurezza su ci&ograve; che manca.</span></div>
+        <div class="mini-card"><strong>Quindi</strong><span>Si governa specificando e controllando, non fidandosi e delegando.</span></div>
+      </div>
+    </div>
+    <div class="takeaway">I bordi si trovano per prova, sul lavoro reale.</div>
+    <aside class="notes">
+      Terza voce del rischio-modello, dopo allucinazione, distorsione e accondiscendenza: non sbaglia
+      dove ci si aspetta. Karpathy: "non stiamo costruendo animali, stiamo costruendo fantasmi"
+      &mdash; simulazioni statistiche di testo umano, non creature evolute. L'esempio
+      dell'autolavaggio &egrave; suo. Versione misurata: un esperimento sul campo con 758 consulenti
+      BCG (Dell'Acqua, Mollick et al., Organization Science) mostra che l'AI alza la qualit&agrave;
+      dentro la frontiera e la PEGGIORA fuori, su compiti di difficolt&agrave; apparente simile: 19
+      punti in meno di probabilit&agrave; di essere corretti. La metafora di Karpathy, i dati di
+      Mollick. &Egrave; la versione da professionisti del filo anti-antropomorfismo del Modulo 1, e
+      la ragione per cui il modulo 4 chiudeva su specifica e verifica invece che su fiducia.
+    </aside>
+  </section>
+
   <section data-background-color="#f4f8fb">
     <h2><span class="chip risk">utente</span> Che cosa succede a noi</h2>
     <div class="cols">
@@ -48,11 +82,15 @@
       <div class="col stack-sm">
         <div class="signal-card" style="--card-accent:var(--ait-green);">
           <h4>Erosione della competenza</h4>
-          <p>Delegare il pensiero pu&ograve; consumare proprio la capacit&agrave; che avete delegato.</p>
+          <p>Delegare il pensiero pu&ograve; consumare proprio la capacit&agrave; che &egrave; stata delegata.</p>
         </div>
         <div class="signal-card" style="--card-accent:var(--ait-amber);">
           <h4>La trappola della fluidit&agrave;</h4>
-          <p>Un testo levigato sembra pi&ugrave; accurato di quanto sia &mdash; soprattutto fuori dalla vostra materia.</p>
+          <p>Un testo levigato sembra pi&ugrave; accurato di quanto sia &mdash; soprattutto fuori dalla propria materia.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>La domanda entra nella risposta</h4>
+          <p>Un presupposto messo nella domanda torna indietro come se fosse acquisito. &laquo;Perch&eacute; &egrave; pi&ugrave; raro?&raquo; non verifica che lo sia.</p>
         </div>
       </div>
     </div>
@@ -61,8 +99,13 @@
       Rendilo concreto per una piccola impresa: l'esperto in sala riconosce un'attribuzione sbagliata
       in un istante. Un giovane con lo stesso strumento no, e forse non svilupper&agrave; mai
       l'occhio se lo strumento risponde sempre per primo. &Egrave; una decisione di organico e
-      formazione, non di tecnologia. Fonti: Risko &amp; Gilbert (2016); Lee &amp; See (2004);
-      Lee et al. (2025).
+      formazione, non di tecnologia.
+      Terza card: chiude il filo aperto nel modulo 3 con &laquo;ferie&raquo; contro &laquo;congedi
+      annuali&raquo;. L&igrave; erano le parole a spostare il recupero; qui &egrave; il presupposto a
+      spostare la generazione, perch&eacute; il prompt &egrave; il testo che il modello continua. La
+      regola operativa da dettare: chiedere &laquo;che cosa manca in questa attribuzione?&raquo;,
+      non &laquo;conferma che questa attribuzione &egrave; giusta&raquo;. Fonti: Risko &amp; Gilbert
+      (2016); Lee &amp; See (2004); Lee et al. (2025).
     </aside>
   </section>
 
@@ -70,7 +113,7 @@
     <h2><span class="chip risk">dati</span> Dove i dati escono</h2>
     <div class="cols">
       <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud o locale</h4><p>Chi pu&ograve; vedere le vostre domande e i file che caricate?</p></div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);"><h4>Cloud o locale</h4><p>Chi pu&ograve; vedere le domande e i file caricati?</p></div>
         <div class="signal-card" style="--card-accent:var(--ait-red);"><h4>Prompt injection</h4><p>Il testo dentro un documento diventa di nascosto un'istruzione.</p></div>
       </div>
       <div class="col visual-frame media-fit">
@@ -81,12 +124,12 @@
     <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.5em;">
       <div class="mini-card"><strong>App gratuita</strong><span>Costa meno. Garanzie sul riutilizzo pi&ugrave; deboli.</span></div>
       <div class="mini-card"><strong>Abbonamento</strong><span>Condizioni business, dati non usati per addestrare.</span></div>
-      <div class="mini-card"><strong>API a pagamento</strong><span>Controllo contrattuale, log vostri.</span></div>
+      <div class="mini-card"><strong>API a pagamento</strong><span>Controllo contrattuale, log dell'azienda.</span></div>
       <div class="mini-card"><strong>Modello locale</strong><span>Non esce niente dall'azienda. Risposte pi&ugrave; deboli.</span></div>
     </div>
-    <p class="footnote">Nell'UE l'<strong>AI Act</strong> (Reg. 2024/1689) e il <strong>GDPR</strong> si applicano comunque, qualunque opzione scegliate.</p>
+    <p class="footnote">Nell'UE l'<strong>AI Act</strong> (Reg. 2024/1689) e il <strong>GDPR</strong> si applicano comunque, qualunque opzione si scelga.</p>
     <aside class="notes">
-      I connettori del Modulo 5 allargano la superficie d'attacco: ora l'agente agisce su input non
+      I connettori del Modulo 4 allargano la superficie d'attacco: ora l'agente agisce su input non
       fidato. L'injection non ha una soluzione pulita: progettate per privilegio minimo e tenete le
       azioni distruttive nel livello "non fare mai". Le quattro opzioni sono per loro una vera
       decisione d'acquisto, non un avvertimento: la demo che segue si apre eseguendo la domanda del
@@ -96,7 +139,7 @@
     </aside>
   </section>
 
-  <section class="demo-slide" data-demo="m6"></section>
+  <section class="demo-slide" data-demo="m5"></section>
 
   <section>
     <h2>L'essere umano nel ciclo</h2>
@@ -129,15 +172,14 @@
     <div class="recap-chain compact">
       <div class="step"><strong>1</strong><span>prevede parole</span></div>
       <div class="step"><strong>2</strong><span>dentro / intorno</span></div>
-      <div class="step"><strong>3</strong><span>dategli i vostri documenti</span></div>
-      <div class="step"><strong>4</strong><span>scrivete le regole</span></div>
-      <div class="step"><strong>5</strong><span>lasciatelo agire, poi controllate</span></div>
-      <div class="step"><strong>6</strong><span>tenetevi il giudizio</span></div>
+      <div class="step"><strong>3</strong><span>dargli i documenti</span></div>
+      <div class="step"><strong>4</strong><span>scrivere le regole, poi lasciarlo agire</span></div>
+      <div class="step"><strong>5</strong><span>tenersi il giudizio</span></div>
     </div>
     <div class="quote-strip" style="grid-template-columns:1fr;">
       <blockquote>&laquo;Puoi delegare il tuo pensiero, ma non puoi delegare la tua comprensione.&raquo;<cite>un tweet che Karpathy continua a citare &mdash; AI Ascent (2026)</cite></blockquote>
     </div>
-    <div class="takeaway">Alla base &egrave; probabilit&agrave;. Nelle vostre mani &egrave; uno strumento. La parte difficile &egrave; il giudizio.</div>
+    <div class="takeaway">Alla base &egrave; probabilit&agrave;. In mano a una persona &egrave; uno strumento. La parte difficile &egrave; il giudizio.</div>
     <aside class="notes">
       L'attribuzione conta: Karpathy dice esplicitamente che &egrave; un tweet che cita, non una sua
       formula &mdash; pratica la stessa igiene delle fonti che predichiamo. Due posture da nominare se

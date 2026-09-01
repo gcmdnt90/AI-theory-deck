@@ -132,7 +132,7 @@ from real material. Leave those in place.
    watch for", not "what this prompt does". It is read at 3 seconds'
    notice, standing up, in front of people.
 
-7. **Preserve the deliberate failures.** `m1-p2`, `m5-p4` and `m6-p1` are
+7. **Preserve the deliberate failures.** `m1-p2`, `m4-p8` and `m5-p1` are
    designed to go wrong. Do not "fix" them. The failure is the lesson —
    see the run-sheet's conduct rules.
 
