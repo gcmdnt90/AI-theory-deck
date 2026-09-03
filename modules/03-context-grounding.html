@@ -1,17 +1,16 @@
 <section>
 
-  <section class="module-cover" data-background-image="assets/img/module-04-context-memory.png" data-background-size="cover" data-background-color="#fbfaf6">
+  <section data-min="1" class="module-cover" data-background-image="assets/img/module-04-context-memory.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">03</span>
     <p class="kicker">Module 3 <span class="mod-clock" data-clock-for="m3"></span></p>
-    <h1>Context, memory, grounding</h1>
+    <h1>Where it gets what it does not know</h1>
     <p class="lede">How the machine gets to know <em>a</em> business.</p>
     <aside class="notes">
-      The module with the highest direct business value. Core distinction: context is what is in
-      front of the model right now; memory is what survives between sessions. Both are "around".
+      <p>The module with the most direct commercial value. The central distinction: context is what the model has in front of it right now, memory is what survives between one session and the next. Both sit "around".</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="2">
     <h2>The context window</h2>
     <p>Context is the model's desk: everything it can see while answering this one question.</p>
     <div class="art-copy-layout">
@@ -29,12 +28,11 @@
     </div>
     <div class="takeaway">The desk is wiped after every question unless things are put back on it.</div>
     <aside class="notes">
-      The wiped-desk image is the one they must keep. It explains why a fresh chat "forgets", why
-      long threads degrade, and why the project/instruction file in Module 4 matters.
+      <p>The image of the wiped desk is the one to take away. On its own it explains why a new chat "forgets", why long threads get worse, and why the instruction file of module 4 matters.</p>
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
+  <section data-min="2" data-background-color="#f4f8fb">
     <h2>The context problem</h2>
     <div class="cols top">
       <div class="col stack-sm">
@@ -43,6 +41,7 @@
         <ul class="slide-list">
           <li>what sits at the <strong>start</strong> and at the <strong>end</strong> is used better than what ends up buried in the middle;</li>
           <li>at 32,000 tokens <strong>11 models out of 13</strong> fall below half the score they reach on short texts.</li>
+        <li>and when the window fills up, the oldest part is <strong>summarised or cut</strong> - automatically, lossily, and with no warning.</li>
         </ul>
         <p class="ask">&rarr; a few relevant documents beat &ldquo;paste everything in&rdquo;</p>
         <div class="takeaway">What goes in, and in what order, still matters.</div>
@@ -53,66 +52,16 @@
     </div>
     <p class="footnote">Chart: Liu et al., &ldquo;Lost in the Middle&rdquo; (TACL 2024), gpt-3.5-turbo over 20 retrieved documents. The 32,000-token figure: NoLiMa (ICML 2025).</p>
     <aside class="notes">
-      Head off the "we'll just paste everything in" reflex before it forms.
-      The numbers, if asked: GPT-3 sat at ~2,000 tokens, frontier models declare up to ~1,000,000,
-      which is roughly 700-750 thousand words (a token is about three quarters of a word - NOT one
-      and a half million words).
-      The two lines say different things and should stay distinct. The first is about position: the
-      chart is from 2023 on gpt-3.5-turbo, so do not sell it as the last word. The second is recent
-      and harder: in the NoLiMa benchmark (ICML 2025), at 32,000 tokens 11 of 13 models drop below
-      half their short-text score, and GPT-4o goes from 99.3% to 69.7%. That is the ready answer to
-      "but windows are huge now": huge yes, usable in full no.
-      The closing arrow is the bridge to retrieval: if a few relevant documents beat the pile,
-      something has to choose them. Sources: Liu et al. (2023/24) Lost in the Middle, TACL;
-      Modarressi et al. (2025) NoLiMa, ICML.
+      <p>The "we'll just paste everything in" reflex is worth heading off before it forms.</p>
+      <p>The third bullet is the ready answer to the question that always comes: the three-hour conversation where the chatbot "forgets" the beginning. It is not a fault and it is not a privacy choice: past a certain number of tokens the old part is compacted or cut, and granularity is lost. Every model has this limit; the size changes, the mechanism does not. Never say the system "learns" or "remembers": it puts text back on the desk, and that is all.</p>
+      <p>The numbers, if asked: GPT-3 sat at ~2,000 tokens, frontier models declare up to ~1,000,000, which is roughly 700-750 thousand words (a token is about three quarters of a word: <em>not</em> a million and a half).</p>
+      <p>The two lines on the slide say two different things and should stay distinct. The first is position: the chart is from 2023 on gpt-3.5-turbo, so it is not the last word. The second is recent and harder: in the NoLiMa benchmark (ICML 2025), at 32,000 tokens 11 models out of 13 drop below half their short-text score, and GPT-4o goes from 99.3% to 69.7%. It is the ready answer to "but the windows are enormous now": enormous yes, usable in full no.</p>
+      <p>The closing arrow is the bridge to retrieval: if a few relevant documents beat the pile, something has to choose them.</p>
+      <p><strong>Sources.</strong> Liu et al. (2023/24), <em>Lost in the Middle</em>, TACL; Modarressi et al. (2025), <em>NoLiMa</em>, ICML.</p>
     </aside>
   </section>
 
-  <section>
-    <h2>Three ways not to start from scratch</h2>
-    <p>When the desk fills up, something has to go. Three mechanisms decide what stays.</p>
-    <div class="cols fit-two">
-      <div class="col visual-frame media-fit">
-        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay></video>
-      </div>
-      <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4>1 &middot; Summarisation</h4>
-          <p>The oldest part is compressed into notes. Automatic and lossy: details disappear without warning.</p>
-          <p class="ask">&rarr; &ldquo;why has it forgotten what it was told an hour ago?&rdquo;</p>
-        </div>
-        <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4>2 &middot; Persistent notes</h4>
-          <p>Facts written to a file, put back on the desk at the start of every session. Explicit and correctable &mdash; but someone has to write them.</p>
-          <p class="ask">&rarr; module 4</p>
-        </div>
-        <div class="signal-card" style="--card-accent:var(--ait-green);">
-          <h4>3 &middot; Searchable archive</h4>
-          <p>The documents stay outside. Each question triggers a search, and only the relevant pieces are inserted.</p>
-          <p class="ask">&rarr; next slide</p>
-        </div>
-      </div>
-    </div>
-    <div class="takeaway">None of the three writes inside the model: all three rewrite the desk.</div>
-    <aside class="notes">
-      Open on the video, which shows the first mechanism end to end: the container fills, hits
-      saturation ("context saturation reached"), and the contents collapse into a summary bar.
-      Card 1 is the ready answer to the question that always comes: the three-hour conversation in
-      which the chatbot "forgets" the beginning. It is not a fault and not a privacy choice: past a
-      certain number of tokens the old part is compacted or cut, and granularity is lost. Every model
-      has this limit; the size changes, the mechanism does not. Honest caveat: this is documented
-      product behaviour of the chat interfaces, not a benchmark result - the two numbered lines are on
-      the previous slide.
-      Card 2 is the bridge to module 4: the memory that can be inspected and corrected is the one
-      someone wrote. Card 3 is the bridge to the next slide: if the documents stay outside, something
-      has to choose which pieces come in.
-      The takeaway carries the rest of the module: none of the three touches the parameters.
-      Immediate operational consequence: update a document and the answers change at once, with no
-      retraining. Never say the system "learns" or "remembers". It puts text back on the desk.
-    </aside>
-  </section>
-
-  <section>
+  <section data-min="2">
     <h2>Retrieval: find first, then write</h2>
     <div class="cols fit-two">
       <div class="col">
@@ -138,25 +87,12 @@
     <p class="chain">question &rarr; into numbers &rarr; search by meaning &rarr; most similar pieces &rarr; LLM &rarr; answer</p>
     <div class="takeaway">The company's documents are not trained into the model: they are handed to it, one question at a time.</div>
     <aside class="notes">
-      The most useful pattern this audience will actually adopt. The video carries the point on its
-      own: the wall of documents does not move, the empty slots stay visible, only a few pieces travel.
-      Card 1 is the step missing from most explanations, and it dismantles the three most common wrong
-      ideas about "uploading documents": it is not a Ctrl+F over the archive, it is not the model
-      learning the document, it is not indexing by name and date. Cut, converted into numbers, saved as
-      an index - once, and outside the model. The map of meanings is the one seen in module 1 at the
-      "vectors" stop.
-      Card 2: name the word here. Anchoring an answer to a retrieved source is grounding, and it is the
-      title of the demo that follows.
-      Card 3 is the part to say out loud, with the example: "how do I handle holidays?" finds nothing,
-      "how do I request annual leave?" finds it at once. Same question, different words. Search works
-      by proximity of meaning, not by exact words; if the question falls far from the way the document
-      is written, the right passage does not come back - and nothing warns you. That is why the demo
-      shows the retrieved passages instead of trusting the answer.
-      The two operational consequences to land: (1) nothing is memorised, so updating a document
-      changes the answers at once, with no retraining; (2) the model can only answer from what
-      retrieval found, so retrieval quality IS answer quality.
-      Sources: Lewis et al. (2020) RAG; Karpukhin et al. (2020) Dense Passage Retrieval; Mikolov et al.
-      (2013).
+      <p>The most useful diagram this audience will actually adopt. The video carries the point on its own: the wall of documents does not move, the empty slots stay empty, only a few pieces travel.</p>
+      <p>The first card is the step missing from every explanation heard elsewhere, and it is what takes apart the three commonest wrong ideas about "uploading the documents": it is not a Ctrl+F over the archive, it is not the model learning the document, it is not indexing by name and date. It is split, converted into numbers, and the index is saved: once, and outside the model. The map of meanings is the same one seen in module 1 at the "vectors" stop.</p>
+      <p>The second card is where the word gets named: anchoring the answer to a retrieved source is grounding, and it is the title of the demo that follows.</p>
+      <p>The third card is worth saying aloud, with the example: "how do I handle holidays?" finds nothing, "how do I request annual leave?" finds it at once. Same question, different words. Search works by closeness of meaning, not exact words; if the question lands far from how the document is written, the right passage does not come back &mdash; and nothing warns you. That is why the demo shows the retrieved passages instead of trusting the answer.</p>
+      <p>The two operational consequences to land: nothing is memorised, so updating a document changes the answers immediately with no retraining; and the model can only answer with what retrieval found, so the quality of retrieval <em>is</em> the quality of the answer.</p>
+      <p><strong>Sources.</strong> Lewis et al. (2020) RAG; Karpukhin et al. (2020) Dense Passage Retrieval; Mikolov et al. (2013).</p>
     </aside>
   </section>
 

@@ -1,0 +1,84 @@
+<section>
+
+  <section class="deck-cover" data-background-image="assets/img/cover-signal.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <div class="cover-copy">
+      <p class="kicker">AI Translator &middot; SME edition</p>
+      <h1>Language Models &amp; Agents</h1>
+      <p class="subtitle">What these systems are, how they work, and where they go wrong &mdash; with the tools open on screen.</p>
+      <p class="meta">San Marino Innovation &amp; Universit&agrave; Politecnica delle Marche | 5 modules | 5 live demos | ~2h</p>
+    </div>
+    <aside class="notes">
+      Audience: SME staff and owners, near-zero prior exposure. Promise in one line: by the end you
+      will be able to tell what the machine is actually doing, and decide when to trust it.
+      Say up front that every module ends with something running on screen. That promise is what
+      buys their attention through the theory.
+    </aside>
+  </section>
+
+  <section>
+    <h2>The map</h2>
+    <div class="course-map map-5">
+      <div class="map-node" style="--card-accent:var(--ait-amber);">
+        <span class="icon-dot">1</span><span class="num">MODULE 01</span>
+        <h4>How the machine makes words</h4><p>tokens &middot; odds &middot; temperature</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-cyan);border-color:rgba(21,151,181,.42);">2</span><span class="num">MODULE 02</span>
+        <h4>Inside the model</h4><p>training &middot; the boundary &middot; &ldquo;reasoning&rdquo;</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot">3</span><span class="num">MODULE 03</span>
+        <h4>Where it gets what it does not know</h4><p>window &middot; embeddings &middot; retrieval</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-violet);border-color:rgba(131,102,200,.48);">4</span><span class="num">MODULE 04</span>
+        <h4>From instructions to tools</h4><p>rules in prose &middot; tools &middot; verification</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-red);border-color:rgba(201,75,75,.48);">5</span><span class="num">MODULE 05</span>
+        <h4>Risks and judgement</h4><p>hallucination &middot; data &middot; who signs off</p>
+      </div>
+    </div>
+    <div class="takeaway">Every module: 7&ndash;14 min of theory, then 5&ndash;13 min of live demo &mdash; and each demo hands the next one a file.</div>
+    <aside class="notes">
+      Walk the arc once, fast: how it makes words (1-2), how to feed it (3), how to steer it and put
+      it to work (4), what can go wrong (5). Do not elaborate here - the map is orientation, not
+      content.
+    </aside>
+  </section>
+
+  <section class="schedule-slide" data-background-color="#f4f8fb">
+    <h2>Today</h2>
+    <div class="sector-picker" data-sector-picker></div>
+    <div class="schedule-head">
+      <label class="schedule-start">start
+        <input type="time" data-schedule-start aria-label="Lesson start time">
+      </label>
+      <button type="button" class="schedule-now" data-schedule-now>reset to now</button>
+      <span class="schedule-total" data-schedule-total></span>
+    </div>
+    <table class="schedule" data-schedule-widget>
+      <thead>
+        <tr><th class="c-clock">time</th><th>block</th><th class="c-min">theory</th><th class="c-min">demo</th></tr>
+      </thead>
+      <tbody>
+        <tr data-block="open"  data-theory="6"  data-demo="0"><td class="c-clock"></td><td>Opening &amp; map</td><td class="c-min">6 min</td><td class="c-min">&mdash;</td></tr>
+        <tr data-block="m1"    data-theory="9" data-demo="5"><td class="c-clock"></td><td><strong>M1</strong> &nbsp;How words are made</td><td class="c-min">9 min</td><td class="c-min">5 min</td></tr>
+        <tr data-block="m2"    data-theory="9"  data-demo="5"><td class="c-clock"></td><td><strong>M2</strong> &nbsp;Inside the model</td><td class="c-min">9 min</td><td class="c-min">5 min</td></tr>
+        <tr data-block="m3"    data-theory="7"  data-demo="10"><td class="c-clock"></td><td><strong>M3</strong> &nbsp;Where it gets what it does not know</td><td class="c-min">7 min</td><td class="c-min">10 min</td></tr>
+        <tr data-block="break" data-theory="10"  data-demo="0" class="is-break"><td class="c-clock"></td><td>Break</td><td class="c-min">10 min</td><td class="c-min">&mdash;</td></tr>
+        <tr data-block="m4"    data-theory="14" data-demo="13"><td class="c-clock"></td><td><strong>M4</strong> &nbsp;From instructions to tools</td><td class="c-min">14 min</td><td class="c-min">13 min</td></tr>
+        <tr data-block="m5"    data-theory="12" data-demo="12"><td class="c-clock"></td><td><strong>M5</strong> &nbsp;Risks &amp; judgement</td><td class="c-min">12 min</td><td class="c-min">12 min</td></tr>
+        <tr data-block="close" data-theory="8"  data-demo="0"><td class="c-clock"></td><td>Close, commitment, Q&amp;A</td><td class="c-min">8 min</td><td class="c-min">&mdash;</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">Clock times fill in when the deck opens and the current block is highlighted. Change the start field if you begin late &mdash; every module cover updates with it.</p>
+    <aside class="notes">
+      Do not read this table aloud. Point at two things only: the break, and the fact that almost 40% of
+      the time is live demo. That second point is the contract with the room.
+      The start field defaults to now rounded up to the next five minutes, and is remembered in this
+      browser. Each module cover then carries its own start time in small print.
+    </aside>
+  </section>
+
+</section>

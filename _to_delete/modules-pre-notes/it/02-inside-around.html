@@ -1,0 +1,163 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-03-architectures.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">02</span>
+    <p class="kicker">Modulo 2 <span class="mod-clock" data-clock-for="m2"></span></p>
+    <h1>Dentro il modello</h1>
+    <p class="lede">Che cos&rsquo;&egrave;, come si costruisce, e che cosa vuol dire &laquo;ragiona&raquo;.</p>
+    <aside class="notes">
+      La correzione concettuale pi&ugrave; utile del corso. Quasi ogni domanda del tipo "l'AI sa fare
+      X?" &egrave; in realt&agrave; una domanda su quale lato di questo confine si trovi X.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Tre livelli, una macchina</h2>
+    <div class="cols fit-two">
+      <div class="col visual-frame media-fit levels-frame">
+        <img src="assets/img/m01-levels-machine-v2.png" alt="Sezione della macchina a tre livelli: substrato probabilistico dei token, livello dei concetti appresi, livello del giudizio umano">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4><span class="chip safe">macro</span> Giudizio</h4>
+          <p>La persona che accetta o rifiuta l'output.</p>
+          <p class="ask">&rarr; &laquo;chi risponde se &egrave; sbagliato?&raquo;</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">meso</span> Il sistema</h4>
+          <p>Memoria, strumenti, skill, connettori. <strong>&Egrave; qui che si lavora.</strong></p>
+          <p class="ask">&rarr; &laquo;perch&eacute; non conosce il nostro listino?&raquo;</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">micro</span> La base</h4>
+          <p>Probabilit&agrave; sul pezzo di testo successivo. Sempre attiva.</p>
+          <p class="ask">&rarr; &laquo;perch&eacute; sbaglia a contare le lettere?&raquo;</p>
+        </div>
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-amber);">
+      <h4>Dentro c'&egrave; il processore. Intorno c'&egrave; tutto il resto &mdash; ed &egrave; intorno che si lavora.</h4>
+      <p>Un modello di frontiera non lo riaddestrate, e non ve ne serve. L'impalcatura si costruisce oggi, e si disfa.</p>
+    </div>
+    <div class="takeaway">La prova: cambia il modello stesso, o solo ci&ograve; che gli viene dato?</div>
+    <aside class="notes">
+      La spina dorsale del deck: la slide da difendere se il tempo stringe, e l'UNICO punto in cui si
+      dice la faccenda del dentro/intorno. Prima si diceva due volte, a dieci minuti di distanza, con
+      due immagini e due vocabolari: era quella la ripetizione che la sala sentiva. Dilla una volta,
+      qui, e da adesso in poi rimandaci soltanto.
+      Livello mesoscopico di Cristianini: micro = neuroni, meso = le idee astratte che il modello si
+      &egrave; costruito da solo, macro = comportamento letto quasi psicologicamente. Copri il fianco:
+      &egrave; una tesi sul LIVELLO di descrizione giusto (Marr 1982), NON sul fatto che il modello sia
+      diventato una mente. "&Egrave; solo statistica sulle parole" &egrave; vero al micro e inutile al
+      meso, che &egrave; dove sta il loro lavoro vero.
+      La scheda ambra &egrave; l'argomento commerciale, ed &egrave; la buona notizia per una PMI: un
+      modello di frontiera non potete riaddestrarlo, e non ve ne serve. Tutto ci&ograve; che
+      render&agrave; utile questa tecnologia nella loro azienda sta intorno &mdash; e l'intorno costa
+      poco, si fa in fretta e si pu&ograve; disfare. Dillo esplicitamente: riformula la giornata da
+      "progetto AI costoso" a "configurazione".
+      Il takeaway &egrave; la prova che useranno tutto il giorno: ha cambiato il modello, o solo
+      quello che al modello &egrave; stato dato? Le tre frecce sono l'indice del resto del corso:
+      macro &rarr; modulo 5, meso &rarr; moduli 3-4, micro &rarr; il modulo appena finito. Questo
+      modulo &egrave; la met&agrave; di sinistra; il resto della giornata &egrave; la met&agrave; di destra.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Come si costruisce un modello</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-training-pipeline.png" alt="Infografica in tre fasi: pre-addestramento, messa a punto supervisionata, allineamento con preferenze umane">
+      </div>
+      <div class="vertical-captions">
+        <p class="cap-eyebrow">Ieri &mdash; l'unico che sappiamo per intero</p>
+        <div class="mini-card"><strong>1. Legge testo</strong><span>Prevede la parola successiva su quantit&agrave; enormi di scritto.</span><span class="fig">300 miliardi di token</span></div>
+        <div class="mini-card"><strong>2. Impara a seguire istruzioni</strong><span>Degli esempi gli insegnano a svolgere un compito, non solo a continuare il testo.</span><span class="fig">~13.000 esempi scritti a mano</span></div>
+        <div class="mini-card"><strong>3. Regolato dal feedback umano</strong><span>Delle persone giudicano le risposte; il modello viene spinto verso quelle preferite.</span><span class="fig">~33.000 confronti, ~40 persone</span></div>
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-violet);">
+      <h4>Oggi</h4>
+      <p>Llama 3: <strong>~15.000 miliardi di token</strong> al passo 1, cinquanta volte InstructGPT &mdash; e una parte crescente degli esempi dei passi 2 e 3 la generano <strong>altri modelli</strong>, non delle persone.</p>
+    </div>
+    <div class="takeaway">Il sapere viene dal passo 1. Il comportamento da assistente dai passi 2 e 3.</div>
+    <aside class="notes">
+      Convinzione comune in sala: "il modello &egrave; una cosa sola addestrata che sa dei fatti".
+      Correggila qui, e correggi anche te stesso: i tre numeri sono di UN modello preciso &mdash;
+      InstructGPT, 2022, l'antenato di ChatGPT, costruito sopra GPT-3. &Egrave; l'unico caso della
+      famiglia con un rendiconto pubblico completo dei tre passi. Per altri modelli cambiano di
+      ordini di grandezza: la forma della pipeline resta, le cifre no.
+      La striscia "Oggi" &egrave; la riga onesta del modulo: dice che quello che stanno imparando ha
+      una data di scadenza. Se il tempo stringe puoi saltarla a voce e lasciarla a schermo.
+      Due agganci da tenere in tasca. Primo: il passo 3 spinge il modello verso ci&ograve; che &egrave;
+      piaciuto ai valutatori &mdash; da l&igrave; nasce l'accondiscendenza, non da una volont&agrave; di
+      compiacervi; la raccogli nel Modulo 5. Secondo: i dati sintetici sono la stessa cosa che
+      facciamo noi generando le schede finte delle demo di oggi.
+      Fonti: Brown (2020) per GPT-3; Ouyang (2022) per i tre numeri; Llama 3 (2024) per la striscia
+      "Oggi"; Christiano (2017) per il feedback umano.
+    </aside>
+  </section>
+
+  <section>
+    <h2>&quot;Ragionamento&quot;: addestrato o indotto</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">dentro</span> Addestrato</h4>
+          <p>Addestrato con apprendimento per rinforzo a deliberare prima di rispondere: autoverifica e ripensamenti <strong>emergono dall'addestramento</strong>, non da un'istruzione.</p>
+          <p class="ask">&rarr; le versioni &laquo;thinking&raquo; di ChatGPT, Claude, Gemini e Copilot; DeepSeek-R1 &egrave; quella con il rendiconto pubblico</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">intorno</span> Indotto</h4>
+          <p>Lo si chiede nel prompt: &laquo;elenca prima i criteri, poi decidi&raquo;.</p>
+          <p class="ask">&rarr; gratis, su qualsiasi modello, anche gratuito</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="reason-widget" data-reason-widget>
+          <div class="mode-buttons">
+            <button type="button" data-mode="trained" aria-pressed="true">Addestrato</button>
+            <button type="button" data-mode="prompted" aria-pressed="false">Indotto</button>
+          </div>
+          <div class="reason-diagram" data-reason-diagram></div>
+          <p class="reason-copy" data-reason-copy></p>
+        </div>
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-amber);">
+      <p>L'interruttore non inietta un prompt: <strong>attiva una modalit&agrave; del modello</strong> &mdash; e oggi &egrave; il modello stesso a decidere quanto pensare. Istruzioni scritte, liste di task e cicli esistono, ma sono impalcatura: modulo 4.</p>
+    </div>
+    <div class="takeaway">I passaggi visibili sono testo prodotto, non il verbale di come ci &egrave; arrivato.</div>
+    <p class="footnote">Ci&ograve; che scorre a schermo &egrave; un riassunto generato dal modello, non la traccia interna (OpenAI).</p>
+    <aside class="notes">
+      Due sono ragionamento, la terza no: in sala vengono confuse tutte e tre.
+      (1) INDOTTO: lo chiedi nel prompt, il modello scrive i passaggi come normale output; nessun
+      cambiamento al modello. (2) IMPALCATURA: system prompt, file di istruzioni e personalit&agrave;
+      letti a ogni richiesta, liste di task, cicli, strumenti &mdash; esiste davvero, ma &egrave;
+      il modulo 4, e non &egrave; ci&ograve; che rende &quot;di ragionamento&quot; un modello.
+      (3) ADDESTRATO: apprendimento per rinforzo, la capacit&agrave; sta nei pesi. DeepSeek-R1 lo
+      dimostra pubblicamente: RL puro, senza tracce di ragionamento scritte da umani, e
+      autoverifica, verifica e cambio di strategia emergono dall'addestramento. OpenAI dice lo stesso
+      di o1: &quot;our large-scale reinforcement learning algorithm teaches the model how to think
+      productively using its chain of thought&quot;.
+      Se ti chiedono cosa fa il pulsante: non inietta istruzioni, attiva una modalit&agrave; tecnica.
+      Su Claude era un budget di token di pensiero (parametro thinking + budget_tokens, fino alla
+      4.6); dalla 4.7 quel parametro &egrave; stato rimosso e sostituito da adaptive thinking con un
+      livello di sforzo &mdash; il modello decide da s&eacute; se e quanto pensare. Su ChatGPT scegliere
+      la versione &quot;thinking&quot; instrada su un modello diverso. I numeri di versione invecchiano
+      in settimane: tienili qui, non a schermo, e controlla la data di edizione del deck.
+      Perch&eacute; il takeaway: Turpin et al. (2023) hanno infilato un indizio orientante nell'input
+      (per esempio la risposta corretta sempre nella stessa posizione); i modelli si facevano orientare,
+      sbagliavano, e nella catena non nominavano mai l'indizio &mdash; costruivano una giustificazione
+      plausibile per la risposta sbagliata, fino a -36% di accuratezza su 13 compiti. L'indizio &egrave;
+      lo strumento di misura, non un consiglio per la platea: non metterlo a schermo.
+      Questa slide &egrave; il primo deposito della vigilanza che raccogli in M5 (item &quot;la fluidit&agrave;
+      non &egrave; prova di accuratezza&quot;). La demo m2 la fa atterrare: l'interruttore &egrave; il tipo
+      addestrato, &quot;elenca prima i criteri&quot; &egrave; quello indotto.
+      Fonti: DeepSeek-R1 (2025); OpenAI, Learning to reason with LLMs (2024); Turpin et al. (2023);
+      Wei et al. (2022); Nye et al. (2021).
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m2"></section>
+
+</section>

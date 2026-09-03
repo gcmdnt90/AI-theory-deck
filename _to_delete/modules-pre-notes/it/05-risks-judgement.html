@@ -1,0 +1,279 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-08-ethics.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">05</span>
+    <p class="kicker">Modulo 5 <span class="mod-clock" data-clock-for="m5"></span></p>
+    <h1>Rischi e giudizio</h1>
+    <p class="lede">Che cosa va storto e chi resta responsabile.</p>
+    <aside class="notes">
+      Ultimo modulo, ed &egrave; quello che rende difendibile tutto il resto: i quattro precedenti
+      hanno mostrato che cosa si pu&ograve; far fare alla macchina, questo dice a quali condizioni il
+      risultato regge davanti a un cliente. Tre titolari di rischio &mdash; il modello, chi lo usa, i
+      dati &mdash; e poi chi decide: quella struttura deve sopravvivere anche se dimenticano ogni
+      esempio, ed &egrave; l'unica cosa che vale la pena ripetere due volte.
+      Non &egrave; un modulo di avvertimenti. Ogni rischio nominato qui ha gi&agrave; la sua
+      contromossa nei moduli precedenti: ancorare ai documenti (M3), scrivere le regole e verificare
+      (M4), tenere l'azione distruttiva fuori dalla portata dello strumento. Dillo all'inizio,
+      altrimenti la sala si irrigidisce e la demo finale sembra una punizione.
+      Si chiude sulla domanda d'impegno: una cosa che ciascuno prover&agrave; nei prossimi 30 giorni.
+      Falla scrivere, non solo dire.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">modello</span> Che cosa sbaglia il modello</h2>
+    <div class="cols c-3">
+      <div class="signal-card" style="--card-accent:var(--ait-amber);">
+        <h4>Allucinazione</h4>
+        <p>Fluente, sicura, falsa. Strutturale, non un difetto: si riduce ancorandola ai documenti e verificandola. Non si elimina.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-red);">
+        <h4>Distorsione</h4>
+        <p>Senza riferimenti propri restituisce la media del gi&agrave; scritto: le parole, gli schemi e le strutture di cui il web &egrave; pieno.</p>
+      </div>
+      <div class="signal-card" style="--card-accent:var(--ait-violet);">
+        <h4>Accondiscendenza</h4>
+        <p>Se la si contesta, ritratta: anche quando aveva ragione. Il rifinimento premia le risposte che le persone approvano.</p>
+      </div>
+    </div>
+    <div class="banner-media">
+      <img src="assets/img/m05-plausible-path.png" alt="Molte tracce sottili che si intrecciano in un unico tratto ambrato deciso, mentre alcune si staccano e sbiadiscono">
+    </div>
+    <p class="footnote">Le prime due vengono dal motore del Modulo 1 &mdash; testo plausibile, non testo vero. La terza viene da come &egrave; stato rifinito: con giudizi umani.</p>
+    <aside class="notes">
+      Il filo causale: nel Modulo 1 hanno visto il motore campionare da una distribuzione, senza
+      nessun oracolo di verit&agrave; attaccato. Da l&igrave; vengono le prime due card.
+      L'allucinazione &egrave; anche la risposta corretta di uno dei dieci item del test &mdash;
+      strutturale, si riduce con l'ancoraggio ai documenti e la verifica umana, non si elimina: dilla
+      con queste parole.
+      Distorsione, versione misurata: Doshi &amp; Hauser, <em>Science Advances</em> 10(28), eadn5290
+      (2024) &mdash; esperimento online, peer-reviewed. Con una sola idea generata dall'AI le storie
+      diventano pi&ugrave; originali per chi le scrive (+8,1% di novit&agrave;) ma si somigliano fra
+      loro il 10,7% in pi&ugrave;. Non &egrave; un giudizio morale sui dati di addestramento:
+      &egrave; la media del gi&agrave; scritto che riemerge ogni volta che manca un riferimento
+      proprio. &Egrave; la ragione per cui la scala del Modulo 3 cambia il risultato, ed &egrave;
+      quella per cui nella demo il prompt disciplinato tira fuori un'altra struttura dalla stessa
+      foto. Dove il modello tocca persone &mdash; selezione, valutazione, credito &mdash; la
+      distorsione diventa anche una questione giuridica (AI Act, sistemi ad alto rischio): nominala,
+      non aprirla, non &egrave; quello che questo corso dimostra.
+      Accondiscendenza, versione misurata: Sharma et al., ICLR 2024 (Anthropic), su cinque assistenti
+      allo stato dell'arte. Se l'utente contesta una risposta corretta i modelli cambiano la risposta
+      iniziale fra il 32% e l'86% delle volte secondo il modello; un utente che suggerisce una
+      risposta sbagliata abbassa l'accuratezza fino a 27 punti. Meccanismo, non movente: il
+      rifinimento usa giudizi umani, e le persone preferiscono le risposte che confermano quello che
+      gi&agrave; pensano. &Egrave; il ponte verso la terza card della slide sull'utente: il
+      presupposto messo nella domanda torna indietro confermato.
+      Il &laquo;pappagallo stocastico&raquo; (Bender et al. 2021) sta qui se qualcuno lo tira fuori:
+      dibattito aperto, non verdetto. Rassegna sull'allucinazione: Ji et al. (2023).
+    </aside>
+  </section>
+
+
+  <section data-background-color="#f4f8fb">
+    <h2><span class="chip risk">utente</span> Che cosa succede a chi lo usa</h2>
+    <div class="cols">
+      <div class="col visual-frame tight">
+        <img src="assets/img/cognitive-delegation.png" alt="Silhouette umana che passa un filo ambrato di pensiero a una parentesi meccanica">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Erosione della competenza</h4>
+          <p>Quello che si delega si esercita di meno. Chi si fida dello strumento verifica meno; chi si fida di s&eacute; verifica di pi&ugrave;.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>La trappola della fluidit&agrave;</h4>
+          <p>Un testo levigato sposta la fiducia, non l'accuratezza &mdash; e la sposta di pi&ugrave; fuori dalla propria materia.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>La domanda entra nella risposta</h4>
+          <p>Un presupposto messo nella domanda torna indietro come se fosse acquisito. Chiedere <em>perch&eacute;</em> una cosa &egrave; vera non verifica che lo sia.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Rendilo concreto per una piccola impresa: l'esperto in sala riconosce un'attribuzione sbagliata
+      in un istante. Un giovane con lo stesso strumento no, e forse non svilupper&agrave; mai l'occhio
+      se lo strumento risponde sempre per primo. &Egrave; una decisione di organico e formazione, non
+      di tecnologia.
+      Prima card, e che tipo di prova &egrave;: che ci&ograve; che si delega si ricordi meno &egrave;
+      vecchio e solido (Sparrow, Liu &amp; Wegner 2011, <em>Science</em>, l'effetto Google). Che la
+      competenza si atrofizzi NON &egrave; dimostrato: non dirlo. Il dato pi&ugrave; vicino &egrave;
+      Lee, Sarkar, Tankelevitch et al., CHI 2025 &mdash; 319 lavoratori della conoscenza, 936 episodi
+      reali: pi&ugrave; fiducia nello strumento va con meno pensiero critico, pi&ugrave; fiducia in
+      s&eacute; con pi&ugrave; pensiero critico. &Egrave; un'associazione in un questionario
+      auto-riferito, e va detta cos&igrave;. La rassegna di Risko &amp; Gilbert (2016) descrive quando
+      si delega, non che la capacit&agrave; decada.
+      Seconda card: Perry, Srivastava, Kumar &amp; Boneh, CCS 2023 &mdash; esperimento controllato con
+      utenti. Chi aveva l'assistente ha scritto codice significativamente meno sicuro ed era
+      pi&ugrave; convinto di averlo scritto sicuro; e chi si fidava di meno, lavorando sulla
+      formulazione del prompt, produceva meno vulnerabilit&agrave;. Dominio codice e modello del 2022:
+      dichiaralo. La seconda met&agrave; di quel risultato &egrave; la tesi della parte C della demo,
+      che arriva fra pochi minuti.
+      Terza card: chiude il filo del Modulo 3, &laquo;ferie&raquo; contro &laquo;congedi
+      annuali&raquo;. L&igrave; erano le parole a spostare il recupero; qui &egrave; il presupposto a
+      spostare la generazione, perch&eacute; il prompt &egrave; il testo che il modello continua.
+      L'esempio si dice ad alta voce, secondo il settore in sala: &laquo;perch&eacute; questa moneta
+      &egrave; pi&ugrave; rara?&raquo; &middot; &laquo;perch&eacute; questo impianto rende di
+      meno?&raquo; &middot; &laquo;perch&eacute; questo collaudo &egrave; fallito?&raquo; &mdash;
+      nessuna delle tre verifica che la premessa sia vera. La regola operativa da dettare: chiedere
+      &laquo;che cosa manca in questa attribuzione?&raquo;, non &laquo;conferma che questa
+      attribuzione &egrave; giusta&raquo;.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">dati</span> Quando il testo diventa istruzione</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>Prompt injection</h4>
+          <p>Un documento non fidato contiene una frase che il modello <em>esegue</em> invece di riassumere.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Perch&eacute; conta adesso</h4>
+          <p>Con gli strumenti del Modulo 4 il modello non risponde soltanto: apre file, scrive, invia. Il testo non fidato smette di essere dato e guida un'azione.</p>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m07-data-leaks.png" alt="Prompt injection indiretta che dirotta il percorso degli strumenti di un agente e provoca movimenti di dati non voluti">
+      </div>
+    </div>
+    <aside class="notes">
+      La riga da non perdere: finch&eacute; il modello scrive testo, un'istruzione nascosta produce
+      una risposta sbagliata; da quando ha strumenti, produce un'azione. I connettori del Modulo 4
+      hanno allargato la superficie d'attacco un'ora fa, in questa stessa aula.
+      L'injection non ha una soluzione pulita &mdash; non &egrave; un bug che si chiude con una patch,
+      &egrave; una conseguenza del fatto che istruzioni e dati arrivano al modello nello stesso canale,
+      come testo. Quindi si progetta per privilegio minimo: lo strumento vede solo la cartella che
+      serve, e le azioni distruttive stanno nel livello &laquo;non fare mai&raquo; della tabella che
+      hanno gi&agrave; visto in M4.
+      Fra pochi minuti la parte B della demo lancia sulla cartella avvelenata la stessa identica
+      richiesta di m4-p7: l'unica variabile cambiata &egrave; il documento. Poi si apre il PDF, Ctrl+A,
+      e si scopre il testo grigio. Non anticiparlo: lascia che deragli.
+      Fonti: Greshake et al. (2023), <em>Indirect Prompt Injection</em>; OWASP Top 10 per applicazioni
+      LLM.
+    </aside>
+  </section>
+
+  <section>
+    <h2><span class="chip risk">dati</span> Chi vede questi dati</h2>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-cyan);">
+      <h4>La domanda</h4>
+      <p>Chi pu&ograve; vedere le domande e i file caricati? La risposta dipende dallo strumento e dal contratto, non dal modello.</p>
+    </div>
+    <div class="caption-row" style="grid-template-columns:repeat(4,1fr);margin-top:.6em;">
+      <div class="mini-card"><strong>App gratuita</strong><span>I dati vengono usati per addestrare? Dov'&egrave; scritto, e da quando?</span></div>
+      <div class="mini-card"><strong>Abbonamento</strong><span>Il piano di lavoro esclude l'addestramento? Sta nel contratto o in una pagina d'aiuto?</span></div>
+      <div class="mini-card"><strong>API a pagamento</strong><span>Chi tiene i log, per quanto tempo, in quale paese?</span></div>
+      <div class="mini-card"><strong>Modello locale</strong><span>Non esce niente dall'azienda: gira sul portatile. Quanta qualit&agrave; costa?</span></div>
+    </div>
+    <p class="footnote">Nell'UE l'<strong>AI Act</strong> (Reg. 2024/1689) e il <strong>GDPR</strong> si applicano comunque, qualunque opzione si scelga.</p>
+    <aside class="notes">
+      Questa &egrave; la pre-demo. Le quattro colonne sono scritte come domande e non come garanzie di
+      proposito: le condizioni cambiano per fornitore, per piano e nel tempo, e tu non sei il loro
+      avvocato. Quello che vale sempre &egrave; il footnote: qualunque casella scelgano, i due
+      regolamenti si applicano lo stesso &mdash; l'opzione tecnica non &egrave; una scorciatoia
+      giuridica.
+      Chiudi aprendo Ollama e mostrando la finestra: nessun esempio, nessuna prova, solo &laquo;questo
+      &egrave; un modello che gira qui dentro&raquo;. Serve a togliere l'astrazione dalla quarta card e
+      a togliere il montaggio alla demo: la parte A parte da uno strumento gi&agrave; aperto e
+      gi&agrave; spiegato, e resta soltanto da staccare la rete e fare la domanda del Modulo 3.
+      Se la sala &egrave; coinvolta, qui sta la domanda di discussione m5-p4: quale delle quattro
+      accetterebbero per il materiale inedito di un cliente. Rende la scelta loro invece che un tuo
+      avvertimento.
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m5"></section>
+
+  <section>
+    <h2>L'essere umano nel ciclo</h2>
+    <div class="cols">
+      <div class="col visual-frame tight">
+        <img src="assets/img/human-loop.png" alt="Ciclo verde e viola che si incontra su checkpoint ambrati">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>Perch&eacute; il controllo si allenta</h4>
+          <p>Il sistema di solito ha ragione, e l'attenzione si sposta altrove. Vale per gli esperti quanto per i principianti, e non si corregge raccomandando di stare attenti.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Che cosa l'ha fermato</h4>
+          <p>Cinque minuti fa non &egrave; stato un controllo automatico: &egrave; stato qualcuno che conosceva il pezzo e poteva dire di no.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>Lo stesso strumento, al contrario</h4>
+          <p>Fargli fare l'avvocato del diavolo, chiedergli che cosa manca, farsi interrogare. Chi lo interroga invece di delegargli ottiene risultati migliori.</p>
+        </div>
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>Il test</h4>
+      <p>La supervisione &egrave; reale solo se qualcuno pu&ograve; <strong>capire</strong>, <strong>contestare</strong> e <strong>ribaltare</strong>. Se manca uno dei tre, &egrave; un timbro.</p>
+    </div>
+    <aside class="notes">
+      La prima card &egrave; il punto che vale la pena difendere, ed &egrave; misurato: Parasuraman
+      &amp; Manzey, <em>Human Factors</em> 52(3) 381&ndash;410 (2010), una rassegna che integra gli
+      studi empirici sul compiacimento da automazione. Due conclusioni testuali: il compiacimento
+      &laquo;si riscontra sia nei partecipanti inesperti sia negli esperti e non si supera con la
+      semplice pratica&raquo;, e l'automation bias &laquo;non si previene con l'addestramento o con le
+      istruzioni&raquo;. Detto in aula: l'esperienza non protegge, e dire alla gente di stare attenta
+      non &egrave; un controllo. Il rimedio non &egrave; la buona volont&agrave;, &egrave; la
+      progettazione &mdash; i livelli di guardrail visti in M4.
+      Il classico, da presentare come argomento e non come misura: Bainbridge,
+      <em>Ironies of Automation</em>, <em>Automatica</em> 19(6) 775&ndash;779 (1983). Pi&ugrave;
+      l'automazione &egrave; affidabile, meno l'operatore resta allenato a subentrare proprio nel
+      momento in cui deve.
+      E non si pu&ograve; essere vigili a intermittenza: un successo su un compito non autorizza a
+      fidarsi sul compito dopo, perch&eacute; il confine fra i due non &egrave; dichiarato da nessuna
+      parte.
+      Terza card, la nota lieta, ma detta senza gonfiarla: quello che &egrave; misurato &egrave; che
+      chi si fidava di meno e lavorava sulla formulazione otteneva risultati migliori (Perry et al.,
+      CCS 2023), e che con l'AI il lavoro cognitivo non sparisce ma si sposta verso la verifica e la
+      supervisione (Lee et al., CHI 2025). Che questo costruisca competenza nel tempo non &egrave;
+      dimostrato: non prometterlo. Prometti la postura &mdash; chiedere &laquo;che cosa manca&raquo; e
+      &laquo;argomenta il contrario&raquo; invece di &laquo;confermami&raquo; &mdash; che &egrave; la
+      stessa regola operativa dettata sulla slide dell'utente.
+      Dillo con il loro cliente in mente: la responsabilit&agrave; verso chi riceve il documento
+      firmato non si delega a un modello, n&eacute; giuridicamente n&eacute; sul piano della
+      reputazione. Hanno
+      appena visto l'esperto ribaltarlo dal vivo: indica quel momento, non rispiegarlo.
+    </aside>
+  </section>
+
+  <section data-background-color="#fbfaf6">
+    <h2>Dove siamo arrivati</h2>
+    <div class="recap-chain compact">
+      <div class="step"><strong>1</strong><span>prevede la parola dopo</span></div>
+      <div class="step"><strong>2</strong><span>dentro o intorno</span></div>
+      <div class="step"><strong>3</strong><span>ancorarlo ai documenti</span></div>
+      <div class="step"><strong>4</strong><span>scrivere le regole, poi verificare</span></div>
+      <div class="step"><strong>5</strong><span>capire, contestare, ribaltare</span></div>
+    </div>
+    <div class="quote-strip" style="grid-template-columns:1fr;">
+      <blockquote>&laquo;Puoi delegare il tuo pensiero, ma non puoi delegare la tua comprensione.&raquo;<cite>un tweet che Karpathy continua a citare &mdash; AI Ascent (2026)</cite></blockquote>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-green);">
+      <h4>La domanda</h4>
+      <p>&laquo;Una cosa concreta che farai nei prossimi 30 giorni applicando quello che hai imparato oggi.&raquo;</p>
+    </div>
+    <div class="takeaway">Alla base &egrave; probabilit&agrave;. In mano a una persona &egrave; uno strumento. La parte difficile &egrave; il giudizio.</div>
+    <aside class="notes">
+      La catena &egrave; l'ultima cosa che leggono: leggila ad alta voce, un anello alla volta, senza
+      commentarla. L'anello 4 dice &laquo;poi verificare&raquo; e non &laquo;poi lasciarlo
+      agire&raquo; di proposito &mdash; &egrave; la conclusione su cui il Modulo 4 si chiude davvero.
+      L'anello 5 &egrave; il test della slide precedente, parola per parola.
+      L'attribuzione conta: Karpathy dice esplicitamente che quella frase &egrave; un tweet che cita,
+      non una sua formula. Praticare l'igiene delle fonti nella slide finale vale pi&ugrave; di dieci
+      raccomandazioni.
+      Poi la domanda d'impegno, che &egrave; il motivo per cui &egrave; scritta a schermo: la
+      formulazione &egrave; identica alla Q6.1 del questionario di uscita, ed &egrave; il campo su cui
+      si regge il follow-up a tre mesi. <strong>Falla scrivere, non dire.</strong> Un impegno
+      pronunciato in sala non lascia traccia; uno scritto s&igrave;, e fra tre mesi si potr&agrave;
+      chiedere se &egrave; stato mantenuto.
+      Due posture da nominare solo se avanza tempo (Mollick, dallo studio BCG): centauro, con il
+      lavoro diviso lungo una linea netta; cyborg, con lo scambio a ogni passo.
+    </aside>
+  </section>
+
+</section>

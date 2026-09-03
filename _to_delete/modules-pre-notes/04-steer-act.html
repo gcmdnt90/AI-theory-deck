@@ -1,0 +1,227 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-05-behaviour-control.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">04</span>
+    <p class="kicker">Module 4 <span class="mod-clock" data-clock-for="m4"></span></p>
+    <h1>From instructions to tools</h1>
+    <p class="lede">Instructions in plain language, tools able to understand it*</p>
+    <p class="footnote">* Templeton et al., <em>Scaling Monosemanticity</em>, Transformer Circuits 2024 &mdash; the "Golden Gate Bridge" feature and the other concept-linked activations. Gurnee et al., <em>Verbalizable Representations Form a Global Workspace in Language Models</em>, Transformer Circuits 2026.</p>
+    <aside class="notes">
+      The asterisk is yours: latent space. Both references are already on the slide, in small print.
+      transformer-circuits.pub/2024/scaling-monosemanticity &middot; transformer-circuits.pub/2026/workspace
+      The longest module and the most operational one: once the rest is understood, this is the layer
+      the work actually happens on. Reframe "programming" for this room: they already know how to
+      write the instructions. What they do not know yet is that writing them down, once, in a file, is
+      the entire technique - and that from there the same text can drive a tool that opens their own
+      files.
+      Module arc: where it gets written - where what is written enters from - from chatbot to a system
+      that acts - how it reaches their systems - spec, verification and limits. Two live windows of
+      about two minutes each, on the second and the fourth slide; the closing demo walks the whole arc
+      in one session.
+      Theory 14 minutes, demo 12: the cover timetable is already updated.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Two places to write the rules</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <p>This request is the text that changes every time. Standing rules are the text that is <strong>re-read on every request</strong>.</p>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4>Prompt engineering</h4>
+          <p>The work to be done, stated in full:<br><strong>C</strong>ontext, <strong>O</strong>bjective, <strong>S</strong>tyle, <strong>T</strong>one, <strong>A</strong>udience, <strong>R</strong>esponse.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Standing rules</h4>
+          <p>Apply to every request. Safety, house style, vocabulary, what to never do.</p>
+          <p class="chain">personality.md &middot; CLAUDE.md &middot; AGENT.md &middot; CONTEXT.md</p>
+        </div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/m05-prose-stack.png" alt="Layered instruction sheets steering an agent's behaviour signal">
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-amber);">
+      <p>Everything written in the prompt stays one text among others on the desk from module 3: it can be <strong>summarised</strong>, it can be <strong>cut</strong>, it can be <strong>overridden</strong>.</p>
+    </div>
+    <aside class="notes">
+      The card order is deliberate: the request first, which they already know how to write, then
+      the standing rules, which are the new thing. The whole module runs against the room's habit.
+      CO-STAR is GovTech Singapore's. It is now on screen with all six elements, so name it: an
+      acronym with its visual anchor beside it costs little, an acronym merely said out loud costs
+      attention. The real content of that card is not the initialism: it is that a complete request
+      gets written, not improvised.
+      The four file names under the first card do not live in the same place: personality.md sits in
+      settings, the other three in a working folder. The next slide assigns each name to its
+      mechanism - here they only show that these are real files with names that get typed.
+      The amber card is the hinge of the module, and the three verbs are three different things.
+      Summarised and cut come from module 3 (the oldest part of the context gets summarised or cut).
+      Overridden is seen happening at the fourth beat of the demo: the model is asked to ignore the
+      house rules, and it complies. That third verb is where the three-tier table on the last slide
+      comes from.
+      Narrative job: this slide serves none of the Concept Test items. Its work is to establish that a
+      written artefact exists and that it has two layers - without which nothing later in the module
+      has anything material to stand on.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Where standing rules enter from</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="caption-row two">
+          <div class="mini-card"><strong>Instructions</strong><span>On every request, always. The only one that occupies context every time.</span><span class="fig">personality.md</span></div>
+          <div class="mini-card"><strong>Projects</strong><span>When the project opens. If the files exceed the window, they enter in pieces &mdash; module 3.</span><span class="fig">.md &middot; .pdf</span></div>
+          <div class="mini-card"><strong>Directory</strong><span>Only if the agent reads the file: it takes a tool and a decision.</span><span class="fig">CLAUDE.md &middot; CONTEXT.md</span></div>
+          <div class="mini-card"><strong>Skills</strong><span>Only when the description matches the request.</span><span class="fig">SKILL.md</span></div>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>Why it matters</h4>
+          <p>The thing that controls the machine is the same thing a new colleague reads to learn the job.</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="layered-file" data-standing-rules="m4-p2" data-standing-rules-heading="# Standing rules"></div>
+      </div>
+    </div>
+    <aside class="notes">
+      Live window, about two minutes, in this order: the instructions in settings, a project with its
+      files, a folder with a CLAUDE.md in it, a skill that loads itself. Show, do not narrate: the
+      narration is the grid on the slide.
+      The axis across the four cells is not "always vs conditional", it is <em>when it enters the
+      context</em>, and the four answers differ. Instructions is the only truly unconditional one, and
+      it is also the only one paid for on every request: half a page written there travels every time.
+      Projects applies to that project, but when the files exceed the window they are not loaded, they
+      are retrieved in pieces - which is exactly rung 2 against rung 3 of the module 3 ladder.
+      Directory depends on a decision by the agent and on a tool that reads: if it does not open the
+      file, the file does not exist. Skills depends on the description, not on the content - the
+      description is what decides the load.
+      The block on the right is not a mockup: it is the exact text the demo will paste at step 2, read
+      from demo-prompts.json and switched by the sector selector.
+      If someone asks about Markdown: it is just text with a bit of structure, headings and dashes.
+      Say it once, do not teach it.
+      The amber card is the module's commercial argument: for an SME with staff turnover, the
+      configuration file and the training manual are the same document. This deck's own repository is
+      built with skills, so the method is demonstrated by the thing they are looking at.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Chatbot and agentic system</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/chatbots-vs-agentic-systems-light.png" alt="Chatbots compared with agentic systems">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Loop</strong><span>Decides, acts, observes the result, decides again.</span><span class="fig">the model decides when to stop: that is why it can spin in circles</span></div>
+        <div class="mini-card"><strong>Tools</strong><span>Functions described in words, which the model chooses whether to call.</span><span class="fig">files, search, email, databases &mdash; module 5</span></div>
+        <div class="mini-card"><strong>Memory</strong><span>What is put back in front of it on the next turn.</span><span class="fig">how it actually works: module 3</span></div>
+      </div>
+    </div>
+    <div class="takeaway">The difference between a chatbot and an agent is the scaffolding around the same model, not a bigger model.</div>
+    <aside class="notes">
+      The hinge of the module, and the ONLY place an agentic system gets defined. It used to be
+      defined in module 2 as well, two modules earlier and in the abstract; that was one of the three
+      places the same idea was being said. Here the definition arrives where it is about to be used:
+      the next slide is how the tools reach their systems, and the demo after it runs the loop on
+      their own folder.
+      Say the loop out loud - decides, acts, observes - because you will narrate exactly those three
+      words over the Cowork demo, and they must recognise them when they hear them again.
+      Up to now they have written a text; from here that text commands something that acts. If
+      someone wants the difference in one line: a chatbot answers turn by turn, an agentic system
+      chases a goal longer than one turn. If someone asks about cost, the answer is on the first card:
+      the loop decides for itself when to stop, so a badly set-up agent can repeat useless rounds -
+      which is exactly why the last slide of this module writes the spec first and verifies after.
+      Sources: Yao et al. (2023) ReAct; Schick et al. (2023).
+    </aside>
+  </section>
+
+  <section>
+    <h2>MCP &mdash; reaching the company's systems</h2>
+    <p class="quote-line">"Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect electronic devices, MCP provides a standardized way to connect AI applications to external systems." <span class="attrib">&mdash; official MCP documentation</span></p>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m06-mxn-convention.png" alt="Agents and servers exchanging common message envelopes through one shared protocol lane">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Discover</strong><span>The connector says what it can do.</span></div>
+        <div class="mini-card"><strong>Call</strong><span>The agent sends a structured request.</span></div>
+        <div class="mini-card"><strong>Return</strong><span>The result comes back as new context.</span></div>
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-cyan);">
+      <p>Without a standard, <strong>n</strong> applications and <strong>m</strong> tools need <strong>n&times;m</strong> pieces of custom wiring. With one protocol, <strong>n+m</strong> are enough &mdash; and the systems the company already has do not have to be rebuilt to be reachable. It moves requests and results: it does not pool the data.</p>
+    </div>
+    <p class="footnote">Same questions as any integration: whose credentials, what scope, how much trust.</p>
+    <aside class="notes">
+      Live window, about two minutes: the connector list open in two different products, nothing more.
+      It is there to show this is not one vendor's arrangement.
+      The quotation is literal and comes from the protocol's own documentation. Deliver it as a
+      quotation, not as a house metaphor.
+      The n&times;m to n+m arithmetic is the mechanism; the USB-C port is its illustration. If someone
+      wants a number: five applications and six tools make thirty custom integrations against eleven.
+      Timeline, if the question is "what if they change their minds?": open protocol published on
+      25 November 2024, adopted by OpenAI in March 2025 and by Google in April 2025, and donated on
+      9 December 2025 to the Agentic AI Foundation, a directed fund of the Linux Foundation
+      co-founded with OpenAI and Block. It is no longer governed by one company. Do not go near the
+      technical specification.
+      The line that matters commercially is the one in the card: their existing systems do not have to
+      be rebuilt to be reachable.
+      The three moves are the mechanism. The third ties the module back to module 3: a tool result
+      does not "go into the model", it lands back on the desk as new context.
+      Plant the risk seed here: every connector is also an attack surface. Module 5 opens by
+      exploiting exactly this.
+      Sources: modelcontextprotocol.io; anthropic.com/news/model-context-protocol;
+      anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation.
+    </aside>
+  </section>
+
+  <section class="practice-slide" data-background-color="#f4f8fb">
+    <h2>Spec, verification, and limits outside the model</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>1. The spec stays with whoever commissions the work</h4>
+          <p>Every degree of freedom left open is closed with a plausible default, drawn from the training distribution rather than from the case at hand. Specifying means listing what is <strong>not</strong> left to the tool to decide, starting from which <em>decision</em> the work must enable.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>2. Verification runs against the source</h4>
+          <p>The criterion is fixed <strong>before</strong> generation, the check runs <strong>after</strong>, against the source document and not against the output. A criterion written after reading the answer bends to the answer.</p>
+        </div>
+      </div>
+      <div class="col stack-sm">
+        <p>The three tiers are chosen by <strong>reversibility and cost of error</strong>, not by perceived seriousness, and applied at the tool, not in the prompt.</p>
+        <div class="caption-row" style="grid-template-columns:1fr;">
+          <div class="mini-card"><strong>Always do</strong><span>Reversible, low cost: runs on its own.</span></div>
+          <div class="mini-card"><strong>Ask first</strong><span>Reversible but expensive: confirmation required before acting.</span></div>
+          <div class="mini-card"><strong>Never do</strong><span>Irreversible: blocked at the tool, out of the model's reach.</span></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      This slide introduces nothing: it names three things the demo has just made happen. Point 1 is
+      the sixth beat (criteria stated aloud before the run), point 2 is the eighth (the table checked
+      against the PDFs), point 3 is the fourth (the house rules overridden). If the demo landed, this
+      is pointing, not teaching.
+      The line above the tiers used to be a fourth card: leave it unspoken, it reads on its own.
+      The criterion for the three tiers is reversibility and cost, not perceived seriousness: sending
+      the wrong email is irreversible and belongs in the third row even though it feels trivial, while
+      rewriting a draft is reversible and belongs in the first even though the text matters. Run the
+      exercise out loud on a task of theirs.
+      Karpathy's automation thesis: traditional software automates what can be specified; LLMs
+      automate what can be VERIFIED, so it pays to make one's own work verifiable. Cherny, creator of
+      Claude Code: "Give Claude a way to verify its work... it will 2-3x the quality" - present it as
+      a practitioner's estimate, not as a measurement. Shankar et al. (UIST 2024) on criteria drift:
+      grading real outputs changes the criteria, so spec and verification feed each other; it is one
+      loop, not a pipeline.
+      The story to tell, and it is the best content on this slide: Karpathy's agent matched payments
+      to accounts by email address instead of a stable identifier. Plausible code, wrong system
+      design, caught only by human judgement - and no line-by-line code review would have found it,
+      because every line was correct.
+      Hand-off to module 5: prose lives in the context, and context can be manipulated.
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m4"></section>
+
+</section>

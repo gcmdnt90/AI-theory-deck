@@ -1,28 +1,20 @@
 <section>
 
-  <section class="module-cover" data-background-image="assets/img/module-05-behaviour-control.png" data-background-size="cover" data-background-color="#fbfaf6">
+  <section data-min="1" class="module-cover" data-background-image="assets/img/module-05-behaviour-control.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">04</span>
     <p class="kicker">Modulo 4 <span class="mod-clock" data-clock-for="m4"></span></p>
     <h1>Dalle istruzioni agli strumenti</h1>
     <p class="lede">Istruzioni in lingua comune, strumenti in grado di comprenderla*</p>
     <p class="footnote">* Templeton et al., <em>Scaling Monosemanticity</em>, Transformer Circuits 2024 &mdash; la caratteristica &laquo;Golden Gate Bridge&raquo; e le altre attivazioni legate a concetti. Gurnee et al., <em>Verbalizable Representations Form a Global Workspace in Language Models</em>, Transformer Circuits 2026.</p>
     <aside class="notes">
-      L'asterisco &egrave; tuo: spazio latente. Le due referenze stanno gi&agrave; sulla slide, in piccolo.
-      transformer-circuits.pub/2024/scaling-monosemanticity &middot; transformer-circuits.pub/2026/workspace
-      Il modulo pi&ugrave; lungo e il pi&ugrave; operativo: &egrave; il livello su cui, capito il
-      resto, si lavora davvero tutti i giorni. Riformula "programmare" per questa sala: sanno gi&agrave;
-      scrivere le istruzioni. Quello che non sanno ancora &egrave; che scriverle una volta, in un file,
-      &egrave; tutta la tecnica &mdash; e che da l&igrave; in poi lo stesso testo pu&ograve; comandare
-      uno strumento che apre i loro file.
-      Arco del modulo: dove si scrive &rarr; da dove entra ci&ograve; che &egrave; scritto &rarr; da
-      chatbot a sistema che agisce &rarr; come si attacca ai loro sistemi &rarr; specifica, verifica e
-      limiti. Due finestre dal vivo di circa due minuti, sulla seconda e sulla quarta slide; la demo
-      finale percorre tutto l'arco in una sola sessione.
-      Teoria 14 minuti, demo 12: la tabella di copertina &egrave; gi&agrave; aggiornata.
+      <p>Il modulo più lungo e il più operativo: è il livello su cui, capito il resto, si lavora davvero tutti i giorni.</p>
+      <p>Per questa sala «programmare» va riformulato. Scrivere istruzioni lo sanno già fare. Quello che non sanno ancora è che scriverle <em>una volta, in un file</em> è tutta la tecnica, e che da lì in poi lo stesso testo può comandare uno strumento che apre i loro file.</p>
+      <p>Arco del modulo: dove si scrive &rarr; da dove entra ciò che è scritto &rarr; da chatbot a sistema che agisce &rarr; come si attacca ai loro sistemi &rarr; specifica, verifica e limiti. Due finestre dal vivo di circa due minuti, sulla seconda e sulla quarta slide; la demo finale percorre tutto l'arco in una sola sessione.</p>
+      <p><strong>Approfondimento.</strong> L'asterisco sulla copertina è lo spazio latente; le due referenze sono già sulla slide, in piccolo: transformer-circuits.pub/2024/scaling-monosemanticity e transformer-circuits.pub/2026/workspace.</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="3">
     <h2>Due posti dove scrivere le regole</h2>
     <div class="cols">
       <div class="col stack-sm">
@@ -45,29 +37,15 @@
       <p>Tutto ci&ograve; che &egrave; scritto nel prompt resta un testo fra gli altri sulla scrivania del modulo 3: pu&ograve; essere <strong>riassunto</strong>, pu&ograve; essere <strong>tagliato</strong>, pu&ograve; essere <strong>scavalcato</strong>.</p>
     </div>
     <aside class="notes">
-      L'ordine delle card &egrave; voluto: prima la richiesta, che sanno gi&agrave; scrivere, poi le regole
-      permanenti, che &egrave; la cosa nuova. Il modulo intero va da destra a sinistra rispetto
-      all'abitudine della sala.
-      CO-STAR &egrave; di GovTech Singapore. Ora sta a schermo con le sei voci, quindi si nomina: un
-      acronimo con l'ancora visiva accanto costa poco, un acronimo detto e basta costa attenzione.
-      Il vero contenuto di questa card non &egrave; la sigla: &egrave; che una richiesta completa si
-      scrive, non si improvvisa.
-      I quattro nomi di file sotto la prima card non vivono nello stesso posto: personality.md sta
-      nelle impostazioni, gli altri tre in una cartella di lavoro. La slide successiva assegna ogni
-      nome al suo meccanismo &mdash; qui servono solo a far vedere che sono file veri, con un nome
-      che si scrive.
-      La card ambra &egrave; il perno del modulo, e i tre verbi sono tre cose diverse. Riassunto e
-      tagliato vengono dal modulo 3 (la parte pi&ugrave; vecchia del contesto viene riassunta o
-      tagliata). Scavalcato si vede accadere alla quarta battuta della demo: si chiede di ignorare le
-      regole della casa e il modello cede. Da quel terzo verbo nasce la tabella dei tre livelli
-      dell'ultima slide.
-      Compito narrativo: questa slide non serve nessun item del Concept Test. Il suo lavoro &egrave;
-      stabilire che esiste un artefatto scritto e che ha due strati, altrimenti nulla di quello che
-      viene dopo ha un supporto materiale.
+      <p>L'ordine delle card è voluto: prima la richiesta, che sanno già scrivere, poi le regole permanenti, che è la cosa nuova. Il modulo intero va da destra a sinistra rispetto all'abitudine della sala.</p>
+      <p>CO-STAR è di GovTech Singapore. Sta a schermo con le sei voci, quindi si può nominare: un acronimo con l'ancora visiva accanto costa poco, un acronimo detto e basta costa attenzione. Il vero contenuto della card non è la sigla, è che una richiesta completa si scrive, non si improvvisa.</p>
+      <p>I quattro nomi di file sotto la prima card non vivono nello stesso posto: <code>personality.md</code> sta nelle impostazioni, gli altri tre in una cartella di lavoro. La slide successiva assegna ogni nome al suo meccanismo; qui servono solo a far vedere che sono file veri, con un nome che si scrive.</p>
+      <p>La card ambra è il perno del modulo, e i tre verbi sono tre cose diverse. <em>Riassunto</em> e <em>tagliato</em> vengono dal modulo 3. <em>Scavalcato</em> si vede accadere alla quarta battuta della demo, quando si chiede di ignorare le regole della casa e il modello cede: da quel terzo verbo nasce la tabella dei tre livelli dell'ultima slide.</p>
+      <p><strong>Compito narrativo.</strong> Questa slide non serve nessun item del Concept Test. Il suo lavoro è stabilire che esiste un artefatto scritto e che ha due strati; senza quello, nulla di ciò che viene dopo ha un supporto materiale.</p>
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
+  <section data-min="3" data-background-color="#f4f8fb">
     <h2>Da dove entrano le regole permanenti</h2>
     <div class="cols">
       <div class="col stack-sm">
@@ -87,46 +65,37 @@
       </div>
     </div>
     <aside class="notes">
-      Finestra dal vivo, circa due minuti, in quest'ordine: le istruzioni nelle impostazioni, un
-      progetto con i suoi file, una cartella con dentro un CLAUDE.md, una skill che si attiva da sola.
-      Si mostra, non si commenta: il commento &egrave; la griglia sulla slide.
-      L'asse delle quattro celle non &egrave; "sempre contro condizionato", &egrave; <em>quando entra
-      nel contesto</em>, e le quattro risposte sono diverse. Instructions &egrave; l'unico veramente
-      incondizionato, ed &egrave; anche l'unico che si paga a ogni richiesta: se ci si scrive dentro
-      mezza pagina, quella mezza pagina viaggia sempre. Projects vale per quel progetto, ma quando i
-      file superano la finestra non vengono caricati: vengono recuperati a pezzi, che &egrave;
-      esattamente il gradino 2 contro il gradino 3 della scala del modulo 3. Directory dipende da una
-      decisione dell'agente e da uno strumento che legga: se non apre il file, il file non esiste.
-      Skills dipende dalla descrizione, non dal contenuto &mdash; &egrave; la descrizione a decidere
-      il caricamento.
-      Il blocco a destra non &egrave; un mockup: &egrave; lo stesso identico testo che la demo
-      incoller&agrave; al passo 2, preso da demo-prompts.json e cambiato dal selettore di settore.
-      Se qualcuno chiede "e Markdown?": &egrave; solo testo con un po' di struttura, titoli e
-      trattini. Dillo una volta, non insegnarlo.
-      La card ambra &egrave; l'argomento commerciale del modulo: per una PMI con turnover di
-      personale, il file di configurazione e il manuale di addestramento sono lo stesso documento.
-      Il repository di questo deck &egrave; costruito con delle skill, quindi il metodo &egrave;
-      dimostrato dalla cosa che stanno guardando.
+      <p>Finestra dal vivo, circa due minuti, in quest'ordine: le istruzioni nelle impostazioni, un progetto con i suoi file, una cartella con dentro un <code>CLAUDE.md</code>, una skill che si attiva da sola. Si mostra e basta: il commento è la griglia sulla slide.</p>
+      <p>L'asse delle quattro celle non è «sempre contro condizionato», è <em>quando entra nel contesto</em>, e le quattro risposte sono diverse. <strong>Instructions</strong> è l'unico veramente incondizionato, ed è anche l'unico che si paga a ogni richiesta: mezza pagina scritta lì viaggia sempre. <strong>Projects</strong> vale per quel progetto, ma quando i file superano la finestra non vengono caricati, vengono recuperati a pezzi &mdash; che è esattamente il gradino 2 contro il gradino 3 della scala del modulo 3. <strong>Directory</strong> dipende da una decisione dell'agente e da uno strumento che legga: se non apre il file, il file non esiste. <strong>Skills</strong> dipende dalla descrizione, non dal contenuto: è la descrizione a decidere il caricamento.</p>
+      <p>Il blocco a destra non è un mockup: è lo stesso identico testo che la demo incollerà al passo 2, preso da <code>demo-prompts.json</code> e cambiato dal selettore di settore.</p>
+      <p>Su «e Markdown?»: è solo testo con un po' di struttura, titoli e trattini. Si dice una volta, non si insegna.</p>
+      <p>La card ambra è l'argomento commerciale del modulo: per una PMI con turnover di personale, il file di configurazione e il manuale di addestramento sono lo stesso documento. Il repository di questo deck è costruito con delle skill, quindi il metodo è dimostrato dalla cosa che si sta guardando.</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="2">
     <h2>Chatbot e sistema agentico</h2>
-    <div class="visual-frame media-fit" style="max-width:76%;margin:0 auto;">
-      <img src="assets/img/chatbots-vs-agentic-systems-light-it.png" alt="Chatbot a confronto con i sistemi agentici">
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/chatbots-vs-agentic-systems-light-it.png" alt="Chatbot a confronto con i sistemi agentici">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Ciclo</strong><span>Decide, agisce, osserva il risultato, decide di nuovo.</span><span class="fig">&egrave; il modello a decidere quando smettere: per questo pu&ograve; girare a vuoto</span></div>
+        <div class="mini-card"><strong>Strumenti</strong><span>Funzioni descritte a parole, che il modello sceglie se chiamare.</span><span class="fig">file, ricerca, email, banche dati &mdash; la slide dopo</span></div>
+        <div class="mini-card"><strong>Memoria</strong><span>Ci&ograve; che gli viene rimesso davanti al giro dopo.</span><span class="fig">come funziona davvero: modulo 3, gi&agrave; visto</span></div>
+      </div>
     </div>
+    <div class="takeaway">La differenza fra chatbot e agente &egrave; l'impalcatura attorno allo stesso modello, non un modello pi&ugrave; grande.</div>
     <aside class="notes">
-      Slide di respiro: non c'&egrave; niente da leggere, e non si aggiunge niente a voce oltre alla
-      cerniera. Fin qui si &egrave; scritto un testo; da qui in poi quel testo comanda qualcosa che
-      agisce.
-      Non ridefinire il sistema agentico: l'ha gi&agrave; definito il modulo 2 &mdash; modello, ciclo,
-      strumenti, memoria. Qui quella definizione diventa una cosa che si compra e si installa. Se
-      qualcuno chiede la differenza in una riga: un chatbot risponde giro per giro, un sistema
-      agentico insegue un obiettivo pi&ugrave; lungo di un giro.
+      <p>La cerniera del modulo, e l'unico posto in cui si definisce un sistema agentico. Prima lo si definiva anche nel modulo 2, due moduli prima e in astratto: era uno dei tre punti in cui si diceva la stessa cosa. Qui la definizione arriva dove sta per servire &mdash; la slide dopo è come gli strumenti arrivano ai loro sistemi, e la demo dopo ancora fa girare il ciclo sulla loro cartella.</p>
+      <p>Il ciclo va pronunciato ad alta voce &mdash; decide, agisce, osserva &mdash; perché sono esattamente le tre parole che accompagneranno la demo di Cowork, e devono essere riconoscibili quando si risentono.</p>
+      <p>Fin qui si è scritto un testo; da qui in poi quel testo comanda qualcosa che agisce. La differenza in una riga, se la chiedono: un chatbot risponde giro per giro, un sistema agentico insegue un obiettivo più lungo di un giro.</p>
+      <p>Sui costi, che qualcuno chiede subito: la risposta è nella prima scheda. Il ciclo decide da sé quando fermarsi, quindi un agente mal impostato può ripetere giri inutili &mdash; ed è esattamente il motivo per cui l'ultima slide del modulo scrive prima la specifica e verifica dopo.</p>
+      <p><strong>Fonti.</strong> Yao et al. (2023) ReAct; Schick et al. (2023).</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="3">
     <h2>MCP &mdash; come arriva ai sistemi dell'azienda</h2>
     <p class="quote-line">&laquo;MCP &egrave; come una porta USB-C per le applicazioni di IA: come l'USB-C offre un modo standardizzato di collegare dispositivi elettronici, MCP offre un modo standardizzato di collegare le applicazioni di IA a sistemi esterni.&raquo; <span class="attrib">&mdash; documentazione ufficiale MCP</span></p>
     <div class="art-copy-layout">
@@ -144,30 +113,17 @@
     </div>
     <p class="footnote">Le stesse domande di qualsiasi integrazione: credenziali di chi, con quale perimetro, con quanta fiducia.</p>
     <aside class="notes">
-      Finestra dal vivo, circa due minuti: l'elenco dei connettori aperto in due prodotti diversi,
-      niente di pi&ugrave;. Serve a far vedere che non &egrave; una cosa di un fornitore solo.
-      La citazione &egrave; letterale e sta nella documentazione ufficiale del protocollo: "Think of
-      MCP like a USB-C port for AI applications." Va detta come citazione, non come nostra trovata.
-      Il conto n&times;m &rarr; n+m &egrave; il meccanismo, la porta USB-C ne &egrave; l'illustrazione:
-      se qualcuno vuole un numero, cinque applicazioni e sei strumenti fanno trenta integrazioni su
-      misura contro undici.
-      Cronologia, se serve rispondere a "e se cambiano idea?": protocollo aperto pubblicato il 25
-      novembre 2024, adottato da OpenAI a marzo 2025 e da Google ad aprile 2025, e donato il 9
-      dicembre 2025 alla Agentic AI Foundation, fondo diretto della Linux Foundation co-fondato con
-      OpenAI e Block. Non &egrave; pi&ugrave; governato da una sola azienda. Non avvicinarti alla
-      specifica tecnica.
-      La frase che conta sul piano commerciale &egrave; quella nella card: i loro sistemi attuali non
-      vanno rifatti per essere raggiungibili.
-      Le tre mosse sono il meccanismo. La terza lega il modulo al modulo 3: il risultato di uno
-      strumento non &laquo;entra nel modello&raquo;, torna sulla scrivania come contesto nuovo.
-      Pianta qui il seme del rischio: ogni connettore &egrave; anche una superficie d'attacco. Il
-      modulo 5 si apre sfruttando esattamente questo.
-      Fonti: modelcontextprotocol.io; anthropic.com/news/model-context-protocol;
-      anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation.
+      <p>Finestra dal vivo, circa due minuti: l'elenco dei connettori aperto in due prodotti diversi, niente di più. Serve a far vedere che non è una cosa di un fornitore solo.</p>
+      <p>La citazione è letterale e sta nella documentazione ufficiale del protocollo: «Think of MCP like a USB-C port for AI applications». Va detta come citazione, non come trovata propria.</p>
+      <p>Il conto n&times;m &rarr; n+m è il meccanismo, la porta USB-C ne è l'illustrazione: cinque applicazioni e sei strumenti fanno trenta integrazioni su misura contro undici.</p>
+      <p><strong>Cronologia</strong>, per rispondere a «e se cambiano idea?»: protocollo aperto pubblicato il 25 novembre 2024, adottato da OpenAI a marzo 2025 e da Google ad aprile 2025, donato il 9 dicembre 2025 alla Agentic AI Foundation, fondo diretto della Linux Foundation co-fondato con OpenAI e Block. Non è più governato da una sola azienda.</p>
+      <p>Alla specifica tecnica non conviene avvicinarsi. La frase che conta sul piano commerciale è quella nella card: i loro sistemi attuali non vanno rifatti per essere raggiungibili.</p>
+      <p>Le tre mosse sono il meccanismo. La terza lega il modulo al modulo 3: il risultato di uno strumento non «entra nel modello», torna sulla scrivania come contesto nuovo. Qui si pianta il seme del rischio, perché ogni connettore è anche una superficie d'attacco: il modulo 5 si apre sfruttando esattamente questo.</p>
+      <p><strong>Fonti.</strong> modelcontextprotocol.io; anthropic.com/news/model-context-protocol; anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation.</p>
     </aside>
   </section>
 
-  <section class="practice-slide" data-background-color="#f4f8fb">
+  <section data-min="2" class="practice-slide" data-background-color="#f4f8fb">
     <h2>Specifica, verifica, e limiti fuori dal modello</h2>
     <div class="cols">
       <div class="col stack-sm">
@@ -190,27 +146,12 @@
       </div>
     </div>
     <aside class="notes">
-      Questa slide non introduce niente: d&agrave; il nome a tre cose che la demo ha appena fatto
-      succedere. Il punto 1 &egrave; la sesta battuta (i criteri dichiarati a voce prima di lanciare),
-      il punto 2 &egrave; l'ottava (la tabella verificata contro i PDF), il punto 3 &egrave; la quarta
-      (le regole della casa scavalcate). Se la demo &egrave; andata, qui basta indicare.
-      La riga sopra i tre livelli era una quarta card: toglila dal parlato, si legge da sola.
-      Il criterio dei tre livelli &egrave; reversibilit&agrave; e costo, non gravit&agrave; percepita:
-      mandare una mail sbagliata &egrave; irreversibile e va nella terza riga anche se sembra
-      un'inezia, mentre riscrivere una bozza &egrave; reversibile e va nella prima anche se il testo
-      &egrave; importante. Fai fare l'esercizio a voce con un compito loro.
-      Tesi di Karpathy sull'automazione: il software tradizionale automatizza ci&ograve; che si sa
-      specificare; gli LLM automatizzano ci&ograve; che si sa VERIFICARE, quindi conviene rendere
-      verificabile il proprio lavoro. Cherny, creatore di Claude Code: "dai a Claude un modo di
-      verificare il proprio lavoro e raddoppi o triplichi la qualit&agrave;" &mdash; presentala come
-      stima di un professionista, non come misura. Shankar et al. (UIST 2024) sulla deriva dei
-      criteri: valutare output reali cambia i criteri, quindi specifica e verifica si alimentano a
-      vicenda; &egrave; un ciclo, non una catena di montaggio.
-      L'aneddoto da raccontare, ed &egrave; il contenuto migliore che hai qui: l'agente di Karpathy
-      associava i pagamenti agli account tramite l'indirizzo email invece di un identificativo
-      stabile. Codice plausibile, progetto sbagliato, colto solo dal giudizio umano &mdash; e nessuna
-      rilettura del codice riga per riga lo avrebbe trovato, perch&eacute; ogni riga era corretta.
-      Consegna al modulo 5: la prosa vive nel contesto, e il contesto si pu&ograve; manipolare.
+      <p>Questa slide non introduce niente: dà il nome a tre cose che la demo ha appena fatto succedere. Il punto 1 è la sesta battuta (i criteri dichiarati a voce prima di lanciare), il punto 2 è l'ottava (la tabella verificata contro i documenti di origine), il punto 3 è la quarta (le regole della casa scavalcate). Se la demo è andata, qui basta indicare.</p>
+      <p>La riga sopra i tre livelli era una quarta card: si legge da sola e non va ripetuta a voce.</p>
+      <p>Il criterio dei tre livelli è <strong>reversibilità e costo dell'errore</strong>, non gravità percepita: mandare una mail sbagliata è irreversibile e va nella terza riga anche se sembra un'inezia, mentre riscrivere una bozza è reversibile e va nella prima anche se il testo è importante. L'esercizio si fa a voce, con un compito loro.</p>
+      <p><strong>Approfondimento.</strong> La tesi di Karpathy sull'automazione: il software tradizionale automatizza ciò che si sa specificare, gli LLM automatizzano ciò che si sa <em>verificare</em>, quindi conviene rendere verificabile il proprio lavoro. Cherny, creatore di Claude Code: «dai a Claude un modo di verificare il proprio lavoro e raddoppi o triplichi la qualità» &mdash; è la stima di un professionista, non una misura. Shankar et al. (UIST 2024) sulla deriva dei criteri: valutare output reali cambia i criteri, quindi specifica e verifica si alimentano a vicenda; è un ciclo, non una catena di montaggio.</p>
+      <p>L'aneddoto è il contenuto migliore della slide: l'agente di Karpathy associava i pagamenti agli account tramite l'indirizzo email invece di un identificativo stabile. Codice plausibile, progetto sbagliato, colto solo dal giudizio umano &mdash; e nessuna rilettura riga per riga lo avrebbe trovato, perché ogni riga era corretta.</p>
+      <p>Consegna al modulo 5: la prosa vive nel contesto, e il contesto si può manipolare.</p>
     </aside>
   </section>
 

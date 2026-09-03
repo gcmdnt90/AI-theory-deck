@@ -1,0 +1,157 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-03-architectures.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">02</span>
+    <p class="kicker">Module 2 <span class="mod-clock" data-clock-for="m2"></span></p>
+    <h1>Inside the model</h1>
+    <p class="lede">What it is, how it is made, and what &ldquo;reasoning&rdquo; means.</p>
+    <aside class="notes">
+      The single most useful conceptual correction in the course. Almost every "can AI do X?"
+      question is really a question about which side of this boundary X sits on.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Three levels, one machine</h2>
+    <div class="cols fit-two">
+      <div class="col visual-frame media-fit levels-frame">
+        <img src="assets/img/m01-levels-machine-v2.png" alt="Three-layer machine cutaway: probabilistic token substrate, learned concept layer, and human judgement layer">
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4><span class="chip safe">macro</span> Judgement</h4>
+          <p>The person who accepts or rejects the output.</p>
+          <p class="ask">&rarr; &ldquo;who answers if it is wrong?&rdquo;</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">meso</span> The system</h4>
+          <p>Memory, tools, skills, connectors. <strong>This is where the work happens.</strong></p>
+          <p class="ask">&rarr; &ldquo;why doesn't it know our price list?&rdquo;</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">micro</span> The base</h4>
+          <p>Probabilities over the next piece of text. Always on.</p>
+          <p class="ask">&rarr; &ldquo;why does it miscount letters?&rdquo;</p>
+        </div>
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-amber);">
+      <h4>Inside is the processor. Around is everything else &mdash; and around is where the work happens.</h4>
+      <p>You cannot retrain a frontier model, and you do not need to. The scaffolding is built today, and it can be undone.</p>
+    </div>
+    <div class="takeaway">The test: does it change the model itself, or only what the model is given?</div>
+    <aside class="notes">
+      The deck's spine - the one slide to defend if time runs out, and the ONE place the inside/around
+      idea is stated. It used to be said twice, ten minutes apart, with two pictures and two
+      vocabularies; that was the repetition the room felt. Say it once, here, and from now on only
+      refer back to it.
+      Cristianini's mesoscopic level: micro = neurons, meso = the abstract ideas the model built by
+      itself, macro = behaviour read almost psychologically. Guard the flank: this is a claim about
+      the right LEVEL of description (Marr 1982), NOT that the model became a mind. "It's just
+      predicting words" is true at micro and useless at meso, which is where their actual work happens.
+      The amber card is the commercial argument, and it is the good news for an SME: you cannot
+      retrain a frontier model and you do not need to. Everything that will make this useful in their
+      business is around it - and around is cheap, fast and reversible. Say it explicitly; it reframes
+      the day from "expensive AI project" to "configuration".
+      The takeaway is the test they will use all day: did this change the model itself, or only what
+      the model was given? The three arrows are the index of the rest of the course: macro -> module 5,
+      meso -> modules 3-4, micro -> the module that just ended. This module is the left half; the rest
+      of the day is the right half.
+    </aside>
+  </section>
+
+  <section>
+    <h2>How a model is made</h2>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m03-training-pipeline.png" alt="Three-stage light infographic for pretraining, supervised fine-tuning and preference tuning">
+      </div>
+      <div class="vertical-captions">
+        <p class="cap-eyebrow">Yesterday &mdash; the only one we know in full</p>
+        <div class="mini-card"><strong>1. Reads text</strong><span>Predicts the next word across enormous amounts of writing.</span><span class="fig">300 billion tokens</span></div>
+        <div class="mini-card"><strong>2. Learns to follow instructions</strong><span>Examples teach it to carry out a task, not just continue text.</span><span class="fig">~13,000 hand-written examples</span></div>
+        <div class="mini-card"><strong>3. Tuned by human feedback</strong><span>People judge the answers; the model is pushed towards the preferred ones.</span><span class="fig">~33,000 comparisons, ~40 people</span></div>
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-violet);">
+      <h4>Today</h4>
+      <p>Llama 3: <strong>~15 trillion tokens</strong> at step 1, fifty times InstructGPT &mdash; and a growing share of the examples in steps 2 and 3 is generated by <strong>other models</strong>, not written by people.</p>
+    </div>
+    <div class="takeaway">Knowledge comes from step 1. Assistant behaviour comes from steps 2 and 3.</div>
+    <aside class="notes">
+      Common belief in the room: "the model is one trained thing that knows facts". Correct it here,
+      and correct yourself too: the three numbers belong to ONE specific model - InstructGPT, 2022,
+      the ancestor of ChatGPT, built on top of GPT-3. It is the only case in that family with a full
+      public account of all three steps. Other models differ by orders of magnitude: the shape of the
+      pipeline holds, the figures do not.
+      The "Today" strip is the honest line of this module: it tells them what they are learning has an
+      expiry date. If time is short, skip it aloud and leave it on screen.
+      Two hooks to keep in your pocket. First: step 3 pushes the model towards what the raters liked -
+      that is where sycophancy comes from, not from a wish to please them; you collect it in Module 5.
+      Second: synthetic data is the same thing we do when we generate the fake sheets for today's demos.
+      Sources: Brown (2020) for GPT-3; Ouyang (2022) for the three figures; Llama 3 (2024) for the
+      "Today" strip; Christiano (2017) for human feedback.
+    </aside>
+  </section>
+
+  <section>
+    <h2>&quot;Reasoning&quot;: trained or prompted</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4><span class="chip inside">inside</span> Trained</h4>
+          <p>Trained with reinforcement learning to deliberate before answering: self-checking and second thoughts <strong>emerge from the training</strong>, not from an instruction.</p>
+          <p class="ask">&rarr; the &ldquo;thinking&rdquo; versions of ChatGPT, Claude, Gemini and Copilot; DeepSeek-R1 is the one with a public account</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-violet);">
+          <h4><span class="chip around">around</span> Prompted</h4>
+          <p>It is asked for in the prompt: &ldquo;list the criteria first, then decide&rdquo;.</p>
+          <p class="ask">&rarr; free, on any model, including the free ones</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="reason-widget" data-reason-widget>
+          <div class="mode-buttons">
+            <button type="button" data-mode="trained" aria-pressed="true">Trained</button>
+            <button type="button" data-mode="prompted" aria-pressed="false">Prompted</button>
+          </div>
+          <div class="reason-diagram" data-reason-diagram></div>
+          <p class="reason-copy" data-reason-copy></p>
+        </div>
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-amber);">
+      <p>The switch injects no prompt: <strong>it turns on a mode of the model</strong> &mdash; and today the model itself decides how much to think. Written instructions, task lists and loops do exist, but they are scaffolding: module 4.</p>
+    </div>
+    <div class="takeaway">The visible steps are produced text, not the minutes of how it got there.</div>
+    <p class="footnote">What scrolls past on screen is a model-generated summary, not the internal trace (OpenAI).</p>
+    <aside class="notes">
+      Two of these are reasoning, the third is not: the room conflates all three.
+      (1) PROMPTED: you ask in the prompt, the model writes the steps as ordinary output; nothing about
+      the model changes. (2) SCAFFOLDING: system prompt, instruction and personality files read on every
+      request, task lists, loops, tools - it is real, but it is module 4, and it is not what makes a
+      model a reasoning model. (3) TRAINED: reinforcement learning, the ability sits in the weights.
+      DeepSeek-R1 shows it publicly: pure RL, no human-written reasoning traces, and self-reflection,
+      verification and strategy switching emerge from training. OpenAI says the same of o1: "our
+      large-scale reinforcement learning algorithm teaches the model how to think productively using
+      its chain of thought".
+      If asked what the button does: it injects no instructions, it turns on a technical mode. On Claude
+      it was a thinking-token budget (thinking parameter + budget_tokens, up to 4.6); from 4.7 that
+      parameter is gone, replaced by adaptive thinking with an effort level - the model decides whether
+      and how much to think. On ChatGPT, picking the "thinking" version routes to a different model.
+      Version numbers age in weeks: keep them here, not on screen, and check the deck edition date.
+      Why the takeaway: Turpin et al. (2023) planted a biasing cue in the input (for instance the correct
+      answer always in the same position); models followed the cue, got it wrong, and never mentioned the
+      cue in their chain - they built a plausible justification for the wrong answer, up to -36% accuracy
+      across 13 tasks. The cue is the measuring instrument, not advice for the audience: keep it off screen.
+      This slide is the first deposit of the vigilance you collect in M5 ("fluency is not proof of
+      accuracy"). Demo m2 lands it: the switch is the trained kind, "list the criteria first" is the
+      prompted kind.
+      Sources: DeepSeek-R1 (2025); OpenAI, Learning to reason with LLMs (2024); Turpin et al. (2023);
+      Wei et al. (2022); Nye et al. (2021).
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m2"></section>
+
+</section>

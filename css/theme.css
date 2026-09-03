@@ -1935,3 +1935,190 @@ section:has(> .corner-media) > h2 {
   margin-top: .35em;
   text-align: left;
 }
+
+/* ------------------------------------------------------------------ *
+ * Demo chain (2026-09-03).
+ * The five demos are one story: each consumes a file the previous one
+ * produced. The chain line and the resource rail put that on the slide,
+ * because a chain the room cannot see is just five demos in a row.
+ * ------------------------------------------------------------------ */
+.demo-chain {
+  align-items: center;
+  color: var(--ait-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: .42em;
+  gap: .6em;
+  letter-spacing: .01em;
+  margin-bottom: .35em;
+}
+.demo-chain[hidden] { display: none; }
+.demo-chain .chain-n {
+  background: var(--ait-amber);
+  border-radius: 999px;
+  color: #1b1206;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: .12em .6em;
+}
+.demo-chain code {
+  background: rgba(20, 30, 40, .05);
+  border-radius: .3em;
+  font-size: .95em;
+  padding: .05em .35em;
+}
+.demo-chain .chain-out { color: var(--ait-green); font-weight: 700; }
+
+.demo-shape {
+  border: 1px solid rgba(20, 30, 40, .16);
+  border-radius: 999px;
+  color: var(--ait-muted);
+  font-size: .4em;
+  font-weight: 800;
+  letter-spacing: .06em;
+  margin-left: .6em;
+  padding: .15em .7em;
+  text-transform: uppercase;
+}
+
+.demo-files {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4em;
+  margin-top: .5em;
+}
+.demo-files[hidden] { display: none; }
+.demo-files .files-label {
+  align-self: center;
+  color: var(--ait-muted);
+  font-size: .4em;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.file-chip {
+  background: rgba(52, 149, 111, .07);
+  border: 1px solid rgba(52, 149, 111, .3);
+  border-radius: .5em;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.25;
+  padding: .3em .6em;
+  text-decoration: none;
+}
+.file-chip:hover { background: rgba(52, 149, 111, .16); border-color: var(--ait-green); }
+.file-chip .file-name {
+  color: var(--ait-green);
+  font-size: .42em;
+  font-weight: 800;
+}
+.file-chip .file-why { color: var(--ait-muted); font-size: .36em; }
+.file-chip.is-pack { background: rgba(20, 30, 40, .04); border-color: rgba(20, 30, 40, .18); }
+.file-chip.is-pack .file-name { color: var(--ait-ink); }
+.file-chip[hidden] { display: none; }
+.sector-picker .file-chip { margin-left: .8em; }
+
+/* A dead branch produces nothing for the next demo. Marked on the strip so
+   the speaker can cut it first when the clock slips - and so it never gets
+   announced as dead BEFORE it runs, which would waste it. */
+.prompt-strip button.is-dead { border-style: dotted; border-color: rgba(201, 75, 75, .5); }
+.prompt-strip button.is-dead .p-label::after {
+  color: var(--ait-red);
+  content: " \2717";
+  font-weight: 800;
+}
+
+/* Editable prompt (2026-09-03). The prompt box carries its own material and can
+   be corrected in place during the dry run; the edit is remembered per prompt,
+   per sector, per language, and the reset arrow puts the original back. */
+.demo-panel-actions { display: flex; flex-direction: column; gap: .3em; }
+.demo-prompt-text[contenteditable="true"]:focus {
+  background: #fff;
+  box-shadow: inset 0 0 0 2px var(--ait-amber);
+  outline: none;
+}
+.demo-prompt-text.is-edited { border-left: 3px solid var(--ait-violet); padding-left: .5em; }
+.demo-toggle, .demo-reset {
+  background: transparent;
+  border: 1px solid rgba(20, 30, 40, .18);
+  border-radius: .4em;
+  color: var(--ait-muted);
+  cursor: pointer;
+  font-size: .34em;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: .35em .7em;
+  text-transform: uppercase;
+}
+.demo-toggle:hover, .demo-reset:hover { border-color: var(--ait-amber); color: var(--ait-ink); }
+.demo-reset { font-size: .5em; padding: .1em .5em; }
+.demo-toggle[hidden], .demo-reset[hidden] { display: none; }
+
+/* Offline note editor (2026-09-03). Only rendered from file:// — over http the
+   notes are a published document and a visitor's edit would be someone else's. */
+.note-edit-btn {
+  background: rgba(255, 255, 255, .9);
+  border: 1px solid rgba(20, 30, 40, .18);
+  border-radius: 999px;
+  bottom: 12px;
+  color: #55606b;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  left: 14px;
+  padding: 5px 12px;
+  position: fixed;
+  z-index: 60;
+}
+.note-edit-btn:hover { border-color: var(--ait-amber); color: #1b2530; }
+.note-edit-panel {
+  background: #fff;
+  border: 1px solid rgba(20, 30, 40, .2);
+  border-radius: 10px;
+  bottom: 48px;
+  box-shadow: 0 12px 40px rgba(20, 30, 40, .22);
+  display: flex;
+  flex-direction: column;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  gap: 8px;
+  left: 14px;
+  max-width: 46vw;
+  padding: 12px;
+  position: fixed;
+  width: 720px;
+  z-index: 61;
+}
+.note-edit-panel[hidden] { display: none; }
+.note-edit-head { align-items: baseline; display: flex; font-size: 13px; gap: 10px; }
+.note-edit-head .note-edit-nid { color: #8a94a1; font-family: ui-monospace, monospace; font-size: 11px; }
+.note-edit-head button { margin-left: auto; }
+.note-edit-panel textarea {
+  border: 1px solid rgba(20, 30, 40, .18);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  min-height: 34vh;
+  padding: 8px;
+  resize: vertical;
+  width: 100%;
+}
+.note-edit-hint { color: #8a94a1; font-size: 11px; line-height: 1.4; margin: 0; }
+.note-edit-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.note-edit-panel button {
+  background: #f4f8fb;
+  border: 1px solid rgba(20, 30, 40, .18);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+}
+.note-edit-panel button.is-primary { background: var(--ait-amber); border-color: var(--ait-amber); color: #1b1206; }
+@media print { .note-edit-btn, .note-edit-panel { display: none !important; } }
+
+/* A prompt that carries its own pasted material needs the room to show it:
+   the demo slide has nothing under the strip but empty space. */
+.demo-panel.has-material pre.demo-prompt-text { font-size: .54em; max-height: 24em; }

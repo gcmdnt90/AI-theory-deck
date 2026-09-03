@@ -68,6 +68,10 @@
        See PROMPTS.md. -->
   <script id="demo-prompts" type="application/json">{{DEMO_PROMPTS}}</script>
 
+  <!-- Pasteable demo material, inlined by build.mjs from demo-data/<settore>/demo/.
+       A prompt with `paste_file` renders the real text instead of a [PASTE …] hole. -->
+  <script id="demo-files" type="application/json">{{DEMO_FILES}}</script>
+
   <!-- 1) Decide language and inject the matching deck BEFORE Reveal/widgets run.
        document.documentElement.lang is read by theory-widgets.js, so it must be
        set here first. -->

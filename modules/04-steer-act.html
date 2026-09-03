@@ -1,28 +1,20 @@
 <section>
 
-  <section class="module-cover" data-background-image="assets/img/module-05-behaviour-control.png" data-background-size="cover" data-background-color="#fbfaf6">
+  <section data-min="1" class="module-cover" data-background-image="assets/img/module-05-behaviour-control.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">04</span>
     <p class="kicker">Module 4 <span class="mod-clock" data-clock-for="m4"></span></p>
     <h1>From instructions to tools</h1>
     <p class="lede">Instructions in plain language, tools able to understand it*</p>
     <p class="footnote">* Templeton et al., <em>Scaling Monosemanticity</em>, Transformer Circuits 2024 &mdash; the "Golden Gate Bridge" feature and the other concept-linked activations. Gurnee et al., <em>Verbalizable Representations Form a Global Workspace in Language Models</em>, Transformer Circuits 2026.</p>
     <aside class="notes">
-      The asterisk is yours: latent space. Both references are already on the slide, in small print.
-      transformer-circuits.pub/2024/scaling-monosemanticity &middot; transformer-circuits.pub/2026/workspace
-      The longest module and the most operational one: once the rest is understood, this is the layer
-      the work actually happens on. Reframe "programming" for this room: they already know how to
-      write the instructions. What they do not know yet is that writing them down, once, in a file, is
-      the entire technique - and that from there the same text can drive a tool that opens their own
-      files.
-      Module arc: where it gets written - where what is written enters from - from chatbot to a system
-      that acts - how it reaches their systems - spec, verification and limits. Two live windows of
-      about two minutes each, on the second and the fourth slide; the closing demo walks the whole arc
-      in one session.
-      Theory 14 minutes, demo 12: the cover timetable is already updated.
+      <p>The longest module and the most operational: once the rest is understood, this is the layer where the daily work actually happens.</p>
+      <p>For this room, "programming" needs reframing. Writing instructions is something they already do. What they do not yet know is that writing them <em>once, into a file</em> is the whole technique, and that from there the same text can command a tool that opens their own files.</p>
+      <p>The module's arc: where it is written &rarr; where what is written enters from &rarr; from chatbot to something that acts &rarr; how it reaches their systems &rarr; spec, verification and limits. Two live windows of about two minutes, on the second and fourth slides; the closing demo runs the whole arc in one session.</p>
+      <p><strong>Going deeper.</strong> The asterisk on the cover is latent space; both references are already on the slide in small print: transformer-circuits.pub/2024/scaling-monosemanticity and transformer-circuits.pub/2026/workspace.</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="3">
     <h2>Two places to write the rules</h2>
     <div class="cols">
       <div class="col stack-sm">
@@ -45,27 +37,15 @@
       <p>Everything written in the prompt stays one text among others on the desk from module 3: it can be <strong>summarised</strong>, it can be <strong>cut</strong>, it can be <strong>overridden</strong>.</p>
     </div>
     <aside class="notes">
-      The card order is deliberate: the request first, which they already know how to write, then
-      the standing rules, which are the new thing. The whole module runs against the room's habit.
-      CO-STAR is GovTech Singapore's. It is now on screen with all six elements, so name it: an
-      acronym with its visual anchor beside it costs little, an acronym merely said out loud costs
-      attention. The real content of that card is not the initialism: it is that a complete request
-      gets written, not improvised.
-      The four file names under the first card do not live in the same place: personality.md sits in
-      settings, the other three in a working folder. The next slide assigns each name to its
-      mechanism - here they only show that these are real files with names that get typed.
-      The amber card is the hinge of the module, and the three verbs are three different things.
-      Summarised and cut come from module 3 (the oldest part of the context gets summarised or cut).
-      Overridden is seen happening at the fourth beat of the demo: the model is asked to ignore the
-      house rules, and it complies. That third verb is where the three-tier table on the last slide
-      comes from.
-      Narrative job: this slide serves none of the Concept Test items. Its work is to establish that a
-      written artefact exists and that it has two layers - without which nothing later in the module
-      has anything material to stand on.
+      <p>The order of the cards is deliberate: the request first, which they already know how to write, then standing rules, which is the new thing. The whole module runs right-to-left against the room's habits.</p>
+      <p>CO-STAR is GovTech Singapore's. It is on screen with all six items, so it can be named: an acronym with its visual anchor beside it costs little, an acronym merely spoken costs attention. The card's real content is not the initialism, it is that a complete request gets written, not improvised.</p>
+      <p>The four filenames under the first card do not live in the same place: <code>personality.md</code> is in the settings, the other three in a working folder. The next slide assigns each name to its mechanism; here they only show that these are real files with names you type.</p>
+      <p>The amber card is the module's hinge, and the three verbs are three different things. <em>Summarised</em> and <em>cut</em> come from module 3. <em>Overridden</em> is seen happening at beat four of the demo, when the house rules are set aside on request and the model complies: the three-tier table on the last slide is born from that third verb.</p>
+      <p><strong>Narrative job.</strong> This slide serves no Concept Test item. Its work is to establish that a written artefact exists and that it has two layers; without that, nothing later has anything material to stand on.</p>
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
+  <section data-min="3" data-background-color="#f4f8fb">
     <h2>Where standing rules enter from</h2>
     <div class="cols">
       <div class="col stack-sm">
@@ -85,43 +65,37 @@
       </div>
     </div>
     <aside class="notes">
-      Live window, about two minutes, in this order: the instructions in settings, a project with its
-      files, a folder with a CLAUDE.md in it, a skill that loads itself. Show, do not narrate: the
-      narration is the grid on the slide.
-      The axis across the four cells is not "always vs conditional", it is <em>when it enters the
-      context</em>, and the four answers differ. Instructions is the only truly unconditional one, and
-      it is also the only one paid for on every request: half a page written there travels every time.
-      Projects applies to that project, but when the files exceed the window they are not loaded, they
-      are retrieved in pieces - which is exactly rung 2 against rung 3 of the module 3 ladder.
-      Directory depends on a decision by the agent and on a tool that reads: if it does not open the
-      file, the file does not exist. Skills depends on the description, not on the content - the
-      description is what decides the load.
-      The block on the right is not a mockup: it is the exact text the demo will paste at step 2, read
-      from demo-prompts.json and switched by the sector selector.
-      If someone asks about Markdown: it is just text with a bit of structure, headings and dashes.
-      Say it once, do not teach it.
-      The amber card is the module's commercial argument: for an SME with staff turnover, the
-      configuration file and the training manual are the same document. This deck's own repository is
-      built with skills, so the method is demonstrated by the thing they are looking at.
+      <p>A live window, about two minutes, in this order: the instructions in the settings, a project with its files, a folder with a <code>CLAUDE.md</code> in it, a skill that fires by itself. Show it, do not narrate it: the grid on the slide is the commentary.</p>
+      <p>The axis of the four cells is not "always versus conditional", it is <em>when it enters the context</em>, and the four answers differ. <strong>Instructions</strong> is the only truly unconditional one, and also the only one paid for on every request: half a page written there travels every time. <strong>Projects</strong> holds for that project, but when the files exceed the window they are not loaded, they are retrieved in pieces &mdash; which is exactly rung 2 versus rung 3 of module 3's ladder. <strong>Directory</strong> depends on the agent deciding and on a tool that reads: if it does not open the file, the file does not exist. <strong>Skills</strong> depends on the description, not the content: the description decides the loading.</p>
+      <p>The block on the right is not a mockup: it is the identical text the demo will paste at step 2, taken from <code>demo-prompts.json</code> and switched by the sector selector.</p>
+      <p>On "and Markdown?": it is just text with a little structure, headings and dashes. Say it once, do not teach it.</p>
+      <p>The amber card is the module's commercial argument: for an SME with staff turnover, the configuration file and the training manual are the same document. This deck's own repository is built with skills, so the method is demonstrated by the thing they are looking at.</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="2">
     <h2>Chatbot and agentic system</h2>
-    <div class="visual-frame media-fit" style="max-width:76%;margin:0 auto;">
-      <img src="assets/img/chatbots-vs-agentic-systems-light.png" alt="Chatbots compared with agentic systems">
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/chatbots-vs-agentic-systems-light.png" alt="Chatbots compared with agentic systems">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Loop</strong><span>Decides, acts, observes the result, decides again.</span><span class="fig">the model decides when to stop: that is why it can spin in circles</span></div>
+        <div class="mini-card"><strong>Tools</strong><span>Functions described in words, which the model chooses whether to call.</span><span class="fig">files, search, email, databases &mdash; module 5</span></div>
+        <div class="mini-card"><strong>Memory</strong><span>What is put back in front of it on the next turn.</span><span class="fig">how it actually works: module 3</span></div>
+      </div>
     </div>
+    <div class="takeaway">The difference between a chatbot and an agent is the scaffolding around the same model, not a bigger model.</div>
     <aside class="notes">
-      Breathing slide: nothing to read, and nothing to add out loud beyond the hinge. Up to here a
-      text was written; from here on that text drives something that acts.
-      Do not redefine the agentic system: module 2 already defined it - model, loop, tools, memory.
-      Here that definition becomes something a company buys and installs. If someone wants the
-      difference in one line: a chatbot answers turn by turn, an agentic system pursues a goal longer
-      than one turn.
+      <p>The module's hinge, and the only place an agentic system gets defined. It used to be defined in module 2 as well, two modules earlier and in the abstract: one of the three places the same idea was being repeated. Here the definition arrives where it is about to be used &mdash; the next slide is how tools reach their systems, and the demo after that runs the loop on their own folder.</p>
+      <p>The loop is worth saying aloud &mdash; decides, acts, observes &mdash; because those are exactly the three words that will narrate the Cowork demo, and they have to be recognisable when they come back.</p>
+      <p>Up to here a text has been written; from here that text commands something that acts. The difference in one line, if asked: a chatbot answers turn by turn, an agentic system chases a goal longer than one turn.</p>
+      <p>On cost, which someone always raises: the answer is on the first card. The loop decides for itself when to stop, so a badly set-up agent can repeat useless rounds &mdash; which is exactly why the module's last slide writes the spec first and verifies after.</p>
+      <p><strong>Sources.</strong> Yao et al. (2023) ReAct; Schick et al. (2023).</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="3">
     <h2>MCP &mdash; reaching the company's systems</h2>
     <p class="quote-line">"Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect electronic devices, MCP provides a standardized way to connect AI applications to external systems." <span class="attrib">&mdash; official MCP documentation</span></p>
     <div class="art-copy-layout">
@@ -139,29 +113,17 @@
     </div>
     <p class="footnote">Same questions as any integration: whose credentials, what scope, how much trust.</p>
     <aside class="notes">
-      Live window, about two minutes: the connector list open in two different products, nothing more.
-      It is there to show this is not one vendor's arrangement.
-      The quotation is literal and comes from the protocol's own documentation. Deliver it as a
-      quotation, not as a house metaphor.
-      The n&times;m to n+m arithmetic is the mechanism; the USB-C port is its illustration. If someone
-      wants a number: five applications and six tools make thirty custom integrations against eleven.
-      Timeline, if the question is "what if they change their minds?": open protocol published on
-      25 November 2024, adopted by OpenAI in March 2025 and by Google in April 2025, and donated on
-      9 December 2025 to the Agentic AI Foundation, a directed fund of the Linux Foundation
-      co-founded with OpenAI and Block. It is no longer governed by one company. Do not go near the
-      technical specification.
-      The line that matters commercially is the one in the card: their existing systems do not have to
-      be rebuilt to be reachable.
-      The three moves are the mechanism. The third ties the module back to module 3: a tool result
-      does not "go into the model", it lands back on the desk as new context.
-      Plant the risk seed here: every connector is also an attack surface. Module 5 opens by
-      exploiting exactly this.
-      Sources: modelcontextprotocol.io; anthropic.com/news/model-context-protocol;
-      anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation.
+      <p>A live window, about two minutes: the connector list open in two different products, nothing more. It exists to show this is not one vendor's thing.</p>
+      <p>The quotation is literal and comes from the protocol's own documentation: "Think of MCP like a USB-C port for AI applications." It should be delivered as a quotation, not as our own line.</p>
+      <p>The n&times;m &rarr; n+m arithmetic is the mechanism, the USB-C port is its illustration: five applications and six tools make thirty bespoke integrations against eleven.</p>
+      <p><strong>Timeline</strong>, for "what if they change their minds?": open protocol published 25 November 2024, adopted by OpenAI in March 2025 and by Google in April 2025, donated on 9 December 2025 to the Agentic AI Foundation, a directed fund of the Linux Foundation co-founded with OpenAI and Block. It is no longer governed by a single company.</p>
+      <p>The technical specification is not worth going near. The sentence that matters commercially is the one on the card: their existing systems do not have to be rebuilt to become reachable.</p>
+      <p>The three moves are the mechanism. The third ties the module back to module 3: a tool's result does not "enter the model", it comes back onto the desk as new context. This is where the risk seed gets planted, because every connector is also an attack surface: module 5 opens by exploiting exactly this.</p>
+      <p><strong>Sources.</strong> modelcontextprotocol.io; anthropic.com/news/model-context-protocol; anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation.</p>
     </aside>
   </section>
 
-  <section class="practice-slide" data-background-color="#f4f8fb">
+  <section data-min="2" class="practice-slide" data-background-color="#f4f8fb">
     <h2>Spec, verification, and limits outside the model</h2>
     <div class="cols">
       <div class="col stack-sm">
@@ -184,26 +146,12 @@
       </div>
     </div>
     <aside class="notes">
-      This slide introduces nothing: it names three things the demo has just made happen. Point 1 is
-      the sixth beat (criteria stated aloud before the run), point 2 is the eighth (the table checked
-      against the PDFs), point 3 is the fourth (the house rules overridden). If the demo landed, this
-      is pointing, not teaching.
-      The line above the tiers used to be a fourth card: leave it unspoken, it reads on its own.
-      The criterion for the three tiers is reversibility and cost, not perceived seriousness: sending
-      the wrong email is irreversible and belongs in the third row even though it feels trivial, while
-      rewriting a draft is reversible and belongs in the first even though the text matters. Run the
-      exercise out loud on a task of theirs.
-      Karpathy's automation thesis: traditional software automates what can be specified; LLMs
-      automate what can be VERIFIED, so it pays to make one's own work verifiable. Cherny, creator of
-      Claude Code: "Give Claude a way to verify its work... it will 2-3x the quality" - present it as
-      a practitioner's estimate, not as a measurement. Shankar et al. (UIST 2024) on criteria drift:
-      grading real outputs changes the criteria, so spec and verification feed each other; it is one
-      loop, not a pipeline.
-      The story to tell, and it is the best content on this slide: Karpathy's agent matched payments
-      to accounts by email address instead of a stable identifier. Plausible code, wrong system
-      design, caught only by human judgement - and no line-by-line code review would have found it,
-      because every line was correct.
-      Hand-off to module 5: prose lives in the context, and context can be manipulated.
+      <p>This slide introduces nothing: it names three things the demo has just made happen. Point 1 is beat six (the criteria stated aloud before launching), point 2 is beat eight (the table checked against the source documents), point 3 is beat four (the house rules overridden). If the demo landed, pointing is enough here.</p>
+      <p>The line above the three tiers used to be a fourth card: it reads on its own and does not need saying.</p>
+      <p>The criterion for the three tiers is <strong>reversibility and cost of error</strong>, not perceived seriousness: sending a wrong email is irreversible and belongs in the third row even if it looks trivial, while rewriting a draft is reversible and belongs in the first even if the text matters. The exercise is done aloud, with one of their own tasks.</p>
+      <p><strong>Going deeper.</strong> Karpathy's thesis on automation: traditional software automates what you can specify, LLMs automate what you can <em>verify</em>, so it pays to make your own work verifiable. Cherny, creator of Claude Code: "give Claude a way to verify its own work and you double or triple the quality" &mdash; a practitioner's estimate, not a measurement. Shankar et al. (UIST 2024) on criteria drift: evaluating real output changes the criteria, so spec and verification feed each other; it is a loop, not an assembly line.</p>
+      <p>The anecdote is the best content on the slide: Karpathy's agent matched payments to accounts by email address instead of a stable identifier. Plausible code, wrong design, caught only by human judgement &mdash; and no line-by-line re-reading would have found it, because every line was correct.</p>
+      <p>Handover to module 5: prose lives in the context, and context can be manipulated.</p>
     </aside>
   </section>
 

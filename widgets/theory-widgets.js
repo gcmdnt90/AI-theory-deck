@@ -419,7 +419,18 @@
     copy: "copia",
     copied: "copiato",
     missing: "Prompt non trovati per questo modulo.",
-    requires: "Richiede"
+    requires: "Richiede",
+    files: "Risorse",
+    pack: "tutto il pacchetto",
+    from_: "da",
+    to_: "per",
+    dead: "ramo morto",
+    shape: "forma",
+    show: "mostra il materiale",
+    hide: "nascondi il materiale",
+    lines: (n, f) => `\u27e8 ${f} \u2014 ${n} righe \u27e9`,
+    edited: "modificato",
+    reset: "ripristina"
   } : {
     banner: "WE TRY IT",
     sector: "Sector example",
@@ -430,7 +441,18 @@
     copy: "copy",
     copied: "copied",
     missing: "No prompts found for this module.",
-    requires: "Requires"
+    requires: "Requires",
+    files: "Resources",
+    pack: "the whole pack",
+    from_: "from",
+    to_: "for",
+    dead: "dead branch",
+    shape: "shape",
+    show: "show the material",
+    hide: "hide the material",
+    lines: (n, f) => `\u27e8 ${f} \u2014 ${n} lines \u27e9`,
+    edited: "edited",
+    reset: "reset"
   };
 
   /* ------------------------------------------------------------------ *
@@ -487,11 +509,24 @@
           ${sectors.map((s) => `<option value="${s.id}">${loc(s, "label")}</option>`).join("")}
         </select>
       </label>
-      <span class="sector-count">${DEMO_STR.sector_hint}</span>`;
+      <span class="sector-count">${DEMO_STR.sector_hint}</span>
+      <a class="file-chip is-pack" data-sector-pack href="#" download></a>`;
     const select = host.querySelector("select");
+    const pack = host.querySelector("[data-sector-pack]");
+    // One click, from the deck, on any machine: the whole sector pack. Nothing
+    // to generate, nothing to copy onto the presenting laptop beforehand.
+    const paintPack = () => {
+      const data = (sectorState.current() || {}).data;
+      if (!data) { pack.hidden = true; return; }
+      pack.hidden = false;
+      pack.href = `files/demo-data-${data.folder}.zip`;
+      pack.innerHTML = `<span class="file-name">demo-data-${data.folder}.zip</span>`
+        + `<span class="file-why">${DEMO_STR.pack}</span>`;
+    };
     select.value = sectorState.id;
     select.addEventListener("change", () => sectorState.set(select.value));
-    sectorState.on(() => { select.value = sectorState.id; });
+    sectorState.on(() => { select.value = sectorState.id; paintPack(); });
+    paintPack();
   }
 
   function loadDemoData() {
@@ -582,6 +617,67 @@
      for, per-prompt conduct notes) goes into the speaker notes instead — press
      S for the speaker view. The only things on screen are the title, the tools,
      the prompt itself and the way to change it. */
+
+  /* ------------------------------------------------------------------ *
+   * Demo resources. build.mjs copies delivery/demo-data/<settore>/ into
+   * files/ and zips it, so a lesson needs nothing prepared on the machine:
+   * the deck itself hands out the raw notes, the chain's handover artefacts,
+   * the house documents and the two folders. A path ending in "/" is a
+   * folder and resolves to its zip; "RECORDS/" is the sector's own records
+   * folder, whatever it is called this time.
+   * ------------------------------------------------------------------ */
+  function fileHref(path) {
+    const sector = sectorState.current();
+    const data = (sector && sector.data) || null;
+    if (!data) return null;
+    let rel = path === "RECORDS/" ? data.records_dir + "/" : path;
+    if (rel.endsWith("/")) return "files/" + data.folder + "-" + rel.slice(0, -1) + ".zip";
+    return "files/" + data.folder + "/" + rel;
+  }
+
+  function fileName(path) {
+    const sector = sectorState.current();
+    const data = (sector && sector.data) || null;
+    let rel = path === "RECORDS/" ? (data ? data.records_dir : "records") + "/" : path;
+    return rel.endsWith("/") ? rel.slice(0, -1) + ".zip" : rel.split("/").pop();
+  }
+
+
+  /* ------------------------------------------------------------------ *
+   * Pasteable material. build.mjs inlines demo-data/<settore>/demo/*.md,
+   * so a prompt with `paste_file` carries its own material: the [INCOLLA …]
+   * hole is filled with the real notes and the copy button hands over a
+   * prompt that runs as-is. Nothing to find on disk mid-lesson.
+   * ------------------------------------------------------------------ */
+  let demoFilesCache = null;
+  function demoFileText(path) {
+    if (demoFilesCache === null) {
+      const el = document.getElementById("demo-files");
+      try { demoFilesCache = el ? JSON.parse(el.textContent) : {}; }
+      catch (e) { demoFilesCache = {}; }
+    }
+    const data = (sectorState.current() || {}).data;
+    if (!data) return null;
+    const bag = demoFilesCache[data.folder];
+    return (bag && bag[path]) || null;
+  }
+
+  const HOLE_RE = /\[[^\]]*(?:INCOLLA|PASTE)[^\]]*\]/i;
+
+  /* The full prompt as it should be run: the hole filled, or - when the prompt
+     asks its question before the material - the material appended under it. */
+  function expandedPrompt(prompt) {
+    const base = String(promptText(prompt) || "");
+    if (!prompt || !prompt.paste_file) return { full: base, material: null };
+    const text = demoFileText(prompt.paste_file);
+    if (text === null) return { full: base, material: null };
+    const material = text.replace(/\s+$/, "");
+    const full = HOLE_RE.test(base)
+      ? base.replace(HOLE_RE, material)
+      : base + "\n\n" + material;
+    return { full, material };
+  }
+
   function initDemoSlides() {
     const slides = document.querySelectorAll(".demo-slide[data-demo]");
     if (!slides.length) return;
@@ -601,9 +697,11 @@
         .sort((a, b) => (a.status === "library") - (b.status === "library"));
 
       slide.innerHTML = `
+        <div class="demo-chain" data-demo-chain hidden></div>
         <div class="demo-head">
           <span class="demo-banner">&#9654; ${DEMO_STR.banner}</span>
           <h2 data-demo-title></h2>
+          <span class="demo-shape" data-demo-shape></span>
           <span class="demo-min">${demo.minutes || "?"}&#8202;min</span>
         </div>
         <div class="demo-bar">
@@ -612,23 +710,70 @@
         </div>
         <p class="demo-limits" data-demo-limits hidden></p>
         <div class="demo-panel">
-          <pre class="demo-prompt-text" data-demo-text></pre>
-          <button type="button" class="demo-copy" data-demo-copy>${DEMO_STR.copy}</button>
+          <pre class="demo-prompt-text" data-demo-text spellcheck="false"></pre>
+          <div class="demo-panel-actions">
+            <button type="button" class="demo-copy" data-demo-copy>${DEMO_STR.copy}</button>
+            <button type="button" class="demo-toggle" data-demo-toggle hidden></button>
+            <button type="button" class="demo-reset" data-demo-reset hidden title="${DEMO_STR.reset}">&#8634;</button>
+          </div>
         </div>
         <p class="demo-requires" data-demo-requires hidden></p>
         <ol class="demo-rungs" data-demo-rungs hidden></ol>
         <div class="prompt-strip" role="group" aria-label="Prompt database">
           ${prompts.map((p) => `
             <button type="button" data-prompt-id="${p.id}"
-                    class="${p.status === "library" ? "is-library" : ""}"
+                    class="${p.status === "library" ? "is-library" : ""}${p.branch === "dead" ? " is-dead" : ""}"
                     aria-pressed="false"><span class="p-label"></span></button>`).join("")}
         </div>
+        <div class="demo-files" data-demo-files hidden></div>
         <aside class="notes" data-demo-notes></aside>`;
 
       const out = slide.querySelector("[data-demo-text]");
       const copyBtn = slide.querySelector("[data-demo-copy]");
       const buttons = Array.from(slide.querySelectorAll(".prompt-strip button"));
       let currentId = prompts[0] && prompts[0].id;
+
+      // The prompt box is a live surface: the material is already in it, it can
+      // be edited in place like the tokenizer field, and the copy button always
+      // hands over exactly what is on screen. An edit is remembered per prompt,
+      // per sector, per language, and the reset arrow puts the original back -
+      // so a tweak found during the dry run survives to the lesson, visibly.
+      const MAX_INLINE = 1200;
+      let expanded = false;
+      const overrideKey = (id) =>
+        `deck-prompt:${id}:${sectorState.id}:${IT ? "it" : "en"}`;
+
+      function renderPrompt(p) {
+        const toggle = slide.querySelector("[data-demo-toggle]");
+        const reset = slide.querySelector("[data-demo-reset]");
+        const panel = slide.querySelector(".demo-panel");
+        if (!p) { out.textContent = ""; return; }
+        const over = store.get(overrideKey(p.id));
+        const { full, material } = expandedPrompt(p);
+        const long = material !== null && full.length > MAX_INLINE;
+
+        if (over !== null && over !== undefined) {
+          out.innerHTML = markHoles(over);
+          out.dataset.full = over;
+          panel.classList.toggle("has-material", over.length > 240);
+          toggle.hidden = true;
+          reset.hidden = false;
+          out.classList.add("is-edited");
+        } else {
+          out.classList.remove("is-edited");
+          reset.hidden = true;
+          const base = String(promptText(p));
+          const stub = long ? DEMO_STR.lines(material.split("\n").length, p.paste_file.split("/").pop()) : "";
+          const shown = !long || expanded
+            ? full
+            : (HOLE_RE.test(base) ? base.replace(HOLE_RE, stub) : base + "\n\n" + stub);
+          out.innerHTML = markHoles(shown);
+          out.dataset.full = full;
+          panel.classList.toggle("has-material", shown.length > 240);
+          toggle.hidden = !long;
+          toggle.textContent = expanded ? DEMO_STR.hide : DEMO_STR.show;
+        }
+      }
 
       const paint = () => {
         const client = sectorState.client();
@@ -637,6 +782,49 @@
         slide.querySelector("[data-demo-sector]").textContent = sector ? loc(sector, "label") : "";
         slide.querySelector("[data-demo-tools]").innerHTML =
           (demo.tools || []).map((t) => `<span class="demo-tool">${t}</span>`).join("");
+        const shapeEl = slide.querySelector("[data-demo-shape]");
+        if (shapeEl) shapeEl.textContent = loc(demo, "shape") || "";
+        // The chain line is the whole point of the redesign: the room and the
+        // speaker both see what this demo was handed and what it hands on.
+        const chainEl = slide.querySelector("[data-demo-chain]");
+        const chain = demo.chain;
+        if (chainEl) {
+          if (!chain) { chainEl.hidden = true; }
+          else {
+            const bits = [`<span class="chain-n">D${chain.n}</span>`];
+            (chain.consumes || []).forEach((c) => {
+              bits.push(`<span class="chain-in">&larr; ${DEMO_STR.from_} D${c.demo.replace("m", "")}: `
+                + `<code>${fileName(c.file)}</code></span>`);
+            });
+            if (chain.produces) {
+              bits.push(`<span class="chain-out">&rarr; <code>${fileName(chain.produces.file)}</code></span>`);
+            }
+            chainEl.innerHTML = bits.join("");
+            chainEl.hidden = false;
+          }
+        }
+        // One click per file. Folders resolve to their own zip.
+        const filesEl = slide.querySelector("[data-demo-files]");
+        if (filesEl) {
+          // A trainer-only file (the answer key) never goes on the projected
+          // rail: the room reading "the truth" spoils the failure it exists to catch.
+          const list = (demo.files || []).filter((f) => !f.trainer);
+          const sectorData = (sectorState.current() || {}).data;
+          if (!list.length || !sectorData) { filesEl.hidden = true; }
+          else {
+            filesEl.innerHTML = `<span class="files-label">${DEMO_STR.files}</span>`
+              + list.map((f) => {
+                  const href = fileHref(f.path);
+                  return `<a class="file-chip" href="${href}" download>`
+                    + `<span class="file-name">${fileName(f.path)}</span>`
+                    + `<span class="file-why">${fill(loc(f, "label"), client)}</span></a>`;
+                }).join("")
+              + `<a class="file-chip is-pack" href="files/demo-data-${sectorData.folder}.zip" download>`
+              + `<span class="file-name">demo-data-${sectorData.folder}.zip</span>`
+              + `<span class="file-why">${DEMO_STR.pack}</span></a>`;
+            filesEl.hidden = false;
+          }
+        }
         const limits = slide.querySelector("[data-demo-limits]");
         const limitsText = loc(demo, "limits");
         limits.textContent = limitsText;
@@ -659,7 +847,7 @@
             <span class="rung-what">${fill(loc(r, "what"), client)}</span>
           </li>`).join("");
         const p = prompts.find((x) => x.id === currentId);
-        out.innerHTML = markHoles(promptText(p));
+        renderPrompt(p);
         // Some prompts only run if something is installed or connected first.
         // The warning belongs on the projected slide, not in the notes: the
         // room watches the prompt get pasted, and a silent failure reads as
@@ -669,18 +857,62 @@
         reqEl.textContent = req ? `* ${DEMO_STR.requires} ${req}` : "";
         reqEl.hidden = !req;
         // Speaker view only - never rendered on the projected slide.
-        slide.querySelector("[data-demo-notes]").innerHTML = `
+        const trainerFiles = (demo.files || []).filter((f) => f.trainer);
+        const trainerNote = trainerFiles.length
+          ? `<p class="n-trainer"><strong>${DEMO_STR.files}</strong> &mdash; `
+            + trainerFiles.map((f) => `<code>${fileName(f.path)}</code> (${fill(loc(f, "label"), client)})`).join(", ")
+            + `</p>`
+          : "";
+        const chainNote = chain
+          ? `<p class="n-chain"><strong>D${chain.n} &middot; ${loc(demo, "shape")}</strong> &mdash; `
+            + (chain.consumes || []).map((c) => `${DEMO_STR.from_} <code>${fileName(c.file)}</code> (${fill(loc(c, "why"), client)})`).join("; ")
+            + (chain.produces ? `${(chain.consumes || []).length ? " &middot; " : ""}&rarr; <code>${fileName(chain.produces.file)}</code>: ${fill(loc(chain.produces, "why"), client)}` : "")
+            + `</p>`
+          : "";
+        slide.querySelector("[data-demo-notes]").innerHTML = chainNote + trainerNote + `
           <p><strong>${fill(loc(demo, "lands"), client)}</strong></p>
           <p><em>${fill(loc(demo, "watch_for"), client)}</em></p>
           <ul>${prompts.map((x) => {
             const paste = loc(x, "paste");
-            return `<li><strong>${fill(loc(x, "label"), client)}</strong> &mdash; ${fill(loc(x, "note"), client)}`
+            const dead = x.branch === "dead" ? ` <span class="n-dead">[${DEMO_STR.dead}]</span>` : "";
+            return `<li><strong>${fill(loc(x, "label"), client)}</strong>${dead} &mdash; ${fill(loc(x, "note"), client)}`
               + (paste ? ` <em>${DEMO_STR.paste}: ${paste}</em>` : "") + `</li>`;
           }).join("")}</ul>`;
       };
 
-      buttons.forEach((b) => b.addEventListener("click", () => { currentId = b.dataset.promptId; paint(); }));
-      copyBtn.addEventListener("click", () => copyText(out.textContent, copyBtn));
+      buttons.forEach((b) => b.addEventListener("click", () => {
+        currentId = b.dataset.promptId; expanded = false; paint();
+      }));
+      copyBtn.addEventListener("click", () => copyText(out.dataset.full || out.textContent, copyBtn));
+      slide.querySelector("[data-demo-toggle]").addEventListener("click", () => {
+        expanded = !expanded;
+        renderPrompt(prompts.find((x) => x.id === currentId));
+      });
+      slide.querySelector("[data-demo-reset]").addEventListener("click", () => {
+        try { localStorage.removeItem(overrideKey(currentId)); } catch (e) {}
+        renderPrompt(prompts.find((x) => x.id === currentId));
+      });
+      // Editing: plain text while focused (the hole highlighting is markup and
+      // would fight the caret), re-rendered on blur.
+      out.setAttribute("contenteditable", "true");
+      out.addEventListener("paste", (e) => {
+        e.preventDefault();
+        const t = (e.clipboardData || window.clipboardData).getData("text");
+        document.execCommand("insertText", false, t);
+      });
+      out.addEventListener("focus", () => { out.textContent = out.dataset.full || out.textContent; });
+      out.addEventListener("keydown", (e) => { e.stopPropagation(); });
+      out.addEventListener("blur", () => {
+        const p = prompts.find((x) => x.id === currentId);
+        const typed = out.textContent.replace(/\s+$/, "");
+        const { full } = expandedPrompt(p);
+        if (typed === full.replace(/\s+$/, "")) {
+          try { localStorage.removeItem(overrideKey(p.id)); } catch (e) {}
+        } else {
+          store.set(overrideKey(p.id), typed);
+        }
+        renderPrompt(p);
+      });
       sectorState.on(paint);
       paint();
     });
@@ -692,6 +924,168 @@
    * is editable, and is remembered per browser.
    * ------------------------------------------------------------------ */
 
+
+
+  /* ------------------------------------------------------------------ *
+   * Wall-clock helpers.
+   *
+   * Everything here is minutes-since-midnight, and a lesson that starts at
+   * 22:30 runs past 1440. Two different folds are needed and mixing them up
+   * is what produced both midnight bugs:
+   *   - clockAt   renders any minute count, before or after midnight, as HH:MM
+   *   - elapsed   turns "now minus start" into 0..1439 forward time, so a
+   *               block that spans midnight still matches the current minute
+   *   - drift     folds a difference into a signed half-day, so "late by 4"
+   *               never reads as "early by 1436"
+   * ------------------------------------------------------------------ */
+  const pad2 = (n) => String(n).padStart(2, "0");
+  const clockAt = (m) => {
+    const v = ((Math.round(m) % 1440) + 1440) % 1440;
+    return `${pad2(Math.floor(v / 60))}:${pad2(v % 60)}`;
+  };
+  const elapsedSince = (from, to) => (((to - from) % 1440) + 1440) % 1440;
+  const drift = (m) => (((m % 1440) + 2160) % 1440) - 720;
+  const minutesNow = () => {
+    const d = new Date();
+    return d.getHours() * 60 + d.getMinutes();
+  };
+
+  /* ------------------------------------------------------------------ *
+   * Per-slide planned clock.
+   *
+   * The speaker view shows a running timer, which answers "how long have I
+   * been talking" - the wrong question. The useful one is "should I still be
+   * on this slide", and that needs a wall-clock window per slide computed
+   * from the moment the lesson actually started.
+   *
+   * Minutes come from the schedule table on the cover: each block's theory
+   * budget is spread over its content slides (a slide can claim its own share
+   * with data-min="3"), and the demo budget goes to the demo slide. The window
+   * is injected as the first line of that slide's speaker notes, so the
+   * vendored reveal notes plugin needs no patching: it reads the notes from
+   * the DOM at every slide change, and the line is already there.
+   * ------------------------------------------------------------------ */
+  const planClock = (() => {
+    let plan = [];   // [{ slide, from, to }]
+    let start = null;
+
+    const groups = () => Array.from(document.querySelectorAll(".reveal .slides > section"));
+
+    const children = (g) => {
+      const kids = Array.from(g.children).filter((c) => c.tagName === "SECTION");
+      const list = kids.length ? kids : [g];
+      return list.filter((el) => el.dataset.visibility !== "hidden");
+    };
+
+    function blocksFromSchedule() {
+      const rows = Array.from(document.querySelectorAll("[data-schedule-widget] tbody tr"));
+      return rows.map((r) => ({
+        block: r.dataset.block,
+        theory: +r.dataset.theory || 0,
+        demo: +r.dataset.demo || 0,
+      }));
+    }
+
+    /* Map each schedule block to the deck groups it covers: the module covers
+       carry data-clock-for, the opening is the first group, and whatever comes
+       after the last module belongs to the closing block. */
+    function groupsForBlocks(rows) {
+      const all = groups();
+      const byBlock = new Map();
+      let lastModuleIdx = -1;
+      all.forEach((g, i) => {
+        const el = g.querySelector("[data-clock-for]");
+        if (el) { byBlock.set(el.dataset.clockFor, [g]); lastModuleIdx = i; }
+      });
+      if (all.length) byBlock.set("open", [all[0]]);
+      const tail = all.slice(lastModuleIdx + 1).filter((g) => g !== all[0]);
+      if (tail.length) byBlock.set("close", tail);
+      return rows.map((r) => ({ ...r, groups: byBlock.get(r.block) || [] }));
+    }
+
+    function build() {
+      const rows = groupsForBlocks(blocksFromSchedule());
+      plan = [];
+      if (start === null) return;
+      let cursor = start;
+      rows.forEach((row) => {
+        if (!row.groups.length) { cursor += row.theory + row.demo; return; }
+        const kids = row.groups.flatMap(children);
+        const demos = kids.filter((k) => k.classList.contains("demo-slide"));
+        const content = kids.filter((k) => !k.classList.contains("demo-slide"));
+        // Whole minutes, spread with the remainder on the earliest slides: a
+        // window of 19:38-19:39 labelled "2 min" is the kind of small
+        // inconsistency a presenter stops trusting the whole panel over.
+        const share = (budget, list) => {
+          const claimed = list.reduce((n, k) => n + (+k.dataset.min || 0), 0);
+          const free = list.filter((k) => !k.dataset.min);
+          const left = Math.max(0, budget - claimed);
+          const base = free.length ? Math.floor(left / free.length) : 0;
+          let extra = free.length ? left - base * free.length : 0;
+          return list.map((k) => {
+            if (+k.dataset.min) return +k.dataset.min;
+            const m = base + (extra > 0 ? 1 : 0);
+            if (extra > 0) extra -= 1;
+            return Math.max(1, m);
+          });
+        };
+        share(row.theory, content).forEach((mins, i) => {
+          plan.push({ slide: content[i], from: cursor, to: cursor + mins });
+          cursor += mins;
+        });
+        share(row.demo, demos).forEach((mins, i) => {
+          plan.push({ slide: demos[i], from: cursor, to: cursor + mins });
+          cursor += mins;
+        });
+      });
+    }
+
+    /* A start time remembered from a previous session can sit hours away from
+       now, and past midnight the raw difference is off by a whole day - which
+       is where the absurd "+1234 min" came from. drift() folds it into a
+       signed half-day, and anything larger than PLAUSIBLE cannot be a real
+       overrun, so no number is shown at all. */
+    const PLAUSIBLE = 150;
+
+    function paint() {
+      if (start === null || !plan.length) return;
+      const now = minutesNow();
+      plan.forEach((entry) => {
+        let notes = entry.slide.querySelector(":scope > aside.notes");
+        if (!notes) {
+          notes = document.createElement("aside");
+          notes.className = "notes";
+          entry.slide.appendChild(notes);
+        }
+        let line = notes.querySelector(":scope > .plan-line");
+        if (!line) {
+          line = document.createElement("div");
+          line.className = "plan-line";
+          notes.insertBefore(line, notes.firstChild);
+        }
+        const from = entry.from, to = entry.to;
+        const off = drift(now - to);
+        const early = drift(from - now);
+        let driftText = "", cls = "";
+        if (Math.abs(off) <= PLAUSIBLE && off > 0) {
+          driftText = `+${off} min`; cls = "is-late";
+        } else if (Math.abs(early) <= PLAUSIBLE && early > 0) {
+          driftText = `\u2212${early} min`; cls = "is-early";
+        }
+        line.innerHTML =
+          `<span class="pl-window">${clockAt(from)}\u2013${clockAt(to)}</span>`
+          + `<span class="pl-dur">${Math.max(1, entry.to - entry.from)} min</span>`
+          + (driftText ? `<span class="pl-drift ${cls}">${driftText}</span>` : "");
+      });
+    }
+
+    return {
+      setStart(m) { start = m; build(); paint(); },
+      refresh() { build(); paint(); },
+      tick() { paint(); },
+    };
+  })();
+
   function initSchedule() {
     const table = document.querySelector("[data-schedule-widget]");
     if (!table) return;
@@ -700,14 +1094,11 @@
     const nowBtn = document.querySelector("[data-schedule-now]");
     const rows = Array.from(table.querySelectorAll("tbody tr"));
 
-    const pad = (n) => String(n).padStart(2, "0");
-    const hhmm = (mins) => `${pad(Math.floor((mins % 1440) / 60))}:${pad(mins % 60)}`;
-
-    const nowMinutes = () => {
-      const d = new Date();
-      return d.getHours() * 60 + d.getMinutes();
-    };
-    const roundedNow = () => Math.ceil(nowMinutes() / 5) * 5;
+    const pad = pad2;
+    const hhmm = clockAt;
+    // Minute-of-day, so 23:58 rounds to 00:00 of the next day rather than to
+    // the nonexistent minute 1440.
+    const roundedNow = () => (Math.ceil(minutesNow() / 5) * 5) % 1440;
 
     const parse = (value) => {
       const m = /^(\d{1,2}):(\d{2})$/.exec(value || "");
@@ -720,19 +1111,23 @@
 
     const render = () => {
       let cursor = start;
-      const current = nowMinutes();
+      // Forward time since the lesson started, 0..1439. Comparing raw
+      // minutes-of-day breaks the moment the deck runs past midnight: the
+      // clock restarts at 0 while the schedule keeps counting past 1440.
+      const since = elapsedSince(start, minutesNow());
       rows.forEach((row) => {
         const mins = (+row.dataset.theory || 0) + (+row.dataset.demo || 0);
         const from = cursor;
         const to = cursor + mins;
         const cell = row.querySelector(".c-clock");
         if (cell) cell.textContent = hhmm(from);
-        row.classList.toggle("is-now", current >= from && current < to);
+        row.classList.toggle("is-now", since >= from - start && since < to - start);
         // Module covers carry their own start time in small print.
         document.querySelectorAll(`[data-clock-for="${row.dataset.block}"]`)
           .forEach((el) => { el.textContent = `${hhmm(from)}–${hhmm(to)}`; });
         cursor = to;
       });
+      planClock.setStart(start);
       if (totalOut) {
         const total = cursor - start;
         totalOut.textContent = `${hhmm(start)} → ${hhmm(cursor)} · ${Math.floor(total / 60)}h${pad(total % 60)}`;
@@ -757,6 +1152,11 @@
       });
     }
     render();
+    setInterval(() => planClock.tick(), 15000);
+    if (window.Reveal && Reveal.on) {
+      Reveal.on("ready", () => planClock.refresh());
+      Reveal.on("slidechanged", () => planClock.tick());
+    }
     // Keep the "you are here" highlight honest during the lesson.
     setInterval(render, 30000);
   }
@@ -818,6 +1218,147 @@
     });
   }
 
+
+  /* ------------------------------------------------------------------ *
+   * Note editor - OFFLINE ONLY.
+   *
+   * The notes are the deck's second layer: on the site they are what someone
+   * re-reading the course alone gets to know, and in the room they are the
+   * speaker's. Both want the same thing - the note improving right after the
+   * lesson that exposed the gap. So the editor exists when the deck is opened
+   * from disk (file://) and does not exist when it is served over http, where
+   * a visitor's edit would be an edit to someone else's document.
+   *
+   * Edits are kept per language under the slide's build-time data-nid, and
+   * "esporta" writes a JSON patch that tools/apply-notes.mjs merges back into
+   * modules/ - so an edit made in the browser survives `node build.mjs`.
+   * ------------------------------------------------------------------ */
+  function initNoteEditor() {
+    if (location.protocol !== "file:") return;
+    const lang = IT ? "it" : "en";
+    const key = (nid) => `deck-note:${lang}:${nid}`;
+    const S = IT ? {
+      open: "note", title: "Note della slide", save: "salva", cancel: "annulla",
+      generated: "Le note di una slide demo sono generate da demo-prompts.json: si modificano l\u00ec, non qui.",
+      exportAll: "esporta le modifiche", none: "nessuna modifica da esportare",
+      hint: "Solo offline. Le modifiche restano in questo browser: «esporta» scrive un file JSON, e tools/apply-notes.mjs lo riporta dentro modules/.",
+    } : {
+      open: "notes", title: "Slide notes", save: "save", cancel: "cancel",
+      generated: "A demo slide's notes are generated from demo-prompts.json: edit them there, not here.",
+      exportAll: "export changes", none: "nothing to export",
+      hint: "Offline only. Changes stay in this browser: “export” writes a JSON patch, and tools/apply-notes.mjs merges it back into modules/.",
+    };
+
+    const noteOf = (slide) => slide.querySelector(":scope > aside.notes");
+    const bodyOf = (notes) => {
+      if (!notes) return "";
+      const clone = notes.cloneNode(true);
+      clone.querySelectorAll(".plan-line").forEach((n) => n.remove());
+      return clone.innerHTML.replace(/^\s+|\s+$/g, "");
+    };
+
+    // Re-apply stored edits on load, before anything reads the notes.
+    const applyStored = () => {
+      document.querySelectorAll("[data-nid]").forEach((slide) => {
+        const stored = store.get(key(slide.dataset.nid));
+        if (stored === null || stored === undefined) return;
+        let notes = noteOf(slide);
+        if (!notes) {
+          notes = document.createElement("aside");
+          notes.className = "notes";
+          slide.appendChild(notes);
+        }
+        const plan = notes.querySelector(".plan-line");
+        notes.innerHTML = stored;
+        if (plan) notes.insertBefore(plan, notes.firstChild);
+        slide.dataset.noteEdited = "1";
+      });
+    };
+    applyStored();
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "note-edit-btn";
+    btn.textContent = "✎ " + S.open;
+    btn.title = S.hint;
+    document.body.appendChild(btn);
+
+    const panel = document.createElement("div");
+    panel.className = "note-edit-panel";
+    panel.hidden = true;
+    panel.innerHTML = `
+      <div class="note-edit-head">
+        <strong>${S.title}</strong>
+        <span class="note-edit-nid"></span>
+        <button type="button" data-note-export>${S.exportAll}</button>
+      </div>
+      <textarea spellcheck="false"></textarea>
+      <p class="note-edit-hint">${S.hint}</p>
+      <div class="note-edit-actions">
+        <button type="button" data-note-cancel>${S.cancel}</button>
+        <button type="button" class="is-primary" data-note-save>${S.save}</button>
+      </div>`;
+    document.body.appendChild(panel);
+    const ta = panel.querySelector("textarea");
+    const nidOut = panel.querySelector(".note-edit-nid");
+
+    const currentSlide = () =>
+      (window.Reveal && Reveal.getCurrentSlide && Reveal.getCurrentSlide()) || null;
+
+    const open = () => {
+      const slide = currentSlide();
+      if (!slide || !slide.dataset.nid) return;
+      nidOut.textContent = slide.dataset.nid;
+      // A demo slide's notes are re-rendered from demo-prompts.json on every
+      // sector change, so an edit here would be overwritten without a trace.
+      const generated = slide.classList.contains("demo-slide");
+      ta.value = generated ? S.generated : bodyOf(noteOf(slide));
+      ta.readOnly = generated;
+      panel.querySelector("[data-note-save]").disabled = generated;
+      panel.hidden = false;
+      if (!generated) ta.focus();
+    };
+    const close = () => { panel.hidden = true; };
+
+    panel.querySelector("[data-note-cancel]").addEventListener("click", close);
+    panel.querySelector("[data-note-save]").addEventListener("click", () => {
+      const slide = currentSlide();
+      if (!slide) return close();
+      let notes = noteOf(slide);
+      if (!notes) {
+        notes = document.createElement("aside");
+        notes.className = "notes";
+        slide.appendChild(notes);
+      }
+      const plan = notes.querySelector(".plan-line");
+      notes.innerHTML = ta.value;
+      if (plan) notes.insertBefore(plan, notes.firstChild);
+      store.set(key(slide.dataset.nid), ta.value);
+      slide.dataset.noteEdited = "1";
+      close();
+    });
+    panel.querySelector("[data-note-export]").addEventListener("click", () => {
+      const out = {};
+      document.querySelectorAll('[data-nid][data-note-edited="1"]').forEach((s) => {
+        out[s.dataset.nid] = bodyOf(noteOf(s));
+      });
+      if (!Object.keys(out).length) { alert(S.none); return; }
+      const blob = new Blob([JSON.stringify({ lang, notes: out }, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `notes-${lang}.json`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    });
+    btn.addEventListener("click", open);
+    ta.addEventListener("keydown", (e) => e.stopPropagation());
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !panel.hidden) close();
+      if ((e.key === "e" || e.key === "E") && !e.ctrlKey && !e.metaKey && !e.altKey
+          && panel.hidden && document.activeElement === document.body) { e.preventDefault(); open(); }
+    });
+  }
+
   window.addEventListener("DOMContentLoaded", () => {
     sectorState.init(loadDemoData() || {});
     initSectorPicker();
@@ -827,6 +1368,7 @@
     initReasoningWidget();
     initStandingRules();
     initDemoSlides();
+    initNoteEditor();
     initSchedule();
     initVersionSwitch();
   });

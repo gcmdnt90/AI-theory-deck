@@ -1,17 +1,17 @@
 <section>
 
-  <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
+  <section data-min="1" class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">01</span>
     <p class="kicker">Module 1 <span class="mod-clock" data-clock-for="m1"></span></p>
     <h1>How the machine makes words</h1>
     <p class="lede">A 1948 idea, running at industrial scale.</p>
     <aside class="notes">
-      Thesis: the idea behind LLMs is from 1948. What changed is scale, data and architecture.
-      By the end of this module they should see the machine as a sampler, not an oracle.
+      <p>The module's claim: the idea behind language models is from 1948. What changed since is scale, data and architecture.</p>
+      <p>By the end of the module the machine should have moved, in the listener's head, from oracle to sampler.</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="2">
     <h2>1948 &mdash; language as a game of probability</h2>
     <div class="cols top">
       <div class="col stack-sm">
@@ -36,17 +36,13 @@
     </div>
     <div class="takeaway">Fluent and empty: the machine was already doing that in 1948.</div>
     <aside class="notes">
-      Sources: Shannon (1948) A Mathematical Theory of Communication, approximations to English;
-      Shannon (1951) Prediction and Entropy of Printed English &mdash; 0.6&ndash;1.3 bits per letter,
-      measured with 100 letters of context. It is the one number in this module worth saying out loud.
-      Read the 1948 sample aloud: it sounds English and says nothing. That is the literal ancestor of
-      hallucination - we come back to it in module 5. An LLM is a very large learned estimator of the
-      same distribution; everything else is engineering around that one operation. Do not put the
-      formula on screen - the widget two slides from now does the work.
+      <p>The 1948 sample is worth reading aloud: it sounds like English and says nothing. It is the literal ancestor of hallucination, and module 5 comes back to it.</p>
+      <p>A language model is an enormous learned estimator of that same distribution. Everything else — memory, tools, rules — is engineering built around this single operation.</p>
+      <p><strong>Going deeper.</strong> Shannon (1948), <em>A Mathematical Theory of Communication</em>, for the approximations to English; Shannon (1951), <em>Prediction and Entropy of Printed English</em>, for the measured 0.6&ndash;1.3 bits per letter with a hundred letters of context. It is the one number in the module worth saying out loud. The formula is deliberately kept off the slide: the widget two slides later does that job.</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="2">
     <h2>From rules to learned patterns</h2>
     <div class="corner-media" aria-hidden="true">
       <video src="assets/video/latent_space.mp4" autoplay loop muted playsinline data-autoplay></video>
@@ -90,55 +86,15 @@
     </div>
     <div class="takeaway">Three jumps: from rules to data, from data to vectors, from completion to instruction.</div>
     <aside class="notes">
-      Two minutes, no more: the timeline is a list of technical choices, not a story.
-      Three stops worth saying out loud. 2013 (Mikolov): words become vectors, closeness in that
-      space is similarity of meaning - the mechanism that comes back in module 3 as retrieval.
-      2017 (Vaswani): attention compares every word with every other word in parallel, which makes
-      training at scale practical; do not open the encoder-decoder. 2022 (Ouyang, InstructGPT):
-      training with human feedback adds instruction-following on top of plain text completion - the
-      difference between a model that continues a sentence and the assistant they use daily, and the
-      reason module 4 works at all. Sources: Mikolov (2013); Vaswani (2017); Brown (2020); Ouyang (2022).
+      <p>Two minutes, no more: the timeline is a list of technical choices, not a story. The three stops that matter:</p>
+      <p><strong>2013 (Mikolov)</strong> &mdash; words become vectors, and closeness in that space is closeness in meaning. It is the same mechanism that returns in module 3 under the name retrieval.<br>
+      <strong>2017 (Vaswani)</strong> &mdash; attention compares every word with every other in parallel, and that is what makes large-scale training practical. The encoder-decoder does not get opened.<br>
+      <strong>2022 (Ouyang, InstructGPT)</strong> &mdash; training with human feedback adds following instructions to merely completing text. It is the difference between a model that continues a sentence and the assistant everyone uses daily, and it is why module 4 works at all.</p>
+      <p><strong>Sources.</strong> Mikolov (2013); Vaswani (2017); Brown (2020); Ouyang (2022).</p>
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
-    <h2>Three levels, one machine</h2>
-    <div class="cols fit-two">
-      <div class="col visual-frame media-fit levels-frame">
-        <img src="assets/img/m01-levels-machine-v2.png" alt="Three-layer machine cutaway: probabilistic token substrate, learned concept layer, and human judgement layer">
-      </div>
-      <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4><span class="chip safe">macro</span> Judgement</h4>
-          <p>The person who accepts or rejects the output.</p>
-          <p class="ask">&rarr; &ldquo;who answers if it is wrong?&rdquo;</p>
-        </div>
-        <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4><span class="chip around">meso</span> The system</h4>
-          <p>Memory, tools, skills, connectors. <strong>This is where the work happens.</strong></p>
-          <p class="ask">&rarr; &ldquo;why doesn't it know our price list?&rdquo;</p>
-        </div>
-        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
-          <h4><span class="chip inside">micro</span> The base</h4>
-          <p>Probabilities over the next piece of text. Always on.</p>
-          <p class="ask">&rarr; &ldquo;why does it miscount letters?&rdquo;</p>
-        </div>
-      </div>
-    </div>
-    <div class="takeaway">&ldquo;It is just statistics&rdquo; is true at the base and useless at the level where the work happens.</div>
-    <aside class="notes">
-      The deck's spine - the one slide to defend if time runs out. Cristianini's mesoscopic level:
-      micro = neurons, meso = the abstract ideas the model built by itself, macro = behaviour read
-      almost psychologically. Guard the flank: this is a claim about the right LEVEL of description
-      (Marr 1982), NOT that the model became a mind. "It's just predicting words" is true at micro
-      and useless at meso, which is where their actual work happens. Every later module answers:
-      which level are we on?
-      The three arrows are the index of the rest of the course: macro -> module 5, meso -> modules 3-4,
-      micro -> the next slide. Use them that way.
-    </aside>
-  </section>
-
-  <section>
+  <section data-min="2">
     <h2>Tokens, not words</h2>
     <ul class="slide-list">
       <li>The machine never sees letters: it sees <strong>sub-word pieces</strong>, chosen by frequency in the data.</li>
@@ -162,20 +118,14 @@
     </div>
     <p class="footnote">Real tokenizer: <code>cl100k_base</code>, the GPT-4 family encoding. Piece colour shows how frequent it is.</p>
     <aside class="notes">
-      Live and low-load. Type one of their own words into the box - a coin term, a client name: the
-      rarer it is, the more pieces it breaks into, and the colour shows it.
-      The "letters" preset is the fastest myth-buster in the deck: " strawberry" is ONE token, so the
-      model never saw the individual r's. It does not fail out of stupidity, it fails because the
-      letters never reach it.
-      The Italian/English comparison is the moment an owner cares about: the same sentence is 14 tokens
-      in Italian and 6 in English (3.4 vs 7.0 characters per token). Same meaning, more than twice the
-      cost and twice the context consumed.
-      Sources: Sennrich et al. (2016) for BPE; OpenAI (1 token ~ 4 characters); Petrov et al.
-      (NeurIPS 2023) for the gap between languages.
+      <p>A live, low-load slide. Type one of the room's own words into the box &mdash; a trade term, a client name: the rarer it is, the more pieces it breaks into, and the colour shows it.</p>
+      <p>The "letters" preset is the fastest myth-killer in the deck: "&nbsp;strawberry" is ONE token, so the model never saw the individual r's. It does not fail out of stupidity: it fails because the letters never reach it.</p>
+      <p>The Italian/English comparison is the moment an owner cares about. The same sentence costs 14 tokens in Italian and 6 in English (3.4 against 7.0 characters per token): same meaning, more than twice the cost and twice the window consumed.</p>
+      <p><strong>Going deeper.</strong> Sennrich et al. (2016) for BPE; OpenAI for the rule of thumb of 1 token &asymp; 4 characters; Petrov et al. (NeurIPS 2023) for the gap between languages.</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="1">
     <h2>One operation, repeated</h2>
     <div class="cols">
       <div class="col stack-sm">
@@ -200,19 +150,14 @@
       </div>
     </div>
     <aside class="notes">
-      Formula deliberately removed from the slide; say it if asked. Hammer the loop: every word it
-      writes becomes part of what it reads next, so early choices steer later ones. Hallucination,
-      creativity and fluency all fall out of this one mechanism. Forward-reference temperature. The bars are REAL probabilities, measured once against the OpenAI
-      API (gpt-3.5-turbo-instruct, temperature 1): they are not normalised, and the grey bar is
-      everything else in the vocabulary.
-      The comparison that does the work: "capital" puts Rome at 80%, "satellite detected a" puts its
-      best candidate at 9%. Same machine, opposite confidence - and it writes both in the same
-      steady tone. Note too that some candidates are sub-word pieces, not words: that is the
-      tokenizer from two slides ago.
+      <p>The point to hammer is the loop: every word written enters what gets read at the next step, so the early choices steer all the later ones. Hallucination, creativity and fluency all come out of this same mechanism.</p>
+      <p>The bars are <strong>real</strong> probabilities, measured once against the OpenAI API (gpt-3.5-turbo-instruct, temperature 1). They are not normalised: the grey bar is the rest of the vocabulary.</p>
+      <p>The comparison that does the work: "the capital of Italy is" gives Rome at 81%, "the coin was struck in" gives its top candidate at 8%. Same machine, opposite confidence &mdash; and it writes in the same tone either way. Worth noticing too that some candidates (pre, arg, es) are word pieces, not words: that is the tokenizer from two slides ago.</p>
+      <p>The formula is deliberately kept off the slide, and only comes out if someone asks.</p>
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
+  <section data-min="1" data-background-color="#f4f8fb">
     <h2>Temperature: the randomness dial</h2>
     <div class="cols">
       <div class="col stack-sm">
@@ -243,14 +188,9 @@
     </div>
     <div class="takeaway">Randomness is a setting, not a personality.</div>
     <aside class="notes">
-      Best interactive moment in the deck - drag the slider slowly to both ends and let them watch the
-      bars move. The base is the five real candidates from the previous slide (renormalised among
-      themselves), and the slider applies the actual formula: softmax(logit/T).
-      If you have one minute, the line to say is the third card: temperature moves probability, not
-      knowledge. At T = 0 the model repeats the error instead of fixing it - the misconception you
-      dismantle again in module 5.
-      Land the line, then go straight into the demo: they are about to see the same question
-      answered four different ways.
+      <p>The best interactive moment in the deck: drag the slider slowly to both extremes and let the bars do the talking. The base is the five real candidates from the previous slide, renormalised against each other, and the slider applies the real formula: softmax(logit/T).</p>
+      <p>If only one minute is left, the line to say is the third card: temperature moves probability, not knowledge. At T&nbsp;=&nbsp;0 the model repeats the error instead of correcting it, and that is the misconception module 5 takes apart again.</p>
+      <p>From here it goes straight into the demo: the same request is about to come back with four different answers.</p>
     </aside>
   </section>
 

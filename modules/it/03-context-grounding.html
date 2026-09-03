@@ -1,18 +1,16 @@
 <section>
 
-  <section class="module-cover" data-background-image="assets/img/module-04-context-memory.png" data-background-size="cover" data-background-color="#fbfaf6">
+  <section data-min="1" class="module-cover" data-background-image="assets/img/module-04-context-memory.png" data-background-size="cover" data-background-color="#fbfaf6">
     <span class="modnum">03</span>
     <p class="kicker">Modulo 3 <span class="mod-clock" data-clock-for="m3"></span></p>
-    <h1>Contesto, memoria, grounding</h1>
+    <h1>Da dove prende quello che non sa</h1>
     <p class="lede">Come la macchina arriva a conoscere <em>un'azienda</em>.</p>
     <aside class="notes">
-      Il modulo con il valore commerciale pi&ugrave; diretto. Distinzione centrale: il contesto
-      &egrave; ci&ograve; che il modello ha davanti adesso; la memoria &egrave; ci&ograve; che
-      sopravvive fra una sessione e l'altra. Entrambe stanno "intorno".
+      <p>Il modulo con il valore commerciale più diretto. La distinzione centrale: il contesto è ciò che il modello ha davanti adesso, la memoria è ciò che sopravvive fra una sessione e l'altra. Entrambe stanno «intorno».</p>
     </aside>
   </section>
 
-  <section>
+  <section data-min="2">
     <h2>La finestra di contesto</h2>
     <p>Il contesto &egrave; la scrivania del modello: tutto ci&ograve; che vede mentre risponde a questa domanda.</p>
     <div class="art-copy-layout">
@@ -30,13 +28,11 @@
     </div>
     <div class="takeaway">La scrivania viene svuotata dopo ogni domanda, se non ci vengono rimesse le cose.</div>
     <aside class="notes">
-      L'immagine della scrivania svuotata &egrave; quella che devono portarsi via. Spiega perch&eacute;
-      una chat nuova "dimentica", perch&eacute; i thread lunghi peggiorano, e perch&eacute; il file di
-      istruzioni del Modulo 4 conta.
+      <p>L'immagine della scrivania svuotata è quella da portarsi via. Spiega da sola perché una chat nuova «dimentica», perché i thread lunghi peggiorano, e perché il file di istruzioni del modulo 4 conta.</p>
     </aside>
   </section>
 
-  <section data-background-color="#f4f8fb">
+  <section data-min="2" data-background-color="#f4f8fb">
     <h2>Il problema del contesto</h2>
     <div class="cols top">
       <div class="col stack-sm">
@@ -45,6 +41,7 @@
         <ul class="slide-list">
           <li>ci&ograve; che sta all'<strong>inizio</strong> e alla <strong>fine</strong> viene usato meglio di ci&ograve; che finisce sepolto in mezzo;</li>
           <li>a 32.000 token <strong>11 modelli su 13</strong> scendono sotto met&agrave; del punteggio che ottengono sui testi brevi.</li>
+        <li>e quando la finestra si riempie, la parte pi&ugrave; vecchia viene <strong>riassunta o tagliata</strong>: in automatico, con perdita, e senza avviso.</li>
         </ul>
         <p class="ask">&rarr; pochi documenti pertinenti battono &laquo;incollo tutto&raquo;</p>
         <div class="takeaway">Che cosa ci si mette dentro, e in che ordine, conta ancora.</div>
@@ -55,70 +52,16 @@
     </div>
     <p class="footnote">Grafico: Liu et al., &laquo;Lost in the Middle&raquo; (TACL 2024), gpt-3.5-turbo su 20 documenti recuperati. Il dato sui 32.000 token: NoLiMa (ICML 2025).</p>
     <aside class="notes">
-      Anticipa il riflesso "tanto ci incollo dentro tutto" prima che si formi.
-      I numeri, se li chiedono: GPT-3 stava a ~2.000 token, i modelli di frontiera dichiarano fino a
-      ~1.000.000, che sono circa 700-750 mila parole (un token vale circa tre quarti di parola: NON
-      un milione e mezzo).
-      Le due righe dicono due cose diverse e vanno tenute distinte. La prima &egrave; la posizione:
-      il grafico &egrave; del 2023 su gpt-3.5-turbo, quindi non spacciarlo per l'ultima parola. La
-      seconda &egrave; recente e pi&ugrave; dura: nel benchmark NoLiMa (ICML 2025), a 32.000 token
-      11 modelli su 13 scendono sotto la met&agrave; del loro punteggio sui testi brevi, e GPT-4o
-      passa da 99,3% a 69,7%. &Egrave; la risposta pronta all'obiezione "ma ormai le finestre sono
-      enormi": enormi s&igrave;, utili per intero no.
-      La freccia finale &egrave; il ponte verso il recupero: se pochi documenti pertinenti battono
-      l'ammasso, serve qualcosa che li scelga. Fonti: Liu et al. (2023/24) Lost in the Middle, TACL;
-      Modarressi et al. (2025) NoLiMa, ICML.
+      <p>Il riflesso «tanto ci incollo dentro tutto» va anticipato prima che si formi.</p>
+      <p>Il terzo punto è la risposta pronta alla domanda che arriva sempre: la conversazione di tre ore in cui il chatbot «dimentica» l'inizio. Non è un guasto e non è una scelta di privacy: oltre un certo numero di token la parte vecchia viene compattata o tagliata, e si perde granularità. Tutti i modelli hanno questo limite; cambia la dimensione, non il meccanismo. Da non dire mai: che il sistema «impara» o «si ricorda». Rimette del testo sulla scrivania, e basta.</p>
+      <p>I numeri, se li chiedono: GPT-3 stava a ~2.000 token, i modelli di frontiera dichiarano fino a ~1.000.000, che sono circa 700-750 mila parole (un token vale circa tre quarti di parola: <em>non</em> un milione e mezzo).</p>
+      <p>Le due righe della slide dicono due cose diverse e vanno tenute distinte. La prima è la posizione: il grafico è del 2023 su gpt-3.5-turbo, quindi non è l'ultima parola. La seconda è recente e più dura: nel benchmark NoLiMa (ICML 2025), a 32.000 token 11 modelli su 13 scendono sotto la metà del loro punteggio sui testi brevi, e GPT-4o passa da 99,3% a 69,7%. È la risposta pronta all'obiezione «ma ormai le finestre sono enormi»: enormi sì, utili per intero no.</p>
+      <p>La freccia finale è il ponte verso il recupero: se pochi documenti pertinenti battono l'ammasso, serve qualcosa che li scelga.</p>
+      <p><strong>Fonti.</strong> Liu et al. (2023/24), <em>Lost in the Middle</em>, TACL; Modarressi et al. (2025), <em>NoLiMa</em>, ICML.</p>
     </aside>
   </section>
 
-  <section>
-    <h2>Tre modi per non ricominciare da zero</h2>
-    <p>Quando la scrivania si riempie, qualcosa deve andarsene. Tre meccanismi decidono che cosa resta.</p>
-    <div class="cols fit-two">
-      <div class="col visual-frame media-fit">
-        <video src="assets/video/context.mp4" autoplay loop muted playsinline data-autoplay></video>
-      </div>
-      <div class="col stack-sm">
-        <div class="signal-card" style="--card-accent:var(--ait-amber);">
-          <h4>1 &middot; Riassunto</h4>
-          <p>La parte pi&ugrave; vecchia viene compressa in appunti. Automatico e con perdita: i dettagli spariscono senza avviso.</p>
-          <p class="ask">&rarr; &laquo;perch&eacute; ha dimenticato quello che gli ho detto un'ora fa?&raquo;</p>
-        </div>
-        <div class="signal-card" style="--card-accent:var(--ait-violet);">
-          <h4>2 &middot; Appunti persistenti</h4>
-          <p>Fatti scritti in un file, rimessi sulla scrivania all'inizio di ogni sessione. Espliciti e correggibili &mdash; ma vanno scritti.</p>
-          <p class="ask">&rarr; modulo 4</p>
-        </div>
-        <div class="signal-card" style="--card-accent:var(--ait-green);">
-          <h4>3 &middot; Archivio consultabile</h4>
-          <p>I documenti restano fuori. A ogni domanda si cercano e si inseriscono solo i pezzi pertinenti.</p>
-          <p class="ask">&rarr; prossima slide</p>
-        </div>
-      </div>
-    </div>
-    <div class="takeaway">Nessuno dei tre scrive dentro il modello: tutti e tre riscrivono la scrivania.</div>
-    <aside class="notes">
-      Si apre con il video, che mostra il primo meccanismo per intero: il contenitore si riempie,
-      arriva a saturazione (&laquo;context saturation reached&raquo;) e il contenuto collassa in una
-      barra di riassunto (&laquo;summary&raquo;). Le etichette sono in inglese: vanno dette in italiano
-      ad alta voce mentre scorre.
-      Card 1 &egrave; la risposta pronta alla domanda che arriva sempre: la conversazione di tre ore in
-      cui il chatbot &laquo;dimentica&raquo; l'inizio. Non &egrave; un guasto e non &egrave; una scelta
-      di privacy: oltre un certo numero di token la parte vecchia viene compattata o tagliata, e si
-      perde granularit&agrave;. Tutti i modelli hanno questo limite; cambia la dimensione, non il
-      meccanismo. Precisazione onesta: questo &egrave; comportamento documentato dei prodotti di chat,
-      non il risultato di un benchmark &mdash; le due righe con i numeri stanno sulla slide precedente.
-      Card 2 &egrave; il ponte al modulo 4: la memoria che si pu&ograve; ispezionare e correggere
-      &egrave; quella che qualcuno ha scritto. Card 3 &egrave; il ponte alla slide dopo: se i documenti
-      restano fuori, serve qualcosa che scelga quali pezzi far entrare.
-      Il takeaway &egrave; il punto che regge il resto del modulo: nessuno dei tre meccanismi tocca i
-      parametri. Conseguenza operativa immediata: si aggiorna un documento e le risposte cambiano
-      subito, senza riaddestrare niente. Da non dire mai: che il sistema &laquo;impara&raquo; o
-      &laquo;si ricorda&raquo;. Rimette del testo sulla scrivania, e basta.
-    </aside>
-  </section>
-
-  <section>
+  <section data-min="2">
     <h2>Recupero: prima trova, poi scrivi</h2>
     <div class="cols fit-two">
       <div class="col">
@@ -144,28 +87,12 @@
     <p class="chain">domanda &rarr; in numeri &rarr; cerca per significato &rarr; pezzi pi&ugrave; simili &rarr; LLM &rarr; risposta</p>
     <div class="takeaway">I documenti dell'azienda non vengono addestrati nel modello: vengono passati, una domanda alla volta.</div>
     <aside class="notes">
-      Lo schema pi&ugrave; utile che questa platea adotter&agrave; davvero. Il video regge il punto da
-      solo: il muro dei documenti non si muove, restano gli slot vuoti, viaggiano solo pochi pezzi.
-      Card 1 &egrave; il passaggio che manca in tutte le spiegazioni sentite in giro, ed &egrave; quello
-      che smonta le tre idee sbagliate pi&ugrave; comuni su &laquo;caricare i documenti&raquo;: non
-      &egrave; un Ctrl+F sull'archivio, non &egrave; il modello che impara il documento, non &egrave;
-      un'indicizzazione per nome e data. Si spezza, si converte in numeri, si salva l'indice: una volta
-      sola, e fuori dal modello. La mappa dei significati &egrave; la stessa vista nel modulo 1 alla
-      fermata &laquo;vettori&raquo;.
-      Card 2: qui si nomina la parola. Ancorare la risposta a una fonte recuperata &egrave; il
-      grounding, ed &egrave; il titolo della demo che segue.
-      Card 3 &egrave; la parte che va detta ad alta voce, con l'esempio: &laquo;come gestisco le
-      ferie?&raquo; non trova nulla, &laquo;come richiedo i congedi annuali?&raquo; trova subito. Stessa
-      domanda, parole diverse. La ricerca funziona per vicinanza di significato, non per parole esatte;
-      se la domanda cade lontano dal modo in cui il documento &egrave; scritto, il passaggio giusto non
-      torna &mdash; e nessuno avvisa. &Egrave; il motivo per cui nella demo si fanno vedere i passaggi
-      recuperati invece di fidarsi della risposta.
-      Le due conseguenze operative da far atterrare: (1) niente viene memorizzato, quindi si aggiorna
-      un documento e le risposte cambiano subito, senza riaddestrare nulla; (2) il modello pu&ograve;
-      rispondere solo con ci&ograve; che il recupero ha trovato, quindi la qualit&agrave; del recupero
-      &Egrave; la qualit&agrave; della risposta.
-      Fonti: Lewis et al. (2020) RAG; Karpukhin et al. (2020) Dense Passage Retrieval; Mikolov et al.
-      (2013).
+      <p>Lo schema più utile che questa platea adotterà davvero. Il video regge il punto da solo: il muro dei documenti non si muove, restano gli slot vuoti, viaggiano solo pochi pezzi.</p>
+      <p>La prima card è il passaggio che manca in tutte le spiegazioni sentite in giro, ed è quello che smonta le tre idee sbagliate più comuni su «caricare i documenti»: non è un Ctrl+F sull'archivio, non è il modello che impara il documento, non è un'indicizzazione per nome e data. Si spezza, si converte in numeri, si salva l'indice: una volta sola, e fuori dal modello. La mappa dei significati è la stessa vista nel modulo 1 alla fermata «vettori».</p>
+      <p>La seconda card è dove si nomina la parola: ancorare la risposta a una fonte recuperata è il grounding, ed è il titolo della demo che segue.</p>
+      <p>La terza card va detta ad alta voce, con l'esempio: «come gestisco le ferie?» non trova nulla, «come richiedo i congedi annuali?» trova subito. Stessa domanda, parole diverse. La ricerca funziona per vicinanza di significato, non per parole esatte; se la domanda cade lontano dal modo in cui il documento è scritto, il passaggio giusto non torna &mdash; e nessuno avvisa. È il motivo per cui nella demo si fanno vedere i passaggi recuperati invece di fidarsi della risposta.</p>
+      <p>Le due conseguenze operative da far atterrare: niente viene memorizzato, quindi si aggiorna un documento e le risposte cambiano subito, senza riaddestrare nulla; e il modello può rispondere solo con ciò che il recupero ha trovato, quindi la qualità del recupero <em>è</em> la qualità della risposta.</p>
+      <p><strong>Fonti.</strong> Lewis et al. (2020) RAG; Karpukhin et al. (2020) Dense Passage Retrieval; Mikolov et al. (2013).</p>
     </aside>
   </section>
 

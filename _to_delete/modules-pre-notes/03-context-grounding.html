@@ -1,0 +1,123 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-04-context-memory.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">03</span>
+    <p class="kicker">Module 3 <span class="mod-clock" data-clock-for="m3"></span></p>
+    <h1>Where it gets what it does not know</h1>
+    <p class="lede">How the machine gets to know <em>a</em> business.</p>
+    <aside class="notes">
+      The module with the highest direct business value. Core distinction: context is what is in
+      front of the model right now; memory is what survives between sessions. Both are "around".
+    </aside>
+  </section>
+
+  <section>
+    <h2>The context window</h2>
+    <p>Context is the model's desk: everything it can see while answering this one question.</p>
+    <div class="art-copy-layout">
+      <div class="visual-frame media-fit">
+        <img src="assets/img/m04-context-ram.png" alt="RAM-like context window with colored token segments loaded into immediate memory slots">
+      </div>
+      <div class="vertical-captions">
+        <div class="mini-card"><strong>Rules</strong><span>The instructions sit at the front of the desk.</span><span class="fig">they stay only if they are written down: module 4</span></div>
+        <div class="mini-card"><strong>Conversation + documents</strong><span>They compete for the same finite space.</span><span class="fig">measured in tokens, the ones from earlier</span></div>
+        <div class="mini-card"><strong>Room to answer</strong><span>The reply needs space on the desk too.</span><span class="fig">full desk, shorter reply</span></div>
+      </div>
+    </div>
+    <div class="signal-card card-wide" style="--card-accent:var(--ait-violet);">
+      <p>Every question re-sends <strong>the whole</strong> conversation. When it no longer fits, the oldest part is summarised or cut &mdash; and it is worth paying attention to when that happens.</p>
+    </div>
+    <div class="takeaway">The desk is wiped after every question unless things are put back on it.</div>
+    <aside class="notes">
+      The wiped-desk image is the one they must keep. It explains why a fresh chat "forgets", why
+      long threads degrade, and why the project/instruction file in Module 4 matters.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>The context problem</h2>
+    <div class="cols top">
+      <div class="col stack-sm">
+        <p>Declared windows went from <strong>~2,000 tokens</strong> (2020) to <strong>~1,000,000</strong> on some models: from a few pages to a few hundred.</p>
+        <p>But the declared window is not the usable one:</p>
+        <ul class="slide-list">
+          <li>what sits at the <strong>start</strong> and at the <strong>end</strong> is used better than what ends up buried in the middle;</li>
+          <li>at 32,000 tokens <strong>11 models out of 13</strong> fall below half the score they reach on short texts.</li>
+        <li>and when the window fills up, the oldest part is <strong>summarised or cut</strong> - automatically, lossily, and with no warning.</li>
+        </ul>
+        <p class="ask">&rarr; a few relevant documents beat &ldquo;paste everything in&rdquo;</p>
+        <div class="takeaway">What goes in, and in what order, still matters.</div>
+      </div>
+      <div class="col visual-frame media-fit">
+        <img src="assets/img/middle_sag.png" alt="&ldquo;Lost in the middle&rdquo; curve: lower accuracy for information placed halfway through the context">
+      </div>
+    </div>
+    <p class="footnote">Chart: Liu et al., &ldquo;Lost in the Middle&rdquo; (TACL 2024), gpt-3.5-turbo over 20 retrieved documents. The 32,000-token figure: NoLiMa (ICML 2025).</p>
+    <aside class="notes">
+      The third bullet is the ready answer to the question that always comes: the three-hour conversation where the chatbot "forgets" the beginning. It is not a fault and it is not a privacy choice - past a certain number of tokens the old part is compacted or cut, and granularity is lost. Every model has this limit; the size changes, the mechanism does not. Never say the system "learns" or "remembers": it puts text back on the desk, and that is all.
+      Head off the "we'll just paste everything in" reflex before it forms.
+      The numbers, if asked: GPT-3 sat at ~2,000 tokens, frontier models declare up to ~1,000,000,
+      which is roughly 700-750 thousand words (a token is about three quarters of a word - NOT one
+      and a half million words).
+      The two lines say different things and should stay distinct. The first is about position: the
+      chart is from 2023 on gpt-3.5-turbo, so do not sell it as the last word. The second is recent
+      and harder: in the NoLiMa benchmark (ICML 2025), at 32,000 tokens 11 of 13 models drop below
+      half their short-text score, and GPT-4o goes from 99.3% to 69.7%. That is the ready answer to
+      "but windows are huge now": huge yes, usable in full no.
+      The closing arrow is the bridge to retrieval: if a few relevant documents beat the pile,
+      something has to choose them. Sources: Liu et al. (2023/24) Lost in the Middle, TACL;
+      Modarressi et al. (2025) NoLiMa, ICML.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Retrieval: find first, then write</h2>
+    <div class="cols fit-two">
+      <div class="col">
+        <div class="visual-frame media-fit">
+          <video src="assets/video/retrieval.mp4" autoplay loop muted playsinline data-autoplay></video>
+        </div>
+      </div>
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Once: it is indexed</h4>
+          <p>Documents are cut into pieces; each piece becomes a position on a map of meanings. They stay outside the model.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-green);">
+          <h4>Each question: it is searched</h4>
+          <p>The question becomes a position too. Only the nearest pieces come in: that is the anchoring, the <em>grounding</em>.</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>When it fails</h4>
+          <p>If the question is worded far from the document's wording, the right pieces never come in. And an answer arrives anyway.</p>
+        </div>
+      </div>
+    </div>
+    <p class="chain">question &rarr; into numbers &rarr; search by meaning &rarr; most similar pieces &rarr; LLM &rarr; answer</p>
+    <div class="takeaway">The company's documents are not trained into the model: they are handed to it, one question at a time.</div>
+    <aside class="notes">
+      The most useful pattern this audience will actually adopt. The video carries the point on its
+      own: the wall of documents does not move, the empty slots stay visible, only a few pieces travel.
+      Card 1 is the step missing from most explanations, and it dismantles the three most common wrong
+      ideas about "uploading documents": it is not a Ctrl+F over the archive, it is not the model
+      learning the document, it is not indexing by name and date. Cut, converted into numbers, saved as
+      an index - once, and outside the model. The map of meanings is the one seen in module 1 at the
+      "vectors" stop.
+      Card 2: name the word here. Anchoring an answer to a retrieved source is grounding, and it is the
+      title of the demo that follows.
+      Card 3 is the part to say out loud, with the example: "how do I handle holidays?" finds nothing,
+      "how do I request annual leave?" finds it at once. Same question, different words. Search works
+      by proximity of meaning, not by exact words; if the question falls far from the way the document
+      is written, the right passage does not come back - and nothing warns you. That is why the demo
+      shows the retrieved passages instead of trusting the answer.
+      The two operational consequences to land: (1) nothing is memorised, so updating a document
+      changes the answers at once, with no retraining; (2) the model can only answer from what
+      retrieval found, so retrieval quality IS answer quality.
+      Sources: Lewis et al. (2020) RAG; Karpukhin et al. (2020) Dense Passage Retrieval; Mikolov et al.
+      (2013).
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m3"></section>
+
+</section>

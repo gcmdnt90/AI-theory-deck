@@ -1,0 +1,225 @@
+<section>
+
+  <section class="module-cover" data-background-image="assets/img/module-01-history.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <span class="modnum">01</span>
+    <p class="kicker">Modulo 1 <span class="mod-clock" data-clock-for="m1"></span></p>
+    <h1>Come la macchina fabbrica le parole</h1>
+    <p class="lede">Un'idea del 1948, eseguita su scala industriale.</p>
+    <aside class="notes">
+      Tesi: l'idea dietro gli LLM &egrave; del 1948. Ci&ograve; che &egrave; cambiato sono scala, dati
+      e architettura. Alla fine del modulo devono vedere la macchina come un campionatore, non come
+      un oracolo.
+    </aside>
+  </section>
+
+  <section>
+    <h2>1948 &mdash; il linguaggio come gioco di probabilit&agrave;</h2>
+    <div class="cols top">
+      <div class="col stack-sm">
+        <ul class="slide-list">
+          <li><strong>Shannon</strong>: il testo &egrave; una sorgente che emette simboli con una probabilit&agrave;.</li>
+          <li>Campionando da quelle statistiche si ottengono frasi che <strong>suonano inglesi e non dicono nulla</strong>.</li>
+          <li><strong>1951</strong>: misura quanto &egrave; prevedibile l'inglese &mdash; <strong>0,6&ndash;1,3 bit per lettera</strong>.</li>
+          <li>Un LLM stima la stessa distribuzione: <strong>appresa</strong>, non contata a mano.</li>
+        </ul>
+      </div>
+      <div class="col stack-sm">
+        <div class="quote-strip single sample">
+          <blockquote>THE HEAD AND IN FRONTAL ATTACK ON AN ENGLISH WRITER THAT THE CHARACTER OF THIS POINT IS THEREFORE ANOTHER METHOD FOR THE LETTERS THAT THE TIME OF WHO EVER TOLD THE PROBLEM FOR AN UNEXPECTED.
+            <cite>Testo generato da Shannon nel 1948 campionando le statistiche di coppie di parole.</cite>
+          </blockquote>
+        </div>
+        <figure class="portrait">
+          <img src="assets/img/shannons.png" alt="Claude Shannon con Betty Moore Shannon">
+          <figcaption>Claude Shannon con Betty Moore Shannon, analista numerica ai Bell Labs.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="takeaway">Fluente e vuoto: la macchina lo faceva gi&agrave; nel 1948.</div>
+    <aside class="notes">
+      Fonti: Shannon (1948) A Mathematical Theory of Communication, approssimazioni all'inglese;
+      Shannon (1951) Prediction and Entropy of Printed English &mdash; 0,6&ndash;1,3 bit per lettera
+      misurati con 100 lettere di contesto. &Egrave; l'unico numero del modulo da dire ad alta voce.
+      Leggi il campione del 1948 ad alta voce: suona inglese, non dice niente. Quello &egrave;
+      l'antenato letterale dell'allucinazione &mdash; ci torniamo nel modulo 5. Un LLM &egrave; un
+      enorme stimatore appreso della stessa distribuzione; tutto il resto &egrave; ingegneria
+      attorno a questa operazione. Non mettere la formula a schermo: ci pensa il widget fra due slide.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Dalle regole ai pattern appresi</h2>
+    <div class="corner-media" aria-hidden="true">
+      <video src="assets/video/latent_space.mp4" autoplay loop muted playsinline data-autoplay></video>
+    </div>
+    <div class="visual-frame">
+      <svg class="diagram" viewBox="0 0 1000 430" role="img" aria-label="Linea del tempo su due righe: regole, conteggi, vettori, Transformer, istruzioni, agenti">
+        <path d="M70 120 H930" stroke="#d9e1ea" stroke-width="2"/>
+        <path d="M120 120 H880" stroke="#e3a12f" stroke-width="2.4" class="glow-amber" opacity=".45"/>
+        <path d="M70 300 H930" stroke="#d9e1ea" stroke-width="2"/>
+        <path d="M120 300 H880" stroke="#e3a12f" stroke-width="2.4" class="glow-amber" opacity=".45"/>
+        <g fill="#ffffff" stroke-width="2.4">
+          <circle cx="170" cy="120" r="17" stroke="#e3a12f"/>
+          <circle cx="500" cy="120" r="17" stroke="#1597b5"/>
+          <circle cx="830" cy="120" r="17" stroke="#34956f"/>
+          <circle cx="170" cy="300" r="19" stroke="#8366c8" class="glow-amber"/>
+          <circle cx="500" cy="300" r="17" stroke="#e3a12f"/>
+          <circle cx="830" cy="300" r="17" stroke="#34956f"/>
+        </g>
+        <text x="170" y="78" text-anchor="middle" class="mono-label">anni '50&ndash;'80</text>
+        <text x="170" y="165" text-anchor="middle" class="label">regole</text>
+        <text x="170" y="192" text-anchor="middle" class="mono-label">grammatiche scritte a mano</text>
+        <text x="500" y="78" text-anchor="middle" class="mono-label">anni '90&ndash;2010</text>
+        <text x="500" y="165" text-anchor="middle" class="label">conteggi</text>
+        <text x="500" y="192" text-anchor="middle" class="mono-label">la statistica batte le regole</text>
+        <text x="830" y="78" text-anchor="middle" class="mono-label">2013</text>
+        <text x="830" y="165" text-anchor="middle" class="label">vettori</text>
+        <text x="830" y="192" text-anchor="middle" class="mono-label">le parole diventano coordinate:</text>
+        <text x="830" y="210" text-anchor="middle" class="mono-label">vicino = simile</text>
+        <text x="170" y="258" text-anchor="middle" class="mono-label">2017</text>
+        <text x="170" y="345" text-anchor="middle" class="label">Transformer</text>
+        <text x="170" y="372" text-anchor="middle" class="mono-label">ogni parola confrontata con ogni</text>
+        <text x="170" y="390" text-anchor="middle" class="mono-label">altra, in parallelo</text>
+        <text x="500" y="258" text-anchor="middle" class="mono-label">2022</text>
+        <text x="500" y="345" text-anchor="middle" class="label">istruzioni</text>
+        <text x="500" y="372" text-anchor="middle" class="mono-label">addestrato a seguire istruzioni,</text>
+        <text x="500" y="390" text-anchor="middle" class="mono-label">non solo a continuare il testo</text>
+        <text x="830" y="258" text-anchor="middle" class="mono-label">oggi</text>
+        <text x="830" y="345" text-anchor="middle" class="label">agenti</text>
+        <text x="830" y="372" text-anchor="middle" class="mono-label">strumenti + cicli</text>
+      </svg>
+    </div>
+    <div class="takeaway">Tre salti: dalle regole ai dati, dai dati ai vettori, dal completamento all'istruzione.</div>
+    <aside class="notes">
+      Due minuti, non di pi&ugrave;: la timeline &egrave; una lista di scelte tecniche, non un racconto.
+      Le tre fermate da dire ad alta voce. 2013 (Mikolov): le parole diventano vettori, la vicinanza
+      nello spazio &egrave; somiglianza di significato &mdash; &egrave; il meccanismo che ritrover&agrave;
+      nel modulo 3 quando parliamo di retrieval. 2017 (Vaswani): l'attenzione permette di confrontare
+      ogni parola con ogni altra in parallelo, e questo rende pratico l'addestramento su larga scala;
+      non aprire l'encoder-decoder. 2022 (Ouyang, InstructGPT): l'addestramento con feedback umano
+      aggiunge il seguire istruzioni al semplice completare il testo &mdash; &egrave; la differenza fra
+      un modello che continua una frase e l'assistente che usano tutti i giorni, e il motivo per cui
+      il modulo 4 funziona. Fonti: Mikolov (2013); Vaswani (2017); Brown (2020); Ouyang (2022).
+    </aside>
+  </section>
+
+  <section>
+    <h2>Token, non parole</h2>
+    <ul class="slide-list">
+      <li>La macchina non vede lettere: vede <strong>pezzi di parola</strong>, scelti per frequenza sui dati.</li>
+      <li>Regola pratica: <strong>1 token &asymp; 4 caratteri &asymp; 3/4 di parola</strong> (in inglese).</li>
+      <li>Il token &egrave; l'unit&agrave; di <strong>prezzo</strong> e di <strong>memoria</strong> &mdash; e non tutte le lingue costano uguale.</li>
+    </ul>
+    <div class="visual-frame">
+      <div class="tokenizer-widget" data-tokenizer-widget>
+        <div class="prompt-switcher token-presets" role="group" aria-label="Scegli una frase da tokenizzare">
+          <button type="button" data-sentence="La tokenizzazione divide il testo in pezzi di parola." aria-pressed="true">sotto-parola</button>
+          <button type="button" data-sentence="Conta la lettera r in strawberry." aria-pressed="false">lettere</button>
+          <button type="button" data-sentence="Il lotto pesa 12,7 grammi, coniato nel 42 a.C." aria-pressed="false">numeri</button>
+          <button type="button" data-sentence="L'intelligenza artificiale aiuta la traduzione." aria-pressed="false">italiano</button>
+          <button type="button" data-sentence="Artificial intelligence helps translation." aria-pressed="false">inglese</button>
+        </div>
+        <textarea class="tokenizer-input" rows="2" aria-label="Frase da tokenizzare">La tokenizzazione divide il testo in pezzi di parola.</textarea>
+        <div class="token-output" data-token-output></div>
+        <div class="token-stats" data-token-stats></div>
+        <div class="token-explainer" data-token-explainer>Passa sopra o tocca un token per vedere quanto &egrave; frequente.</div>
+      </div>
+    </div>
+    <p class="footnote">Tokenizer reale: <code>cl100k_base</code>, la codifica della famiglia GPT-4. Il colore del pezzo indica quanto &egrave; frequente.</p>
+    <aside class="notes">
+      Dal vivo e a basso carico. Scrivi nella casella una loro parola: un termine numismatico, il nome
+      di un cliente &mdash; pi&ugrave; &egrave; raro, in pi&ugrave; pezzi si spezza (e il colore lo mostra).
+      Il preset "lettere" &egrave; lo sfata-miti pi&ugrave; rapido del deck: " strawberry" &egrave; UN
+      token solo, quindi il modello non ha mai visto le singole r. Non fallisce per stupidit&agrave;,
+      fallisce perch&eacute; le lettere non gli arrivano.
+      Il confronto italiano/inglese &egrave; il momento che interessa a un titolare: la stessa frase
+      vale 14 token in italiano e 6 in inglese (3,4 contro 7,0 caratteri per token). Stesso significato,
+      pi&ugrave; del doppio di costo e di finestra consumata.
+      Fonti: Sennrich et al. (2016) per il BPE; OpenAI (1 token &asymp; 4 caratteri); Petrov et al.
+      (NeurIPS 2023) per il divario fra lingue.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Un'operazione, ripetuta</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <ul class="slide-list">
+          <li>Calcola le probabilit&agrave; del pezzo successivo, <strong>ne sceglie uno</strong>, lo aggiunge, ricomincia.</li>
+          <li>Quello che scrive rientra in ci&ograve; che legge: <strong>le prime scelte orientano tutte le successive</strong>.</li>
+          <li>Non consulta nessun archivio &mdash; sceglie, un pezzo alla volta.</li>
+        </ul>
+      </div>
+      <div class="col visual-frame">
+        <div class="prob-widget" data-next-token-widget>
+          <div class="prompt-switcher" role="group" aria-label="Scegli una frase iniziale">
+            <button type="button" data-prompt="La capitale d'Italia &egrave;" aria-pressed="true">capitale</button>
+            <button type="button" data-prompt="Il preventivo deve indicare il" aria-pressed="false">preventivo</button>
+            <button type="button" data-prompt="La moneta &egrave; stata coniata in" aria-pressed="false">moneta</button>
+            <button type="button" data-prompt="Per verificare il risultato bisogna" aria-pressed="false">verifica</button>
+          </div>
+          <div class="prompt-display" data-prompt-text>La capitale d'Italia &egrave;</div>
+          <div class="bar-list"></div>
+          <p class="temp-warning">Probabilit&agrave; reali &mdash; gpt-3.5-turbo-instruct, temperatura 1, prime 5 su tutto il vocabolario.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Formula tolta dalla slide di proposito; dilla se te la chiedono. Martella il ciclo: ogni parola
+      che scrive entra in ci&ograve; che legge dopo, quindi le scelte iniziali orientano quelle
+      successive. Allucinazione, creativit&agrave; e fluidit&agrave; nascono tutte da questo stesso
+      meccanismo. Anticipa la temperatura. Le barre sono probabilit&agrave; VERE, misurate una volta sola sull'API
+      OpenAI (gpt-3.5-turbo-instruct, temperatura 1): non sono normalizzate, e la barra grigia
+      &egrave; tutto il resto del vocabolario.
+      Il confronto che fa il lavoro: &laquo;capitale&raquo; d&agrave; Roma all'81%, &laquo;moneta coniata in&raquo;
+      d&agrave; il primo candidato all'8%. Stessa macchina, sicurezza opposta &mdash; e in entrambi i casi
+      scrive con lo stesso tono. Nota anche che alcuni candidati (pre, arg, es) sono pezzi di parola,
+      non parole: &egrave; il tokenizer di due slide fa.
+    </aside>
+  </section>
+
+  <section data-background-color="#f4f8fb">
+    <h2>Temperatura: la manopola della casualit&agrave;</h2>
+    <div class="cols">
+      <div class="col stack-sm">
+        <div class="signal-card" style="--card-accent:var(--ait-cyan);">
+          <h4>Bassa &middot; 0,2&ndash;0,5</h4>
+          <p>La distribuzione si stringe sul candidato pi&ugrave; probabile.</p>
+          <p class="ask">&rarr; estrazione dati, classificazione, output ripetibili</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-amber);">
+          <h4>Alta &middot; 1,0&ndash;2,0</h4>
+          <p>La distribuzione si appiattisce: entrano i candidati rari.</p>
+          <p class="ask">&rarr; varianti, riformulazioni, brainstorming</p>
+        </div>
+        <div class="signal-card" style="--card-accent:var(--ait-red);">
+          <h4>Sempre</h4>
+          <p>Ridistribuisce le probabilit&agrave;, <strong>non aggiunge conoscenza</strong>. A T&nbsp;=&nbsp;0 un errore diventa solo un errore ripetibile.</p>
+        </div>
+      </div>
+      <div class="col visual-frame">
+        <div class="temp-widget" data-temp-widget>
+          <p class="micro">T = <span data-temp-value>0.7</span></p>
+          <input class="temp-slider" type="range" min="0.2" max="2.0" step="0.1" value="0.7" aria-label="Temperatura">
+          <div class="bar-list"></div>
+          <svg class="temp-distribution" viewBox="0 0 520 185" data-temp-distribution role="img" aria-label="Curva di distribuzione delle probabilit&agrave; in tempo reale"></svg>
+          <p class="temp-warning">Logit reali: il logaritmo delle probabilit&agrave; misurate. Il ricalcolo con T &egrave; la formula vera.</p>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">La casualit&agrave; &egrave; un'impostazione, non un carattere.</div>
+    <aside class="notes">
+      Il momento interattivo migliore del deck: trascina lo slider lentamente fino ai due estremi e
+      lascia che guardino muoversi le barre. La base sono i cinque candidati veri della slide
+      precedente (rinormalizzati fra loro), e lo slider applica la formula vera: softmax(logit/T).
+      Se hai un solo minuto, la riga da dire &egrave; la terza card: la temperatura sposta probabilit&agrave;,
+      non conoscenza. A T&nbsp;=&nbsp;0 il modello ripete l'errore invece di correggerlo &mdash; &egrave; il
+      misconcetto che tornerai a smontare nel modulo 5.
+      Chiudi con la frase, poi entra subito nella demo: stanno per vedere la stessa domanda con
+      quattro risposte diverse.
+    </aside>
+  </section>
+
+  <section class="demo-slide" data-demo="m1"></section>
+
+</section>

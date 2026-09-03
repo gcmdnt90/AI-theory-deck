@@ -1,0 +1,84 @@
+<section>
+
+  <section class="deck-cover" data-background-image="assets/img/cover-signal.png" data-background-size="cover" data-background-color="#fbfaf6">
+    <div class="cover-copy">
+      <p class="kicker">AI Translator &middot; edizione PMI</p>
+      <h1>Modelli linguistici &amp; agenti</h1>
+      <p class="subtitle">Che cosa sono questi sistemi, come funzionano e dove sbagliano &mdash; con gli strumenti aperti sullo schermo.</p>
+      <p class="meta">San Marino Innovation &amp; Universit&agrave; Politecnica delle Marche | 5 moduli | 5 demo dal vivo | ~2h</p>
+    </div>
+    <aside class="notes">
+      Platea: personale e titolari di PMI, esposizione quasi nulla. Promessa in una riga: alla fine
+      saprete dire che cosa sta davvero facendo la macchina, e decidere quando fidarvi.
+      Di' subito che ogni modulo finisce con qualcosa che gira sullo schermo: è quella promessa a
+      comprare la loro attenzione durante la teoria.
+    </aside>
+  </section>
+
+  <section>
+    <h2>La mappa</h2>
+    <div class="course-map map-5">
+      <div class="map-node" style="--card-accent:var(--ait-amber);">
+        <span class="icon-dot">1</span><span class="num">MODULO 01</span>
+        <h4>Come la macchina fabbrica le parole</h4><p>token &middot; probabilit&agrave; &middot; temperatura</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-cyan);border-color:rgba(21,151,181,.42);">2</span><span class="num">MODULO 02</span>
+        <h4>Dentro il modello</h4><p>addestramento &middot; il confine &middot; &laquo;ragiona&raquo;</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot">3</span><span class="num">MODULO 03</span>
+        <h4>Da dove prende quello che non sa</h4><p>finestra &middot; embedding &middot; retrieval</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-violet);border-color:rgba(131,102,200,.48);">4</span><span class="num">MODULO 04</span>
+        <h4>Dalle istruzioni agli strumenti</h4><p>regole in prosa &middot; strumenti &middot; verifica</p>
+      </div>
+      <div class="map-node">
+        <span class="icon-dot" style="color:var(--ait-red);border-color:rgba(201,75,75,.48);">5</span><span class="num">MODULO 05</span>
+        <h4>Rischi e giudizio</h4><p>allucinazione &middot; dati &middot; chi firma</p>
+      </div>
+    </div>
+    <div class="takeaway">Ogni modulo: 7&ndash;14 min di teoria, poi 5&ndash;13 min di demo dal vivo &mdash; e ogni demo passa un file a quella dopo.</div>
+    <aside class="notes">
+      Percorri l'arco una volta sola, veloce: come fabbrica parole (1-2), come nutrirlo (3), come
+      guidarlo e metterlo al lavoro (4), cosa pu&ograve; andare storto (5). Non dilungarti: la mappa &egrave;
+      orientamento, non contenuto.
+    </aside>
+  </section>
+
+  <section class="schedule-slide" data-background-color="#f4f8fb">
+    <h2>Oggi</h2>
+    <div class="sector-picker" data-sector-picker></div>
+    <div class="schedule-head">
+      <label class="schedule-start">inizio
+        <input type="time" data-schedule-start aria-label="Orario di inizio della lezione">
+      </label>
+      <button type="button" class="schedule-now" data-schedule-now>riporta a ora</button>
+      <span class="schedule-total" data-schedule-total></span>
+    </div>
+    <table class="schedule" data-schedule-widget>
+      <thead>
+        <tr><th class="c-clock">ora</th><th>blocco</th><th class="c-min">teoria</th><th class="c-min">demo</th></tr>
+      </thead>
+      <tbody>
+        <tr data-block="open"  data-theory="6"  data-demo="0"><td class="c-clock"></td><td>Apertura &amp; mappa</td><td class="c-min">6 min</td><td class="c-min">&mdash;</td></tr>
+        <tr data-block="m1"    data-theory="9" data-demo="5"><td class="c-clock"></td><td><strong>M1</strong> &nbsp;Come nascono le parole</td><td class="c-min">9 min</td><td class="c-min">5 min</td></tr>
+        <tr data-block="m2"    data-theory="9"  data-demo="5"><td class="c-clock"></td><td><strong>M2</strong> &nbsp;Dentro il modello</td><td class="c-min">9 min</td><td class="c-min">5 min</td></tr>
+        <tr data-block="m3"    data-theory="7"  data-demo="10"><td class="c-clock"></td><td><strong>M3</strong> &nbsp;Da dove prende quello che non sa</td><td class="c-min">7 min</td><td class="c-min">10 min</td></tr>
+        <tr data-block="break" data-theory="10"  data-demo="0" class="is-break"><td class="c-clock"></td><td>Pausa</td><td class="c-min">10 min</td><td class="c-min">&mdash;</td></tr>
+        <tr data-block="m4"    data-theory="14" data-demo="13"><td class="c-clock"></td><td><strong>M4</strong> &nbsp;Dalle istruzioni agli strumenti</td><td class="c-min">14 min</td><td class="c-min">13 min</td></tr>
+        <tr data-block="m5"    data-theory="12" data-demo="12"><td class="c-clock"></td><td><strong>M5</strong> &nbsp;Rischi &amp; giudizio</td><td class="c-min">12 min</td><td class="c-min">12 min</td></tr>
+        <tr data-block="close" data-theory="8"  data-demo="0"><td class="c-clock"></td><td>Chiusura, impegno, domande</td><td class="c-min">8 min</td><td class="c-min">&mdash;</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">Gli orari si compilano all'apertura del deck e il blocco corrente resta evidenziato. Cambia il campo inizio se parti in ritardo: si aggiornano anche le copertine dei moduli.</p>
+    <aside class="notes">
+      Non leggere la tabella ad alta voce. Indica due cose soltanto: la pausa, e il fatto che quasi il 40%
+      del tempo &egrave; demo dal vivo. Quel secondo punto &egrave; il patto con la sala.
+      Il campo inizio parte dall'ora corrente arrotondata ai cinque minuti e resta memorizzato in
+      questo browser. Ogni copertina di modulo mostra poi il proprio orario in piccolo.
+    </aside>
+  </section>
+
+</section>
