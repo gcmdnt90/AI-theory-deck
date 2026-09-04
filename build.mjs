@@ -17,6 +17,7 @@
  * Usage:  node build.mjs          (from the theory-deck/ directory)
  */
 import { readFile, writeFile, readdir, access, mkdir, rm } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
 
@@ -221,7 +222,29 @@ const editions = [
   { id: 'academic', dir: 'modules-academic', out: 'academic.html', label: 'academic edition' }
 ];
 
-const template = await readFile(join(root, 'template.html'), 'utf8');
+let template = await readFile(join(root, 'template.html'), 'utf8');
+
+/* Cache-bust the stylesheet and the widgets from their own content.
+ *
+ * The query string used to be a hand-written constant, and it had not changed
+ * in months: a browser that had the deck open kept serving the OLD
+ * theory-widgets.js against the NEW index.html, so widget fixes appeared not to
+ * work at all - with no error, because the cached file was perfectly valid.
+ * Hashing the file means every rebuild changes the URL and nothing else has to
+ * be remembered. */
+const stamp = async (rel) => {
+  try {
+    const buf = await readFile(join(root, rel));
+    return createHash('sha1').update(buf).digest('hex').slice(0, 10);
+  } catch { return String(Date.now()); }
+};
+for (const rel of ['css/theme.css', 'widgets/theory-widgets.js', 'widgets/bpe-cl100k.js']) {
+  const v = await stamp(rel);
+  const before = template;
+  template = template.replace(new RegExp(rel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\?v=[^"\']*'), () => `${rel}?v=${v}`);
+  if (before === template) console.warn(`[cache] ${rel} has no ?v= in template.html - it will be served from cache.`);
+  else console.log(`[cache] ${rel} -> ?v=${v}`);
+}
 
 for (const ed of editions) {
   const base = join(root, ed.dir);

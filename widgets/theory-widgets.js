@@ -430,7 +430,10 @@
     hide: "nascondi il materiale",
     lines: (n, f) => `\u27e8 ${f} \u2014 ${n} righe \u27e9`,
     edited: "modificato",
-    reset: "ripristina"
+    reset: "ripristina",
+    demonstrates: "Cosa dimostra",
+    howto: "Come si esegue",
+    beats: "Battute"
   } : {
     banner: "WE TRY IT",
     sector: "Sector example",
@@ -452,7 +455,10 @@
     hide: "hide the material",
     lines: (n, f) => `\u27e8 ${f} \u2014 ${n} lines \u27e9`,
     edited: "edited",
-    reset: "reset"
+    reset: "reset",
+    demonstrates: "What it demonstrates",
+    howto: "How to run it",
+    beats: "Beats"
   };
 
   /* ------------------------------------------------------------------ *
@@ -869,9 +875,13 @@
             + (chain.produces ? `${(chain.consumes || []).length ? " &middot; " : ""}&rarr; <code>${fileName(chain.produces.file)}</code>: ${fill(loc(chain.produces, "why"), client)}` : "")
             + `</p>`
           : "";
+        // The speaker notes of a demo slide are a run procedure, not a
+        // commentary: what it demonstrates, how to run it, then the beats in
+        // order. What it all means is the presenter's job, not the note's.
         slide.querySelector("[data-demo-notes]").innerHTML = chainNote + trainerNote + `
-          <p><strong>${fill(loc(demo, "lands"), client)}</strong></p>
-          <p><em>${fill(loc(demo, "watch_for"), client)}</em></p>
+          <p class="n-lands"><strong>${DEMO_STR.demonstrates}</strong> &mdash; ${fill(loc(demo, "lands"), client)}</p>
+          <p class="n-run"><strong>${DEMO_STR.howto}</strong> &mdash; ${fill(loc(demo, "watch_for"), client)}</p>
+          <p class="n-beats"><strong>${DEMO_STR.beats}</strong></p>
           <ul>${prompts.map((x) => {
             const paste = loc(x, "paste");
             const dead = x.branch === "dead" ? ` <span class="n-dead">[${DEMO_STR.dead}]</span>` : "";
